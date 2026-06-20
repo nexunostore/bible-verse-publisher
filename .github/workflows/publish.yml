@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "verses/*.yaml"
+  workflow_dispatch:
 
 jobs:
   publish:
@@ -26,6 +27,7 @@ jobs:
           WP_USERNAME: ${{ secrets.WP_USERNAME }}
           WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
         run: |
-          for file in $(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '^verses/'); do
+          BEFORE_SHA=$(git rev-parse ${{ github.event.before }} 2>/dev/null || echo HEAD~1)
+          for file in $(git diff --name-only "$BEFORE_SHA" ${{ github.sha }} | grep '^verses/'); do
             python scripts/publish.py "$file"
           done
