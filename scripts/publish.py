@@ -3,7 +3,6 @@ import json
 import requests
 import sys
 import os
-from datetime import datetime
 
 WP_URL = "https://boostlen.com/wp-json/wp/v2/verse"
 USERNAME = os.getenv("WP_USERNAME")
@@ -19,20 +18,18 @@ def publish_yaml(path):
     tags = ", ".join(data.get("tags", []))
     book = data.get("book")
     book_order = data.get("book_order")
-    date = datetime.now().strftime("%Y-%m-%d")
 
     cross_refs_json = json.dumps(data.get("cross_refs", []))
 
     payload = {
         "title": reference,
         "status": "publish",
-        "fields": {
+        "acf": {
             "reference": reference,
-            "verse_text": verse_text,
+            "verse": verse_text,
             "meaning": meaning,
             "cross_refs_json": cross_refs_json,
             "tags": tags,
-            "verse_date": date,
             "book": book,
             "book_order": book_order
         }
