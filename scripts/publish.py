@@ -4,7 +4,9 @@ import requests
 import sys
 import os
 
-WP_URL = "https://boostlen.com/wp-json/wp/v2/verse"
+# NEW ENDPOINT — this is the only change
+WP_URL = "https://boostlen.com/wp-json/boostlen/v1/verse"
+
 USERNAME = os.getenv("WP_USERNAME")
 PASSWORD = os.getenv("WP_PASSWORD")
 
@@ -23,7 +25,6 @@ def publish_yaml(path):
 
     payload = {
         "title": reference,
-        "status": "publish",
         "fields": {
             "reference": reference,
             "verse": verse_text,
