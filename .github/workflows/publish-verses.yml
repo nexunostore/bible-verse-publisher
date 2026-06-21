@@ -1,0 +1,74 @@
+name: Publish Verses to WordPress
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "verses/**/*.yaml"
+      - "verses/**/*.yml"
+      - "publish.py"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    env:
+      WP_USERNAME: ${{ secrets.WP_USERNAME }}
+      WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml requests
+
+      - name: Determine verse files to publish
+        id: files
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Manual run — publishing ALL verses"
+            FILES=$(ls verses/*.yaml 2>/dev/null || true)
+          else
+            echo "Push run — publishing CHANGED verses only"
+            FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} \
+              | grep '^verses/.*\.ya\?ml$' || true)
+          fi
+
+          echo "Files detected:"
+          echo "$FILES"
+
+          # Normalize to space-separated list for the matrix
+          FILES_SPACE=$(echo "$FILES" | tr '\n' ' ' | xargs || true)
+
+          if [ -z "$FILES_SPACE" ]; then
+            echo "No verse files to publish."
+            echo "files=" >> $GITHUB_OUTPUT
+          else
+            echo "files=$FILES_SPACE" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Stop if no files
+        if: steps.files.outputs.files == ''
+        run: |
+          echo "No verse files detected. Exiting."
+          exit 0
+
+      - name: Publish verses
+        run: |
+          for FILE in ${{ steps.files.outputs.files }}; do
+            echo "Publishing $FILE..."
+            python publish.py "$FILE"
+            echo ""
+          done
