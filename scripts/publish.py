@@ -21,19 +21,19 @@ def publish_yaml(path):
 
     cross_refs_json = json.dumps(data.get("cross_refs", []))
 
-    payload = {
-        "title": reference,
-        "status": "publish",
-        "acf": {
-            "reference": reference,
-            "verse": verse_text,
-            "meaning": meaning,
-            "cross_refs_json": cross_refs_json,
-            "tags": tags,
-            "book": book,
-            "book_order": book_order
-        }
+payload = {
+    "title": reference,
+    "status": "publish",
+    "fields": {
+        "reference": reference,
+        "verse": verse_text,
+        "meaning": meaning,
+        "cross_refs_json": cross_refs_json,
+        "tags": tags,
+        "book": book,
+        "book_order": book_order
     }
+}
 
     response = requests.post(
         WP_URL,
