@@ -69,6 +69,6 @@ jobs:
         run: |
           for FILE in ${{ steps.files.outputs.files }}; do
             echo "Publishing $FILE..."
-            python publish.py "$FILE"
+            python "${GITHUB_WORKSPACE}/publish.py" "$FILE"
             echo ""
           done
