@@ -1,0 +1,73 @@
+# Torah / Pentateuch:
+# Genesis (1), Exodus (2), Leviticus (3), Numbers (4), Deuteronomy (5)
+#
+# Historical Books:
+# Joshua (6), Judges (7), Ruth (8), 1 Samuel (9), 2 Samuel (10),
+# 1 Kings (11), 2 Kings (12), 1 Chronicles (13), 2 Chronicles (14),
+# Ezra (15), Nehemiah (16), Esther (17)
+#
+# Wisdom / Poetry:
+# Job (18), Psalms (19), Proverbs (20), Ecclesiastes (21),
+# Song of Solomon (22)
+#
+# Major Prophets:
+# Isaiah (23), Jeremiah (24), Lamentations (25), Ezekiel (26),
+# Daniel (27)
+#
+# Minor Prophets:
+# Hosea (28), Joel (29), Amos (30), Obadiah (31), Jonah (32),
+# Micah (33), Nahum (34), Habakkuk (35), Zephaniah (36),
+# Haggai (37), Zechariah (38), Malachi (39)
+#
+# Gospels:
+# Matthew (40), Mark (41), Luke (42), John (43)
+#
+# History:
+# Acts (44)
+#
+# Pauline Epistles:
+# Romans (45), 1 Corinthians (46), 2 Corinthians (47),
+# Galatians (48), Ephesians (49), Philippians (50), Colossians (51),
+# 1 Thessalonians (52), 2 Thessalonians (53), 1 Timothy (54),
+# 2 Timothy (55), Titus (56), Philemon (57)
+#
+# General Epistles:
+# Hebrews (58), James (59), 1 Peter (60), 2 Peter (61),
+# 1 John (62), 2 John (63), 3 John (64), Jude (65)
+#
+# Prophecy:
+# Revelation (66)
+
+
+book: 1 John 4:9 
+book_order: 62
+reference: 1 John 4:9
+verse: In this was manifested the love of God toward us, because that God sent his only begotten Son into the world, that we might live through him.
+meaning: >
+In this verse, John condenses profound truth by revealing that God’s love is not hidden but actively demonstrated through the sending of His only Son, Jesus. 
+The term monogenēs (one and only) affirms that Jesus is not a created being but shares the exact same divine nature as the Father, 
+having existed with Him from the beginning before coming into our world. 
+This deliberate mission was designed for a specific purpose: so that we might live through Him. 
+By believing in Jesus, believers receive not only the promise of eternal life but also experience an abundant, 
+abiding fullness of life in the present, making Christ the ultimate proof and source of God’s love.
+cross_refs:
+  - book: John
+    chapter: 3
+    verse: 16
+    note: God loved the world and gave His Son so believers have eternal life.
+  - book: John
+    chapter: 1
+    verse: 14
+    note: The Word became flesh and dwelt among us.
+  - book: Romans
+    chapter: 6
+    verse: 23
+    note: The gift of God is eternal life in Christ Jesus.
+  - book: Isaiah
+    chapter: 9
+    verse: 6
+    note: A child is given; a Son is born for salvation.
+  - book: Luke
+    chapter: 4
+    verse: 18
+    note: Jesus declares His mission to bring deliverance and healing.
