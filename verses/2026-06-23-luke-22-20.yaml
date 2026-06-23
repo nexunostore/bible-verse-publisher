@@ -1,0 +1,72 @@
+# Torah / Pentateuch:
+# Genesis (1), Exodus (2), Leviticus (3), Numbers (4), Deuteronomy (5)
+#
+# Historical Books:
+# Joshua (6), Judges (7), Ruth (8), 1 Samuel (9), 2 Samuel (10),
+# 1 Kings (11), 2 Kings (12), 1 Chronicles (13), 2 Chronicles (14),
+# Ezra (15), Nehemiah (16), Esther (17)
+#
+# Wisdom / Poetry:
+# Job (18), Psalms (19), Proverbs (20), Ecclesiastes (21),
+# Song of Solomon (22)
+#
+# Major Prophets:
+# Isaiah (23), Jeremiah (24), Lamentations (25), Ezekiel (26),
+# Daniel (27)
+#
+# Minor Prophets:
+# Hosea (28), Joel (29), Amos (30), Obadiah (31), Jonah (32),
+# Micah (33), Nahum (34), Habakkuk (35), Zephaniah (36),
+# Haggai (37), Zechariah (38), Malachi (39)
+#
+# Gospels:
+# Matthew (40), Mark (41), Luke (42), John (43)
+#
+# History:
+# Acts (44)
+#
+# Pauline Epistles:
+# Romans (45), 1 Corinthians (46), 2 Corinthians (47),
+# Galatians (48), Ephesians (49), Philippians (50), Colossians (51),
+# 1 Thessalonians (52), 2 Thessalonians (53), 1 Timothy (54),
+# 2 Timothy (55), Titus (56), Philemon (57)
+#
+# General Epistles:
+# Hebrews (58), James (59), 1 Peter (60), 2 Peter (61),
+# 1 John (62), 2 John (63), 3 John (64), Jude (65)
+#
+# Prophecy:
+# Revelation (66)
+
+
+book: Luke 
+book_order: 22
+reference: Luke 22:20
+verse: > 
+	   After supper he took another cup of wine and said, This cup is the new covenant between God and his people, an agreement confirmed with my blood, 
+       which is poured out as a sacrifice for you.
+meaning: >
+  Jesus institutes the New Covenant during the Last Supper, declaring that the cup of wine represents His blood which is poured out for you. 
+  This profound statement fulfills the ancient prophecy of Jeremiah, marking a decisive shift from the Old Covenant sealed with animal sacrifices to a new, 
+  eternal agreement sealed by Christ’s own sacrificial death. By offering His life as a ransom, Jesus provides complete forgiveness of sins and reconciles 
+  humanity directly to God, promising an internal transformation where God’s laws are written on believers' hearts rather than on stone tablets. 
+  As supported by parallel accounts in Matthew and 1 Corinthians, this act invites all followers to participate in this grace-filled relationship, 
+  remembering that their redemption and eternal inheritance are secured not by their own works, but through the shed blood of the Messiah.
+cross_refs:
+  - book: Jeremiah
+    chapter: 31
+    verse: 31-34
+    note: God promises to make a new covenant with Israel and Judah, forgiving their wickedness and remembering their sins no more.
+  - book: Matthew
+    chapter: 26
+    verse: 27-28
+    note: Drink from it, all of you. This is my blood of the covenant.
+  - book: 1 Corinthians
+    chapter: 11
+    verse: 25
+    note: This cup is the new covenant in my blood; do this, whenever you drink it, in remembrance of me.
+  - book: Ephesians
+    chapter: 1
+    verse: 7
+    note: In him we have redemption through his blood, the forgiveness of sins, in accordance with the riches of God’s grace.
+
