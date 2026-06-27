@@ -11,6 +11,11 @@ on:
         required: true
         type: string
 
+      verse:
+        description: "Enter the full verse text exactly as you want it to appear."
+        required: true
+        type: string
+
 jobs:
   generate:
     runs-on: ubuntu-latest
