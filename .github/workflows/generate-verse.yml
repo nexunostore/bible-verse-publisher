@@ -73,27 +73,10 @@ jobs:
           echo "p3=$(parse_ref '${{ steps.cross.outputs.ref3 }}')" >> $GITHUB_OUTPUT
           echo "p4=$(parse_ref '${{ steps.cross.outputs.ref4 }}')" >> $GITHUB_OUTPUT
 
-      - name: Generate paraphrased verse using OpenAI
-        id: verse
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      - name: Use provided verse text
+        id: verse_text
         run: |
-          REF="${{ github.event.inputs.reference }}"
-
-          RESPONSE=$(curl -s https://api.openai.com/v1/chat/completions \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer $OPENAI_API_KEY" \
-            -d "{
-              \"model\": \"gpt-4o-mini\",
-              \"messages\": [{
-                \"role\": \"user\",
-                \"content\": \"Paraphrase the meaning of the Bible verse $REF in one sentence.\"
-              }]
-            }")
-
-          VERSE_TEXT=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
-
-          echo "verse_text=$VERSE_TEXT" >> $GITHUB_OUTPUT
+          echo "text=${{ github.event.inputs.verse }}" >> $GITHUB_OUTPUT
 
       - name: Generate meaning using OpenAI
         id: meaning
