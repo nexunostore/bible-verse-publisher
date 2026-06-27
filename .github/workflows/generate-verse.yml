@@ -76,7 +76,8 @@ jobs:
       - name: Use provided verse text
         id: verse_text
         run: |
-          echo "text=${{ github.event.inputs.verse }}" >> $GITHUB_OUTPUT
+          echo "verse: >" >> "$FILE"
+          echo "  ${{ steps.verse_text.outputs.text }}" >> "$FILE"
 
       - name: Generate meaning using OpenAI
         id: meaning
