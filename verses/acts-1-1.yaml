@@ -1,0 +1,15 @@
+book: Acts
+book_order: 43
+reference: Acts 1:1
+verse: "The first book I wrote, Theophilus, concerned all that Jesus began both to do and to teach,"
+meaning: >
+  null
+cross_refs:
+  - book: Romans
+    chapter: 5
+    verse: 8
+    note: God's love demonstrated.
+tags:
+  - Love
+  - Salvation
+  - Acts
