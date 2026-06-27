@@ -107,3 +107,53 @@ jobs:
             echo "$RESPONSE" | jq -r '.choices[0].message.content'
           }
 
+          echo "n1=$(gen_note '${{ steps.cross.outputs.ref1 }}')" >> $GITHUB_OUTPUT
+          echo "n2=$(gen_note '${{ steps.cross.outputs.ref2 }}')" >> $GITHUB_OUTPUT
+          echo "n3=$(gen_note '${{ steps.cross.outputs.ref3 }}')" >> $GITHUB_OUTPUT
+          echo "n4=$(gen_note '${{ steps.cross.outputs.ref4 }}')" >> $GITHUB_OUTPUT
+
+      - name: Write YAML output (NO HEREDOC, NO SQUIGGLIES)
+        run: |
+          BOOK="${{ steps.parse.outputs.book }}"
+          CHAPTER="${{ steps.parse.outputs.chapter }}"
+          VERSE="${{ steps.parse.outputs.verse }}"
+
+          mkdir -p verses/$BOOK/$CHAPTER
+          FILE="verses/$BOOK/$CHAPTER/$VERSE.yml"
+
+          IFS='|' read B1 C1 V1 <<< "${{ steps.split.outputs.p1 }}"
+          IFS='|' read B2 C2 V2 <<< "${{ steps.split.outputs.p2 }}"
+          IFS='|' read B3 C3 V3 <<< "${{ steps.split.outputs.p3 }}"
+          IFS='|' read B4 C4 V4 <<< "${{ steps.split.outputs.p4 }}"
+
+          echo "reference: \"${{ github.event.inputs.reference }}\"" > "$FILE"
+          echo "meaning: \"${{ steps.meaning.outputs.meaning }}\"" >> "$FILE"
+          echo "cross_references:" >> "$FILE"
+
+          echo "  - book: \"$B1\"" >> "$FILE"
+          echo "    chapter: \"$C1\"" >> "$FILE"
+          echo "    verse: \"$V1\"" >> "$FILE"
+          echo "    note: \"${{ steps.notes.outputs.n1 }}\"" >> "$FILE"
+
+          echo "  - book: \"$B2\"" >> "$FILE"
+          echo "    chapter: \"$C2\"" >> "$FILE"
+          echo "    verse: \"$V2\"" >> "$FILE"
+          echo "    note: \"${{ steps.notes.outputs.n2 }}\"" >> "$FILE"
+
+          echo "  - book: \"$B3\"" >> "$FILE"
+          echo "    chapter: \"$C3\"" >> "$FILE"
+          echo "    verse: \"$V3\"" >> "$FILE"
+          echo "    note: \"${{ steps.notes.outputs.n3 }}\"" >> "$FILE"
+
+          echo "  - book: \"$B4\"" >> "$FILE"
+          echo "    chapter: \"$C4\"" >> "$FILE"
+          echo "    verse: \"$V4\"" >> "$FILE"
+          echo "    note: \"${{ steps.notes.outputs.n4 }}\"" >> "$FILE"
+
+      - name: Commit verse file
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add verses
+          git commit -m "Generated verse ${{ github.event.inputs.reference }}" || echo "No changes"
+          git push
