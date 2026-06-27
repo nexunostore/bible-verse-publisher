@@ -119,6 +119,9 @@ jobs:
           echo "n3=$(gen_note '${{ steps.cross.outputs.ref3 }}')" >> $GITHUB_OUTPUT
           echo "n4=$(gen_note '${{ steps.cross.outputs.ref4 }}')" >> $GITHUB_OUTPUT
 
+          export LANG=en_US.UTF-8
+          export LC_ALL=en_US.UTF-8
+
       - name: Write YAML output (NO OPENAI verse, NO squigglies)
         run: |
           BOOK="${{ steps.parse.outputs.book }}"
