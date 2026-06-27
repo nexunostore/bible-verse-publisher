@@ -76,3 +76,4 @@ jobs:
           REF4=$(echo "$DATA" | jq -r '.[3].verse')
 
           # Function to parse "Book Chapter
+          # Must still use publish to actually push the verse to WordPress
