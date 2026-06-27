@@ -1,0 +1,79 @@
+name: Generate Verse File (v2)
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      reference:
+        description: "Enter verse (e.g., John 3:16)"
+        required: true
+        type: string
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Parse reference
+        id: parse
+        run: |
+          REF="${{ github.event.inputs.reference }}"
+          BOOK=$(echo "$REF" | awk '{print $1}')
+          CHAPTER=$(echo "$REF" | cut -d':' -f1 | awk '{print $2}')
+          VERSE=$(echo "$REF" | cut -d':' -f2)
+          echo "book=$BOOK" >> $GITHUB_OUTPUT
+          echo "chapter=$CHAPTER" >> $GITHUB_OUTPUT
+          echo "verse=$VERSE" >> $GITHUB_OUTPUT
+
+      - name: Fetch verse text
+        id: fetch
+        run: |
+          REF="${{ github.event.inputs.reference }}"
+          DATA=$(curl -s "https://bible-api.com/${REF// /+}")
+          TEXT=$(echo "$DATA" | jq -r '.text' | sed 's/"/\\"/g')
+          echo "text=$TEXT" >> $GITHUB_OUTPUT
+
+      - name: Generate meaning using OpenAI
+        id: meaning
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          SAFE_TEXT=$(printf "%s" "${{ steps.fetch.outputs.text }}" | sed 's/"/\\"/g')
+
+          PROMPT="Provide a clear, doctrinally sound Christian explanation of the meaning of this Bible verse: ${{ github.event.inputs.reference }} — $SAFE_TEXT. Write 4–6 sentences."
+
+          RESPONSE=$(curl -s https://api.openai.com/v1/chat/completions \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer $OPENAI_API_KEY" \
+            -d "{
+              \"model\": \"gpt-4o-mini\",
+              \"messages\": [{\"role\": \"user\", \"content\": \"$PROMPT\"}]
+            }")
+
+          MEANING=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
+          echo "meaning=$MEANING" >> $GITHUB_OUTPUT
+
+      - name: Fetch and format cross references
+        id: cross
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          REF="${{ github.event.inputs.reference }}"
+          QUERY=$(echo "$REF" | sed 's/ /+/g')
+
+          # Fetch raw cross references
+          DATA=$(curl -s "https://www.openbible.info/labs/cross-references/search?format=json&q=$QUERY")
+
+          # Extract top 4 references
+          REF1=$(echo "$DATA" | jq -r '.[0].verse')
+          REF2=$(echo "$DATA" | jq -r '.[1].verse')
+          REF3=$(echo "$DATA" | jq -r '.[2].verse')
+          REF4=$(echo "$DATA" | jq -r '.[3].verse')
+
+          # Function to parse "Book Chapter
+          # Must still use publish to actually push the verse to WordPress

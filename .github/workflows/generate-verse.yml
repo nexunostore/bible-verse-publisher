@@ -1,13 +1,10 @@
-name: Generate Verse File (v2)
-
-permissions:
-  contents: write
+name: Generate Bible Verse
 
 on:
   workflow_dispatch:
     inputs:
       reference:
-        description: "Enter verse (e.g., John 3:16)"
+        description: "Bible verse reference (e.g., Genesis 1:1)"
         required: true
         type: string
 
@@ -16,64 +13,97 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Parse reference
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Extract book, chapter, verse
         id: parse
         run: |
           REF="${{ github.event.inputs.reference }}"
-          BOOK=$(echo "$REF" | awk '{print $1}')
-          CHAPTER=$(echo "$REF" | cut -d':' -f1 | awk '{print $2}')
-          VERSE=$(echo "$REF" | cut -d':' -f2)
+
+          BOOK=$(echo "$REF" | sed 's/ [0-9].*//')
+          CHAPTER=$(echo "$REF" | sed 's/.* \([0-9]*\):.*/\1/')
+          VERSE=$(echo "$REF" | sed 's/.*:[ ]*\(.*\)/\1/')
+
           echo "book=$BOOK" >> $GITHUB_OUTPUT
           echo "chapter=$CHAPTER" >> $GITHUB_OUTPUT
           echo "verse=$VERSE" >> $GITHUB_OUTPUT
 
-      - name: Fetch verse text
-        id: fetch
+      - name: Load cross references from local JSON
+        id: cross
         run: |
           REF="${{ github.event.inputs.reference }}"
-          DATA=$(curl -s "https://bible-api.com/${REF// /+}")
-          TEXT=$(echo "$DATA" | jq -r '.text' | sed 's/"/\\"/g')
-          echo "text=$TEXT" >> $GITHUB_OUTPUT
+          DATA=$(cat data/bible_crossrefs_final.json)
+
+          LIST=$(echo "$DATA" | jq -r --arg ref "$REF" '.[$ref][]')
+
+          REF1=$(echo "$LIST" | sed -n '1p')
+          REF2=$(echo "$LIST" | sed -n '2p')
+          REF3=$(echo "$LIST" | sed -n '3p')
+          REF4=$(echo "$LIST" | sed -n '4p')
+
+          echo "ref1=$REF1" >> $GITHUB_OUTPUT
+          echo "ref2=$REF2" >> $GITHUB_OUTPUT
+          echo "ref3=$REF3" >> $GITHUB_OUTPUT
+          echo "ref4=$REF4" >> $GITHUB_OUTPUT
+
+      - name: Parse cross-reference components
+        id: split
+        run: |
+          parse_ref() {
+            BOOK=$(echo "$1" | sed 's/ [0-9].*//')
+            CHAPTER=$(echo "$1" | sed 's/.* \([0-9]*\):.*/\1/')
+            VERSE=$(echo "$1" | sed 's/.*:[ ]*\(.*\)/\1/')
+            echo "$BOOK|$CHAPTER|$VERSE"
+          }
+
+          echo "p1=$(parse_ref '${{ steps.cross.outputs.ref1 }}')" >> $GITHUB_OUTPUT
+          echo "p2=$(parse_ref '${{ steps.cross.outputs.ref2 }}')" >> $GITHUB_OUTPUT
+          echo "p3=$(parse_ref '${{ steps.cross.outputs.ref3 }}')" >> $GITHUB_OUTPUT
+          echo "p4=$(parse_ref '${{ steps.cross.outputs.ref4 }}')" >> $GITHUB_OUTPUT
 
       - name: Generate meaning using OpenAI
         id: meaning
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          SAFE_TEXT=$(printf "%s" "${{ steps.fetch.outputs.text }}" | sed 's/"/\\"/g')
-
-          PROMPT="Provide a clear, doctrinally sound Christian explanation of the meaning of this Bible verse: ${{ github.event.inputs.reference }} — $SAFE_TEXT. Write 4–6 sentences."
+          REF="${{ github.event.inputs.reference }}"
 
           RESPONSE=$(curl -s https://api.openai.com/v1/chat/completions \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer $OPENAI_API_KEY" \
             -d "{
               \"model\": \"gpt-4o-mini\",
-              \"messages\": [{\"role\": \"user\", \"content\": \"$PROMPT\"}]
+              \"messages\": [{
+                \"role\": \"user\",
+                \"content\": \"Provide a doctrinally sound explanation of the meaning of $REF in 2-3 sentences.\"
+              }]
             }")
 
           MEANING=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
+
           echo "meaning=$MEANING" >> $GITHUB_OUTPUT
 
-      - name: Fetch and format cross references
-        id: cross
+      - name: Generate notes for cross references
+        id: notes
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          REF="${{ github.event.inputs.reference }}"
-          QUERY=$(echo "$REF" | sed 's/ /+/g')
+          gen_note() {
+            RESPONSE=$(curl -s https://api.openai.com/v1/chat/completions \
+              -H "Content-Type: application/json" \
+              -H "Authorization: Bearer $OPENAI_API_KEY" \
+              -d "{
+                \"model\": \"gpt-4o-mini\",
+                \"messages\": [{
+                  \"role\": \"user\",
+                  \"content\": \"Provide a one-sentence theological note explaining why this verse is a cross-reference: $1\"
+                }]
+              }")
 
-          # Fetch raw cross references
-          DATA=$(curl -s "https://www.openbible.info/labs/cross-references/search?format=json&q=$QUERY")
+            echo "$RESPONSE" | jq -r '.choices[0].message.content'
+          }
 
-          # Extract top 4 references
-          REF1=$(echo "$DATA" | jq -r '.[0].verse')
-          REF2=$(echo "$DATA" | jq -r '.[1].verse')
-          REF3=$(echo "$DATA" | jq -r '.[2].verse')
-          REF4=$(echo "$DATA" | jq -r '.[3].verse')
-
-          # Function to parse "Book Chapter
-          # Must still use publish to actually push the verse to WordPress
