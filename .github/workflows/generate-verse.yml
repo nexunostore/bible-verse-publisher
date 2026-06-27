@@ -67,7 +67,7 @@ jobs:
           QUERY=$(echo "$REF" | sed 's/ /+/g')
 
           # Fetch raw cross references
-          DATA=$(curl -s "https://www.openbible.info/labs/cross-references/search?q=$QUERY")
+          DATA=$(curl -s "https://www.openbible.info/labs/cross-references/search?format=json&q=$QUERY")
 
           # Extract top 4 references
           REF1=$(echo "$DATA" | jq -r '.[0].verse')
