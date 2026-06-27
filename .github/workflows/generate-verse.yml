@@ -114,10 +114,18 @@ jobs:
             echo "$RESPONSE" | jq -r '.choices[0].message.content'
           }
 
-          echo "n1=$(gen_note '${{ steps.cross.outputs.ref1 }}')" >> $GITHUB_OUTPUT
-          echo "n2=$(gen_note '${{ steps.cross.outputs.ref2 }}')" >> $GITHUB_OUTPUT
-          echo "n3=$(gen_note '${{ steps.cross.outputs.ref3 }}')" >> $GITHUB_OUTPUT
-          echo "n4=$(gen_note '${{ steps.cross.outputs.ref4 }}')" >> $GITHUB_OUTPUT
+          NOTE1=$(gen_note '${{ steps.cross.outputs.ref1 }}')
+          NOTE1=$(echo "$NOTE1" | sed "s/[’‘]/'/g" | sed 's/[“”]/"/g')
+          echo "n1=$NOTE1" >> $GITHUB_OUTPUT
+          NOTE2=$(gen_note '${{ steps.cross.outputs.ref2 }}')
+          NOTE2=$(echo "$NOTE2" | sed "s/[’‘]/'/g" | sed 's/[“”]/"/g')
+          echo "n2=$NOTE2" >> $GITHUB_OUTPUT
+          NOTE3=$(gen_note '${{ steps.cross.outputs.ref3 }}')
+          NOTE3=$(echo "$NOTE3" | sed "s/[’‘]/'/g" | sed 's/[“”]/"/g')
+          echo "n3=$NOTE3" >> $GITHUB_OUTPUT
+          NOTE4=$(gen_note '${{ steps.cross.outputs.ref4 }}')
+          NOTE4=$(echo "$NOTE4" | sed "s/[’‘]/'/g" | sed 's/[“”]/"/g')
+          echo "n4=$NOTE4" >> $GITHUB_OUTPUT
 
           export LANG=en_US.UTF-8
           export LC_ALL=en_US.UTF-8
