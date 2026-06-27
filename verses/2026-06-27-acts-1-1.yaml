@@ -1,0 +1,24 @@
+book: Acts
+book_order: 44
+reference: "Acts 1:1"
+verse: >
+  In my first book I told you, Theophilus, about everything Jesus began to do and teach
+meaning: >
+  Acts 1:1 serves as the introduction to the Book of Acts, authored by Luke, who also wrote the Gospel of Luke. In this verse, Luke refers to his previous work, indicating that it was a comprehensive account of all that Jesus began to do and teach. This suggests a continuity between the teachings of Jesus during His earthly ministry and the actions of His followers following His ascension. The phrase all that Jesus began to do and teach underscores the ongoing mission of the Church, as it continues to spread the Gospel and live out the teachings of Christ through the empowerment of the Holy Spirit. Thus, Acts sets the stage for understanding the early Church's role in fulfilling Jesus' commission to make disciples of all nations.
+cross_refs:
+  - book: Luke
+    chapter: 1
+    verse: 24
+    note: "Luke 1:24, which recounts Elizabeth conceiving a child after a period of barrenness, serves as a cross-reference to God's faithfulness to fulfill His promises and the miraculous nature of divine intervention, paralleling the themes of God's power in the lives of biblical figures such as Sarah and Hannah."
+  - book: Luke
+    chapter: 24
+    verse: 19
+    note: "Luke 24:19 serves as a cross-reference as it highlights Jesus' prophetic role, emphasizing His identity as the Messiah who fulfills the Scriptures through His works and suffering, thereby linking His earthly ministry to the broader narrative of redemption found throughout both the Old and New Testaments."
+  - book: 1 Peter
+    chapter: 2
+    verse: 21
+    note: "1 Peter 2:21 serves as a cross-reference because it emphasizes the significance of Christ's suffering as a model for believers, illustrating the call to follow His example in enduring trials and injustices for the sake of faith, which aligns with the broader biblical theme of redemptive suffering."
+  - book: 1 Peter
+    chapter: 2
+    verse: 22
+    note: "1 Peter 2:22 refers to Jesus as the sinless Lamb, who committed no sin, highlighting His role as the perfect sacrifice for humanity's sins, which serves as a cross-reference to Old Testament prophecies and the sacrificial system, emphasizing His fulfillment of divine justice and grace."
