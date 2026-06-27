@@ -42,23 +42,23 @@ book: Acts
 book_order: 44
 reference: "Acts 1:1"
 verse: >
-  Acts 1:1 introduces the account of the events and teachings of Jesus Christ as recorded in a previous work addressed to Theophilus.
+  
 meaning: >
-  Acts 1:1 serves as the introduction to the Book of Acts, written by Luke, who also authored the Gospel of Luke. In this verse, Luke references his previous work, indicating that it detailed the teachings and ministry of Jesus, primarily focusing on His life, death, resurrection, and commands to His disciples. The phrase all that Jesus began to do and teach underscores the continuity between the ministry of Jesus and the subsequent actions of the apostles, culminating in the establishment of the early Church. This sets the stage for the narrative of Acts, which chronicles the Holy Spirit's empowerment of believers and the spread of the Gospel throughout the world. Overall, Acts 1:1 highlights the significance of Jesus' foundational work as essential for understanding the mission of the Church.
+  Acts 1:1 serves as an introduction to the Book of Acts, written by Luke, who also authored the Gospel of Luke. In this verse, Luke references his former account, which details the life, ministry, death, and resurrection of Jesus Christ. The phrase all that Jesus began to do and teach emphasizes the continuity between Jesus' earthly ministry and the ongoing work of the Holy Spirit through the apostles, as described in the rest of Acts. This sets the stage for understanding how the early church was established and empowered to spread the gospel after Jesus' ascension. Overall, this verse underscores the foundational role of Jesus' teachings and actions in the life of the church and its mission.
 cross_refs:
   - book: Luke
     chapter: 1
     verse: 24
-    note: "Luke 1:24, which describes Elizabeth conceiving after a period of barrenness, serves as a cross-reference to themes of divine intervention and miraculous birth, paralleling the Old Testament accounts of Sarah and Abraham, thus highlighting God's faithfulness in fulfilling His promises."
+    note: "Luke 1:24, which describes Elizabeth conceiving after being considered barren, serves as a cross-reference to other scriptural accounts of divine intervention in conceiving miraculous births, demonstrating God's power to fulfill His promises and the theme of hope amidst human impossibility, as seen in narratives like Sarah's in Genesis 21:1-3."
   - book: Luke
     chapter: 24
     verse: 19
-    note: "Luke 24:19 refers to Jesus as a prophet mighty in deed and word, establishing a link to biblical prophecies and the prophetic tradition, emphasizing His fulfillment of messianic expectations as both a teacher and miracle worker, which connects with narratives found in the Old Testament and the affirmation of His divine authority throughout the Gospels."
+    note: "Luke 24:19, which describes Jesus as a prophet mighty in deed and word, serves as a cross-reference to Deuteronomy 18:15-18, where God promises to raise up a prophet like Moses, highlighting Jesus' fulfillment of Old Testament prophecy and His role as the promised Messiah."
   - book: 1 Peter
     chapter: 2
     verse: 21
-    note: "1 Peter 2:21 serves as a cross-reference to Christ's example of suffering and obedience, emphasizing the theological concept of vicarious atonement, as it highlights how believers are called to follow Christ's footsteps in enduring trials while maintaining faithfulness to God's will."
+    note: "1 Peter 2:21 serves as a cross-reference because it emphasizes Christ's suffering as an example for believers to follow in enduring hardship and persecution with faith and righteousness, aligning with the broader biblical theme of redemptive suffering and imitation of Christ."
   - book: 1 Peter
     chapter: 2
     verse: 22
-    note: "1 Peter 2:22, which states that Christ committed no sin, neither was deceit found in his mouth, serves as a cross-reference to Isaiah 53:9, highlighting Jesus' fulfillment of the prophecy of the Suffering Servant, who bears the sins of others while remaining blameless and pure."
+    note: "1 Peter 2:22, which highlights Christ's sinlessness and His suffering for humanity, serves as a cross-reference to Isaiah 53:9, where the prophecy describes the suffering servant who does no violence and speaks no deceit, underscoring the fulfillment of Old Testament prophecy in the life and sacrifice of Jesus."
