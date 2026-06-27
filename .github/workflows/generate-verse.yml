@@ -55,27 +55,27 @@ jobs:
 
       - name: Generate YAML file
         run: |
-          FILE="verses/${{ steps.parse.outputs.book | toLowerCase }}-${{ steps.parse.outputs.chapter }}-${{ steps.parse.outputs.verse }}.yaml"
+          BOOK_LOWER=$(echo "${{ steps.parse.outputs.book }}" | tr '[:upper:]' '[:lower:]')
+          FILE="verses/${BOOK_LOWER}-${{ steps.parse.outputs.chapter }}-${{ steps.parse.outputs.verse }}.yaml"
 
           mkdir -p verses
 
-          cat <<EOF > "$FILE"
-book: ${{ steps.parse.outputs.book }}
-book_order: 43
-reference: ${{ github.event.inputs.reference }}
-verse: "${{ steps.fetch.outputs.text }}"
-meaning: >
-  ${{ steps.meaning.outputs.meaning }}
-cross_refs:
-  - book: Romans
-    chapter: 5
-    verse: 8
-    note: God's love demonstrated.
-tags:
-  - Love
-  - Salvation
-  - ${{ steps.parse.outputs.book }}
-EOF
+
+          echo "book: ${{ steps.parse.outputs.book }}" > "$FILE"
+          echo "book_order: 43" >> "$FILE"
+          echo "reference: ${{ github.event.inputs.reference }}" >> "$FILE"
+          echo "verse: \"${{ steps.fetch.outputs.text }}\"" >> "$FILE"
+          echo "meaning: >" >> "$FILE"
+          echo "  ${{ steps.meaning.outputs.meaning }}" >> "$FILE"
+          echo "cross_refs:" >> "$FILE"
+          echo "  - book: Romans" >> "$FILE"
+          echo "    chapter: 5" >> "$FILE"
+          echo "    verse: 8" >> "$FILE"
+          echo "    note: God's love demonstrated." >> "$FILE"
+          echo "tags:" >> "$FILE"
+          echo "  - Love" >> "$FILE"
+          echo "  - Salvation" >> "$FILE"
+          echo "  - ${{ steps.parse.outputs.book }}" >> "$FILE"
 
       - name: Commit and push
         run: |
