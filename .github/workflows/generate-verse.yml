@@ -43,7 +43,9 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          PROMPT="Provide a clear, doctrinally sound Christian explanation of the meaning of this Bible verse: ${{ github.event.inputs.reference }} — ${{ steps.fetch.outputs.text }}. Write 4–6 sentences."
+          SAFE_TEXT=$(printf "%s" "${{ steps.fetch.outputs.text }}" | sed 's/"/\\"/g')
+
+          PROMPT="Provide a clear, doctrinally sound Christian explanation of the meaning of this Bible verse: ${{ github.event.inputs.reference }} — $SAFE_TEXT. Write 4–6 sentences."
 
           RESPONSE=$(curl -s https://api.openai.com/v1/chat/completions \
             -H "Content-Type: application/json" \
@@ -53,37 +55,24 @@ jobs:
               \"messages\": [{\"role\": \"user\", \"content\": \"$PROMPT\"}]
             }")
 
-          MEANING=$(echo "$RESPONSE" | jq -r '.choices[0].message.content' | sed 's/"/\\"/g')
+          MEANING=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
           echo "meaning=$MEANING" >> $GITHUB_OUTPUT
 
-      - name: Generate YAML file
+      - name: Fetch and format cross references
+        id: cross
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          BOOK_LOWER=$(echo "${{ steps.parse.outputs.book }}" | tr '[:upper:]' '[:lower:]')
-          FILE="verses/${BOOK_LOWER}-${{ steps.parse.outputs.chapter }}-${{ steps.parse.outputs.verse }}.yaml"
+          REF="${{ github.event.inputs.reference }}"
+          QUERY=$(echo "$REF" | sed 's/ /+/g')
 
-          mkdir -p verses
+          # Fetch raw cross references
+          DATA=$(curl -s "https://www.openbible.info/labs/cross-references/search?q=$QUERY")
 
+          # Extract top 4 references
+          REF1=$(echo "$DATA" | jq -r '.[0].verse')
+          REF2=$(echo "$DATA" | jq -r '.[1].verse')
+          REF3=$(echo "$DATA" | jq -r '.[2].verse')
+          REF4=$(echo "$DATA" | jq -r '.[3].verse')
 
-          echo "book: ${{ steps.parse.outputs.book }}" > "$FILE"
-          echo "book_order: 43" >> "$FILE"
-          echo "reference: ${{ github.event.inputs.reference }}" >> "$FILE"
-          echo "verse: \"${{ steps.fetch.outputs.text }}\"" >> "$FILE"
-          echo "meaning: >" >> "$FILE"
-          echo "  ${{ steps.meaning.outputs.meaning }}" >> "$FILE"
-          echo "cross_refs:" >> "$FILE"
-          echo "  - book: Romans" >> "$FILE"
-          echo "    chapter: 5" >> "$FILE"
-          echo "    verse: 8" >> "$FILE"
-          echo "    note: God's love demonstrated." >> "$FILE"
-          echo "tags:" >> "$FILE"
-          echo "  - Love" >> "$FILE"
-          echo "  - Salvation" >> "$FILE"
-          echo "  - ${{ steps.parse.outputs.book }}" >> "$FILE"
-
-      - name: Commit and push
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add verses/
-          git commit -m "Added verse: ${{ github.event.inputs.reference }}"
-          git push
+          # Function to parse "Book Chapter
