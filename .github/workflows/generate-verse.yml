@@ -1,5 +1,8 @@
 name: Generate Bible Verse
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
     inputs:
