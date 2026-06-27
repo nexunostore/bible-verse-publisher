@@ -1,0 +1,24 @@
+book: Acts
+book_order: 44
+reference: "Acts 1:1"
+verse: >
+  In my first book I told you, Theophilus, about everything Jesus began to do and teach
+meaning: >
+  Acts 1:1 states, In my former book, Theophilus, I wrote about all that Jesus began to do and to teach. This verse establishes the continuity between the Gospel of Luke and the Book of Acts, indicating that the latter is a continuation of the former, focusing on the early church's formation and the spread of the Gospel after Jesus' ascension. The reference to all that Jesus began to do and to teach suggests that Jesus' ministry is not finished; rather, it continues through the work of His apostles empowered by the Holy Spirit. This highlights the active role of believers in advancing the mission of Christ and serves as a reminder of the ongoing significance of Jesus' teachings and actions in the life of the church.
+cross_refs:
+  - book: Luke
+    chapter: 1
+    verse: 24
+    note: "Luke 1:24, which describes Elizabeth conceiving after a period of barrenness, serves as a cross-reference to numerous biblical accounts of divine intervention in human infertility, emphasizing God's sovereignty and ability to fulfill His promises, analogous to themes of hope and miraculous births found throughout Scripture."
+  - book: Luke
+    chapter: 24
+    verse: 19
+    note: "Luke 24:19, which describes Jesus as a prophet mighty in deed and word, serves as a cross-reference to Deuteronomy 18:15 where God promises to raise up a prophet like Moses, highlighting Jesus's fulfillment of Old Testament prophetic expectations and His role as the ultimate mediator between God and humanity."
+  - book: 1 Peter
+    chapter: 2
+    verse: 21
+    note: "1 Peter 2:21 serves as a cross-reference because it highlights Christ's suffering as an example for believers to follow, paralleling the theme of redemptive suffering found throughout the New Testament, which emphasizes how Jesus' obedience in the face of suffering fulfills the redemptive plan of God."
+  - book: 1 Peter
+    chapter: 2
+    verse: 22
+    note: "1 Peter 2:22 highlights the sinless nature of Christ, paralleling Isaiah 53:9, which foretells the Messiah as one without deceit, reinforcing the theological understanding of Jesus as the perfect, unblemished sacrifice for humanity's sins."
