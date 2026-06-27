@@ -1,0 +1,64 @@
+# Torah / Pentateuch:
+# Genesis (1), Exodus (2), Leviticus (3), Numbers (4), Deuteronomy (5)
+#
+# Historical Books:
+# Joshua (6), Judges (7), Ruth (8), 1 Samuel (9), 2 Samuel (10),
+# 1 Kings (11), 2 Kings (12), 1 Chronicles (13), 2 Chronicles (14),
+# Ezra (15), Nehemiah (16), Esther (17)
+#
+# Wisdom / Poetry:
+# Job (18), Psalms (19), Proverbs (20), Ecclesiastes (21),
+# Song of Solomon (22)
+#
+# Major Prophets:
+# Isaiah (23), Jeremiah (24), Lamentations (25), Ezekiel (26),
+# Daniel (27)
+#
+# Minor Prophets:
+# Hosea (28), Joel (29), Amos (30), Obadiah (31), Jonah (32),
+# Micah (33), Nahum (34), Habakkuk (35), Zephaniah (36),
+# Haggai (37), Zechariah (38), Malachi (39)
+#
+# Gospels:
+# Matthew (40), Mark (41), Luke (42), John (43)
+#
+# History:
+# Acts (44)
+#
+# Pauline Epistles:
+# Romans (45), 1 Corinthians (46), 2 Corinthians (47),
+# Galatians (48), Ephesians (49), Philippians (50), Colossians (51),
+# 1 Thessalonians (52), 2 Thessalonians (53), 1 Timothy (54),
+# 2 Timothy (55), Titus (56), Philemon (57)
+#
+# General Epistles:
+# Hebrews (58), James (59), 1 Peter (60), 2 Peter (61),
+# 1 John (62), 2 John (63), 3 John (64), Jude (65)
+#
+# Prophecy:
+# Revelation (66)
+
+book: Acts
+book_order: 44
+reference: "Acts 1:1"
+verse: >
+  Acts 1:1 summarizes the author's previous account of the life and teachings of Jesus, detailing the events leading up to His ascension.
+meaning: >
+  Acts 1:1 refers to the initial account that Luke, the author of both the Gospel of Luke and the Book of Acts, presents to Theophilus, addressing the life and teachings of Jesus Christ. The phrase all that Jesus began to do and teach emphasizes that Luke's Gospel documented Jesus' earthly ministry, while the Book of Acts focuses on the continuation of that mission through the apostles and the early church empowered by the Holy Spirit. This verse highlights the seamless transition between Jesus' work on earth and the ongoing work of His followers, underscoring the significance of both the teaching and actions of Jesus as foundational for the church's mission. It also affirms the idea that the church is called to carry on the mission of Jesus, guided by the Holy Spirit, as they spread the gospel and establish His kingdom.
+cross_refs:
+  - book: Luke
+    chapter: 1
+    verse: 24
+    note: "Luke 1:24, which details Elizabeth's seclusion following the announcement of her pregnancy with John the Baptist, serves as a cross-reference to biblical themes of divine intervention and the fulfillment of God's promises, paralleling other instances where God acted in seemingly impossible circumstances to bring about His purposes."
+  - book: Luke
+    chapter: 24
+    verse: 19
+    note: "Luke 24:19, which refers to Jesus as “a prophet mighty in deed and word before God and all the people,” serves as a cross-reference to other scriptures that highlight Jesus' divine authority and prophetic mission, underscoring His fulfillment of Old Testament prophecies and His role as the Messiah who embodies God’s revelation and works among humanity."
+  - book: 1 Peter
+    chapter: 2
+    verse: 21
+    note: "1 Peter 2:21 serves as a cross-reference to the example of Christ's suffering and obedience in the face of injustice, illustrating the calling of believers to follow in His footsteps and reflect His character in their own trials."
+  - book: 1 Peter
+    chapter: 2
+    verse: 22
+    note: "1 Peter 2:22, which states that Jesus committed no sin, neither was deceit found in his mouth, serves as a cross-reference to Isaiah 53:9, highlighting the fulfillment of the prophecy of the suffering servant who would bear the sins of many while remaining sinless, thus underscoring the theological significance of Christ's perfect righteousness and atoning sacrifice."
