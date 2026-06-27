@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       reference:
-        description: "Bible verse reference (e.g., Genesis 1:1)"
+        description: "Bible verse reference (e.g., John 6:35)"
         required: true
         type: string
 
@@ -68,6 +68,28 @@ jobs:
           echo "p3=$(parse_ref '${{ steps.cross.outputs.ref3 }}')" >> $GITHUB_OUTPUT
           echo "p4=$(parse_ref '${{ steps.cross.outputs.ref4 }}')" >> $GITHUB_OUTPUT
 
+      - name: Generate paraphrased verse using OpenAI
+        id: verse
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          REF="${{ github.event.inputs.reference }}"
+
+          RESPONSE=$(curl -s https://api.openai.com/v1/chat/completions \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer $OPENAI_API_KEY" \
+            -d "{
+              \"model\": \"gpt-4o-mini\",
+              \"messages\": [{
+                \"role\": \"user\",
+                \"content\": \"Paraphrase the meaning of the Bible verse $REF in one sentence.\"
+              }]
+            }")
+
+          VERSE_TEXT=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
+
+          echo "verse_text=$VERSE_TEXT" >> $GITHUB_OUTPUT
+
       - name: Generate meaning using OpenAI
         id: meaning
         env:
@@ -82,7 +104,7 @@ jobs:
               \"model\": \"gpt-4o-mini\",
               \"messages\": [{
                 \"role\": \"user\",
-                \"content\": \"Provide a doctrinally sound explanation of the meaning of $REF in 2-3 sentences.\"
+                \"content\": \"Provide a doctrinally sound explanation of the meaning of $REF in 3-5 sentences.\"
               }]
             }")
 
@@ -115,42 +137,117 @@ jobs:
           echo "n3=$(gen_note '${{ steps.cross.outputs.ref3 }}')" >> $GITHUB_OUTPUT
           echo "n4=$(gen_note '${{ steps.cross.outputs.ref4 }}')" >> $GITHUB_OUTPUT
 
-      - name: Write YAML output (NO HEREDOC, NO SQUIGGLIES)
+      - name: Write YAML output (flat file, no squigglies)
         run: |
           BOOK="${{ steps.parse.outputs.book }}"
           CHAPTER="${{ steps.parse.outputs.chapter }}"
           VERSE="${{ steps.parse.outputs.verse }}"
 
-          mkdir -p verses/$BOOK/$CHAPTER
-          FILE="verses/$BOOK/$CHAPTER/$VERSE.yml"
+          # lowercase book for filename
+          LBOOK=$(echo "$BOOK" | tr '[:upper:]' '[:lower:]')
+
+          DATE=$(date +%Y-%m-%d)
+          FILE="verses/$DATE-$LBOOK-$CHAPTER-$VERSE.yaml"
+
+          # canonical book order
+          declare -A ORDER=(
+            ["Genesis"]=1 ["Exodus"]=2 ["Leviticus"]=3 ["Numbers"]=4 ["Deuteronomy"]=5
+            ["Joshua"]=6 ["Judges"]=7 ["Ruth"]=8 ["1 Samuel"]=9 ["2 Samuel"]=10
+            ["1 Kings"]=11 ["2 Kings"]=12 ["1 Chronicles"]=13 ["2 Chronicles"]=14
+            ["Ezra"]=15 ["Nehemiah"]=16 ["Esther"]=17
+            ["Job"]=18 ["Psalms"]=19 ["Proverbs"]=20 ["Ecclesiastes"]=21 ["Song of Solomon"]=22
+            ["Isaiah"]=23 ["Jeremiah"]=24 ["Lamentations"]=25 ["Ezekiel"]=26 ["Daniel"]=27
+            ["Hosea"]=28 ["Joel"]=29 ["Amos"]=30 ["Obadiah"]=31 ["Jonah"]=32
+            ["Micah"]=33 ["Nahum"]=34 ["Habakkuk"]=35 ["Zephaniah"]=36
+            ["Haggai"]=37 ["Zechariah"]=38 ["Malachi"]=39
+            ["Matthew"]=40 ["Mark"]=41 ["Luke"]=42 ["John"]=43
+            ["Acts"]=44
+            ["Romans"]=45 ["1 Corinthians"]=46 ["2 Corinthians"]=47 ["Galatians"]=48
+            ["Ephesians"]=49 ["Philippians"]=50 ["Colossians"]=51
+            ["1 Thessalonians"]=52 ["2 Thessalonians"]=53 ["1 Timothy"]=54
+            ["2 Timothy"]=55 ["Titus"]=56 ["Philemon"]=57
+            ["Hebrews"]=58 ["James"]=59 ["1 Peter"]=60 ["2 Peter"]=61
+            ["1 John"]=62 ["2 John"]=63 ["3 John"]=64 ["Jude"]=65
+            ["Revelation"]=66
+          )
+
+          BOOK_ORDER=${ORDER[$BOOK]}
 
           IFS='|' read B1 C1 V1 <<< "${{ steps.split.outputs.p1 }}"
           IFS='|' read B2 C2 V2 <<< "${{ steps.split.outputs.p2 }}"
           IFS='|' read B3 C3 V3 <<< "${{ steps.split.outputs.p3 }}"
           IFS='|' read B4 C4 V4 <<< "${{ steps.split.outputs.p4 }}"
 
-          echo "reference: \"${{ github.event.inputs.reference }}\"" > "$FILE"
-          echo "meaning: \"${{ steps.meaning.outputs.meaning }}\"" >> "$FILE"
-          echo "cross_references:" >> "$FILE"
+          # write comment block
+          echo "# Torah / Pentateuch:" > "$FILE"
+          echo "# Genesis (1), Exodus (2), Leviticus (3), Numbers (4), Deuteronomy (5)" >> "$FILE"
+          echo "#" >> "$FILE"
+          echo "# Historical Books:" >> "$FILE"
+          echo "# Joshua (6), Judges (7), Ruth (8), 1 Samuel (9), 2 Samuel (10)," >> "$FILE"
+          echo "# 1 Kings (11), 2 Kings (12), 1 Chronicles (13), 2 Chronicles (14)," >> "$FILE"
+          echo "# Ezra (15), Nehemiah (16), Esther (17)" >> "$FILE"
+          echo "#" >> "$FILE"
+          echo "# Wisdom / Poetry:" >> "$FILE"
+          echo "# Job (18), Psalms (19), Proverbs (20), Ecclesiastes (21)," >> "$FILE"
+          echo "# Song of Solomon (22)" >> "$FILE"
+          echo "#" >> "$FILE"
+          echo "# Major Prophets:" >> "$FILE"
+          echo "# Isaiah (23), Jeremiah (24), Lamentations (25), Ezekiel (26)," >> "$FILE"
+          echo "# Daniel (27)" >> "$FILE"
+          echo "#" >> "$FILE"
+          echo "# Minor Prophets:" >> "$FILE"
+          echo "# Hosea (28), Joel (29), Amos (30), Obadiah (31), Jonah (32)," >> "$FILE"
+          echo "# Micah (33), Nahum (34), Habakkuk (35), Zephaniah (36)," >> "$FILE"
+          echo "# Haggai (37), Zechariah (38), Malachi (39)" >> "$FILE"
+          echo "#" >> "$FILE"
+          echo "# Gospels:" >> "$FILE"
+          echo "# Matthew (40), Mark (41), Luke (42), John (43)" >> "$FILE"
+          echo "#" >> "$FILE"
+          echo "# History:" >> "$FILE"
+          echo "# Acts (44)" >> "$FILE"
+          echo "#" >> "$FILE"
+          echo "# Pauline Epistles:" >> "$FILE"
+          echo "# Romans (45), 1 Corinthians (46), 2 Corinthians (47)," >> "$FILE"
+          echo "# Galatians (48), Ephesians (49), Philippians (50), Colossians (51)," >> "$FILE"
+          echo "# 1 Thessalonians (52), 2 Thessalonians (53), 1 Timothy (54)," >> "$FILE"
+          echo "# 2 Timothy (55), Titus (56), Philemon (57)" >> "$FILE"
+          echo "#" >> "$FILE"
+          echo "# General Epistles:" >> "$FILE"
+          echo "# Hebrews (58), James (59), 1 Peter (60), 2 Peter (61)," >> "$FILE"
+          echo "# 1 John (62), 2 John (63), 3 John (64), Jude (65)" >> "$FILE"
+          echo "#" >> "$FILE"
+          echo "# Prophecy:" >> "$FILE"
+          echo "# Revelation (66)" >> "$FILE"
+          echo >> "$FILE"
 
-          echo "  - book: \"$B1\"" >> "$FILE"
-          echo "    chapter: \"$C1\"" >> "$FILE"
-          echo "    verse: \"$V1\"" >> "$FILE"
+          # YAML content
+          echo "book: $BOOK" >> "$FILE"
+          echo "book_order: $BOOK_ORDER" >> "$FILE"
+          echo "reference: \"${{ github.event.inputs.reference }}\"" >> "$FILE"
+          echo "verse: >" >> "$FILE"
+          echo "  ${{ steps.verse.outputs.verse_text }}" >> "$FILE"
+          echo "meaning: >" >> "$FILE"
+          echo "  ${{ steps.meaning.outputs.meaning }}" >> "$FILE"
+          echo "cross_refs:" >> "$FILE"
+
+          echo "  - book: $B1" >> "$FILE"
+          echo "    chapter: $C1" >> "$FILE"
+          echo "    verse: $V1" >> "$FILE"
           echo "    note: \"${{ steps.notes.outputs.n1 }}\"" >> "$FILE"
 
-          echo "  - book: \"$B2\"" >> "$FILE"
-          echo "    chapter: \"$C2\"" >> "$FILE"
-          echo "    verse: \"$V2\"" >> "$FILE"
+          echo "  - book: $B2" >> "$FILE"
+          echo "    chapter: $C2" >> "$FILE"
+          echo "    verse: $V2" >> "$FILE"
           echo "    note: \"${{ steps.notes.outputs.n2 }}\"" >> "$FILE"
 
-          echo "  - book: \"$B3\"" >> "$FILE"
-          echo "    chapter: \"$C3\"" >> "$FILE"
-          echo "    verse: \"$V3\"" >> "$FILE"
+          echo "  - book: $B3" >> "$FILE"
+          echo "    chapter: $C3" >> "$FILE"
+          echo "    verse: $V3" >> "$FILE"
           echo "    note: \"${{ steps.notes.outputs.n3 }}\"" >> "$FILE"
 
-          echo "  - book: \"$B4\"" >> "$FILE"
-          echo "    chapter: \"$C4\"" >> "$FILE"
-          echo "    verse: \"$V4\"" >> "$FILE"
+          echo "  - book: $B4" >> "$FILE"
+          echo "    chapter: $C4" >> "$FILE"
+          echo "    verse: $V4" >> "$FILE"
           echo "    note: \"${{ steps.notes.outputs.n4 }}\"" >> "$FILE"
 
       - name: Commit verse file
