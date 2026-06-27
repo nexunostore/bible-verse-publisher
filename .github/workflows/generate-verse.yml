@@ -99,6 +99,16 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
+          sanitize() {
+            echo "$1" \
+              | sed "s/u2019/'/g" \
+              | sed "s/u2018/'/g" \
+              | sed 's/u201C/"/g' \
+              | sed 's/u201D/"/g' \
+              | sed 's/u2014/-/g' \
+              | sed 's/u2026/.../g'
+          }
+
           gen_note() {
             RESPONSE=$(curl -s https://api.openai.com/v1/chat/completions \
               -H "Content-Type: application/json" \
@@ -111,24 +121,15 @@ jobs:
                 }]
               }")
 
-            echo "$RESPONSE" | jq -r '.choices[0].message.content'
+            RAW=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
+            sanitize "$RAW"
           }
 
-          NOTE1=$(gen_note '${{ steps.cross.outputs.ref1 }}')
-          NOTE1=$(echo "$NOTE1" | sed "s/[’‘]/'/g" | sed 's/[“”]/"/g')
-          echo "n1=$NOTE1" >> $GITHUB_OUTPUT
-          NOTE2=$(gen_note '${{ steps.cross.outputs.ref2 }}')
-          NOTE2=$(echo "$NOTE2" | sed "s/[’‘]/'/g" | sed 's/[“”]/"/g')
-          echo "n2=$NOTE2" >> $GITHUB_OUTPUT
-          NOTE3=$(gen_note '${{ steps.cross.outputs.ref3 }}')
-          NOTE3=$(echo "$NOTE3" | sed "s/[’‘]/'/g" | sed 's/[“”]/"/g')
-          echo "n3=$NOTE3" >> $GITHUB_OUTPUT
-          NOTE4=$(gen_note '${{ steps.cross.outputs.ref4 }}')
-          NOTE4=$(echo "$NOTE4" | sed "s/[’‘]/'/g" | sed 's/[“”]/"/g')
-          echo "n4=$NOTE4" >> $GITHUB_OUTPUT
+          echo "n1=$(gen_note '${{ steps.cross.outputs.ref1 }}')" >> $GITHUB_OUTPUT
+          echo "n2=$(gen_note '${{ steps.cross.outputs.ref2 }}')" >> $GITHUB_OUTPUT
+          echo "n3=$(gen_note '${{ steps.cross.outputs.ref3 }}')" >> $GITHUB_OUTPUT
+          echo "n4=$(gen_note '${{ steps.cross.outputs.ref4 }}')" >> $GITHUB_OUTPUT
 
-          export LANG=en_US.UTF-8
-          export LC_ALL=en_US.UTF-8
 
       - name: Write YAML output (NO OPENAI verse, NO squigglies)
         run: |
