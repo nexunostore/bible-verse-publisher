@@ -174,7 +174,6 @@ jobs:
           # Write YAML
           echo "book: $BOOK" > "$FILE"
           echo "book_order: $BOOK_ORDER" >> "$FILE"
-          echo "group: $BOOK" >> "$FILE"
           echo "reference: \"${{ github.event.inputs.reference }}\"" >> "$FILE"
           echo "verse: >" >> "$FILE"
           echo "  ${{ steps.verse_text.outputs.text }}" >> "$FILE"
