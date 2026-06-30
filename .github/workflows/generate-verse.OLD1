@@ -166,37 +166,6 @@ jobs:
 
           BOOK_ORDER=${ORDER[$BOOK]}
 
-          # Book -> verse_group mapping
-          declare -A GROUPMAP=(
-            ["Genesis"]="torah" ["Exodus"]="torah" ["Leviticus"]="torah" ["Numbers"]="torah" ["Deuteronomy"]="torah"
-            ["Joshua"]="historical-books" ["Judges"]="historical-books" ["Ruth"]="historical-books"
-            ["1 Samuel"]="historical-books" ["2 Samuel"]="historical-books"
-            ["1 Kings"]="historical-books" ["2 Kings"]="historical-books"
-            ["1 Chronicles"]="historical-books" ["2 Chronicles"]="historical-books"
-            ["Ezra"]="historical-books" ["Nehemiah"]="historical-books" ["Esther"]="historical-books"
-            ["Job"]="wisdom-books" ["Psalms"]="wisdom-books" ["Proverbs"]="wisdom-books"
-            ["Ecclesiastes"]="wisdom-books" ["Song of Solomon"]="wisdom-books"
-            ["Isaiah"]="major-prophets" ["Jeremiah"]="major-prophets" ["Lamentations"]="major-prophets"
-            ["Ezekiel"]="major-prophets" ["Daniel"]="major-prophets"
-            ["Hosea"]="minor-prophets" ["Joel"]="minor-prophets" ["Amos"]="minor-prophets"
-            ["Obadiah"]="minor-prophets" ["Jonah"]="minor-prophets" ["Micah"]="minor-prophets"
-            ["Nahum"]="minor-prophets" ["Habakkuk"]="minor-prophets" ["Zephaniah"]="minor-prophets"
-            ["Haggai"]="minor-prophets" ["Zechariah"]="minor-prophets" ["Malachi"]="minor-prophets"
-            ["Matthew"]="gospels" ["Mark"]="gospels" ["Luke"]="gospels" ["John"]="gospels"
-            ["Acts"]="acts"
-            ["Romans"]="pauline-epistles" ["1 Corinthians"]="pauline-epistles" ["2 Corinthians"]="pauline-epistles"
-            ["Galatians"]="pauline-epistles" ["Ephesians"]="pauline-epistles" ["Philippians"]="pauline-epistles"
-            ["Colossians"]="pauline-epistles" ["1 Thessalonians"]="pauline-epistles" ["2 Thessalonians"]="pauline-epistles"
-            ["1 Timothy"]="pauline-epistles" ["2 Timothy"]="pauline-epistles" ["Titus"]="pauline-epistles"
-            ["Philemon"]="pauline-epistles"
-            ["Hebrews"]="general-epistles" ["James"]="general-epistles" ["1 Peter"]="general-epistles"
-            ["2 Peter"]="general-epistles" ["1 John"]="general-epistles" ["2 John"]="general-epistles"
-            ["3 John"]="general-epistles" ["Jude"]="general-epistles"
-            ["Revelation"]="revelation"
-          )
-
-          GROUP=${GROUPMAP[$BOOK]}
-
           IFS='|' read B1 C1 V1 <<< "${{ steps.split.outputs.p1 }}"
           IFS='|' read B2 C2 V2 <<< "${{ steps.split.outputs.p2 }}"
           IFS='|' read B3 C3 V3 <<< "${{ steps.split.outputs.p3 }}"
@@ -205,7 +174,7 @@ jobs:
           # Write YAML
           echo "book: $BOOK" > "$FILE"
           echo "book_order: $BOOK_ORDER" >> "$FILE"
-          echo "group: $GROUP" >> "$FILE"
+          echo "group: $BOOK" >> "$FILE"
           echo "reference: \"${{ github.event.inputs.reference }}\"" >> "$FILE"
           echo "verse: >" >> "$FILE"
           echo "  ${{ steps.verse_text.outputs.text }}" >> "$FILE"
