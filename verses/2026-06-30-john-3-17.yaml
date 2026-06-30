@@ -1,0 +1,25 @@
+book: John
+book_order: 43
+group: gospels
+reference: "John 3:17"
+verse: >
+  God sent his Son into the world not to judge the world, but to save the world through him.
+meaning: >
+  John 3:17 states, For God did not send His Son into the world to condemn the world, but that the world through Him might be saved. This verse emphasizes the primary mission of Jesus Christ: to bring salvation rather than condemnation. It reflects God's love and desire for reconciliation with humanity, highlighting that the focus of His redemptive plan is on offering grace and forgiveness, rather than judgment. Through faith in Christ, believers are given the opportunity to receive eternal life, demonstrating God’s intention for restoration and hope for all people.
+cross_refs:
+  - book: John
+    chapter: 5
+    verse: 38
+    note: "John 5:38 serves as a cross-reference because it emphasizes the importance of believing in the Scriptures as a testament to Jesus’ identity and divine authority, highlighting the theme of faith through revelation in God's Word across the biblical narrative."
+  - book: 1 John
+    chapter: 4
+    verse: 14
+    note: "1 John 4:14 serves as a cross-reference as it emphasizes the apostolic witness to the incarnation of Christ, affirming that salvation is found through the Son and highlighting the consistent biblical theme of God's love manifested in Jesus, which aligns with the broader narrative of redemption throughout Scripture."
+  - book: John
+    chapter: 10
+    verse: 36
+    note: "John 10:36 is a cross-reference because it highlights Jesus' divine identity and authority, as He asserts His Sonship in relation to God the Father, echoing the themes of divine sonship and mission found in Old Testament scriptures, particularly in passages that establish the relationship between God and His chosen representatives."
+  - book: John
+    chapter: 17
+    verse: 8
+    note: "John 17:8 serves as a cross-reference because it encapsulates Jesus' revelation of God's truth to His followers, echoing themes of divine authority and the impartation of knowledge seen throughout the Gospels, particularly in relation to the intimate relationship between the Father and the Son."
