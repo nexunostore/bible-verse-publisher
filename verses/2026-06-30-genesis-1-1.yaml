@@ -1,0 +1,25 @@
+book: Genesis
+book_order: 1
+group: torah
+reference: "Genesis 1:1"
+verse: >
+  In the beginning God created the heavens and the earth.
+meaning: >
+  Genesis 1:1 states, In the beginning God created the heavens and the earth, establishing the foundational belief that God is the sovereign Creator of all that exists. This verse emphasizes the concept of time (in the beginning), indicating the initiation of creation, and highlights God's pre-existence—prior to all created things. The phrase the heavens and the earth signifies the entirety of the universe, underscoring God's authority over all realms of creation. Thus, Genesis 1:1 not only asserts God's creative power but also sets the stage for understanding humanity's place within God's orderly and purposeful design.
+cross_refs:
+  - book: Mark
+    chapter: 13
+    verse: 19
+    note: "Mark 13:19, which speaks about the unprecedented tribulation during the end times, serves as a cross-reference to other biblical prophecies concerning the Day of the Lord, highlighting the severity of suffering that precedes Christ's return and reinforcing the urgency of vigilance and faithfulness among believers."
+  - book: Isaiah
+    chapter: 44
+    verse: 24
+    note: "Isaiah 44:24 emphasizes God's sovereignty as the Creator, stating that He formed the earth alone and stretched out the heavens by Himself, which serves as a cross-reference to the New Testament's affirmation of Christ's divine authority and creative power, particularly in John 1:3, where it is stated that all things were made through Him."
+  - book: Psalm
+    chapter: 124
+    verse: 8
+    note: "Psalm 124:8, which states, Our help is in the name of the Lord, the Maker of heaven and earth, serves as a cross-reference to emphasize the foundational belief in God's sovereignty and faithfulness as the ultimate source of salvation and protection, resonating throughout scripture, particularly in contexts of divine deliverance and assurance."
+  - book: Jeremiah
+    chapter: 51
+    verse: 15
+    note: "Jeremiah 51:15 is a cross-reference because it highlights God's sovereignty and creative power in the context of divine judgment, reinforcing themes found in other scriptures that emphasize His role as the ultimate architect of both creation and destruction."
