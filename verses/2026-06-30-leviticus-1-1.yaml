@@ -1,0 +1,25 @@
+book: Leviticus
+book_order: 3
+group: torah
+reference: "Leviticus 1:1"
+verse: >
+  The Lord called to Moses from the Tabernacle and said to him,
+meaning: >
+  Leviticus 1:1 states, The Lord called to Moses and spoke to him from the tent of meeting. This verse signifies the initiation of direct communication between God and Moses, emphasizing the importance of divine revelation in guiding the people of Israel. The tent of meeting represents God's dwelling place among His people, highlighting His desire for relationship and worship. This moment underscores the sanctity of God’s commands, which are central to the covenant community's identity and worship practices, establishing the framework for understanding the sacrificial system detailed in the book. Ultimately, this passage illustrates God's holiness and the need for His people to approach Him with reverence and obedience.
+cross_refs:
+  - book: Exodus
+    chapter: 40
+    verse: 34
+    note: "Exodus 40:34, which describes the cloud of God's glory filling the Tabernacle, serves as a cross-reference to emphasize God's dwelling presence among His people, paralleling the later New Testament revelation of Christ as Immanuel, meaning God with us (Matthew 1:23), signifying the fulfillment of God's promise to be intimately present with humanity."
+  - book: Exodus
+    chapter: 40
+    verse: 35
+    note: "Exodus 40:35, which describes the presence of the glory of the Lord filling the tabernacle, serves as a cross-reference to emphasize the significance of God's dwelling among His people, prefiguring the greater revelation of God's presence in Jesus Christ and the indwelling of the Holy Spirit in believers."
+  - book: Exodus
+    chapter: 29
+    verse: 42
+    note: "Exodus 29:42 highlights the continual nature of the sacrifices and the presence of God among His people, paralleling the sacrificial work of Christ as the ultimate offering that fulfills and transcends the Old Covenant, emphasizing the theme of God's ongoing relationship with humanity through atonement."
+  - book: Exodus
+    chapter: 19
+    verse: 3
+    note: "Exodus 19:3 serves as a cross-reference because it highlights God's covenantal relationship with Israel, emphasizing His call for His people to listen and respond to Him, a theme echoed throughout scripture as it reinforces God's desire for intimacy and obedience from those He redeems."
