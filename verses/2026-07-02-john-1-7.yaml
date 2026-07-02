@@ -1,0 +1,25 @@
+book: John
+book_order: 43
+group: gospels
+reference: "John 1:7"
+verse: >
+   to tell about the light so that everyone might believe because of his testimony.
+meaning: >
+  John 1:7 states, He came as a witness to testify concerning that light, so that through him all might believe. This verse emphasizes the role of John the Baptist as a forerunner of Christ, whose primary purpose was to bear witness to Jesus, the true Light that brings salvation. The term light symbolizes the revelation of God and the truth found in Christ, who illuminates the path to eternal life. John's testimony is crucial, as it serves as a spiritual invitation for all people to believe in Jesus and receive the transformative power of faith. In essence, this verse underscores the importance of witness in the Christian faith, pointing to the necessity of proclaiming the truth of Christ to foster belief among humanity.
+cross_refs:
+  - book: 2 Peter
+    chapter: 3
+    verse: 9
+    note: "2 Peter 3:9 emphasizes God's patience and desire for all to come to repentance, making it a cross-reference to God's inclusive redemptive plan as seen in passages like John 3:16, which highlights His intention for salvation to be available to everyone."
+  - book: John
+    chapter: 5
+    verse: 33
+    note: "John 5:33, where Jesus mentions that John the Baptist bore witness to the truth, serves as a cross-reference to highlight the theme of divine testimony and affirmation in Scripture, illustrating that Jesus’ mission and identity are consistently validated by prophetic voices throughout the biblical narrative."
+  - book: John
+    chapter: 5
+    verse: 34
+    note: "John 5:34, which states that Jesus does not receive testimony from man, emphasizes His divine authority and mission, making it a cross-reference to Old Testament prophecies and Jesus’ own assertions about His identity and the source of His validation (e.g., Isaiah 42:1), thereby linking the New Testament revelation of Christ with the foundational truths of Scripture."
+  - book: John
+    chapter: 5
+    verse: 35
+    note: "John 5:35 refers to John the Baptist as a burning and shining lamp, symbolizing his role as a forerunner to Christ who reflects the true light of the world, making it a cross-reference to passages that emphasize Jesus as the ultimate light and revelation of God (such as John 1:4-9)."
