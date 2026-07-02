@@ -44,23 +44,18 @@ jobs:
           echo "{\"title\":\"$TITLE\",\"slug\":\"$SLUG\",\"status\":\"publish\",\"content\":$CONTENT}" > post.json
 
 
-      - name: Publish all new posts
+      - name: Publish new posts
         run: |
+          mkdir -p posted
+
           for FILE in posts/*.txt; do
+            [ -e "$FILE" ] || continue
+
             TITLE=$(head -n 1 "$FILE")
             CONTENT=$(tail -n +2 "$FILE" | jq -Rs .)
-            SLUG=$(echo "$TITLE" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
-            echo "Checking if '$SLUG' already exists on WordPress..."
-
-            EXISTS=$(curl -s \
-              -u "${WP_USERNAME}:${WP_PASSWORD}" \
-              "${WP_URL}/wp-json/wp/v2/posts?slug=${SLUG}")
-
-            if echo "$EXISTS" | grep -q "\"slug\":\"$SLUG\""; then
-              echo "Post '$SLUG' already exists. Skipping."
-              continue
-            fi
+            BASENAME=$(basename "$FILE" .txt)
+            SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
 
             echo "Publishing new post: $TITLE"
 
@@ -69,7 +64,11 @@ jobs:
               -H "Content-Type: application/json" \
               -d "{\"title\":\"$TITLE\",\"slug\":\"$SLUG\",\"status\":\"publish\",\"content\":$CONTENT}" \
               "${WP_URL}/wp-json/wp/v2/posts"
+
+            echo "Moving $FILE to posted/"
+            mv "$FILE" posted/
           done
+
 
         env:
           WP_URL: ${{ secrets.WP_URL }}
