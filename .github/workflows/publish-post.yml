@@ -13,21 +13,32 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      - name: Find newest post file
+        id: findfile
+        run: |
+          FILE=$(ls -t posts/*.txt | head -n 1)
+          echo "file=$FILE" >> $GITHUB_OUTPUT
+
       - name: Prepare post
         id: prep
         run: |
-          FILE=$(ls posts/*.txt | head -n 1)
+          FILE="${{ steps.findfile.outputs.file }}"
 
-          # First line = title
+          if [ ! -f "$FILE" ]; then
+            echo "No post file found."
+            exit 1
+          fi
+
           TITLE=$(head -n 1 "$FILE")
-
-          # Everything else = content
           CONTENT=$(tail -n +2 "$FILE" | jq -Rs .)
 
-          # Auto slug: lowercase + hyphens
           SLUG=$(echo "$TITLE" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
-          # Build JSON
           echo "{\"title\":\"$TITLE\",\"slug\":\"$SLUG\",\"status\":\"publish\",\"content\":$CONTENT}" > post.json
 
       - name: Publish to WordPress
