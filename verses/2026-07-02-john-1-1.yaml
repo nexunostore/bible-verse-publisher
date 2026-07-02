@@ -1,0 +1,25 @@
+book: John
+book_order: 43
+group: gospels
+reference: "John 1:1"
+verse: >
+  In the beginning the Word already existed.The Word was with God,and the Word was God.
+meaning: >
+  John 1:1 states, In the beginning was the Word, and the Word was with God, and the Word was God. This verse establishes the preexistence of Christ, affirming that He existed before creation as a distinct person but fully united with God the Father in essence and nature. The term Word (Logos) signifies Christ as the divine reason and creative order, indicating His active role in creation and revelation. The verse emphasizes both the intimate relationship between Christ and God and His divine status, laying the foundation for understanding the Trinity and the nature of Jesus as fully God and fully man. This establishes the fundamental Christian belief in the divinity of Christ and underscores His vital role in the salvation narrative.
+cross_refs:
+  - book: Revelation
+    chapter: 1
+    verse: 17
+    note: "Revelation 1:17, where John falls at the feet of the resurrected Christ and is reassured with phrases like Do not be afraid, serves as a cross-reference to similar encounters in Scripture, such as Daniel 10:7-12, highlighting the continuity of divine revelation and the call to fearless worship in the presence of God's holiness."
+  - book: John
+    chapter: 20
+    verse: 28
+    note: "John 20:28, where Thomas declares Jesus as My Lord and my God, serves as a cross-reference because it reinforces the divinity of Christ, aligning with theological themes of the Incarnation and the nature of Jesus as both fully God and fully human, which is foundational in Christian doctrine."
+  - book: Hebrews
+    chapter: 13
+    verse: 8
+    note: "Hebrews 13:8, which states Jesus Christ is the same yesterday and today and forever, serves as a theological cross-reference to emphasize the unchanging nature of Christ's divine character and his eternal promise, affirming the consistency of God's faithfulness throughout history and across different eras of believers' lives."
+  - book: Revelation
+    chapter: 1
+    verse: 2
+    note: "Revelation 1:2 serves as a cross-reference because it highlights the prophetic nature of the visions received by John, emphasizing the importance of divine revelation and the witness of Jesus Christ, which echoes themes found throughout Scripture where God's messages are conveyed through designated prophets."
