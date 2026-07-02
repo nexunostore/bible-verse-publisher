@@ -43,7 +43,6 @@ jobs:
 
           echo "{\"title\":\"$TITLE\",\"slug\":\"$SLUG\",\"status\":\"publish\",\"content\":$CONTENT}" > post.json
 
-
       - name: Publish new posts
         run: |
           mkdir -p posted
@@ -51,25 +50,29 @@ jobs:
           for FILE in posts/*.txt; do
             [ -e "$FILE" ] || continue
 
-            TITLE=$(head -n 1 "$FILE")
-            CONTENT=$(tail -n +2 "$FILE" | jq -Rs .)
+            # Title = line 1
+            TITLE=$(sed -n '1p' "$FILE")
+
+            # Categories = line 2 (strip "categories:" and spaces)
+            CATEGORY_LINE=$(sed -n '2p' "$FILE" | sed 's/categories://I')
+            CATEGORIES=$(echo "$CATEGORY_LINE" | tr -d ' ')
+
+            # Content = everything after line 2
+            CONTENT=$(tail -n +3 "$FILE" | jq -Rs .)
 
             BASENAME=$(basename "$FILE" .txt)
             SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
 
-            echo "Publishing new post: $TITLE"
+            echo "Publishing new post: $TITLE with categories: $CATEGORIES"
 
             curl -X POST \
               -u "${WP_USERNAME}:${WP_PASSWORD}" \
               -H "Content-Type: application/json" \
-              -d "{\"title\":\"$TITLE\",\"slug\":\"$SLUG\",\"status\":\"publish\",\"content\":$CONTENT}" \
+              -d "{\"title\":\"$TITLE\",\"slug\":\"$SLUG\",\"status\":\"publish\",\"categories\":[$CATEGORIES],\"content\":$CONTENT}" \
               "${WP_URL}/wp-json/wp/v2/posts"
 
-            echo "Moving $FILE to posted/"
             mv "$FILE" posted/
           done
-
-
         env:
           WP_URL: ${{ secrets.WP_URL }}
           WP_USERNAME: ${{ secrets.WP_USERNAME }}
