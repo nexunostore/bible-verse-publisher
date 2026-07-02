@@ -1,0 +1,43 @@
+name: "Publish Post"
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "posts/*.txt"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Prepare post
+        id: prep
+        run: |
+          FILE=$(ls posts/*.txt | head -n 1)
+
+          # First line = title
+          TITLE=$(head -n 1 "$FILE")
+
+          # Everything else = content
+          CONTENT=$(tail -n +2 "$FILE" | jq -Rs .)
+
+          # Auto slug: lowercase + hyphens
+          SLUG=$(echo "$TITLE" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
+
+          # Build JSON
+          echo "{\"title\":\"$TITLE\",\"slug\":\"$SLUG\",\"status\":\"publish\",\"content\":$CONTENT}" > post.json
+
+      - name: Publish to WordPress
+        run: |
+          curl -X POST \
+            -u "${WP_USER}:${WP_APP_PASS}" \
+            -H "Content-Type: application/json" \
+            -d @post.json \
+            "${WP_URL}/wp-json/wp/v2/posts"
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASS: ${{ secrets.WP_APP_PASS }}
