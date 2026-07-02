@@ -1,10 +1,9 @@
-name: "Publish Post"
+name: Publish Post
 
 on:
   push:
-    branches: [main]
     paths:
-      - "posts/*.txt"
+      - "posts/**/*.txt"
 
 jobs:
   publish:
@@ -29,14 +28,8 @@ jobs:
         run: |
           FILE="${{ steps.findfile.outputs.file }}"
 
-          if [ ! -f "$FILE" ]; then
-            echo "No post file found."
-            exit 1
-          fi
-
           TITLE=$(head -n 1 "$FILE")
           CONTENT=$(tail -n +2 "$FILE" | jq -Rs .)
-
           SLUG=$(echo "$TITLE" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
           echo "{\"title\":\"$TITLE\",\"slug\":\"$SLUG\",\"status\":\"publish\",\"content\":$CONTENT}" > post.json
@@ -44,11 +37,11 @@ jobs:
       - name: Publish to WordPress
         run: |
           curl -X POST \
-            -u "${WP_USER}:${WP_APP_PASS}" \
+            -u "${WP_USERNAME}:${WP_PASSWORD}" \
             -H "Content-Type: application/json" \
             -d @post.json \
             "${WP_URL}/wp-json/wp/v2/posts"
         env:
           WP_URL: ${{ secrets.WP_URL }}
-          WP_USER: ${{ secrets.WP_USER }}
-          WP_APP_PASS: ${{ secrets.WP_APP_PASS }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
