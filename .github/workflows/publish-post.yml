@@ -29,10 +29,20 @@ jobs:
           FILE="${{ steps.findfile.outputs.file }}"
 
           TITLE=$(head -n 1 "$FILE")
-          CONTENT=$(tail -n +2 "$FILE" | jq -Rs .)
+
+          # Convert text to HTML paragraphs
+          CONTENT=$(tail -n +2 "$FILE" \
+            | sed '/^$/d' \
+            | sed 's/^## \(.*\)$/<h2>\1<\/h2>/' \
+            | sed 's/^# \(.*\)$/<h1>\1<\/h1>/' \
+            | sed 's/^/<p>/' \
+            | sed 's/$/<\/p>/' \
+            | jq -Rs .)
+
           SLUG=$(echo "$TITLE" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
 
           echo "{\"title\":\"$TITLE\",\"slug\":\"$SLUG\",\"status\":\"publish\",\"content\":$CONTENT}" > post.json
+
 
       - name: Publish to WordPress
         run: |
