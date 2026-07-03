@@ -1,0 +1,25 @@
+book: Mark
+book_order: 41
+group: gospels
+reference: "Mark 1:24"
+verse: >
+  Saying, Let us alone; what have we to do with thee, thou Jesus of Nazareth? art thou come to destroy us? I know thee who thou art, the Holy One of God.
+meaning: >
+  In Mark 1:24, the unclean spirit identifies Jesus as the Holy One of God, acknowledging His divine authority and identity. This moment highlights the power of Jesus over unclean spirits and signifies the ongoing spiritual conflict between good and evil. The demon's recognition serves to establish Jesus' authority in the spiritual realm, affirming His role as the Messiah who has come to deliver humanity from sin and oppression. This episode underscores the theme of Jesus' divine mission, as He begins to reveal His identity and purpose in the world, which includes confronting and overcoming the forces of darkness.
+cross_refs:
+  - book: James
+    chapter: 2
+    verse: 19
+    note: "James 2:19, which states that even demons believe in God and shudder, serves as a cross-reference to emphasize that mere intellectual assent to faith is insufficient for genuine salvation, contrasting true faith that produces works with a feeble belief that lacks transformative action."
+  - book: Acts
+    chapter: 4
+    verse: 27
+    note: "Acts 4:27 is a cross-reference to Psalm 2:1-2, as both passages emphasize the confluence of earthly rulers and leaders conspiring against God's anointed, highlighting the fulfillment of prophetic scripture in the context of Christ's suffering and the opposition faced by the early Church."
+  - book: Luke
+    chapter: 1
+    verse: 35
+    note: "Luke 1:35, which describes the Holy Spirit's role in the miraculous conception of Jesus, serves as a cross-reference to Genesis 1:2 and Matthew 1:20, highlighting the divine involvement of the Spirit in creation and incarnation, affirming the mystery of the Trinity in the fulfillment of God's redemptive plan."
+  - book: Matthew
+    chapter: 2
+    verse: 23
+    note: "Matthew 2:23, which states that Jesus would be called a Nazarene, serves as a cross-reference highlighting the fulfillment of prophecies regarding the Messiah's humble origins and the rejection he would face, linking to themes of suffering and the paradox of divine greatness expressed through lowliness."
