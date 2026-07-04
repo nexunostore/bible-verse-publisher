@@ -1,0 +1,25 @@
+book: John
+book_order: 43
+group: gospels
+reference: "John 2:19"
+verse: >
+  Jesus answered and said unto them, Destroy this temple, and in three days I will raise it up.
+meaning: >
+  In John 2:19, when Jesus refers to the destruction of the temple and his ability to raise it up in three days, he is speaking of his body as the true temple, not the physical structure of the Jerusalem temple. This statement signifies the transition from the old covenant, centered around the temple's rites and rituals, to the new covenant, established through Jesus' death and resurrection. By asserting that he would raise the temple, Jesus foreshadows his resurrection, demonstrating his authority over life and death and the fulfillment of God's redemptive plan. Ultimately, this passage emphasizes that true worship and God's presence are now found in Christ, rather than in a physical location.  
+cross_refs:
+  - book: Acts
+    chapter: 2
+    verse: 32
+    note: "Acts 2:32, which states, \"This Jesus God raised up, and of that we all are witnesses,\" serves as a cross-reference to the resurrection narratives found in the Gospels, highlighting the foundational Christian belief in Jesus' resurrection as a divine confirmation of His messianic identity and the promise of eternal life for believers.  "
+  - book: Acts
+    chapter: 3
+    verse: 26
+    note: "Acts 3:26, which states that God raised His servant and sent Him to bless the people by turning them from their wickedness, serves as a cross-reference to highlight the continuity of God's redemptive plan through Jesus as the fulfillment of Old Testament prophecy, emphasizing themes of repentance and restoration central to the Gospel.  "
+  - book: Romans
+    chapter: 8
+    verse: 11
+    note: "Romans 8:11 is a cross-reference because it underscores the transformative power of the Holy Spirit, who not only resurrects Christ from the dead but also brings life to believers, affirming the promise of eternal life and the hope of resurrection in the Christian faith.  "
+  - book: 1 Peter
+    chapter: 3
+    verse: 18
+    note: "1 Peter 3:18 serves as a cross-reference because it succinctly encapsulates the foundational Christian belief in Christ's sacrificial atonement, emphasizing His suffering for sins and the reconciliation of humanity to God through His death and resurrection, thereby reflecting the core message of the Gospel found throughout the New Testament.  "
