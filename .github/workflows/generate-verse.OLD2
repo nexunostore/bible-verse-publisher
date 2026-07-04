@@ -130,7 +130,8 @@ jobs:
           echo "n3=$(gen_note '${{ steps.cross.outputs.ref3 }}')" >> $GITHUB_OUTPUT
           echo "n4=$(gen_note '${{ steps.cross.outputs.ref4 }}')" >> $GITHUB_OUTPUT
 
-      - name: Write YAML output (heredoc-safe)
+
+      - name: Write YAML output (NO OPENAI verse, NO squigglies)
         run: |
           BOOK="${{ steps.parse.outputs.book }}"
           CHAPTER="${{ steps.parse.outputs.chapter }}"
@@ -201,39 +202,36 @@ jobs:
           IFS='|' read B3 C3 V3 <<< "${{ steps.split.outputs.p3 }}"
           IFS='|' read B4 C4 V4 <<< "${{ steps.split.outputs.p4 }}"
 
-          N1="${{ steps.notes.outputs.n1 }}"
-          N2="${{ steps.notes.outputs.n2 }}"
-          N3="${{ steps.notes.outputs.n3 }}"
-          N4="${{ steps.notes.outputs.n4 }}"
+          # Write YAML
+          echo "book: $BOOK" > "$FILE"
+          echo "book_order: $BOOK_ORDER" >> "$FILE"
+          echo "group: $GROUP" >> "$FILE"
+          echo "reference: \"${{ github.event.inputs.reference }}\"" >> "$FILE"
+          echo "verse: >" >> "$FILE"
+          echo "  ${{ steps.verse_text.outputs.text }}" >> "$FILE"
+          echo "meaning: >" >> "$FILE"
+          echo "  ${{ steps.meaning.outputs.meaning }}" >> "$FILE"
+          echo "cross_refs:" >> "$FILE"
 
-          {
-            printf '%s\n' "book: $BOOK"
-            printf '%s\n' "book_order: $BOOK_ORDER"
-            printf '%s\n' "group: $GROUP"
-            printf '%s\n' "reference: \"${{ github.event.inputs.reference }}\""
-            printf '%s\n' 'verse: >'
-            printf '%s\n' "  ${{ steps.verse_text.outputs.text }}"
-            printf '%s\n' 'meaning: >'
-            printf '%s\n' "  ${{ steps.meaning.outputs.meaning }}"
-            printf '%s\n' 'cross_refs:'
-            printf '%s\n' "  - book: $B1"
-            printf '%s\n' "    chapter: $C1"
-            printf '%s\n' "    verse: $V1"
-            printf '%s\n' "    note: \"$N1\""
-            printf '%s\n' "  - book: $B2"
-            printf '%s\n' "    chapter: $C2"
-            printf '%s\n' "    verse: $V2"
-            printf '%s\n' "    note: \"$N2\""
-            printf '%s\n' "  - book: $B3"
-            printf '%s\n' "    chapter: $C3"
-            printf '%s\n' "    verse: $V3"
-            printf '%s\n' "    note: \"$N3\""
-            printf '%s\n' "  - book: $B4"
-            printf '%s\n' "    chapter: $C4"
-            printf '%s\n' "    verse: $V4"
-            printf '%s\n' "    note: \"$N4\""
-          } > "$FILE"
+          echo "  - book: $B1" >> "$FILE"
+          echo "    chapter: $C1" >> "$FILE"
+          echo "    verse: $V1" >> "$FILE"
+          echo "    note: \"${{ steps.notes.outputs.n1 }}\"" >> "$FILE"
 
+          echo "  - book: $B2" >> "$FILE"
+          echo "    chapter: $C2" >> "$FILE"
+          echo "    verse: $V2" >> "$FILE"
+          echo "    note: \"${{ steps.notes.outputs.n2 }}\"" >> "$FILE"
+
+          echo "  - book: $B3" >> "$FILE"
+          echo "    chapter: $C3" >> "$FILE"
+          echo "    verse: $V3" >> "$FILE"
+          echo "    note: \"${{ steps.notes.outputs.n3 }}\"" >> "$FILE"
+
+          echo "  - book: $B4" >> "$FILE"
+          echo "    chapter: $C4" >> "$FILE"
+          echo "    verse: $V4" >> "$FILE"
+          echo "    note: \"${{ steps.notes.outputs.n4 }}\"" >> "$FILE"
 
       - name: Commit verse file
         run: |
