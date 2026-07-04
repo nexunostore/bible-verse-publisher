@@ -1,0 +1,25 @@
+book: John
+book_order: 43
+group: gospels
+reference: "John 1:33"
+verse: >
+  And I knew him not: but he that sent me to baptize with water, the same said unto me, Upon whom thou shalt see the Spirit descending, and remaining on him, the same is he which baptizeth with the Holy Ghost.
+meaning: >
+  In John 1:33, John the Baptist explains that he did not recognize Jesus as the Messiah until he witnessed the Spirit descending like a dove and remaining on Him. This signifies the divine confirmation of Jesus' identity and mission as the Son of God. The passage underscores the importance of divine revelation in recognizing Jesus’ true nature, and highlights the role of the Holy Spirit in affirming His public ministry. Ultimately, this verse emphasizes the relationship between the Father, the Spirit, and the Son, as well as the significance of Jesus' baptism in inaugurating His ministry and fulfilling God's redemptive plan.
+cross_refs:
+  - book: John
+    chapter: 3
+    verse: 5
+    note: "John 3:5, which emphasizes the necessity of being born of water and the Spirit for entering the kingdom of God, serves as a cross-reference to Ezekiel 36:25-27, where God promises spiritual renewal and cleansing through the Holy Spirit, highlighting the transformative nature of salvation that transcends physical birth."
+  - book: 1 Corinthians
+    chapter: 12
+    verse: 13
+    note: "1 Corinthians 12:13 emphasizes the unity of the body of Christ through the Spirit, highlighting the transformative act of baptism by which believers are spiritually incorporated into the communal body of the Church, making it a critical cross-reference for understanding the nature of Christian fellowship and the workings of the Holy Spirit."
+  - book: John
+    chapter: 3
+    verse: 34
+    note: "John 3:34, which asserts that For he whom God has sent utters the words of God, for he gives the Spirit without limit, serves as a theological cross-reference to highlight the divine authority and empowerment of Jesus as the ultimate messenger and revealer of God's will, affirming His unique relationship with the Holy Spirit and His role in the salvation narrative."
+  - book: Acts
+    chapter: 1
+    verse: 5
+    note: "Acts 1:5, which speaks of believers being baptized with the Holy Spirit, serves as a cross-reference to the promise of empowerment and indwelling of the Holy Spirit, highlighting the fulfillment of Jesus' teaching in John 14:17 and emphasizing the transformative power of God's presence in the life of believers."
