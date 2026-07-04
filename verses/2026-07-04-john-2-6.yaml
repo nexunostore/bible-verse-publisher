@@ -1,0 +1,25 @@
+book: John
+book_order: 43
+group: gospels
+reference: "John 2:6"
+verse: >
+  And there were set there six waterpots of stone, after the manner of the purifying of the Jews, containing two or three firkins apiece.
+meaning: >
+  John 2:6 states, Now there were six stone water jars there for the Jewish rites of purification, each holding twenty or thirty gallons. This verse highlights the context of Jesus' first miracle at the wedding in Cana, where He transformed water into wine. The jars, used for ritual washing, symbolize the old covenant practices of purification, which Jesus came to fulfill and surpass through His ministry. By using these jars for His miracle, John underscores Jesus’ authority to bring about a new understanding of purification and joy in the Kingdom of God, signifying a shift from the old rituals to the new life found in Him.
+cross_refs:
+  - book: Ephesians
+    chapter: 5
+    verse: 26
+    note: "Ephesians 5:26, which speaks of Christ sanctifying the church by cleansing her with the washing of water through the word, serves as a cross-reference to highlight the transformative power of God's Word and the intrinsic connection between spiritual renewal and the sacrament of baptism in the life of believers."
+  - book: Hebrews
+    chapter: 9
+    verse: 19
+    note: "Hebrews 9:19 serves as a cross-reference because it highlights the essential role of blood in the covenantal framework of scripture, illustrating how the sacrificial system established in the Old Testament foreshadows the ultimate sacrifice of Christ, which fulfills and transforms the meaning of atonement and purification for believers."
+  - book: Hebrews
+    chapter: 9
+    verse: 10
+    note: "Hebrews 9:10 serves as a cross-reference to illustrate the transition from the old covenant rituals, which were focused on external regulations and temporary cleansing, to the new covenant established by Christ, emphasizing the superiority of His sacrifice that brings lasting redemption."
+  - book: Hebrews
+    chapter: 10
+    verse: 22
+    note: "Hebrews 10:22 emphasizes approaching God with a sincere heart and full assurance of faith, which aligns with the theme of accessing divine presence through Christ's sacrifice, making it a cross-reference to passages that discuss the necessity of a pure heart and the transformative power of faith."
