@@ -1,0 +1,25 @@
+book: John
+book_order: 43
+group: gospels
+reference: "John 1:29"
+verse: >
+  The next day John seeth Jesus coming unto him, and saith, Behold the Lamb of God, which taketh away the sin of the world.
+meaning: >
+  John 1:29 states, Behold, the Lamb of God, who takes away the sin of the world! This verse identifies Jesus as the sacrificial Lamb, fulfilling the Old Testament typology of lambs offered for sin. It emphasizes His role in atonement, signifying that through His impending sacrifice, He will bear the sins of humanity, offering redemption and reconciliation with God. The declaration reflects the significance of Jesus' mission to provide salvation not just for Israel but for the entire world, highlighting the universality of His sacrificial love and grace. Thus, this passage encapsulates the core Christian belief in Jesus’ sacrificial death as essential for the forgiveness of sins.
+cross_refs:
+  - book: Revelation
+    chapter: 7
+    verse: 9
+    note: "Revelation 7:9 serves as a cross-reference because it depicts a diverse multitude from every nation, tribe, and language standing before the throne of God, underscoring the universal scope of salvation and the fulfillment of God's promise to gather His people from all corners of the earth."
+  - book: Revelation
+    chapter: 7
+    verse: 10
+    note: "Revelation 7:10, which proclaims salvation to God and the Lamb, serves as a cross-reference to numerous biblical texts emphasizing the central themes of redemption and worship, highlighting the culmination of God's salvific plan through Jesus Christ, which resonates throughout both the Old and New Testaments."
+  - book: Revelation
+    chapter: 13
+    verse: 8
+    note: "Revelation 13:8, which speaks of the Lamb slain from the foundation of the world, serves as a cross-reference highlighting the preordained plan of salvation through Christ's sacrifice, affirming God's sovereignty and foreknowledge as central themes in both the New and Old Testaments."
+  - book: Acts
+    chapter: 13
+    verse: 39
+    note: "Acts 13:39, which states that through him everyone who believes is justified from everything you could not be justified from by the law of Moses, serves as a cross-reference to the theme of justification by faith found in Romans 3:28, highlighting the transition from the law to grace through faith in Christ for salvation."
