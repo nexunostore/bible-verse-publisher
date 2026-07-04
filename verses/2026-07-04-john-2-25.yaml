@@ -1,0 +1,25 @@
+book: John
+book_order: 43
+group: gospels
+reference: "John 2:25"
+verse: >
+  And needed not that any should testify of man: for he knew what was in man.
+meaning: >
+  John 2:25 states that Jesus \"did not need anyone to testify about man, for he himself knew what was in man.\" This verse emphasizes the omniscience of Christ, affirming that He has a complete understanding of human nature and the innermost thoughts and intentions of individuals. Unlike humans, who may judge based on external appearances or limited knowledge, Jesus possesses divine insight into the hearts of people. This underscores His role as the Savior, who not only sees our sins but also comprehends our struggles and needs, inviting a personal relationship with Him based on authenticity and truth.  
+cross_refs:
+  - book: John
+    chapter: 6
+    verse: 64
+    note: "John 6:64, which states, \"Yet there are some of you who do not believe,\" is a cross-reference to reinforce the theme of predestination and the differing responses to Jesus' teaching, highlighting the tension between divine sovereignty and human disbelief, which is echoed in Romans 8:30 and 1 Peter 2:8.  "
+  - book: Matthew
+    chapter: 9
+    verse: 4
+    note: "Matthew 9:4, where Jesus discerns the thoughts of the Pharisees, serves as a cross-reference to illustrate His divine authority and omniscience, affirming His identity as the Son of God who knows the hearts of humanity.  "
+  - book: John
+    chapter: 13
+    verse: 11
+    note: "John 13:11 states, \"For he knew who would betray him; that is why he said not everyone was clean,\" highlighting Jesus' foreknowledge of Judas's betrayal, which parallels other scriptural themes of divine omniscience and the nature of true spiritual cleanliness, making it a significant cross-reference to discussions on betrayal and divine insight found throughout the Gospels.  "
+  - book: John
+    chapter: 6
+    verse: 61
+    note: "John 6:61 serves as a cross-reference because it highlights Jesus' awareness of the doubts and difficulties faced by His followers in understanding His teaching on the Bread of Life, reflecting the broader theme of faith and comprehension that is central to Christian theology.  "
