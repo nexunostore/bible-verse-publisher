@@ -141,99 +141,38 @@ jobs:
 
           mkdir -p verses
 
-          # Canonical book order
-          declare -A ORDER=(
-            ["Genesis"]=1 ["Exodus"]=2 ["Leviticus"]=3 ["Numbers"]=4 ["Deuteronomy"]=5
-            ["Joshua"]=6 ["Judges"]=7 ["Ruth"]=8 ["1 Samuel"]=9 ["2 Samuel"]=10
-            ["1 Kings"]=11 ["2 Kings"]=12 ["1 Chronicles"]=13 ["2 Chronicles"]=14
-            ["Ezra"]=15 ["Nehemiah"]=16 ["Esther"]=17
-            ["Job"]=18 ["Psalms"]=19 ["Proverbs"]=20 ["Ecclesiastes"]=21 ["Song of Solomon"]=22
-            ["Isaiah"]=23 ["Jeremiah"]=24 ["Lamentations"]=25 ["Ezekiel"]=26 ["Daniel"]=27
-            ["Hosea"]=28 ["Joel"]=29 ["Amos"]=30 ["Obadiah"]=31 ["Jonah"]=32
-            ["Micah"]=33 ["Nahum"]=34 ["Habakkuk"]=35 ["Zephaniah"]=36
-            ["Haggai"]=37 ["Zechariah"]=38 ["Malachi"]=39
-            ["Matthew"]=40 ["Mark"]=41 ["Luke"]=42 ["John"]=43
-            ["Acts"]=44
-            ["Romans"]=45 ["1 Corinthians"]=46 ["2 Corinthians"]=47 ["Galatians"]=48
-            ["Ephesians"]=49 ["Philippians"]=50 ["Colossians"]=51
-            ["1 Thessalonians"]=52 ["2 Thessalonians"]=53 ["1 Timothy"]=54
-            ["2 Timothy"]=55 ["Titus"]=56 ["Philemon"]=57
-            ["Hebrews"]=58 ["James"]=59 ["1 Peter"]=60 ["2 Peter"]=61
-            ["1 John"]=62 ["2 John"]=63 ["3 John"]=64 ["Jude"]=65
-            ["Revelation"]=66
-          )
-
-          BOOK_ORDER=${ORDER[$BOOK]}
-
-          # Book -> verse_group mapping
-          declare -A GROUPMAP=(
-            ["Genesis"]="torah" ["Exodus"]="torah" ["Leviticus"]="torah" ["Numbers"]="torah" ["Deuteronomy"]="torah"
-            ["Joshua"]="historical-books" ["Judges"]="historical-books" ["Ruth"]="historical-books"
-            ["1 Samuel"]="historical-books" ["2 Samuel"]="historical-books"
-            ["1 Kings"]="historical-books" ["2 Kings"]="historical-books"
-            ["1 Chronicles"]="historical-books" ["2 Chronicles"]="historical-books"
-            ["Ezra"]="historical-books" ["Nehemiah"]="historical-books" ["Esther"]="historical-books"
-            ["Job"]="wisdom-books" ["Psalms"]="wisdom-books" ["Proverbs"]="wisdom-books"
-            ["Ecclesiastes"]="wisdom-books" ["Song of Solomon"]="wisdom-books"
-            ["Isaiah"]="major-prophets" ["Jeremiah"]="major-prophets" ["Lamentations"]="major-prophets"
-            ["Ezekiel"]="major-prophets" ["Daniel"]="major-prophets"
-            ["Hosea"]="minor-prophets" ["Joel"]="minor-prophets" ["Amos"]="minor-prophets"
-            ["Obadiah"]="minor-prophets" ["Jonah"]="minor-prophets" ["Micah"]="minor-prophets"
-            ["Nahum"]="minor-prophets" ["Habakkuk"]="minor-prophets" ["Zephaniah"]="minor-prophets"
-            ["Haggai"]="minor-prophets" ["Zechariah"]="minor-prophets" ["Malachi"]="minor-prophets"
-            ["Matthew"]="gospels" ["Mark"]="gospels" ["Luke"]="gospels" ["John"]="gospels"
-            ["Acts"]="acts"
-            ["Romans"]="pauline-epistles" ["1 Corinthians"]="pauline-epistles" ["2 Corinthians"]="pauline-epistles"
-            ["Galatians"]="pauline-epistles" ["Ephesians"]="pauline-epistles" ["Philippians"]="pauline-epistles"
-            ["Colossians"]="pauline-epistles" ["1 Thessalonians"]="pauline-epistles" ["2 Thessalonians"]="pauline-epistles"
-            ["1 Timothy"]="pauline-epistles" ["2 Timothy"]="pauline-epistles" ["Titus"]="pauline-epistles"
-            ["Philemon"]="pauline-epistles"
-            ["Hebrews"]="general-epistles" ["James"]="general-epistles" ["1 Peter"]="general-epistles"
-            ["2 Peter"]="general-epistles" ["1 John"]="general-epistles" ["2 John"]="general-epistles"
-            ["3 John"]="general-epistles" ["Jude"]="general-epistles"
-            ["Revelation"]="revelation"
-          )
-
-          GROUP=${GROUPMAP[$BOOK]}
-
           IFS='|' read B1 C1 V1 <<< "${{ steps.split.outputs.p1 }}"
           IFS='|' read B2 C2 V2 <<< "${{ steps.split.outputs.p2 }}"
           IFS='|' read B3 C3 V3 <<< "${{ steps.split.outputs.p3 }}"
           IFS='|' read B4 C4 V4 <<< "${{ steps.split.outputs.p4 }}"
 
-          N1="${{ steps.notes.outputs.n1 }}"
-          N2="${{ steps.notes.outputs.n2 }}"
-          N3="${{ steps.notes.outputs.n3 }}"
-          N4="${{ steps.notes.outputs.n4 }}"
-
-          {
-            printf '%s\n' "book: $BOOK"
-            printf '%s\n' "book_order: $BOOK_ORDER"
-            printf '%s\n' "group: $GROUP"
-            printf '%s\n' "reference: \"${{ github.event.inputs.reference }}\""
-            printf '%s\n' 'verse: >'
-            printf '%s\n' "  ${{ steps.verse_text.outputs.text }}"
-            printf '%s\n' 'meaning: >'
-            printf '%s\n' "  ${{ steps.meaning.outputs.meaning }}"
-            printf '%s\n' 'cross_refs:'
-            printf '%s\n' "  - book: $B1"
-            printf '%s\n' "    chapter: $C1"
-            printf '%s\n' "    verse: $V1"
-            printf '%s\n' "    note: \"$N1\""
-            printf '%s\n' "  - book: $B2"
-            printf '%s\n' "    chapter: $C2"
-            printf '%s\n' "    verse: $V2"
-            printf '%s\n' "    note: \"$N2\""
-            printf '%s\n' "  - book: $B3"
-            printf '%s\n' "    chapter: $C3"
-            printf '%s\n' "    verse: $V3"
-            printf '%s\n' "    note: \"$N3\""
-            printf '%s\n' "  - book: $B4"
-            printf '%s\n' "    chapter: $C4"
-            printf '%s\n' "    verse: $V4"
-            printf '%s\n' "    note: \"$N4\""
-          } > "$FILE"
-
+          cat > "$FILE" <<EOF
+          book: $BOOK
+          book_order: ${ORDER[$BOOK]}
+          group: ${GROUPMAP[$BOOK]}
+          reference: "${{ github.event.inputs.reference }}"
+          verse: >
+            ${{ steps.verse_text.outputs.text }}
+          meaning: >
+            ${{ steps.meaning.outputs.meaning }}
+          cross_refs:
+            - book: $B1
+              chapter: $C1
+              verse: $V1
+              note: "${{ steps.notes.outputs.n1 }}"
+            - book: $B2
+              chapter: $C2
+              verse: $V2
+              note: "${{ steps.notes.outputs.n2 }}"
+            - book: $B3
+              chapter: $C3
+              verse: $V3
+              note: "${{ steps.notes.outputs.n3 }}"
+            - book: $B4
+              chapter: $C4
+              verse: $V4
+              note: "${{ steps.notes.outputs.n4 }}"
+          EOF
 
       - name: Commit verse file
         run: |
