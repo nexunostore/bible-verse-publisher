@@ -1,0 +1,25 @@
+book: John
+book_order: 43
+group: gospels
+reference: "John 1:39"
+verse: >
+  He saith unto them, Come and see. They came and saw where he dwelt, and abode with him that day: for it was about the tenth hour.
+meaning: >
+  In John 1:39, when Jesus invites the two disciples to Come and see, He is extending an open invitation to explore and experience His ministry personally. This moment illustrates the importance of personal encounter and relationship in the pursuit of faith, showing that understanding of Christ comes through direct engagement with Him. The disciples' willingness to follow and investigate leads to their transformation and the beginning of their discipleship. This invitation reflects the broader theme of the Gospel, where Jesus calls individuals into a deeper understanding of His identity and mission as the Son of God.
+cross_refs:
+  - book: John
+    chapter: 4
+    verse: 40
+    note: "John 4:40, which speaks of Jesus staying with the Samaritans after they welcomed Him, serves as a cross-reference to highlight themes of acceptance, the expansion of the Gospel beyond ethnic and cultural boundaries, and the fulfillment of the Messianic mission to all people, as seen in passages like Matthew 28:19, which commands the disciples to make disciples of all nations."
+  - book: Acts
+    chapter: 28
+    verse: 30
+    note: "Acts 28:30 serves as a cross-reference because it highlights the Apostle Paul's bold proclamation of the Kingdom of God and his teaching about Jesus Christ, which directly connects to the themes of divine fulfillment and the spread of the gospel outlined throughout the New Testament."
+  - book: Acts
+    chapter: 28
+    verse: 31
+    note: "Acts 28:31 is a cross-reference because it encapsulates the mission of the early Church in proclaiming the Kingdom of God and teaching with boldness about Jesus Christ, reflecting the fulfillment of the Great Commission and the ongoing spread of the Gospel."
+  - book: John
+    chapter: 6
+    verse: 37
+    note: "John 6:37, which states that All that the Father gives me will come to me, and whoever comes to me I will never drive away, highlights the divine assurance of salvation and the sovereign initiative of God in drawing individuals to Christ, reflecting the themes of grace and acceptance central to the New Covenant."
