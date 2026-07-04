@@ -1,0 +1,25 @@
+book: John
+book_order: 43
+group: gospels
+reference: "John 1:14"
+verse: >
+  And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth.
+meaning: >
+  John 1:14 states, And the Word became flesh and dwelt among us, and we have seen his glory, glory as of the only Son from the Father, full of grace and truth. This verse encapsulates the doctrine of the Incarnation, affirming that Jesus, who is identified as the Word (Logos), took on human form while retaining His divine nature. By dwelling among us, it emphasizes God's intimate participation in human existence, revealing His glory through Christ's life and ministry. The phrase full of grace and truth highlights the dual aspects of God's character, showcasing His unmerited favor toward humanity along with His faithfulness to His promises, ultimately demonstrating the salvific love of God through Jesus Christ.
+cross_refs:
+  - book: 2 John
+    chapter: 1
+    verse: 7
+    note: "2 John 1:7 is a cross-reference to John 14:6 because both verses emphasize the necessity of acknowledging Christ's truth and divinity as essential for salvation, underscoring the critical distinction between the teachings of Christ and those of false prophets."
+  - book: John
+    chapter: 17
+    verse: 22
+    note: "John 17:22 emphasizes the unity bestowed upon believers by Jesus, paralleling themes of communal oneness found in other scriptural passages, such as 1 Corinthians 12:12-13, which describes the church as one body in Christ, reinforcing the theological understanding of the interconnectedness of believers through the Holy Spirit."
+  - book: 1 Corinthians
+    chapter: 15
+    verse: 47
+    note: "1 Corinthians 15:47, which contrasts the earthly man Adam with the heavenly man Christ, serves as a cross-reference highlighting the transformative nature of salvation and resurrection in Christian theology, illustrating how through Christ, believers move from humanity's fallen state to a restored, glorified existence."
+  - book: Isaiah
+    chapter: 53
+    verse: 2
+    note: "Isaiah 53:2 highlights the humble and unremarkable appearance of the suffering servant, which serves as a cross-reference to the New Testament depiction of Jesus, who was also perceived as ordinary and despised, emphasizing the theme of divine strength manifesting through weakness and rejection."
