@@ -1,0 +1,29 @@
+book: John
+book_order: 0
+group: unknown
+reference: "John 3:5"
+verse: >
+  Jesus answered, Verily, verily, I say unto thee, Except a man be born of water and of the Spirit, he cannot enter into the kingdom of God.
+meaning: >
+  John 3:5 states, \"Jesus answered, 'Very truly I tell you, no one can enter the kingdom of God unless they are born of water and the Spirit.'\" This verse emphasizes the necessity of both spiritual and physical rebirth for entrance into God's kingdom. The \"water\" is commonly interpreted as a reference to baptism, symbolizing purification and the washing away of sin, while \"the Spirit\" signifies the transformative work of the Holy Spirit in regenerating the believer. Together, these elements underscore the dual requirement of faith and the new birth that enables a person to experience salvation and life in God's kingdom. Ultimately, this passage illustrates the holistic nature of spiritual transformation essential for a relationship with God.  
+cross_refs:
+  - book: 1 John
+    chapter: 5
+    verse: 1
+    note: "1 John 5:1, which emphasizes that \"everyone who believes that Jesus is the Christ is born of God,\" serves as a cross-reference to passages such as John 3:3, highlighting the essential connection between faith in Christ and spiritual rebirth, thus underscoring the doctrine of regeneration in Christian theology. "
+  - book: Mark
+    chapter: 16
+    verse: 16
+    note: "Mark 16:16, which states that \"whoever believes and is baptized will be saved, but whoever does not believe will be condemned,\" serves as a cross-reference to the broader New Testament theme of salvation through faith in Christ, emphasizing the essential connection between belief and the external expression of faith in baptism as a public declaration of one's commitment to the gospel. "
+  - book: Matthew
+    chapter: 28
+    verse: 19
+    note: "Matthew 28:19, which commands believers to baptize in the name of the Father, Son, and Holy Spirit, serves as a cross-reference to emphasize the Trinitarian nature of God and the Great Commission's call for discipleship and spiritual transformation in the Christian faith. "
+  - book: Matthew
+    chapter: 5
+    verse: 20
+    note: "Matthew 5:20 states, \"For I tell you that unless your righteousness surpasses that of the Pharisees and the teachers of the law, you will certainly not enter the kingdom of heaven,\" serving as a cross-reference to highlight the radical call for inner moral integrity and relational righteousness that exceeds mere external compliance, emphasizing the need for a transformative heart change aligned with God's character. "
+  - book: 2 Corinthians
+    chapter: 5
+    verse: 17
+    note: "2 Corinthians 5:17 serves as a cross-reference because it encapsulates the transformative power of salvation in Christ, indicating that believers are made new creations, which aligns with the broader themes of regeneration and renewal found throughout Scripture. "
