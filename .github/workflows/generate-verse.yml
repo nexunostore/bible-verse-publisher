@@ -95,10 +95,15 @@ jobs:
               | tr '\n' ' '
           }
 
+          # SANITIZE REF AGAIN (this fixes John 3:3)
+          REF=$(echo "${{ steps.parse.outputs.ref }}" \
+            | tr -d '\r' \
+            | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' \
+            | sed 's/ / /g')
+
           BOOK="${{ steps.parse.outputs.book }}"
           CHAPTER="${{ steps.parse.outputs.chapter }}"
           VERSE_NUM="${{ steps.parse.outputs.verse_num }}"
-          REF="${{ steps.parse.outputs.ref }}"
           LBOOK=$(echo "$BOOK" | tr '[:upper:]' '[:lower:]')
           DATE=$(date +%Y-%m-%d)
           FILE="verses/$DATE-$LBOOK-$CHAPTER-$VERSE_NUM.yaml"
