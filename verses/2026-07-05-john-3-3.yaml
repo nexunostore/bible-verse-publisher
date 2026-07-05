@@ -1,25 +1,13 @@
 book: John
-book_order: 43
-group: gospels
+book_order: 0
+group: unknown
 reference: "John 3:3"
 verse: >
   Jesus answered and said unto him, Verily, verily, I say unto thee, Except a man be born again, he cannot see the kingdom of God.
 meaning: >
-  John 3:3 states, \"Jesus replied, 'Very truly I tell you, no one can see the kingdom of God unless they are born again.'\" This verse emphasizes the necessity of spiritual rebirth for entrance into God's kingdom, indicating that physical birth alone is insufficient for eternal life. The term \"born again\" refers to a transformative work of the Holy Spirit, highlighting the need for a radical change in one's heart and nature. This concept underlines the importance of faith in Jesus Christ as the means through which individuals are spiritually regenerated, enabling them to experience a restored relationship with God and the hope of eternal life. Ultimately, Jesus teaches that true understanding and entrance into the kingdom comes through this divine act of regeneration rather than through human effort or achievement.  
+  In John 3:3, Jesus states, \"Truly, truly, I say to you, unless one is born again, he cannot see the kingdom of God.\" This passage emphasizes the necessity of spiritual rebirth, indicating that to enter the Kingdom of God, an individual must undergo a profound transformation that is initiated by God. The term \"born again\" signifies a radical change in one's spiritual state, moving from spiritual death to life through the Holy Spirit. This rebirth is foundational to Christian doctrine, highlighting the need for regeneration and the importance of faith in Jesus as the means through which this new life is granted. Ultimately, it underscores the impossibility of achieving salvation through human effort alone; it is entirely a work of divine grace.  
 cross_refs:
   - book: Ephesians
     chapter: 2
     verse: 1
-    note: "Ephesians 2:1, which discusses the spiritual death and separation from God that all humanity experiences due to sin, serves as a cross-reference to Genesis 2:17 and Romans 5:12, illustrating the continuity of the biblical narrative on humanity's fall and its need for divine redemption.  "
-  - book: 2 Corinthians
-    chapter: 4
-    verse: 4
-    note: "2 Corinthians 4:4 highlights the theme of spiritual blindness wrought by the god "
-  - book: 1 John
-    chapter: 2
-    verse: 29
-    note: "1 John 2:29, which states that everyone who practices righteousness is born of God, serves as a cross-reference to John 3:9, emphasizing the transformative nature of true faith that produces a life characterized by righteousness as evidence of one's spiritual rebirth in Christ.  "
-  - book: John
-    chapter: 1
-    verse: 51
-    note: "John 1:51, where Jesus proclaims that Nathanael will see \"heaven opened, and the angels of God ascending and descending on the Son of Man,\" serves as a cross-reference to Genesis 28:12, which depicts Jacob's dream of a ladder to heaven, highlighting Jesus as the ultimate link between heaven and earth, embodying the divine revelation and access to God.  "
+    note: "Ephesians 2:1, which states that we were dead in our trespasses and sins, serves as a cross-reference to the concept of spiritual death and the necessity of divine grace for salvation, echoing similar themes found in other scripture passages such as Romans 6:23 and Colossians 2:13. \n2 Corinthians 4:4"
