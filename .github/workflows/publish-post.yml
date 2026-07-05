@@ -1,9 +1,17 @@
-name: Publish Post
+name: Publish Chapter
 
 on:
-  push:
-    paths:
-      - "posts/**/*.txt"
+  workflow_dispatch:
+    inputs:
+      book:
+        description: "Enter book folder name (e.g., 1_John, Colossians, Apocrypha/Baruch)"
+        required: true
+        type: string
+
+      chapter:
+        description: "Enter chapter number (e.g., 1, 2, 3)"
+        required: true
+        type: string
 
 jobs:
   publish:
@@ -12,67 +20,44 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install jq
+      - name: Build file path
+        id: path
         run: |
-          sudo apt-get update
-          sudo apt-get install -y jq
+          BOOK="${{ github.event.inputs.book }}"
+          CHAPTER="${{ github.event.inputs.chapter }}"
 
-      - name: Find newest post file
-        id: findfile
-        run: |
-          FILE=$(ls -t posts/*.txt | head -n 1)
+          FILE="Daily_Chapter_Review/$BOOK/${BOOK}_SG_Chapter_${CHAPTER}.txt"
+
+          if [ ! -f "$FILE" ]; then
+            echo "File not found: $FILE"
+            exit 1
+          fi
+
           echo "file=$FILE" >> $GITHUB_OUTPUT
 
-      - name: Prepare post
+      - name: Prepare content
         id: prep
         run: |
-          FILE="${{ steps.findfile.outputs.file }}"
+          FILE="${{ steps.path.outputs.file }}"
 
           TITLE=$(head -n 1 "$FILE")
+          CATEGORY_LINE=$(sed -n '2p' "$FILE" | sed 's/categories://I')
+          CATEGORIES=$(echo "$CATEGORY_LINE" | tr -d ' ')
 
-          # Convert text to HTML paragraphs
-          CONTENT=$(tail -n +2 "$FILE" \
-            | sed '/^$/d' \
-            | sed 's/^## \(.*\)$/<h2>\1<\/h2>/' \
-            | sed 's/^# \(.*\)$/<h1>\1<\/h1>/' \
-            | sed 's/^/<p>/' \
-            | sed 's/$/<\/p>/' \
-            | jq -Rs .)
+          CONTENT=$(tail -n +3 "$FILE" | jq -Rs .)
 
-          SLUG=$(echo "$TITLE" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
+          BASENAME=$(basename "$FILE" .txt)
+          SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
 
-          echo "{\"title\":\"$TITLE\",\"slug\":\"$SLUG\",\"status\":\"publish\",\"content\":$CONTENT}" > post.json
+          echo "{\"title\":\"$TITLE\",\"slug\":\"$SLUG\",\"status\":\"publish\",\"categories\":[$CATEGORIES],\"content\":$CONTENT}" > post.json
 
-      - name: Publish new posts
+      - name: Publish
         run: |
-          mkdir -p posted
-
-          for FILE in posts/*.txt; do
-            [ -e "$FILE" ] || continue
-
-            # Title = line 1
-            TITLE=$(sed -n '1p' "$FILE")
-
-            # Categories = line 2 (strip "categories:" and spaces)
-            CATEGORY_LINE=$(sed -n '2p' "$FILE" | sed 's/categories://I')
-            CATEGORIES=$(echo "$CATEGORY_LINE" | tr -d ' ')
-
-            # Content = everything after line 2
-            CONTENT=$(tail -n +3 "$FILE" | jq -Rs .)
-
-            BASENAME=$(basename "$FILE" .txt)
-            SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
-
-            echo "Publishing new post: $TITLE with categories: $CATEGORIES"
-
-            curl -X POST \
-              -u "${WP_USERNAME}:${WP_PASSWORD}" \
-              -H "Content-Type: application/json" \
-              -d "{\"title\":\"$TITLE\",\"slug\":\"$SLUG\",\"status\":\"publish\",\"categories\":[$CATEGORIES],\"content\":$CONTENT}" \
-              "${WP_URL}/wp-json/wp/v2/posts"
-
-            mv "$FILE" posted/
-          done
+          curl -X POST \
+            -u "${WP_USERNAME}:${WP_PASSWORD}" \
+            -H "Content-Type: application/json" \
+            -d @post.json \
+            "${WP_URL}/wp-json/wp/v2/posts"
         env:
           WP_URL: ${{ secrets.WP_URL }}
           WP_USERNAME: ${{ secrets.WP_USERNAME }}
