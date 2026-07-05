@@ -131,7 +131,10 @@ jobs:
             NOTES="$NOTES$REF|$SAFE\n"
           done <<< "${{ steps.cross.outputs.list }}"
 
-          echo -e "notes=$NOTES" >> $GITHUB_OUTPUT
+          echo "notes<<EOF" >> $GITHUB_OUTPUT
+          echo "$NOTES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
 
       - name: Write YAML output (unlimited cross refs)
         run: |
