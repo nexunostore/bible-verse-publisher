@@ -44,7 +44,33 @@ jobs:
           CATEGORY_LINE=$(sed -n '2p' "$FILE" | sed 's/categories://I')
           CATEGORIES=$(echo "$CATEGORY_LINE" | tr -d ' ')
 
-          CONTENT=$(tail -n +3 "$FILE" | jq -Rs .)
+          # Build proper HTML paragraphs
+          CONTENT=$(tail -n +3 "$FILE" \
+            | awk '
+                BEGIN { paragraph="" }
+                {
+                  if (NF == 0) {
+                    if (paragraph != "") {
+                      print "<p>" paragraph "</p>"
+                      paragraph=""
+                    }
+                  } else {
+                    if (paragraph == "") {
+                      paragraph=$0
+                    } else {
+                      paragraph=paragraph " " $0
+                    }
+                  }
+                }
+                END {
+                  if (paragraph != "") {
+                    print "<p>" paragraph "</p>"
+                  }
+                }
+              ' \
+            | sed 's/^## \(.*\)$/<h2>\1<\/h2>/' \
+            | sed 's/^# \(.*\)$/<h1>\1<\/h1>/' \
+            | jq -Rs .)
 
           BASENAME=$(basename "$FILE" .txt)
           SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
