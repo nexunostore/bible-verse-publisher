@@ -48,20 +48,6 @@ jobs:
         id: verse_text
         run: echo "text=${{ github.event.inputs.verse }}" >> $GITHUB_OUTPUT
 
-      - name: Load ALL cross references
-        id: cross
-        run: |
-          REF="${{ steps.parse.outputs.ref }}"
-          DATA=$(cat data/bible_crossrefs_final.json)
-
-          LIST=$(echo "$DATA" | jq -r --arg ref "$REF" '.[$ref] // [] | .[]')
-
-          {
-            echo "list<<EOF"
-            echo "$LIST"
-            echo "EOF"
-          } >> $GITHUB_OUTPUT
-
       - name: Generate meaning using OpenAI
         id: meaning
         env:
@@ -95,48 +81,9 @@ jobs:
 
           echo "meaning=$SAFE" >> $GITHUB_OUTPUT
 
-      - name: Generate notes for ALL cross references
-        id: notes
+      - name: Write YAML output (unlimited cross refs, inline notes)
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          sanitize() {
-            echo "$1" \
-              | sed 's/"/\\"/g' \
-              | sed "s/’/'/g" \
-              | sed "s/‘/'/g" \
-              | sed 's/“/"/g' \
-              | sed 's/”/"/g' \
-              | tr '\n' ' '
-          }
-
-          NOTES=""
-          while IFS= read -r REF; do
-            [ -z "$REF" ] && continue
-
-            RESPONSE=$(curl -s https://api.openai.com/v1/chat/completions \
-              -H "Content-Type: application/json" \
-              -H "Authorization: Bearer $OPENAI_API_KEY" \
-              -d "{
-                \"model\": \"gpt-4o-mini\",
-                \"messages\": [{
-                  \"role\": \"user\",
-                  \"content\": \"Provide a one-sentence theological note explaining why this verse is a cross-reference: $REF\"
-                }]
-              }")
-
-            RAW=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
-            SAFE=$(sanitize "$RAW")
-
-            NOTES="$NOTES$REF|$SAFE\n"
-          done <<< "${{ steps.cross.outputs.list }}"
-
-          echo "notes<<EOF" >> $GITHUB_OUTPUT
-          echo "$NOTES" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-
-      - name: Write YAML output (unlimited cross refs)
         run: |
           sanitize() {
             echo "$1" \
@@ -151,6 +98,7 @@ jobs:
           BOOK="${{ steps.parse.outputs.book }}"
           CHAPTER="${{ steps.parse.outputs.chapter }}"
           VERSE_NUM="${{ steps.parse.outputs.verse_num }}"
+          REF="${{ steps.parse.outputs.ref }}"
           LBOOK=$(echo "$BOOK" | tr '[:upper:]' '[:lower:]')
           DATE=$(date +%Y-%m-%d)
           FILE="verses/$DATE-$LBOOK-$CHAPTER-$VERSE_NUM.yaml"
@@ -162,29 +110,43 @@ jobs:
           echo "book: $BOOK" > "$FILE"
           echo "book_order: 0" >> "$FILE"
           echo "group: unknown" >> "$FILE"
-          echo "reference: \"${{ steps.parse.outputs.ref }}\"" >> "$FILE"
+          echo "reference: \"$REF\"" >> "$FILE"
           echo "verse: >" >> "$FILE"
           echo "  ${{ steps.verse_text.outputs.text }}" >> "$FILE"
           echo "meaning: >" >> "$FILE"
           echo "  $SAFE_MEANING" >> "$FILE"
           echo "cross_refs:" >> "$FILE"
 
-          while IFS= read -r LINE; do
-            REF=$(echo "$LINE" | cut -d '|' -f 1)
-            NOTE=$(echo "$LINE" | cut -d '|' -f 2)
+          DATA=$(cat data/bible_crossrefs_final.json)
+          LIST=$(echo "$DATA" | jq -r --arg ref "$REF" '.[$ref] // [] | .[]')
 
-            [ -z "$REF" ] && continue
+          while IFS= read -r CREF; do
+            [ -z "$CREF" ] && continue
 
-            BOOK=$(echo "$REF" | sed 's/ [0-9].*//')
-            CH=$(echo "$REF" | sed 's/.* \([0-9][0-9]*\):.*/\1/')
-            VS=$(echo "$REF" | sed 's/.*:[ ]*\([0-9][0-9]*\).*/\1/')
+            NOTE_RESP=$(curl -s https://api.openai.com/v1/chat/completions \
+              -H "Content-Type: application/json" \
+              -H "Authorization: Bearer $OPENAI_API_KEY" \
+              -d "{
+                \"model\": \"gpt-4o-mini\",
+                \"messages\": [{
+                  \"role\": \"user\",
+                  \"content\": \"Provide a one-sentence theological note explaining why this verse is a cross-reference: $CREF\"
+                }]
+              }")
 
-            echo "  - book: $BOOK" >> "$FILE"
-            echo "    chapter: $CH" >> "$FILE"
-            echo "    verse: $VS" >> "$FILE"
-            echo "    note: \"$NOTE\"" >> "$FILE"
+            NOTE_RAW=$(echo "$NOTE_RESP" | jq -r '.choices[0].message.content')
+            NOTE_SAFE=$(sanitize "$NOTE_RAW")
 
-          done <<< "${{ steps.notes.outputs.notes }}"
+            CBOOK=$(echo "$CREF" | sed 's/ [0-9].*//')
+            CCH=$(echo "$CREF" | sed 's/.* \([0-9][0-9]*\):.*/\1/')
+            CVS=$(echo "$CREF" | sed 's/.*:[ ]*\([0-9][0-9]*\).*/\1/')
+
+            echo "  - book: $CBOOK" >> "$FILE"
+            echo "    chapter: $CCH" >> "$FILE"
+            echo "    verse: $CVS" >> "$FILE"
+            echo "    note: \"$NOTE_SAFE\"" >> "$FILE"
+
+          done <<< "$LIST"
 
       - name: Commit verse file
         run: |
