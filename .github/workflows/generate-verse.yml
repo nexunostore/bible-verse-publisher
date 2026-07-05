@@ -56,7 +56,11 @@ jobs:
 
           LIST=$(echo "$DATA" | jq -r --arg ref "$REF" '.[$ref] // [] | .[]')
 
-          echo "list=$LIST" >> $GITHUB_OUTPUT
+          {
+            echo "list<<EOF"
+            echo "$LIST"
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
 
       - name: Generate meaning using OpenAI
         id: meaning
