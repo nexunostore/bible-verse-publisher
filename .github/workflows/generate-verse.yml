@@ -61,13 +61,15 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          sanitize() {
+          # Meaning/verse text go into unquoted YAML block scalars (>),
+          # which do NOT interpret backslash escapes at all — so we only
+          # normalize curly quotes to straight ones here, no escaping.
+          normalize_quotes() {
             echo "$1" \
               | sed "s/’/'/g" \
               | sed "s/‘/'/g" \
               | sed 's/“/"/g' \
               | sed 's/”/"/g' \
-              | sed 's/"/\\"/g' \
               | tr '\n' ' '
           }
 
@@ -85,7 +87,7 @@ jobs:
             }")
 
           RAW=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
-          SAFE=$(sanitize "$RAW")
+          SAFE=$(normalize_quotes "$RAW")
 
           echo "meaning=$SAFE" >> $GITHUB_OUTPUT
 
@@ -94,7 +96,9 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          sanitize() {
+          # Notes go into quoted YAML strings (note: "..."), which DO
+          # interpret backslash escapes — so these need full escaping.
+          escape_for_yaml_string() {
             echo "$1" \
               | sed "s/’/'/g" \
               | sed "s/‘/'/g" \
@@ -114,7 +118,10 @@ jobs:
 
           mkdir -p verses
 
-          SAFE_MEANING=$(sanitize "${{ steps.meaning.outputs.meaning }}")
+          # Meaning was already normalized (not escaped) in the previous
+          # step — do not sanitize it again here, that was double-escaping
+          # it and leaving literal backslashes in the displayed text.
+          SAFE_MEANING="${{ steps.meaning.outputs.meaning }}"
 
           echo "book: $BOOK" > "$FILE"
           echo "book_order: 0" >> "$FILE"
@@ -153,7 +160,7 @@ jobs:
               }")
 
             NOTE_RAW=$(echo "$NOTE_RESP" | jq -r '.choices[0].message.content')
-            NOTE_SAFE=$(sanitize "$NOTE_RAW")
+            NOTE_SAFE=$(escape_for_yaml_string "$NOTE_RAW")
 
             CBOOK=$(echo "$CREF" | sed 's/ [0-9].*//')
             CCH=$(echo "$CREF" | sed 's/.* \([0-9][0-9]*\):.*/\1/')
