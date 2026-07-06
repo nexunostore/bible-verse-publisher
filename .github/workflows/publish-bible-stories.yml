@@ -17,11 +17,13 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Publish stories (idempotent via WP slug check)
+      - name: Publish stories (category names system)
         run: |
           set -e
 
-          echo "Scanning Bible_Stories folder..."
+          WP_AUTH="-u ${WP_USERNAME}:${WP_PASSWORD}"
+
+          echo "Scanning Bible_Stories..."
 
           find Bible_Stories -type f -name "*.txt" | while read -r file; do
 
@@ -30,18 +32,62 @@ jobs:
 
             TITLE=$(head -n 1 "$file" | tr -d '\r')
 
+            # -----------------------------
+            # CATEGORY PARSING (NAMES NOW)
+            # -----------------------------
             CATEGORY_LINE=$(sed -n '2p' "$file" | sed 's/categories://I')
-            CATEGORIES=$(echo "$CATEGORY_LINE" | tr -d ' ')
+            RAW_CATEGORIES=$(echo "$CATEGORY_LINE" | tr -d ' ')
 
+            IFS=',' read -ra CAT_ARRAY <<< "$RAW_CATEGORIES"
+
+            FINAL_CATEGORIES=""
+
+            for CAT in "${CAT_ARRAY[@]}"; do
+              CAT=$(echo "$CAT" | xargs)
+
+              if [ -z "$CAT" ]; then
+                continue
+              fi
+
+              echo "Checking category: $CAT"
+
+              # -----------------------------
+              # SEARCH CATEGORY BY NAME
+              # -----------------------------
+              SEARCH_RESULT=$(curl -s $WP_AUTH \
+                "${WP_URL}/wp-json/wp/v2/categories?search=$(echo $CAT | sed 's/ /%20/g')")
+
+              CAT_ID=$(echo "$SEARCH_RESULT" | jq -r '.[0].id // empty')
+
+              if [ -n "$CAT_ID" ]; then
+                echo "Found category '$CAT' with ID $CAT_ID"
+              else
+                echo "Category not found → creating: $CAT"
+
+                CREATE_RESULT=$(curl -s -X POST $WP_AUTH \
+                  -H "Content-Type: application/json" \
+                  -d "{\"name\":\"$CAT\"}" \
+                  "${WP_URL}/wp-json/wp/v2/categories")
+
+                CAT_ID=$(echo "$CREATE_RESULT" | jq -r '.id')
+
+                echo "Created category '$CAT' with ID $CAT_ID"
+              fi
+
+              FINAL_CATEGORIES="$FINAL_CATEGORIES,$CAT_ID"
+            done
+
+            FINAL_CATEGORIES=$(echo "$FINAL_CATEGORIES" | sed 's/^,//')
+
+            # -----------------------------
+            # SLUG (IDEMPOTENCY CHECK)
+            # -----------------------------
             BASENAME=$(basename "$file" .txt)
             SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
 
             echo "Slug: $SLUG"
 
-            # -----------------------------
-            # CHECK WORDPRESS (PREVENT DUPES)
-            # -----------------------------
-            EXISTING=$(curl -s -u "${WP_USERNAME}:${WP_PASSWORD}" \
+            EXISTING=$(curl -s $WP_AUTH \
               "${WP_URL}/wp-json/wp/v2/posts?slug=${SLUG}")
 
             if echo "$EXISTING" | grep -q "\"id\""; then
@@ -52,41 +98,20 @@ jobs:
             echo "Publishing new post..."
 
             # -----------------------------
-            # BUILD CONTENT
+            # CONTENT BUILD
             # -----------------------------
-            CONTENT=$(tail -n +3 "$file" \
-              | awk '
-                  BEGIN { paragraph="" }
-                  {
-                    if (NF == 0) {
-                      if (paragraph != "") {
-                        print "<p>" paragraph "</p>"
-                        paragraph=""
-                      }
-                    } else {
-                      if (paragraph == "") paragraph=$0
-                      else paragraph=paragraph " " $0
-                    }
-                  }
-                  END {
-                    if (paragraph != "") print "<p>" paragraph "</p>"
-                  }
-                ' \
-              | sed 's/^## \(.*\)$/<h2>\1<\/h2>/' \
-              | sed 's/^# \(.*\)$/<h1>\1<\/h1>/' \
-              | jq -Rs .)
+            CONTENT=$(tail -n +3 "$file" | jq -Rs .)
 
             # -----------------------------
             # POST TO WORDPRESS
             # -----------------------------
-            curl -s -X POST \
-              -u "${WP_USERNAME}:${WP_PASSWORD}" \
+            curl -s -X POST $WP_AUTH \
               -H "Content-Type: application/json" \
               -d "{
                 \"title\": \"${TITLE}\",
                 \"slug\": \"${SLUG}\",
                 \"status\": \"publish\",
-                \"categories\": [${CATEGORIES}],
+                \"categories\": [${FINAL_CATEGORIES}],
                 \"content\": ${CONTENT}
               }" \
               "${WP_URL}/wp-json/wp/v2/posts"
