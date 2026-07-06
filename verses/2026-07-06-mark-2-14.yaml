@@ -1,0 +1,29 @@
+book: Mark
+book_order: 0
+group: unknown
+reference: "Mark 2:14"
+verse: >
+  And as he passed by, he saw Levi the son of Alphaeus sitting at the receipt of custom, and said unto him, Follow me. And he arose and followed him.
+meaning: >
+  Mark 2:14 recounts the calling of Levi (Matthew), a tax collector, by Jesus as He walks by the tax booth. This passage illustrates Jesus' mission to reach the marginalized and outcasts of society, demonstrating that His grace extends even to those deemed sinful or unworthy by religious leaders. Levi's immediate response to follow Jesus signifies a transformative act of faith and discipleship, emphasizing that true calling comes with a willingness to leave behind old ways for a new life in Christ. This narrative highlights the inclusivity of Jesus' ministry and serves as a reminder that salvation is available to all, regardless of their past. 
+cross_refs:
+  - book: Matthew
+    chapter: 4
+    verse: 19
+    note: "Matthew 4:19, where Jesus calls His disciples to become \"fishers of men,\" is a cross-reference that illustrates the transformative call to discipleship and evangelism, paralleling themes found in other biblical passages where God commissions individuals to reach out and gather others into His kingdom, reflecting His mission of redemption. "
+  - book: Matthew
+    chapter: 4
+    verse: 20
+    note: "Matthew 4:20, where Jesus calls His disciples to become \"fishers of men,\" serves as a cross-reference to the Great Commission in Matthew 28:19-20, illustrating the transformative call to discipleship and evangelism that underlines the mission of the church in inviting others into the Kingdom of God. "
+  - book: Matthew
+    chapter: 4
+    verse: 21
+    note: "Matthew 4:21, which describes Jesus calling James and John, the sons of Zebedee, to follow Him, serves as a cross-reference to the theme of discipleship and the call to leave behind worldly ties to embrace a new life in Christ, illustrating the cost and commitment involved in following Him. "
+  - book: Matthew
+    chapter: 4
+    verse: 22
+    note: "Matthew 4:22, which describes Jesus calling James and John to follow Him, serves as a cross-reference to the theme of divine calling and discipleship, highlighting how Jesus empowers His followers to leave their earthly pursuits for a greater mission in service to God's Kingdom. "
+  - book: Luke
+    chapter: 6
+    verse: 15
+    note: "Luke 6:15, which mentions Levi (also known as Matthew) as one of the apostles, serves as a cross-reference to the calling of disciples in the Gospels, illustrating the transformative power of Jesus' invitation to follow Him and become witnesses of the Kingdom. "
