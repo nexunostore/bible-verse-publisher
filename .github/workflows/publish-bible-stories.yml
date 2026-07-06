@@ -3,7 +3,7 @@ name: Publish Bible Stories
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */6 * * *"  # optional: runs every 6 hours
+    - cron: "0 */6 * * *"
 
 concurrency:
   group: bible-story-publisher
@@ -17,57 +17,43 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Ensure tracking file exists
-        id: track
+      - name: Publish stories (idempotent via WP slug check)
         run: |
-          FILE=".published-stories.json"
+          set -e
 
-          if [ ! -f "$FILE" ]; then
-            echo "[]" > $FILE
-          fi
+          echo "Scanning Bible_Stories folder..."
 
-          echo "tracking_file=$FILE" >> $GITHUB_OUTPUT
+          find Bible_Stories -type f -name "*.txt" | while read -r file; do
 
-      - name: Find unpublished stories (SAFE)
-        id: find
-        run: |
-          TRACK_FILE="${{ steps.track.outputs.tracking_file }}"
-          PUBLISHED=$(cat $TRACK_FILE)
+            echo "--------------------------------------"
+            echo "Processing: $file"
 
-          NEW_FILES=""
-
-          while IFS= read -r -d '' file; do
-            filename=$(basename "$file")
-
-            if echo "$PUBLISHED" | grep -q "\"$filename\""; then
-              echo "Skipping: $filename"
-            else
-              echo "New: $filename"
-              NEW_FILES+="$file"$'\n'
-            fi
-
-          done < <(find Bible_Stories -type f -name "*.txt" -print0)
-
-          echo "new_files<<EOF" >> $GITHUB_OUTPUT
-          echo "$NEW_FILES" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-      - name: Publish stories
-        if: steps.find.outputs.new_files != ''
-        run: |
-          TRACK_FILE="${{ steps.track.outputs.tracking_file }}"
-          PUBLISHED=$(cat $TRACK_FILE)
-
-          while IFS= read -r file; do
-            [ -z "$file" ] && continue
-
-            echo "Publishing: $file"
-
-            TITLE=$(head -n 1 "$file")
+            TITLE=$(head -n 1 "$file" | tr -d '\r')
 
             CATEGORY_LINE=$(sed -n '2p' "$file" | sed 's/categories://I')
             CATEGORIES=$(echo "$CATEGORY_LINE" | tr -d ' ')
 
+            BASENAME=$(basename "$file" .txt)
+            SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
+
+            echo "Slug: $SLUG"
+
+            # -----------------------------
+            # CHECK WORDPRESS (PREVENT DUPES)
+            # -----------------------------
+            EXISTING=$(curl -s -u "${WP_USERNAME}:${WP_PASSWORD}" \
+              "${WP_URL}/wp-json/wp/v2/posts?slug=${SLUG}")
+
+            if echo "$EXISTING" | grep -q "\"id\""; then
+              echo "Already published → skipping"
+              continue
+            fi
+
+            echo "Publishing new post..."
+
+            # -----------------------------
+            # BUILD CONTENT
+            # -----------------------------
             CONTENT=$(tail -n +3 "$file" \
               | awk '
                   BEGIN { paragraph="" }
@@ -78,51 +64,36 @@ jobs:
                         paragraph=""
                       }
                     } else {
-                      if (paragraph == "") {
-                        paragraph=$0
-                      } else {
-                        paragraph=paragraph " " $0
-                      }
+                      if (paragraph == "") paragraph=$0
+                      else paragraph=paragraph " " $0
                     }
                   }
                   END {
-                    if (paragraph != "") {
-                      print "<p>" paragraph "</p>"
-                    }
+                    if (paragraph != "") print "<p>" paragraph "</p>"
                   }
                 ' \
               | sed 's/^## \(.*\)$/<h2>\1<\/h2>/' \
               | sed 's/^# \(.*\)$/<h1>\1<\/h1>/' \
               | jq -Rs .)
 
-            BASENAME=$(basename "$file" .txt)
-            SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
-
-            echo "{\"title\":\"$TITLE\",\"slug\":\"$SLUG\",\"status\":\"publish\",\"categories\":[$CATEGORIES],\"content\":$CONTENT}" > post.json
-
-            curl -X POST \
+            # -----------------------------
+            # POST TO WORDPRESS
+            # -----------------------------
+            curl -s -X POST \
               -u "${WP_USERNAME}:${WP_PASSWORD}" \
               -H "Content-Type: application/json" \
-              -d @post.json \
+              -d "{
+                \"title\": \"${TITLE}\",
+                \"slug\": \"${SLUG}\",
+                \"status\": \"publish\",
+                \"categories\": [${CATEGORIES}],
+                \"content\": ${CONTENT}
+              }" \
               "${WP_URL}/wp-json/wp/v2/posts"
 
-            # mark as published
-            PUBLISHED=$(echo "$PUBLISHED" | jq ". + [\"$(basename "$file")\"]")
+            echo "Published: $SLUG"
 
-          done <<< "${{ steps.find.outputs.new_files }}"
-
-          echo "$PUBLISHED" > $TRACK_FILE
-
-      - name: Commit tracking file
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-
-          git add .published-stories.json
-          git commit -m "Update published stories tracker" || echo "No changes"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          done
 
       - name: Done
         run: echo "Publishing complete"
