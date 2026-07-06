@@ -1,0 +1,29 @@
+book: John
+book_order: 0
+group: unknown
+reference: "John 3:16"
+verse: >
+   For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.
+meaning: >
+  John 3:16 encapsulates the core of Christian doctrine by proclaiming God's immense love for humanity, exemplified in His willingness to offer His only Son, Jesus Christ, as a means of salvation. This verse emphasizes the concept of grace, highlighting that eternal life is a gift available to all who believe in Christ, rather than something earned through human effort. The statement underscores both the universality of God's offer of redemption and the necessity of faith, affirming that belief in Jesus is the pathway to a restored relationship with God. Ultimately, John 3:16 is a powerful declaration of hope, illustrating the depth of God's commitment to humanity and the transformative power of faith in Christ. 
+cross_refs:
+  - book: John
+    chapter: 11
+    verse: 25
+    note: "John 11:25, where Jesus declares, \"I am the resurrection and the life,\" serves as a cross-reference to the themes of hope and eternal life found throughout Scripture, including the promise of resurrection in the Old Testament and the New Testament, emphasizing His divine authority over death and the transformative power of faith in Him. "
+  - book: John
+    chapter: 11
+    verse: 26
+    note: "John 11:26, which states that \"whoever lives and believes in me shall never die,\" serves as a cross-reference to the promise of eternal life through faith in Christ, emphasizing the assurance of resurrection and life beyond physical death, reinforcing key themes found throughout the New Testament. "
+  - book: Ephesians
+    chapter: 2
+    verse: 4
+    note: "Ephesians 2:4 emphasizes God's rich mercy and love, paralleling themes found throughout Scripture that highlight His compassion and the transformative power of grace, thereby serving as a vital cross-reference to the overarching narrative of redemption in Christ. "
+  - book: John
+    chapter: 3
+    verse: 15
+    note: "John 3:15, which states that \"everyone who believes may have eternal life in him,\" serves as a cross-reference to the theme of salvation and belief found throughout Scripture, particularly connecting to the Old Testament's idea of faith in God's provision, exemplified by the bronze serpent in Numbers 21:9, symbolizing Christ's redemptive role. "
+  - book: Romans
+    chapter: 5
+    verse: 8
+    note: "Romans 5:8 serves as a profound cross-reference as it articulates the core Christian doctrine of God's unconditional love demonstrated through Christ's sacrificial death for sinners, aligning with the overarching theme of redemption found throughout Scripture. "
