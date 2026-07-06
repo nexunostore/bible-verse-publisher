@@ -1,0 +1,126 @@
+name: Publish Bible Stories
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"  # runs every 6 hours (optional)
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Load published tracking file
+        id: track
+        run: |
+          FILE=".published-stories.json"
+
+          if [ ! -f "$FILE" ]; then
+            echo "[]" > $FILE
+          fi
+
+          echo "tracking_file=$FILE" >> $GITHUB_OUTPUT
+
+      - name: Find unpublished stories
+        id: find
+        run: |
+          TRACK_FILE="${{ steps.track.outputs.tracking_file }}"
+
+          PUBLISHED=$(cat $TRACK_FILE)
+
+          NEW_FILES=""
+
+          for file in Bible_Stories/*.txt; do
+            filename=$(basename "$file")
+
+            if echo "$PUBLISHED" | grep -q "$filename"; then
+              echo "Skipping already published: $filename"
+            else
+              echo "New story found: $filename"
+              NEW_FILES="$NEW_FILES $file"
+            fi
+          done
+
+          echo "new_files=$NEW_FILES" >> $GITHUB_OUTPUT
+
+      - name: Publish new stories
+        if: steps.find.outputs.new_files != ''
+        run: |
+          TRACK_FILE="${{ steps.track.outputs.tracking_file }}"
+          PUBLISHED=$(cat $TRACK_FILE)
+
+          for file in ${{ steps.find.outputs.new_files }}; do
+
+            echo "Publishing $file"
+
+            TITLE=$(head -n 1 "$file")
+
+            CATEGORY_LINE=$(sed -n '2p' "$file" | sed 's/categories://I')
+            CATEGORIES=$(echo "$CATEGORY_LINE" | tr -d ' ')
+
+            CONTENT=$(tail -n +3 "$file" \
+              | awk '
+                  BEGIN { paragraph="" }
+                  {
+                    if (NF == 0) {
+                      if (paragraph != "") {
+                        print "<p>" paragraph "</p>"
+                        paragraph=""
+                      }
+                    } else {
+                      if (paragraph == "") {
+                        paragraph=$0
+                      } else {
+                        paragraph=paragraph " " $0
+                      }
+                    }
+                  }
+                  END {
+                    if (paragraph != "") {
+                      print "<p>" paragraph "</p>"
+                    }
+                  }
+                ' \
+              | sed 's/^## \(.*\)$/<h2>\1<\/h2>/' \
+              | sed 's/^# \(.*\)$/<h1>\1<\/h1>/' \
+              | jq -Rs .)
+
+            BASENAME=$(basename "$file" .txt)
+            SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
+
+            echo "{\"title\":\"$TITLE\",\"slug\":\"$SLUG\",\"status\":\"publish\",\"categories\":[$CATEGORIES],\"content\":$CONTENT}" > post.json
+
+            curl -X POST \
+              -u "${WP_USERNAME}:${WP_PASSWORD}" \
+              -H "Content-Type: application/json" \
+              -d @post.json \
+              "${WP_URL}/wp-json/wp/v2/posts"
+
+            # Mark as published
+            PUBLISHED=$(echo "$PUBLISHED" | jq ". + [\"$BASENAME.txt\"]")
+
+          done
+
+          echo "$PUBLISHED" > $TRACK_FILE
+
+      - name: Commit updated tracking file
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+
+          git add .published-stories.json
+          git commit -m "Update published stories tracker" || echo "No changes to commit"
+          git push
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish environment
+        run: echo "Done"
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
