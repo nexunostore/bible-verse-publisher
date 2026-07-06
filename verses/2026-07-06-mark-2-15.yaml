@@ -1,0 +1,29 @@
+book: Mark
+book_order: 0
+group: unknown
+reference: "Mark 2:15"
+verse: >
+  And it came to pass, that, as Jesus sat at meat in his house, many publicans and sinners sat also together with Jesus and his disciples: for there were many, and they followed him.
+meaning: >
+  Mark 2:15 recounts the calling of Levi, also known as Matthew, and highlights Jesus dining with tax collectors and sinners. This passage underscores Jesus' mission to reach those marginalized by society, demonstrating His willingness to associate with individuals deemed sinful or unworthy by religious leaders. By sharing a meal, which in Jewish culture signifies acceptance and fellowship, Jesus illustrates the inclusive nature of His kingdom. This act reveals that His message of grace and redemption is available to all, regardless of their past or social standing, emphasizing that He came to seek and save the lost. 
+cross_refs:
+  - book: Luke
+    chapter: 15
+    verse: 1
+    note: "Luke 15:1 serves as a cross-reference illustrating the inclusivity of Jesus' ministry, as it highlights His willingness to associate with sinners and tax collectors, thereby embodying the message of grace and repentance central to the Gospel. "
+  - book: Luke
+    chapter: 6
+    verse: 17
+    note: "Luke 6:17 serves as a cross-reference because it highlights the gathering of diverse followers around Jesus, illustrating His role as the unifying figure who brings together those seeking healing and teaching, reflecting the broader theme of redemption and inclusivity in the Gospel narrative. "
+  - book: Matthew
+    chapter: 21
+    verse: 31
+    note: "Matthew 21:31 highlights the theme of unexpected grace and the reversal of social and religious expectations, illustrating how those deemed least likely to inherit the kingdom—symbolized by the tax collectors and prostitutes—are welcomed into God's kingdom, thus embodying the core message of repentance and faith found throughout the Gospels. "
+  - book: Matthew
+    chapter: 21
+    verse: 32
+    note: "Matthew 21:32 serves as a cross-reference because it highlights the theme of repentance and the acceptance of sinners, illustrating how those marginalized by society often embrace God's message and grace more readily than the self-righteous, thereby reinforcing the New Testament's enduring call to humility and transformation. "
+  - book: Matthew
+    chapter: 9
+    verse: 10
+    note: "Matthew 9:10, which describes Jesus dining with tax collectors and sinners, serves as a cross-reference to illustrate His mission of grace and inclusion, emphasizing the theme of salvation extending to those marginalized by society and highlighting the transformative power of Christ's fellowship. "
