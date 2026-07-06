@@ -3,7 +3,11 @@ name: Publish Bible Stories
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */6 * * *"  # runs every 6 hours (optional)
+    - cron: "0 */6 * * *"  # optional: runs every 6 hours
+
+concurrency:
+  group: bible-story-publisher
+  cancel-in-progress: true
 
 jobs:
   publish:
@@ -13,7 +17,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Load published tracking file
+      - name: Ensure tracking file exists
         id: track
         run: |
           FILE=".published-stories.json"
@@ -24,37 +28,40 @@ jobs:
 
           echo "tracking_file=$FILE" >> $GITHUB_OUTPUT
 
-      - name: Find unpublished stories
+      - name: Find unpublished stories (SAFE)
         id: find
         run: |
           TRACK_FILE="${{ steps.track.outputs.tracking_file }}"
-
           PUBLISHED=$(cat $TRACK_FILE)
 
           NEW_FILES=""
 
-          for file in Bible_Stories/*.txt; do
+          while IFS= read -r -d '' file; do
             filename=$(basename "$file")
 
-            if echo "$PUBLISHED" | grep -q "$filename"; then
-              echo "Skipping already published: $filename"
+            if echo "$PUBLISHED" | grep -q "\"$filename\""; then
+              echo "Skipping: $filename"
             else
-              echo "New story found: $filename"
-              NEW_FILES="$NEW_FILES $file"
+              echo "New: $filename"
+              NEW_FILES+="$file"$'\n'
             fi
-          done
 
-          echo "new_files=$NEW_FILES" >> $GITHUB_OUTPUT
+          done < <(find Bible_Stories -type f -name "*.txt" -print0)
 
-      - name: Publish new stories
+          echo "new_files<<EOF" >> $GITHUB_OUTPUT
+          echo "$NEW_FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Publish stories
         if: steps.find.outputs.new_files != ''
         run: |
           TRACK_FILE="${{ steps.track.outputs.tracking_file }}"
           PUBLISHED=$(cat $TRACK_FILE)
 
-          for file in ${{ steps.find.outputs.new_files }}; do
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
 
-            echo "Publishing $file"
+            echo "Publishing: $file"
 
             TITLE=$(head -n 1 "$file")
 
@@ -99,28 +106,28 @@ jobs:
               -d @post.json \
               "${WP_URL}/wp-json/wp/v2/posts"
 
-            # Mark as published
-            PUBLISHED=$(echo "$PUBLISHED" | jq ". + [\"$BASENAME.txt\"]")
+            # mark as published
+            PUBLISHED=$(echo "$PUBLISHED" | jq ". + [\"$(basename "$file")\"]")
 
-          done
+          done <<< "${{ steps.find.outputs.new_files }}"
 
           echo "$PUBLISHED" > $TRACK_FILE
 
-      - name: Commit updated tracking file
+      - name: Commit tracking file
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
 
           git add .published-stories.json
-          git commit -m "Update published stories tracker" || echo "No changes to commit"
+          git commit -m "Update published stories tracker" || echo "No changes"
           git push
-
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish environment
-        run: echo "Done"
-        env:
-          WP_URL: ${{ secrets.WP_URL }}
-          WP_USERNAME: ${{ secrets.WP_USERNAME }}
-          WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
+      - name: Done
+        run: echo "Publishing complete"
+
+    env:
+      WP_URL: ${{ secrets.WP_URL }}
+      WP_USERNAME: ${{ secrets.WP_USERNAME }}
+      WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
