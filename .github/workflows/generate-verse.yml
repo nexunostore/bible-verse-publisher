@@ -31,13 +31,28 @@ jobs:
       - name: Install jq
         run: sudo apt-get install -y jq
 
+      # NOTE ON THE REST OF THIS FILE:
+      # Any value that could contain a quote, backtick, `$`, or other shell
+      # metacharacter (user-typed verse text, AI-generated meaning/notes,
+      # the reference itself) is passed into steps via `env:` and read back
+      # with `$VAR_NAME` in bash. ${{ ... }} expressions are substituted as
+      # raw text directly into the script BEFORE bash runs it — they are
+      # NOT shell-escaped — so embedding them straight into a bash string
+      # (e.g. `X="${{ steps.foo.outputs.bar }}"`) will break, or worse,
+      # execute arbitrary words as commands, the moment the value contains
+      # a stray quote. Routing through env + $VAR uses bash's normal
+      # variable expansion instead, which handles any content safely as
+      # long as it's kept inside double quotes in the script.
+
       - name: Sanitize and parse reference
         id: parse
+        env:
+          REFERENCE_INPUT: ${{ github.event.inputs.reference }}
         run: |
           # Collapse ALL whitespace runs (regular + non-breaking) to a single
           # regular space, then trim. This is the key fix for cross-ref
           # lookups silently failing on double spaces / stray characters.
-          REF=$(echo "${{ github.event.inputs.reference }}" \
+          REF=$(printf '%s' "$REFERENCE_INPUT" \
             | tr -d '\r' \
             | sed 's/\xc2\xa0/ /g' \
             | tr -s '[:space:]' ' ' \
@@ -54,12 +69,21 @@ jobs:
 
       - name: Use provided verse text
         id: verse_text
-        run: echo "text=${{ github.event.inputs.verse }}" >> $GITHUB_OUTPUT
+        env:
+          VERSE_INPUT: ${{ github.event.inputs.verse }}
+        run: |
+          # Multiline-safe output: works no matter what characters (quotes,
+          # newlines, etc.) are in the verse text.
+          DELIM="VERSE_EOF_$(date +%s%N)"
+          echo "text<<$DELIM" >> $GITHUB_OUTPUT
+          printf '%s\n' "$VERSE_INPUT" >> $GITHUB_OUTPUT
+          echo "$DELIM" >> $GITHUB_OUTPUT
 
       - name: Generate meaning using OpenAI
         id: meaning
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          REF: ${{ steps.parse.outputs.ref }}
         run: |
           # Meaning/verse text go into unquoted YAML block scalars (>),
           # which do NOT interpret backslash escapes at all — so we only
@@ -73,28 +97,39 @@ jobs:
               | tr '\n' ' '
           }
 
-          REF="${{ steps.parse.outputs.ref }}"
+          # Build the request body with jq instead of manual string
+          # interpolation, so $REF can never break the JSON structure.
+          PAYLOAD=$(jq -n --arg ref "$REF" '{
+            model: "gpt-4o-mini",
+            messages: [{
+              role: "user",
+              content: ("Provide a doctrinally sound explanation of the meaning of " + $ref + " in 3-5 sentences.")
+            }]
+          }')
 
           RESPONSE=$(curl -s https://api.openai.com/v1/chat/completions \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer $OPENAI_API_KEY" \
-            -d "{
-              \"model\": \"gpt-4o-mini\",
-              \"messages\": [{
-                \"role\": \"user\",
-                \"content\": \"Provide a doctrinally sound explanation of the meaning of $REF in 3-5 sentences.\"
-              }]
-            }")
+            -d "$PAYLOAD")
 
           RAW=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
           SAFE=$(normalize_quotes "$RAW")
 
-          echo "meaning=$SAFE" >> $GITHUB_OUTPUT
+          DELIM="MEANING_EOF_$(date +%s%N)"
+          echo "meaning<<$DELIM" >> $GITHUB_OUTPUT
+          printf '%s\n' "$SAFE" >> $GITHUB_OUTPUT
+          echo "$DELIM" >> $GITHUB_OUTPUT
 
       - name: Write YAML output (unlimited cross refs, inline notes)
         id: write_yaml
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          REF: ${{ steps.parse.outputs.ref }}
+          BOOK: ${{ steps.parse.outputs.book }}
+          CHAPTER: ${{ steps.parse.outputs.chapter }}
+          VERSE_NUM: ${{ steps.parse.outputs.verse_num }}
+          VERSE_TEXT: ${{ steps.verse_text.outputs.text }}
+          MEANING_TEXT: ${{ steps.meaning.outputs.meaning }}
         run: |
           # Notes go into quoted YAML strings (note: "..."), which DO
           # interpret backslash escapes — so these need full escaping.
@@ -108,29 +143,20 @@ jobs:
               | tr '\n' ' '
           }
 
-          REF="${{ steps.parse.outputs.ref }}"
-          BOOK="${{ steps.parse.outputs.book }}"
-          CHAPTER="${{ steps.parse.outputs.chapter }}"
-          VERSE_NUM="${{ steps.parse.outputs.verse_num }}"
           LBOOK=$(echo "$BOOK" | tr '[:upper:]' '[:lower:]')
           DATE=$(date +%Y-%m-%d)
           FILE="verses/$DATE-$LBOOK-$CHAPTER-$VERSE_NUM.yaml"
 
           mkdir -p verses
 
-          # Meaning was already normalized (not escaped) in the previous
-          # step — do not sanitize it again here, that was double-escaping
-          # it and leaving literal backslashes in the displayed text.
-          SAFE_MEANING="${{ steps.meaning.outputs.meaning }}"
-
           echo "book: $BOOK" > "$FILE"
           echo "book_order: 0" >> "$FILE"
           echo "group: unknown" >> "$FILE"
           echo "reference: \"$REF\"" >> "$FILE"
           echo "verse: >" >> "$FILE"
-          echo "  ${{ steps.verse_text.outputs.text }}" >> "$FILE"
+          printf '  %s\n' "$VERSE_TEXT" >> "$FILE"
           echo "meaning: >" >> "$FILE"
-          echo "  $SAFE_MEANING" >> "$FILE"
+          printf '  %s\n' "$MEANING_TEXT" >> "$FILE"
           echo "cross_refs:" >> "$FILE"
 
           DATA=$(cat data/bible_crossrefs_final.json)
@@ -148,16 +174,18 @@ jobs:
           while IFS= read -r CREF; do
             [ -z "$CREF" ] && continue
 
+            NOTE_PAYLOAD=$(jq -n --arg cref "$CREF" '{
+              model: "gpt-4o-mini",
+              messages: [{
+                role: "user",
+                content: ("Provide a one-sentence theological note explaining why this verse is a cross-reference: " + $cref)
+              }]
+            }')
+
             NOTE_RESP=$(curl -s https://api.openai.com/v1/chat/completions \
               -H "Content-Type: application/json" \
               -H "Authorization: Bearer $OPENAI_API_KEY" \
-              -d "{
-                \"model\": \"gpt-4o-mini\",
-                \"messages\": [{
-                  \"role\": \"user\",
-                  \"content\": \"Provide a one-sentence theological note explaining why this verse is a cross-reference: $CREF\"
-                }]
-              }")
+              -d "$NOTE_PAYLOAD")
 
             NOTE_RAW=$(echo "$NOTE_RESP" | jq -r '.choices[0].message.content')
             NOTE_SAFE=$(escape_for_yaml_string "$NOTE_RAW")
@@ -176,11 +204,13 @@ jobs:
           echo "file=$FILE" >> $GITHUB_OUTPUT
 
       - name: Commit verse file
+        env:
+          REF: ${{ steps.parse.outputs.ref }}
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add verses
-          git commit -m "Generated verse ${{ steps.parse.outputs.ref }}" || echo "No changes"
+          git commit -m "Generated verse $REF" || echo "No changes"
           git push
 
       - name: Set up Python
@@ -194,5 +224,7 @@ jobs:
           pip install pyyaml requests
 
       - name: Publish this verse to WordPress
+        env:
+          VERSE_FILE: ${{ steps.write_yaml.outputs.file }}
         run: |
-          python "${GITHUB_WORKSPACE}/scripts/publish.py" "${{ steps.write_yaml.outputs.file }}"
+          python "${GITHUB_WORKSPACE}/scripts/publish.py" "$VERSE_FILE"
