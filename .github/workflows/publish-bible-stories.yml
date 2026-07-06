@@ -38,37 +38,37 @@ jobs:
             CATEGORY_LINE=$(sed -n '2p' "$file" | sed 's/categories://I')
             RAW_CATEGORIES=$(echo "$CATEGORY_LINE" | tr -d ' ')
 
-IFS=',' read -ra CAT_ARRAY <<< "$RAW_CATEGORIES"
+          IFS=',' read -ra CAT_ARRAY <<< "$RAW_CATEGORIES"
 
-for CAT in "${CAT_ARRAY[@]}"; do
-  CAT=$(echo "$CAT" | xargs)
+          for CAT in "${CAT_ARRAY[@]}"; do
+            CAT=$(echo "$CAT" | xargs)
 
-  echo "Processing category name: '$CAT'"
+            echo "Processing category name: '$CAT'"
 
-  SEARCH_RESULT=$(curl -s $WP_AUTH \
-    "${WP_URL}/wp-json/wp/v2/categories?search=$(echo "$CAT" | sed 's/ /%20/g')")
+            SEARCH_RESULT=$(curl -s $WP_AUTH \
+              "${WP_URL}/wp-json/wp/v2/categories?search=$(echo "$CAT" | sed 's/ /%20/g')")
 
-  CAT_ID=$(echo "$SEARCH_RESULT" | jq -r --arg name "$CAT" '
-    map(select(.name == $name)) | .[0].id // empty
-  ')
+            CAT_ID=$(echo "$SEARCH_RESULT" | jq -r --arg name "$CAT" '
+              map(select(.name == $name)) | .[0].id // empty
+            ')
 
-  if [ -n "$CAT_ID" ]; then
-    echo "Found existing category: $CAT ($CAT_ID)"
-  else
-    echo "Creating category: $CAT"
+            if [ -n "$CAT_ID" ]; then
+              echo "Found existing category: $CAT ($CAT_ID)"
+            else
+              echo "Creating category: $CAT"
 
-    CREATE_RESULT=$(curl -s -X POST $WP_AUTH \
-      -H "Content-Type: application/json" \
-      -d "{\"name\":\"$CAT\"}" \
-      "${WP_URL}/wp-json/wp/v2/categories")
+              CREATE_RESULT=$(curl -s -X POST $WP_AUTH \
+                -H "Content-Type: application/json" \
+                -d "{\"name\":\"$CAT\"}" \
+                "${WP_URL}/wp-json/wp/v2/categories")
 
-    CAT_ID=$(echo "$CREATE_RESULT" | jq -r '.id')
+              CAT_ID=$(echo "$CREATE_RESULT" | jq -r '.id')
 
-    echo "Created category: $CAT ($CAT_ID)"
-  fi
+              echo "Created category: $CAT ($CAT_ID)"
+            fi
 
-  FINAL_CATEGORIES="$FINAL_CATEGORIES,$CAT_ID"
-done
+            FINAL_CATEGORIES="$FINAL_CATEGORIES,$CAT_ID"
+          done
 
               # -----------------------------
               # SEARCH CATEGORY BY NAME
