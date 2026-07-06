@@ -17,7 +17,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install dependencies
+      - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
 
       - name: Publish Bible Stories
@@ -26,7 +26,7 @@ jobs:
 
           WP_AUTH="-u ${WP_USERNAME}:${WP_PASSWORD}"
 
-          echo "Scanning Bible_Stories folder..."
+          echo "Scanning Bible_Stories..."
 
           find Bible_Stories -type f -name "*.txt" | while IFS= read -r file; do
 
@@ -34,68 +34,51 @@ jobs:
             echo "Processing: $file"
 
             # -----------------------------
-            # SAFETY CHECKS
+            # BASIC SAFETY CHECKS
             # -----------------------------
-            if [ ! -f "$file" ]; then
-              echo "File missing, skipping"
-              continue
-            fi
+            [ -z "$file" ] && continue
+            [ ! -f "$file" ] && continue
 
             TITLE=$(head -n 1 "$file" | tr -d '\r')
+            [ -z "$TITLE" ] && echo "Missing title → skipping" && continue
 
-            if [ -z "$TITLE" ]; then
-              echo "Missing title, skipping"
-              continue
-            fi
-
+            # -----------------------------
+            # CATEGORY PARSING (KEEP SPACES!)
+            # -----------------------------
             CATEGORY_LINE=$(sed -n '2p' "$file" | sed 's/categories://I')
-            RAW_CATEGORIES=$(echo "$CATEGORY_LINE" | tr -d ' ')
 
-            BASENAME=$(basename "$file" .txt)
-
-            if [ -z "$BASENAME" ]; then
-              echo "Missing filename, skipping"
-              continue
-            fi
-
-            SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
-
-            echo "Slug: $SLUG"
-
-            # -----------------------------
-            # DUPLICATE CHECK (WordPress is source of truth)
-            # -----------------------------
-            EXISTING=$(curl -s $WP_AUTH \
-              "${WP_URL}/wp-json/wp/v2/posts?slug=${SLUG}")
-
-            if echo "$EXISTING" | jq -e 'length > 0' > /dev/null; then
-              echo "Already published → skipping"
-              continue
-            fi
-
-            # -----------------------------
-            # CATEGORY HANDLING (NAME-BASED)
-            # -----------------------------
-            FINAL_CATEGORIES=""
+            # IMPORTANT: DO NOT remove spaces
+            RAW_CATEGORIES=$(echo "$CATEGORY_LINE" | tr '\n' ' ')
 
             IFS=',' read -ra CAT_ARRAY <<< "$RAW_CATEGORIES"
 
+            FINAL_CATEGORIES=""
+
             for CAT in "${CAT_ARRAY[@]}"; do
+
+              # trim only (DO NOT strip spaces inside words)
               CAT=$(echo "$CAT" | xargs)
 
-              if [ -z "$CAT" ]; then
-                continue
-              fi
+              # normalize multiple spaces → single space
+              CAT=$(echo "$CAT" | sed 's/[[:space:]]\+/ /g')
 
-              echo "Processing category: $CAT"
+              [ -z "$CAT" ] && continue
 
+              echo "Processing category: '$CAT'"
+
+              # -----------------------------
+              # SEARCH CATEGORY BY EXACT NAME
+              # -----------------------------
               SEARCH=$(curl -s $WP_AUTH \
-                "${WP_URL}/wp-json/wp/v2/categories?search=$(echo "$CAT" | sed 's/ /%20/g')")
+                "${WP_URL}/wp-json/wp/v2/categories?search=$(printf '%s' "$CAT" | sed 's/ /%20/g')")
 
               CAT_ID=$(echo "$SEARCH" | jq -r --arg name "$CAT" '
                 map(select(.name == $name)) | .[0].id // empty
               ')
 
+              # -----------------------------
+              # CREATE IF NOT FOUND
+              # -----------------------------
               if [ -z "$CAT_ID" ]; then
                 echo "Creating category: $CAT"
 
@@ -119,14 +102,33 @@ jobs:
             echo "Final categories: $FINAL_CATEGORIES"
 
             # -----------------------------
+            # SLUG GENERATION
+            # -----------------------------
+            BASENAME=$(basename "$file" .txt)
+
+            SLUG=$(echo "$BASENAME" \
+              | tr '[:upper:]' '[:lower:]' \
+              | sed 's/[^a-z0-9]/-/g')
+
+            echo "Slug: $SLUG"
+
+            # -----------------------------
+            # DUPLICATE CHECK (WORDPRESS = SOURCE OF TRUTH)
+            # -----------------------------
+            EXISTING=$(curl -s $WP_AUTH \
+              "${WP_URL}/wp-json/wp/v2/posts?slug=${SLUG}")
+
+            if echo "$EXISTING" | jq -e 'length > 0' > /dev/null; then
+              echo "Already published → skipping"
+              continue
+            fi
+
+            # -----------------------------
             # CONTENT BUILD
             # -----------------------------
             CONTENT=$(tail -n +3 "$file" | jq -Rs .)
 
-            if [ -z "$CONTENT" ] || [ "$CONTENT" = "\"\"" ]; then
-              echo "Empty content → skipping"
-              continue
-            fi
+            [ -z "$CONTENT" ] && echo "Empty content → skipping" && continue
 
             # -----------------------------
             # PUBLISH POST
@@ -145,9 +147,9 @@ jobs:
             POST_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
 
             if [ -n "$POST_ID" ]; then
-              echo "Successfully published post ID: $POST_ID"
+              echo "Published successfully: $POST_ID"
             else
-              echo "Publish may have failed:"
+              echo "ERROR publishing post:"
               echo "$RESPONSE"
             fi
 
