@@ -1,120 +1,161 @@
-set -e
+name: Publish Bible Stories
 
-WP_AUTH="-u ${WP_USERNAME}:${WP_PASSWORD}"
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
 
-find Bible_Stories -type f -name "*.txt" | while IFS= read -r file; do
+concurrency:
+  group: bible-story-publisher
+  cancel-in-progress: true
 
-  echo "--------------------------------------"
-  echo "Processing: $file"
+jobs:
+  publish:
+    runs-on: ubuntu-latest
 
-  # -----------------------------
-  # SAFETY CHECK (prevents empty file crashes)
-  # -----------------------------
-  if [ -z "$file" ] || [ ! -f "$file" ]; then
-    echo "Skipping invalid file"
-    continue
-  fi
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-  TITLE=$(head -n 1 "$file" | tr -d '\r')
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y jq
 
-  if [ -z "$TITLE" ]; then
-    echo "Missing title → skipping"
-    continue
-  fi
+      - name: Publish Bible Stories
+        run: |
+          set -e
 
-  CATEGORY_LINE=$(sed -n '2p' "$file" | sed 's/categories://I')
-  RAW_CATEGORIES=$(echo "$CATEGORY_LINE" | tr -d ' ')
+          WP_AUTH="-u ${WP_USERNAME}:${WP_PASSWORD}"
 
-  # -----------------------------
-  # SLUG (SAFE)
-  # -----------------------------
-  BASENAME=$(basename "$file" .txt)
+          echo "Scanning Bible_Stories folder..."
 
-  if [ -z "$BASENAME" ]; then
-    echo "Missing filename → skipping"
-    continue
-  fi
+          find Bible_Stories -type f -name "*.txt" | while IFS= read -r file; do
 
-  SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
+            echo "--------------------------------------"
+            echo "Processing: $file"
 
-  echo "Slug: $SLUG"
+            # -----------------------------
+            # SAFETY CHECKS
+            # -----------------------------
+            if [ ! -f "$file" ]; then
+              echo "File missing, skipping"
+              continue
+            fi
 
-  # -----------------------------
-  # DUPLICATE CHECK
-  # -----------------------------
-  EXISTING=$(curl -s $WP_AUTH \
-    "${WP_URL}/wp-json/wp/v2/posts?slug=${SLUG}")
+            TITLE=$(head -n 1 "$file" | tr -d '\r')
 
-  if echo "$EXISTING" | grep -q "\"id\""; then
-    echo "Already published → skipping"
-    continue
-  fi
+            if [ -z "$TITLE" ]; then
+              echo "Missing title, skipping"
+              continue
+            fi
 
-  # -----------------------------
-  # CATEGORY PROCESSING (YOUR FIXED VERSION)
-  # -----------------------------
-  IFS=',' read -ra CAT_ARRAY <<< "$RAW_CATEGORIES"
+            CATEGORY_LINE=$(sed -n '2p' "$file" | sed 's/categories://I')
+            RAW_CATEGORIES=$(echo "$CATEGORY_LINE" | tr -d ' ')
 
-  FINAL_CATEGORIES=""
+            BASENAME=$(basename "$file" .txt)
 
-  for CAT in "${CAT_ARRAY[@]}"; do
-    CAT=$(echo "$CAT" | xargs)
+            if [ -z "$BASENAME" ]; then
+              echo "Missing filename, skipping"
+              continue
+            fi
 
-    if [ -z "$CAT" ]; then
-      continue
-    fi
+            SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
 
-    echo "Processing category: '$CAT'"
+            echo "Slug: $SLUG"
 
-    SEARCH_RESULT=$(curl -s $WP_AUTH \
-      "${WP_URL}/wp-json/wp/v2/categories?search=$(echo "$CAT" | sed 's/ /%20/g')")
+            # -----------------------------
+            # DUPLICATE CHECK (WordPress is source of truth)
+            # -----------------------------
+            EXISTING=$(curl -s $WP_AUTH \
+              "${WP_URL}/wp-json/wp/v2/posts?slug=${SLUG}")
 
-    CAT_ID=$(echo "$SEARCH_RESULT" | jq -r --arg name "$CAT" '
-      map(select(.name == $name)) | .[0].id // empty
-    ')
+            if echo "$EXISTING" | jq -e 'length > 0' > /dev/null; then
+              echo "Already published → skipping"
+              continue
+            fi
 
-    if [ -z "$CAT_ID" ]; then
-      echo "Creating category: $CAT"
+            # -----------------------------
+            # CATEGORY HANDLING (NAME-BASED)
+            # -----------------------------
+            FINAL_CATEGORIES=""
 
-      CREATE_RESULT=$(curl -s -X POST $WP_AUTH \
-        -H "Content-Type: application/json" \
-        -d "{\"name\":\"$CAT\"}" \
-        "${WP_URL}/wp-json/wp/v2/categories")
+            IFS=',' read -ra CAT_ARRAY <<< "$RAW_CATEGORIES"
 
-      CAT_ID=$(echo "$CREATE_RESULT" | jq -r '.id')
-    fi
+            for CAT in "${CAT_ARRAY[@]}"; do
+              CAT=$(echo "$CAT" | xargs)
 
-    FINAL_CATEGORIES="$FINAL_CATEGORIES,$CAT_ID"
-  done
+              if [ -z "$CAT" ]; then
+                continue
+              fi
 
-  FINAL_CATEGORIES=$(echo "$FINAL_CATEGORIES" | sed 's/^,//')
+              echo "Processing category: $CAT"
 
-  echo "Final categories: $FINAL_CATEGORIES"
+              SEARCH=$(curl -s $WP_AUTH \
+                "${WP_URL}/wp-json/wp/v2/categories?search=$(echo "$CAT" | sed 's/ /%20/g')")
 
-  # -----------------------------
-  # CONTENT (SAFE)
-  # -----------------------------
-  CONTENT=$(tail -n +3 "$file" 2>/dev/null | jq -Rs .)
+              CAT_ID=$(echo "$SEARCH" | jq -r --arg name "$CAT" '
+                map(select(.name == $name)) | .[0].id // empty
+              ')
 
-  if [ -z "$CONTENT" ] || [ "$CONTENT" = "\"\"" ]; then
-    echo "Empty content → skipping"
-    continue
-  fi
+              if [ -z "$CAT_ID" ]; then
+                echo "Creating category: $CAT"
 
-  # -----------------------------
-  # POST
-  # -----------------------------
-  curl -s -X POST $WP_AUTH \
-    -H "Content-Type: application/json" \
-    -d "{
-      \"title\": \"${TITLE}\",
-      \"slug\": \"${SLUG}\",
-      \"status\": \"publish\",
-      \"categories\": [${FINAL_CATEGORIES}],
-      \"content\": ${CONTENT}
-    }" \
-    "${WP_URL}/wp-json/wp/v2/posts"
+                CREATE=$(curl -s -X POST $WP_AUTH \
+                  -H "Content-Type: application/json" \
+                  -d "{\"name\":\"$CAT\"}" \
+                  "${WP_URL}/wp-json/wp/v2/categories")
 
-  echo "Published: $SLUG"
+                CAT_ID=$(echo "$CREATE" | jq -r '.id')
 
-done
+                echo "Created category ID: $CAT_ID"
+              else
+                echo "Found category ID: $CAT_ID"
+              fi
+
+              FINAL_CATEGORIES="$FINAL_CATEGORIES,$CAT_ID"
+            done
+
+            FINAL_CATEGORIES=$(echo "$FINAL_CATEGORIES" | sed 's/^,//')
+
+            echo "Final categories: $FINAL_CATEGORIES"
+
+            # -----------------------------
+            # CONTENT BUILD
+            # -----------------------------
+            CONTENT=$(tail -n +3 "$file" | jq -Rs .)
+
+            if [ -z "$CONTENT" ] || [ "$CONTENT" = "\"\"" ]; then
+              echo "Empty content → skipping"
+              continue
+            fi
+
+            # -----------------------------
+            # PUBLISH POST
+            # -----------------------------
+            RESPONSE=$(curl -s -X POST $WP_AUTH \
+              -H "Content-Type: application/json" \
+              -d "{
+                \"title\": \"${TITLE}\",
+                \"slug\": \"${SLUG}\",
+                \"status\": \"publish\",
+                \"categories\": [${FINAL_CATEGORIES}],
+                \"content\": ${CONTENT}
+              }" \
+              "${WP_URL}/wp-json/wp/v2/posts")
+
+            POST_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
+
+            if [ -n "$POST_ID" ]; then
+              echo "Successfully published post ID: $POST_ID"
+            else
+              echo "Publish may have failed:"
+              echo "$RESPONSE"
+            fi
+
+          done
+
+          echo "Publishing complete"
+
+        env:
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
