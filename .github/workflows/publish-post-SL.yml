@@ -1,0 +1,104 @@
+name: Publish Chapter (Scripture Learning)
+
+on:
+  workflow_dispatch:
+    inputs:
+      book:
+        description: "Enter book folder name (e.g., 1_John, Colossians, Apocrypha/Baruch)"
+        required: true
+        type: string
+
+      chapter:
+        description: "Enter chapter number (e.g., 1, 2, 3)"
+        required: true
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Build file path
+        id: path
+        run: |
+          BOOK="${{ github.event.inputs.book }}"
+          CHAPTER="${{ github.event.inputs.chapter }}"
+
+          FILE="Daily_Chapter_Review/$BOOK/${BOOK}_SG_Chapter_${CHAPTER}.txt"
+
+          if [ ! -f "$FILE" ]; then
+            echo "File not found: $FILE"
+            exit 1
+          fi
+
+          echo "file=$FILE" >> $GITHUB_OUTPUT
+
+      - name: Prepare content
+        id: prep
+        run: |
+          FILE="${{ steps.path.outputs.file }}"
+
+          TITLE=$(head -n 1 "$FILE")
+          CATEGORY_LINE=$(sed -n '2p' "$FILE" | sed 's/categories://I')
+          CATEGORIES=$(echo "$CATEGORY_LINE" | tr -d ' ')
+
+          # Build proper HTML paragraphs
+          CONTENT=$(tail -n +3 "$FILE" \
+            | awk '
+                BEGIN { paragraph="" }
+                {
+                  if (NF == 0) {
+                    if (paragraph != "") {
+                      print "<p>" paragraph "</p>"
+                      paragraph=""
+                    }
+                  } else {
+                    if (paragraph == "") {
+                      paragraph=$0
+                    } else {
+                      paragraph=paragraph " " $0
+                    }
+                  }
+                }
+                END {
+                  if (paragraph != "") {
+                    print "<p>" paragraph "</p>"
+                  }
+                }
+              ' \
+            | sed 's/^## \(.*\)$/<h2>\1<\/h2>/' \
+            | sed 's/^# \(.*\)$/<h1>\1<\/h1>/' \
+            | jq -Rs .)
+
+          BASENAME=$(basename "$FILE" .txt)
+          SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
+
+          # Built with jq -n instead of raw string interpolation for the
+          # title — a title containing a quote character would otherwise
+          # break this JSON (CATEGORIES is a plain numeric-ID array,
+          # CONTENT is already jq-encoded via jq -Rs above, so both are
+          # already JSON-safe as-is).
+          jq -n \
+            --arg title "$TITLE" \
+            --arg slug "$SLUG" \
+            --argjson categories "[$CATEGORIES]" \
+            --argjson content "$CONTENT" \
+            '{title: $title, slug: $slug, status: "publish", categories: $categories, content: $content}' \
+            > post.json
+
+      - name: Publish
+        run: |
+          curl -X POST \
+            -u "${WP_USERNAME}:${WP_PASSWORD}" \
+            -H "Content-Type: application/json" \
+            -d @post.json \
+            "${WP_URL}/wp-json/wp/v2/posts"
+        env:
+          WP_URL: "https://scripturelearning.org"
+          WP_USERNAME: ${{ secrets.WP_APP_USERNAME }}
+          WP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}

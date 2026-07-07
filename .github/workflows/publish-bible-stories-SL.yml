@@ -1,0 +1,173 @@
+name: Publish Bible Stories (Scripture Learning)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
+
+concurrency:
+  group: bible-story-publisher-sl
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Publish Bible Stories
+        run: |
+          set -e
+
+          WP_AUTH="-u ${WP_USERNAME}:${WP_PASSWORD}"
+
+          echo "Scanning Bible_Stories..."
+
+          find Bible_Stories -type f -name "*.txt" | while IFS= read -r file; do
+
+            echo "--------------------------------------"
+            echo "Processing: $file"
+
+            # -----------------------------
+            # BASIC SAFETY CHECKS
+            # -----------------------------
+            [ -z "$file" ] && continue
+            [ ! -f "$file" ] && continue
+
+            TITLE=$(head -n 1 "$file" | tr -d '\r')
+            [ -z "$TITLE" ] && echo "Missing title → skipping" && continue
+
+            # -----------------------------
+            # CATEGORY PARSING (KEEP SPACES!)
+            # -----------------------------
+            CATEGORY_LINE=$(sed -n '2p' "$file" | sed 's/categories://I')
+
+            # IMPORTANT: DO NOT remove spaces
+            RAW_CATEGORIES=$(echo "$CATEGORY_LINE" | tr '\n' ' ')
+
+            IFS=',' read -ra CAT_ARRAY <<< "$RAW_CATEGORIES"
+
+            FINAL_CATEGORIES=""
+
+            for CAT in "${CAT_ARRAY[@]}"; do
+
+              # trim only (DO NOT strip spaces inside words)
+              CAT=$(echo "$CAT" | xargs)
+
+              # normalize multiple spaces → single space
+              CAT=$(echo "$CAT" | sed 's/[[:space:]]\+/ /g')
+
+              [ -z "$CAT" ] && continue
+
+              echo "Processing category: '$CAT'"
+
+              # -----------------------------
+              # SEARCH CATEGORY BY EXACT NAME
+              # -----------------------------
+              SEARCH=$(curl -s $WP_AUTH \
+                "${WP_URL}/wp-json/wp/v2/categories?search=$(printf '%s' "$CAT" | sed 's/ /%20/g')")
+
+              CAT_ID=$(echo "$SEARCH" | jq -r --arg name "$CAT" '
+                map(select(.name == $name)) | .[0].id // empty
+              ')
+
+              # -----------------------------
+              # CREATE IF NOT FOUND
+              # -----------------------------
+              if [ -z "$CAT_ID" ]; then
+                echo "Creating category: $CAT"
+
+                # Built with jq -n instead of raw string interpolation —
+                # a category name containing a quote character would
+                # otherwise break this JSON silently.
+                CREATE_PAYLOAD=$(jq -n --arg name "$CAT" '{name: $name}')
+
+                CREATE=$(curl -s -X POST $WP_AUTH \
+                  -H "Content-Type: application/json" \
+                  -d "$CREATE_PAYLOAD" \
+                  "${WP_URL}/wp-json/wp/v2/categories")
+
+                CAT_ID=$(echo "$CREATE" | jq -r '.id')
+
+                echo "Created category ID: $CAT_ID"
+              else
+                echo "Found category ID: $CAT_ID"
+              fi
+
+              FINAL_CATEGORIES="$FINAL_CATEGORIES,$CAT_ID"
+            done
+
+            FINAL_CATEGORIES=$(echo "$FINAL_CATEGORIES" | sed 's/^,//')
+
+            echo "Final categories: $FINAL_CATEGORIES"
+
+            # -----------------------------
+            # SLUG GENERATION
+            # -----------------------------
+            BASENAME=$(basename "$file" .txt)
+
+            SLUG=$(echo "$BASENAME" \
+              | tr '[:upper:]' '[:lower:]' \
+              | sed 's/[^a-z0-9]/-/g')
+
+            echo "Slug: $SLUG"
+
+            # -----------------------------
+            # DUPLICATE CHECK (WORDPRESS = SOURCE OF TRUTH)
+            # -----------------------------
+            EXISTING=$(curl -s $WP_AUTH \
+              "${WP_URL}/wp-json/wp/v2/posts?slug=${SLUG}")
+
+            if echo "$EXISTING" | jq -e 'length > 0' > /dev/null; then
+              echo "Already published → skipping"
+              continue
+            fi
+
+            # -----------------------------
+            # CONTENT BUILD
+            # -----------------------------
+            CONTENT=$(tail -n +3 "$file" | jq -Rs .)
+
+            [ -z "$CONTENT" ] && echo "Empty content → skipping" && continue
+
+            # -----------------------------
+            # PUBLISH POST
+            # -----------------------------
+            # Built with jq -n instead of raw string interpolation — a
+            # title containing a quote character would otherwise break
+            # this JSON. CATEGORIES/CONTENT are already jq-safe (numeric
+            # IDs / pre-encoded via jq -Rs above).
+            POST_PAYLOAD=$(jq -n \
+              --arg title "$TITLE" \
+              --arg slug "$SLUG" \
+              --argjson categories "[$FINAL_CATEGORIES]" \
+              --argjson content "$CONTENT" \
+              '{title: $title, slug: $slug, status: "publish", categories: $categories, content: $content}')
+
+            RESPONSE=$(curl -s -X POST $WP_AUTH \
+              -H "Content-Type: application/json" \
+              -d "$POST_PAYLOAD" \
+              "${WP_URL}/wp-json/wp/v2/posts")
+
+            POST_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
+
+            if [ -n "$POST_ID" ]; then
+              echo "Published successfully: $POST_ID"
+            else
+              echo "ERROR publishing post:"
+              echo "$RESPONSE"
+            fi
+
+          done
+
+          echo "Publishing complete"
+
+        env:
+          WP_URL: "https://scripturelearning.org"
+          WP_USERNAME: ${{ secrets.WP_APP_USERNAME }}
+          WP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
