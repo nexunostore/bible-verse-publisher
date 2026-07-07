@@ -94,12 +94,25 @@ jobs:
 
                 CAT_ID=$(echo "$CREATE" | jq -r '.id')
 
-                echo "Created category ID: $CAT_ID"
+                # jq -r prints the literal text "null" (not an empty
+                # string) when .id is missing — e.g. because the create
+                # request was rejected. Catch that explicitly instead of
+                # silently treating "null" as a valid ID, which is what
+                # was sending a real JSON null into the categories array
+                # and causing WordPress to reject the whole post.
+                if [ -z "$CAT_ID" ] || [ "$CAT_ID" = "null" ]; then
+                  echo "ERROR creating category '$CAT' — raw response:"
+                  echo "$CREATE"
+                  echo "Skipping this category; post will publish without it."
+                  CAT_ID=""
+                else
+                  echo "Created category ID: $CAT_ID"
+                fi
               else
                 echo "Found category ID: $CAT_ID"
               fi
 
-              FINAL_CATEGORIES="$FINAL_CATEGORIES,$CAT_ID"
+              [ -n "$CAT_ID" ] && FINAL_CATEGORIES="$FINAL_CATEGORIES,$CAT_ID"
             done
 
             FINAL_CATEGORIES=$(echo "$FINAL_CATEGORIES" | sed 's/^,//')
