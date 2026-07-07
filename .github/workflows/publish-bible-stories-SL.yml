@@ -24,7 +24,15 @@ jobs:
         run: |
           set -e
 
-          WP_AUTH="-u ${WP_USERNAME}:${WP_PASSWORD}"
+          # NOTE: auth is passed inline as -u "user:pass" at each curl
+          # call below, fully quoted, rather than building it into a
+          # variable and using that variable unquoted. An unquoted
+          # variable gets word-split on spaces by bash — and WordPress
+          # Application Passwords are displayed (and often copied) WITH
+          # spaces, e.g. "abcd 1234 efgh 5678". That would silently
+          # fragment the password into several stray arguments instead
+          # of one intact auth string, causing curl to send a corrupted
+          # credential and WordPress to reject it as unauthenticated.
 
           echo "Scanning Bible_Stories..."
 
@@ -69,7 +77,7 @@ jobs:
               # -----------------------------
               # SEARCH CATEGORY BY EXACT NAME
               # -----------------------------
-              SEARCH=$(curl -s $WP_AUTH \
+              SEARCH=$(curl -s -u "${WP_USERNAME}:${WP_PASSWORD}" \
                 "${WP_URL}/wp-json/wp/v2/categories?search=$(printf '%s' "$CAT" | sed 's/ /%20/g')")
 
               CAT_ID=$(echo "$SEARCH" | jq -r --arg name "$CAT" '
@@ -87,7 +95,7 @@ jobs:
                 # otherwise break this JSON silently.
                 CREATE_PAYLOAD=$(jq -n --arg name "$CAT" '{name: $name}')
 
-                CREATE=$(curl -s -X POST $WP_AUTH \
+                CREATE=$(curl -s -X POST -u "${WP_USERNAME}:${WP_PASSWORD}" \
                   -H "Content-Type: application/json" \
                   -d "$CREATE_PAYLOAD" \
                   "${WP_URL}/wp-json/wp/v2/categories")
@@ -133,7 +141,7 @@ jobs:
             # -----------------------------
             # DUPLICATE CHECK (WORDPRESS = SOURCE OF TRUTH)
             # -----------------------------
-            EXISTING=$(curl -s $WP_AUTH \
+            EXISTING=$(curl -s -u "${WP_USERNAME}:${WP_PASSWORD}" \
               "${WP_URL}/wp-json/wp/v2/posts?slug=${SLUG}")
 
             if echo "$EXISTING" | jq -e 'length > 0' > /dev/null; then
@@ -162,7 +170,7 @@ jobs:
               --argjson content "$CONTENT" \
               '{title: $title, slug: $slug, status: "publish", categories: $categories, content: $content}')
 
-            RESPONSE=$(curl -s -X POST $WP_AUTH \
+            RESPONSE=$(curl -s -X POST -u "${WP_USERNAME}:${WP_PASSWORD}" \
               -H "Content-Type: application/json" \
               -d "$POST_PAYLOAD" \
               "${WP_URL}/wp-json/wp/v2/posts")
