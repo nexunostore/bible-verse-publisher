@@ -17,6 +17,11 @@ jobs:
   publish:
     runs-on: ubuntu-latest
 
+    env:
+      WP_URL: "https://scripturelearning.org"
+      WP_USERNAME: ${{ secrets.WP_APP_USERNAME }}
+      WP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+
     steps:
       - uses: actions/checkout@v3
 
@@ -41,11 +46,66 @@ jobs:
       - name: Prepare content
         id: prep
         run: |
+          set -e
+
           FILE="${{ steps.path.outputs.file }}"
+          WP_AUTH="${WP_USERNAME}:${WP_PASSWORD}"
 
           TITLE=$(head -n 1 "$FILE")
+
+          # -----------------------------
+          # CATEGORY RESOLUTION (by name, not raw numeric IDs)
+          # Line 2 is "categories: Name One, Name Two" — look each up by
+          # exact name via the WP REST API, creating it if it doesn't
+          # exist yet, same behavior as publish-bible-stories-SL.yml.
+          # -----------------------------
           CATEGORY_LINE=$(sed -n '2p' "$FILE" | sed 's/categories://I')
-          CATEGORIES=$(echo "$CATEGORY_LINE" | tr -d ' ')
+          IFS=',' read -ra CAT_ARRAY <<< "$CATEGORY_LINE"
+
+          FINAL_CATEGORIES=""
+
+          for CAT in "${CAT_ARRAY[@]}"; do
+            CAT=$(echo "$CAT" | xargs)               # trim surrounding whitespace
+            CAT=$(echo "$CAT" | sed 's/[[:space:]]\+/ /g')  # collapse internal multi-spaces
+            [ -z "$CAT" ] && continue
+
+            echo "Processing category: '$CAT'"
+
+            SEARCH=$(curl -s -u "$WP_AUTH" \
+              "${WP_URL}/wp-json/wp/v2/categories?search=$(printf '%s' "$CAT" | sed 's/ /%20/g')")
+
+            CAT_ID=$(echo "$SEARCH" | jq -r --arg name "$CAT" '
+              map(select(.name == $name)) | .[0].id // empty
+            ')
+
+            if [ -z "$CAT_ID" ]; then
+              echo "Creating category: $CAT"
+              CREATE_PAYLOAD=$(jq -n --arg name "$CAT" '{name: $name}')
+
+              CREATE=$(curl -s -X POST -u "$WP_AUTH" \
+                -H "Content-Type: application/json" \
+                -d "$CREATE_PAYLOAD" \
+                "${WP_URL}/wp-json/wp/v2/categories")
+
+              CAT_ID=$(echo "$CREATE" | jq -r '.id')
+
+              if [ -z "$CAT_ID" ] || [ "$CAT_ID" = "null" ]; then
+                echo "ERROR creating category '$CAT' — raw response:"
+                echo "$CREATE"
+                echo "Skipping this category; post will publish without it."
+                CAT_ID=""
+              else
+                echo "Created category ID: $CAT_ID"
+              fi
+            else
+              echo "Found category ID: $CAT_ID"
+            fi
+
+            [ -n "$CAT_ID" ] && FINAL_CATEGORIES="$FINAL_CATEGORIES,$CAT_ID"
+          done
+
+          FINAL_CATEGORIES=$(echo "$FINAL_CATEGORIES" | sed 's/^,//')
+          echo "Final categories: $FINAL_CATEGORIES"
 
           # Build proper HTML paragraphs
           CONTENT=$(tail -n +3 "$FILE" \
@@ -80,13 +140,12 @@ jobs:
 
           # Built with jq -n instead of raw string interpolation for the
           # title — a title containing a quote character would otherwise
-          # break this JSON (CATEGORIES is a plain numeric-ID array,
-          # CONTENT is already jq-encoded via jq -Rs above, so both are
-          # already JSON-safe as-is).
+          # break this JSON. CONTENT is already jq-encoded via jq -Rs
+          # above, so it's already JSON-safe as-is.
           jq -n \
             --arg title "$TITLE" \
             --arg slug "$SLUG" \
-            --argjson categories "[$CATEGORIES]" \
+            --argjson categories "[$FINAL_CATEGORIES]" \
             --argjson content "$CONTENT" \
             '{title: $title, slug: $slug, status: "publish", categories: $categories, content: $content}' \
             > post.json
@@ -98,7 +157,3 @@ jobs:
             -H "Content-Type: application/json" \
             -d @post.json \
             "${WP_URL}/wp-json/wp/v2/posts"
-        env:
-          WP_URL: "https://scripturelearning.org"
-          WP_USERNAME: ${{ secrets.WP_APP_USERNAME }}
-          WP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
