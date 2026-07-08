@@ -152,7 +152,10 @@ jobs:
             # -----------------------------
             # CONTENT BUILD
             # -----------------------------
-            CONTENT=$(tail -n +3 "$file" | jq -Rs .)
+            CONTENT=$(tail -n +3 "$file" \
+              | sed 's/\*\*\([^*]\+\)\*\*/<strong>\1<\/strong>/g' \
+              | sed 's/\*\([^*]\+\)\*/<em>\1<\/em>/g' \
+              | jq -Rs .)
 
             [ -z "$CONTENT" ] && echo "Empty content → skipping" && continue
 

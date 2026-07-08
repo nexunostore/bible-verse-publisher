@@ -107,8 +107,17 @@ jobs:
           FINAL_CATEGORIES=$(echo "$FINAL_CATEGORIES" | sed 's/^,//')
           echo "Final categories: $FINAL_CATEGORIES"
 
-          # Build proper HTML paragraphs
+          # Build proper HTML paragraphs. Headings and bold/italic
+          # markdown are converted FIRST, on raw lines — converting them
+          # after the awk paragraph-wrapping step (as this used to do)
+          # meant a heading line had already become "<p>## Title</p>" by
+          # the time the heading regex ran, which no longer matches "^##"
+          # at all, so headings were silently never converting.
           CONTENT=$(tail -n +3 "$FILE" \
+            | sed 's/^## \(.*\)$/<h2>\1<\/h2>/' \
+            | sed 's/^# \(.*\)$/<h1>\1<\/h1>/' \
+            | sed 's/\*\*\([^*]\+\)\*\*/<strong>\1<\/strong>/g' \
+            | sed 's/\*\([^*]\+\)\*/<em>\1<\/em>/g' \
             | awk '
                 BEGIN { paragraph="" }
                 {
@@ -117,6 +126,15 @@ jobs:
                       print "<p>" paragraph "</p>"
                       paragraph=""
                     }
+                  } else if ($0 ~ /^<h[12]>/) {
+                    # Already-converted heading line — flush any pending
+                    # paragraph and print it standalone, not wrapped in
+                    # <p>, since a <p> cannot contain a heading.
+                    if (paragraph != "") {
+                      print "<p>" paragraph "</p>"
+                      paragraph=""
+                    }
+                    print $0
                   } else {
                     if (paragraph == "") {
                       paragraph=$0
@@ -131,8 +149,6 @@ jobs:
                   }
                 }
               ' \
-            | sed 's/^## \(.*\)$/<h2>\1<\/h2>/' \
-            | sed 's/^# \(.*\)$/<h1>\1<\/h1>/' \
             | jq -Rs .)
 
           BASENAME=$(basename "$FILE" .txt)
