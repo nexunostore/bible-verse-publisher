@@ -42,6 +42,18 @@ jobs:
           BOOK=$(echo "$REF" | sed 's/ [0-9].*//')
           CHAPTER=$(echo "$REF" | sed 's/.* \([0-9][0-9]*\):.*/\1/')
 
+          # The book slug (e.g. "2 Kings" -> "2-kings") — this, not the
+          # display name, is what must be stored in WordPress, since
+          # that's the format the reader page's notes lookup queries by
+          # everywhere else (URLs, the book picker, progress tracking).
+          # Sending the display name here was the bug: single-word books
+          # (John, Mark...) happened to still match since SQL comparison
+          # is case-insensitive, but multi-word books (2 Kings, 1 Samuel,
+          # Song of Solomon...) never matched — a space and a hyphen are
+          # never equal regardless of case, so notes for those books were
+          # silently generated successfully but never displayed.
+          BOOK_SLUG=$(echo "$BOOK" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
+
           # Verse part is everything after the colon: "14" or "14-16"
           VERSE_PART=$(echo "$REF" | sed 's/.*:[ ]*//')
           VERSE_START=$(echo "$VERSE_PART" | sed 's/-.*//')
@@ -49,6 +61,7 @@ jobs:
 
           echo "ref=$REF" >> $GITHUB_OUTPUT
           echo "book=$BOOK" >> $GITHUB_OUTPUT
+          echo "book_slug=$BOOK_SLUG" >> $GITHUB_OUTPUT
           echo "chapter=$CHAPTER" >> $GITHUB_OUTPUT
           echo "verse_start=$VERSE_START" >> $GITHUB_OUTPUT
           echo "verse_end=$VERSE_END" >> $GITHUB_OUTPUT
@@ -86,7 +99,7 @@ jobs:
 
       - name: Post the note to WordPress
         env:
-          BOOK: ${{ steps.parse.outputs.book }}
+          BOOK_SLUG: ${{ steps.parse.outputs.book_slug }}
           CHAPTER: ${{ steps.parse.outputs.chapter }}
           VERSE_START: ${{ steps.parse.outputs.verse_start }}
           VERSE_END: ${{ steps.parse.outputs.verse_end }}
@@ -94,7 +107,7 @@ jobs:
           NOTE: ${{ steps.note.outputs.note }}
         run: |
           PAYLOAD=$(jq -n \
-            --arg book "$BOOK" \
+            --arg book "$BOOK_SLUG" \
             --argjson chapter "$CHAPTER" \
             --argjson verse_start "$VERSE_START" \
             --argjson verse_end "$VERSE_END" \
@@ -107,7 +120,7 @@ jobs:
             -H "Content-Type: application/json" \
             -X POST \
             -d "$PAYLOAD" \
-            https://scripturelearning.org/wp-json/bible-study/v1/notes)
+            https://boostlen.com/wp-json/bible-study/v1/notes)
 
           echo "$RESPONSE"
 
