@@ -120,7 +120,7 @@ jobs:
             -H "Content-Type: application/json" \
             -X POST \
             -d "$PAYLOAD" \
-            https://boostlen.com/wp-json/bible-study/v1/notes)
+            https://scripturelearning.org/wp-json/bible-study/v1/notes)
 
           echo "$RESPONSE"
 
