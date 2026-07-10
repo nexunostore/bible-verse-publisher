@@ -1,0 +1,2289 @@
+{
+  "description": "Miracles recorded in the Bible -> one canonical book+chapter where the miracle appears. When a miracle appears multiple times, one primary location is chosen for lookup purposes.",
+  "entries": [
+    {
+      "aliases": [
+        "creation of the world",
+        "god creates heavens and earth",
+        "creation miracle",
+        "six days of creation"
+      ],
+      "book": "Genesis",
+      "chapter": 1,
+      "id": "otm_creation_of_the_world"
+    },
+    {
+      "aliases": [
+        "creation of adam",
+        "god creates man",
+        "adam formed from dust"
+      ],
+      "book": "Genesis",
+      "chapter": 2,
+      "id": "otm_creation_of_adam"
+    },
+    {
+      "aliases": [
+        "creation of eve",
+        "woman created from adam",
+        "eve formed from rib"
+      ],
+      "book": "Genesis",
+      "chapter": 2,
+      "id": "otm_creation_of_eve"
+    },
+    {
+      "aliases": [
+        "fall of man",
+        "serpent deceives eve",
+        "curse of sin"
+      ],
+      "book": "Genesis",
+      "chapter": 3,
+      "id": "otm_fall_of_man"
+    },
+    {
+      "aliases": [
+        "flood of noah",
+        "great flood",
+        "worldwide flood",
+        "noah and the ark"
+      ],
+      "book": "Genesis",
+      "chapter": 6,
+      "id": "otm_flood_of_noah"
+    },
+    {
+      "aliases": [
+        "rainbow covenant",
+        "rainbow after flood",
+        "god promises noah"
+      ],
+      "book": "Genesis",
+      "chapter": 9,
+      "id": "otm_rainbow_covenant"
+    },
+    {
+      "aliases": [
+        "confusion of languages",
+        "tower of babel",
+        "languages divided"
+      ],
+      "book": "Genesis",
+      "chapter": 11,
+      "id": "otm_confusion_of_languages"
+    },
+    {
+      "aliases": [
+        "sarah conceives",
+        "isaac birth miracle",
+        "abraham and sarah child"
+      ],
+      "book": "Genesis",
+      "chapter": 21,
+      "id": "otm_sarah_conceives"
+    },
+    {
+      "aliases": [
+        "sodom destroyed",
+        "fire from heaven",
+        "judgment of sodom and gomorrah"
+      ],
+      "book": "Genesis",
+      "chapter": 19,
+      "id": "otm_sodom_destroyed"
+    },
+    {
+      "aliases": [
+        "lot wife pillar of salt",
+        "lot wife judgment"
+      ],
+      "book": "Genesis",
+      "chapter": 19,
+      "id": "otm_lot_wife_pillar_of_salt"
+    },
+    {
+      "aliases": [
+        "abraham covenant vision",
+        "smoking fire pot",
+        "god passes between pieces"
+      ],
+      "book": "Genesis",
+      "chapter": 15,
+      "id": "otm_abraham_covenant_vision"
+    },
+    {
+      "aliases": [
+        "jacobs ladder",
+        "angels ascending and descending",
+        "bethel vision"
+      ],
+      "book": "Genesis",
+      "chapter": 28,
+      "id": "otm_jacobs_ladder"
+    },
+    {
+      "aliases": [
+        "joseph interprets dreams",
+        "pharaohs dreams interpreted",
+        "god gives joseph wisdom"
+      ],
+      "book": "Genesis",
+      "chapter": 41,
+      "id": "otm_joseph_interprets_dreams"
+    },
+    {
+      "aliases": [
+        "burning bush",
+        "moses burning bush",
+        "bush not consumed"
+      ],
+      "book": "Exodus",
+      "chapter": 3,
+      "id": "otm_burning_bush"
+    },
+    {
+      "aliases": [
+        "moses staff becomes snake",
+        "staff miracle before pharaoh"
+      ],
+      "book": "Exodus",
+      "chapter": 4,
+      "id": "otm_moses_staff_becomes_snake"
+    },
+    {
+      "aliases": [
+        "moses hand leprosy sign",
+        "hand becomes white",
+        "moses signs"
+      ],
+      "book": "Exodus",
+      "chapter": 4,
+      "id": "otm_moses_hand_leprosy_sign"
+    },
+    {
+      "aliases": [
+        "water becomes blood",
+        "first plague egypt",
+        "nile turned to blood"
+      ],
+      "book": "Exodus",
+      "chapter": 7,
+      "id": "otm_water_becomes_blood"
+    },
+    {
+      "aliases": [
+        "frogs plague",
+        "second plague egypt"
+      ],
+      "book": "Exodus",
+      "chapter": 8,
+      "id": "otm_frogs_plague"
+    },
+    {
+      "aliases": [
+        "gnats plague",
+        "lice plague",
+        "third plague egypt"
+      ],
+      "book": "Exodus",
+      "chapter": 8,
+      "id": "otm_gnats_plague"
+    },
+    {
+      "aliases": [
+        "flies plague",
+        "fourth plague egypt"
+      ],
+      "book": "Exodus",
+      "chapter": 8,
+      "id": "otm_flies_plague"
+    },
+    {
+      "aliases": [
+        "livestock plague",
+        "fifth plague egypt"
+      ],
+      "book": "Exodus",
+      "chapter": 9,
+      "id": "otm_livestock_plague"
+    },
+    {
+      "aliases": [
+        "boils plague",
+        "sixth plague egypt"
+      ],
+      "book": "Exodus",
+      "chapter": 9,
+      "id": "otm_boils_plague"
+    },
+    {
+      "aliases": [
+        "hail plague",
+        "seventh plague egypt"
+      ],
+      "book": "Exodus",
+      "chapter": 9,
+      "id": "otm_hail_plague"
+    },
+    {
+      "aliases": [
+        "locust plague",
+        "eighth plague egypt",
+        "locusts cover egypt"
+      ],
+      "book": "Exodus",
+      "chapter": 10,
+      "id": "otm_locust_plague"
+    },
+    {
+      "aliases": [
+        "darkness plague",
+        "ninth plague egypt",
+        "three days darkness"
+      ],
+      "book": "Exodus",
+      "chapter": 10,
+      "id": "otm_darkness_plague"
+    },
+    {
+      "aliases": [
+        "death of firstborn",
+        "tenth plague egypt",
+        "passover judgment"
+      ],
+      "book": "Exodus",
+      "chapter": 12,
+      "id": "otm_death_of_firstborn"
+    },
+    {
+      "aliases": [
+        "pillar of cloud",
+        "pillar of fire",
+        "god guides israel"
+      ],
+      "book": "Exodus",
+      "chapter": 13,
+      "id": "otm_pillar_of_cloud"
+    },
+    {
+      "aliases": [
+        "red sea parted",
+        "crossing the red sea",
+        "moses parts waters",
+        "israel crosses sea"
+      ],
+      "book": "Exodus",
+      "chapter": 14,
+      "id": "otm_red_sea_parted"
+    },
+    {
+      "aliases": [
+        "bitter water made sweet",
+        "waters of marah healed"
+      ],
+      "book": "Exodus",
+      "chapter": 15,
+      "id": "otm_bitter_water_made_sweet"
+    },
+    {
+      "aliases": [
+        "manna from heaven",
+        "bread from heaven",
+        "israel receives manna"
+      ],
+      "book": "Exodus",
+      "chapter": 16,
+      "id": "otm_manna_from_heaven"
+    },
+    {
+      "aliases": [
+        "quail provided",
+        "god sends quail",
+        "meat in wilderness"
+      ],
+      "book": "Exodus",
+      "chapter": 16,
+      "id": "otm_quail_provided"
+    },
+    {
+      "aliases": [
+        "water from rock",
+        "moses strikes rock",
+        "water at rephidim"
+      ],
+      "book": "Exodus",
+      "chapter": 17,
+      "id": "otm_water_from_rock"
+    },
+    {
+      "aliases": [
+        "amalek defeated",
+        "moses hands raised",
+        "aaron and hur support moses"
+      ],
+      "book": "Exodus",
+      "chapter": 17,
+      "id": "otm_amalek_defeated"
+    },
+    {
+      "aliases": [
+        "mount sinai thunder",
+        "god appears at sinai",
+        "fire and smoke on mountain"
+      ],
+      "book": "Exodus",
+      "chapter": 19,
+      "id": "otm_mount_sinai_thunder"
+    },
+    {
+      "aliases": [
+        "golden calf judgment",
+        "levites punish idol worship"
+      ],
+      "book": "Exodus",
+      "chapter": 32,
+      "id": "otm_golden_calf_judgment"
+    },
+    {
+      "aliases": [
+        "moses face shines",
+        "moses radiant face",
+        "glory after meeting god"
+      ],
+      "book": "Exodus",
+      "chapter": 34,
+      "id": "otm_moses_face_shines"
+    },
+    {
+      "aliases": [
+        "nadab and abihu fire",
+        "strange fire consumed priests"
+      ],
+      "book": "Leviticus",
+      "chapter": 10,
+      "id": "otm_nadab_and_abihu_fire"
+    },
+    {
+      "aliases": [
+        "miriam leprosy",
+        "miriam struck with leprosy",
+        "miriam healed"
+      ],
+      "book": "Numbers",
+      "chapter": 12,
+      "id": "otm_miriam_leprosy"
+    },
+    {
+      "aliases": [
+        "aarons staff blossoms",
+        "almond blossoms on rod",
+        "aaron chosen priest"
+      ],
+      "book": "Numbers",
+      "chapter": 17,
+      "id": "otm_aarons_staff_blossoms"
+    },
+    {
+      "aliases": [
+        "korah rebellion judgment",
+        "earth swallows rebels",
+        "korahs followers destroyed"
+      ],
+      "book": "Numbers",
+      "chapter": 16,
+      "id": "otm_korah_rebellion_judgment"
+    },
+    {
+      "aliases": [
+        "bronze serpent",
+        "fiery serpents healed",
+        "snake on pole"
+      ],
+      "book": "Numbers",
+      "chapter": 21,
+      "id": "otm_bronze_serpent"
+    },
+    {
+      "aliases": [
+        "balaams donkey speaks",
+        "talking donkey",
+        "angel and balaam"
+      ],
+      "book": "Numbers",
+      "chapter": 22,
+      "id": "otm_balaams_donkey_speaks"
+    },
+    {
+      "aliases": [
+        "jordan river parted",
+        "israel crosses jordan",
+        "joshua river miracle"
+      ],
+      "book": "Joshua",
+      "chapter": 3,
+      "id": "otm_jordan_river_parted"
+    },
+    {
+      "aliases": [
+        "walls of jericho fall",
+        "jericho defeated",
+        "trumpets of jericho"
+      ],
+      "book": "Joshua",
+      "chapter": 6,
+      "id": "otm_walls_of_jericho_fall"
+    },
+    {
+      "aliases": [
+        "sun stands still",
+        "joshua long day",
+        "sun stopped in battle"
+      ],
+      "book": "Joshua",
+      "chapter": 10,
+      "id": "otm_sun_stands_still"
+    },
+    {
+      "aliases": [
+        "gideons fleece",
+        "gideon sign from god",
+        "wet fleece dry ground"
+      ],
+      "book": "Judges",
+      "chapter": 6,
+      "id": "otm_gideons_fleece"
+    },
+    {
+      "aliases": [
+        "samson strength",
+        "samson defeats philistines",
+        "nazirite strength"
+      ],
+      "book": "Judges",
+      "chapter": 14,
+      "id": "otm_samson_strength"
+    },
+    {
+      "aliases": [
+        "samson kills lion",
+        "lion torn apart by samson"
+      ],
+      "book": "Judges",
+      "chapter": 14,
+      "id": "otm_samson_kills_lion"
+    },
+    {
+      "aliases": [
+        "samson jawbone miracle",
+        "samson defeats thousand men",
+        "jawbone of donkey"
+      ],
+      "book": "Judges",
+      "chapter": 15,
+      "id": "otm_samson_jawbone_miracle"
+    },
+    {
+      "aliases": [
+        "samson destroys temple",
+        "samson pulls pillars",
+        "philistines defeated"
+      ],
+      "book": "Judges",
+      "chapter": 16,
+      "id": "otm_samson_destroys_temple"
+    },
+    {
+      "aliases": [
+        "hannah prayer answered",
+        "samuel birth miracle",
+        "barren woman has child"
+      ],
+      "book": "1 Samuel",
+      "chapter": 1,
+      "id": "otm_hannah_prayer_answered"
+    },
+    {
+      "aliases": [
+        "god speaks to samuel",
+        "samuel hears god voice",
+        "calling of samuel"
+      ],
+      "book": "1 Samuel",
+      "chapter": 3,
+      "id": "otm_god_speaks_to_samuel"
+    },
+    {
+      "aliases": [
+        "ark defeats dagon",
+        "dagon falls before ark",
+        "philistine idol destroyed"
+      ],
+      "book": "1 Samuel",
+      "chapter": 5,
+      "id": "otm_ark_defeats_dagon"
+    },
+    {
+      "aliases": [
+        "ark causes plagues",
+        "philistines afflicted by ark"
+      ],
+      "book": "1 Samuel",
+      "chapter": 5,
+      "id": "otm_ark_causes_plagues"
+    },
+    {
+      "aliases": [
+        "thunder defeats philistines",
+        "samuel prays and god sends thunder"
+      ],
+      "book": "1 Samuel",
+      "chapter": 7,
+      "id": "otm_thunder_defeats_philistines"
+    },
+    {
+      "aliases": [
+        "saul prophecy",
+        "saul among prophets",
+        "spirit comes upon saul"
+      ],
+      "book": "1 Samuel",
+      "chapter": 10,
+      "id": "otm_saul_prophecy"
+    },
+    {
+      "aliases": [
+        "david defeats goliath",
+        "goliath killed by david",
+        "giant defeated"
+      ],
+      "book": "1 Samuel",
+      "chapter": 17,
+      "id": "otm_david_defeats_goliath"
+    },
+    {
+      "aliases": [
+        "david spared by god",
+        "saul cannot capture david"
+      ],
+      "book": "1 Samuel",
+      "chapter": 23,
+      "id": "otm_david_spared_by_god"
+    },
+    {
+      "aliases": [
+        "david receives victory",
+        "god gives david military victories"
+      ],
+      "book": "2 Samuel",
+      "chapter": 8,
+      "id": "otm_david_receives_victory"
+    },
+    {
+      "aliases": [
+        "uzza struck by god",
+        "ark of covenant miracle",
+        "uzza touches ark"
+      ],
+      "book": "2 Samuel",
+      "chapter": 6,
+      "id": "otm_uzza_struck_by_god"
+    },
+    {
+      "aliases": [
+        "david defeats enemies",
+        "god defeats davids enemies"
+      ],
+      "book": "2 Samuel",
+      "chapter": 22,
+      "id": "otm_david_defeats_enemies"
+    },
+    {
+      "aliases": [
+        "solomon wisdom miracle",
+        "god gives solomon wisdom"
+      ],
+      "book": "1 Kings",
+      "chapter": 3,
+      "id": "otm_solomon_wisdom_miracle"
+    },
+    {
+      "aliases": [
+        "temple glory fills",
+        "god fills solomon temple",
+        "shekinah glory"
+      ],
+      "book": "1 Kings",
+      "chapter": 8,
+      "id": "otm_temple_glory_fills"
+    },
+    {
+      "aliases": [
+        "elijah fed by ravens",
+        "ravens bring food to elijah"
+      ],
+      "book": "1 Kings",
+      "chapter": 17,
+      "id": "otm_elijah_fed_by_ravens"
+    },
+    {
+      "aliases": [
+        "widow flour and oil",
+        "zarephath oil miracle",
+        "flour never runs out"
+      ],
+      "book": "1 Kings",
+      "chapter": 17,
+      "id": "otm_widow_flour_and_oil"
+    },
+    {
+      "aliases": [
+        "elijah raises widows son",
+        "widows son restored to life"
+      ],
+      "book": "1 Kings",
+      "chapter": 17,
+      "id": "otm_elijah_raises_widows_son"
+    },
+    {
+      "aliases": [
+        "fire from heaven on mount carmel",
+        "elijah defeats baal prophets",
+        "altar consumed by fire"
+      ],
+      "book": "1 Kings",
+      "chapter": 18,
+      "id": "otm_fire_from_heaven_on_mount_carmel"
+    },
+    {
+      "aliases": [
+        "elijah hears god voice",
+        "still small voice",
+        "god speaks to elijah"
+      ],
+      "book": "1 Kings",
+      "chapter": 19,
+      "id": "otm_elijah_hears_god_voice"
+    },
+    {
+      "aliases": [
+        "elijah calls fire from heaven",
+        "soldiers consumed by fire"
+      ],
+      "book": "2 Kings",
+      "chapter": 1,
+      "id": "otm_elijah_calls_fire_from_heaven"
+    },
+    {
+      "aliases": [
+        "elijah taken to heaven",
+        "chariot of fire",
+        "elijah ascends"
+      ],
+      "book": "2 Kings",
+      "chapter": 2,
+      "id": "otm_elijah_taken_to_heaven"
+    },
+    {
+      "aliases": [
+        "elisha parts jordan",
+        "elijah mantle",
+        "jordan river divided by elisha"
+      ],
+      "book": "2 Kings",
+      "chapter": 2,
+      "id": "otm_elisha_parts_jordan"
+    },
+    {
+      "aliases": [
+        "elisha heals water",
+        "bad water purified",
+        "spring healed"
+      ],
+      "book": "2 Kings",
+      "chapter": 2,
+      "id": "otm_elisha_heals_water"
+    },
+    {
+      "aliases": [
+        "bears attack mockers",
+        "elisha and the bears"
+      ],
+      "book": "2 Kings",
+      "chapter": 2,
+      "id": "otm_bears_attack_mockers"
+    },
+    {
+      "aliases": [
+        "widow oil multiplied",
+        "elisha oil miracle",
+        "empty jars filled"
+      ],
+      "book": "2 Kings",
+      "chapter": 4,
+      "id": "otm_widow_oil_multiplied"
+    },
+    {
+      "aliases": [
+        "shunammite son raised",
+        "elisha raises child",
+        "woman of shunem miracle"
+      ],
+      "book": "2 Kings",
+      "chapter": 4,
+      "id": "otm_shunammite_son_raised"
+    },
+    {
+      "aliases": [
+        "elisha multiplies bread",
+        "feeding a hundred men",
+        "bread miracle"
+      ],
+      "book": "2 Kings",
+      "chapter": 4,
+      "id": "otm_elisha_multiplies_bread"
+    },
+    {
+      "aliases": [
+        "naaman healed",
+        "naaman leprosy cured",
+        "wash in jordan"
+      ],
+      "book": "2 Kings",
+      "chapter": 5,
+      "id": "otm_naaman_healed"
+    },
+    {
+      "aliases": [
+        "gehazi leprosy",
+        "gehazi punished",
+        "naaman servant judgment"
+      ],
+      "book": "2 Kings",
+      "chapter": 5,
+      "id": "otm_gehazi_leprosy"
+    },
+    {
+      "aliases": [
+        "floating axe head",
+        "iron axe floats",
+        "elisha miracle axe"
+      ],
+      "book": "2 Kings",
+      "chapter": 6,
+      "id": "otm_floating_axe_head"
+    },
+    {
+      "aliases": [
+        "elisha sees angels",
+        "horses and chariots of fire",
+        "heavenly army revealed"
+      ],
+      "book": "2 Kings",
+      "chapter": 6,
+      "id": "otm_elisha_sees_angels"
+    },
+    {
+      "aliases": [
+        "syrian army blinded",
+        "elisha blinds enemies",
+        "army captured"
+      ],
+      "book": "2 Kings",
+      "chapter": 6,
+      "id": "otm_syrian_army_blinded"
+    },
+    {
+      "aliases": [
+        "dead man revived by elisha bones",
+        "elishas bones raise dead man"
+      ],
+      "book": "2 Kings",
+      "chapter": 13,
+      "id": "otm_dead_man_revived_by_elisha_bones"
+    },
+    {
+      "aliases": [
+        "hezekiah healed",
+        "hezekiah sickness healed",
+        "isaiah prayer healing"
+      ],
+      "book": "2 Kings",
+      "chapter": 20,
+      "id": "otm_hezekiah_healed"
+    },
+    {
+      "aliases": [
+        "shadow moves backward",
+        "hezekiah sign",
+        "sundial miracle"
+      ],
+      "book": "2 Kings",
+      "chapter": 20,
+      "id": "otm_shadow_moves_backward"
+    },
+    {
+      "aliases": [
+        "assyria defeated by angel",
+        "185000 assyrians destroyed",
+        "angel defeats army"
+      ],
+      "book": "2 Kings",
+      "chapter": 19,
+      "id": "otm_assyria_defeated_by_angel"
+    },
+    {
+      "aliases": [
+        "isaiah lips purified",
+        "coal from altar",
+        "seraph touches isaiah"
+      ],
+      "book": "Isaiah",
+      "chapter": 6,
+      "id": "otm_isaiah_lips_purified"
+    },
+    {
+      "aliases": [
+        "daniel and friends healthy",
+        "daniel refuses kings food"
+      ],
+      "book": "Daniel",
+      "chapter": 1,
+      "id": "otm_daniel_and_friends_healthy"
+    },
+    {
+      "aliases": [
+        "daniel reveals dream",
+        "nebuchadnezzar dream interpretation",
+        "god reveals mystery"
+      ],
+      "book": "Daniel",
+      "chapter": 2,
+      "id": "otm_daniel_reveals_dream"
+    },
+    {
+      "aliases": [
+        "shadrach meshach abednego furnace",
+        "three men in fire",
+        "fourth man in flames"
+      ],
+      "book": "Daniel",
+      "chapter": 3,
+      "id": "otm_shadrach_meshach_abednego_furnace"
+    },
+    {
+      "aliases": [
+        "nebuchadnezzar humbled",
+        "king becomes like beast",
+        "judgment of nebuchadnezzar"
+      ],
+      "book": "Daniel",
+      "chapter": 4,
+      "id": "otm_nebuchadnezzar_humbled"
+    },
+    {
+      "aliases": [
+        "writing on wall",
+        "belshazzar handwriting",
+        "mene mene tekel"
+      ],
+      "book": "Daniel",
+      "chapter": 5,
+      "id": "otm_writing_on_wall"
+    },
+    {
+      "aliases": [
+        "daniel lions den",
+        "lions mouths closed",
+        "angel protects daniel"
+      ],
+      "book": "Daniel",
+      "chapter": 6,
+      "id": "otm_daniel_lions_den"
+    },
+    {
+      "aliases": [
+        "jonah swallowed by fish",
+        "great fish miracle",
+        "jonah preserved"
+      ],
+      "book": "Jonah",
+      "chapter": 1,
+      "id": "otm_jonah_swallowed_by_fish"
+    },
+    {
+      "aliases": [
+        "jonah delivered from fish",
+        "jonah vomited onto land"
+      ],
+      "book": "Jonah",
+      "chapter": 2,
+      "id": "otm_jonah_delivered_from_fish"
+    },
+    {
+      "aliases": [
+        "jonah plant grows",
+        "vine miracle",
+        "god provides plant for jonah"
+      ],
+      "book": "Jonah",
+      "chapter": 4,
+      "id": "otm_jonah_plant_grows"
+    },
+    {
+      "aliases": [
+        "ezekiel sees visions of god",
+        "heavens opened",
+        "ezekiel vision"
+      ],
+      "book": "Ezekiel",
+      "chapter": 1,
+      "id": "otm_ezekiel_sees_visions_of_god"
+    },
+    {
+      "aliases": [
+        "ezekiel eats scroll",
+        "prophet eats gods word",
+        "scroll tastes sweet"
+      ],
+      "book": "Ezekiel",
+      "chapter": 3,
+      "id": "otm_ezekiel_eats_scroll"
+    },
+    {
+      "aliases": [
+        "dry bones come alive",
+        "valley of dry bones",
+        "ezekiel resurrection vision"
+      ],
+      "book": "Ezekiel",
+      "chapter": 37,
+      "id": "otm_dry_bones_come_alive"
+    },
+    {
+      "aliases": [
+        "daniel receives visions",
+        "four beasts vision",
+        "prophetic dreams"
+      ],
+      "book": "Daniel",
+      "chapter": 7,
+      "id": "otm_daniel_receives_visions"
+    },
+    {
+      "aliases": [
+        "three hebrews protected",
+        "angel in furnace",
+        "god saves from fire"
+      ],
+      "book": "Daniel",
+      "chapter": 3,
+      "id": "otm_three_hebrews_protected"
+    },
+    {
+      "aliases": [
+        "esther deliverance",
+        "jews saved from destruction",
+        "god protects israel"
+      ],
+      "book": "Esther",
+      "chapter": 7,
+      "id": "otm_esther_deliverance"
+    },
+    {
+      "aliases": [
+        "ezra temple rebuilt",
+        "god moves king cyrus",
+        "return from exile"
+      ],
+      "book": "Ezra",
+      "chapter": 1,
+      "id": "otm_ezra_temple_rebuilt"
+    },
+    {
+      "aliases": [
+        "nehemiah wall rebuilt",
+        "jerusalem walls restored",
+        "god gives success"
+      ],
+      "book": "Nehemiah",
+      "chapter": 6,
+      "id": "otm_nehemiah_wall_rebuilt"
+    },
+    {
+      "aliases": [
+        "moses and israel protected",
+        "cloud protects israel",
+        "divine guidance"
+      ],
+      "book": "Exodus",
+      "chapter": 14,
+      "id": "otm_moses_and_israel_protected"
+    },
+    {
+      "aliases": [
+        "tabernacle glory appears",
+        "god fills tabernacle",
+        "divine presence"
+      ],
+      "book": "Exodus",
+      "chapter": 40,
+      "id": "otm_tabernacle_glory_appears"
+    },
+    {
+      "aliases": [
+        "fire from heaven at tabernacle",
+        "altar fire from god"
+      ],
+      "book": "Leviticus",
+      "chapter": 9,
+      "id": "otm_fire_from_heaven_at_tabernacle"
+    },
+    {
+      "aliases": [
+        "water from rock at meribah",
+        "moses water miracle",
+        "rock gives water"
+      ],
+      "book": "Numbers",
+      "chapter": 20,
+      "id": "otm_water_from_rock_at_meribah"
+    },
+    {
+      "aliases": [
+        "joshua victory over enemies",
+        "god fights for israel"
+      ],
+      "book": "Joshua",
+      "chapter": 10,
+      "id": "otm_joshua_victory_over_enemies"
+    },
+    {
+      "aliases": [
+        "gideon army reduced",
+        "three hundred men",
+        "god gives victory with few"
+      ],
+      "book": "Judges",
+      "chapter": 7,
+      "id": "otm_gideon_army_reduced"
+    },
+    {
+      "aliases": [
+        "gideon victory by trumpets",
+        "midian defeated miraculously"
+      ],
+      "book": "Judges",
+      "chapter": 7,
+      "id": "otm_gideon_victory_by_trumpets"
+    },
+    {
+      "aliases": [
+        "samuel thunder and rain",
+        "god sends thunder during harvest"
+      ],
+      "book": "1 Samuel",
+      "chapter": 12,
+      "id": "otm_samuel_thunder_and_rain"
+    },
+    {
+      "aliases": [
+        "saul saved from enemies",
+        "god protects king saul"
+      ],
+      "book": "1 Samuel",
+      "chapter": 11,
+      "id": "otm_saul_saved_from_enemies"
+    },
+    {
+      "aliases": [
+        "david rescued from philistines",
+        "god gives escape to david"
+      ],
+      "book": "1 Samuel",
+      "chapter": 23,
+      "id": "otm_david_rescued_from_philistines"
+    },
+    {
+      "aliases": [
+        "jeroboams altar split",
+        "prophet against jeroboam",
+        "altar miracle"
+      ],
+      "book": "1 Kings",
+      "chapter": 13,
+      "id": "otm_jeroboams_altar_split"
+    },
+    {
+      "aliases": [
+        "prophets preserved by god",
+        "hundred prophets hidden",
+        "obadiah saves prophets"
+      ],
+      "book": "1 Kings",
+      "chapter": 18,
+      "id": "otm_prophets_preserved_by_god"
+    },
+    {
+      "aliases": [
+        "elijah rain returns",
+        "drought ends",
+        "rain after prayer"
+      ],
+      "book": "1 Kings",
+      "chapter": 18,
+      "id": "otm_elijah_rain_returns"
+    },
+    {
+      "aliases": [
+        "elijah fed by angel",
+        "angel gives food to elijah"
+      ],
+      "book": "1 Kings",
+      "chapter": 19,
+      "id": "otm_elijah_fed_by_angel"
+    },
+    {
+      "aliases": [
+        "elisha predicts victory",
+        "israel delivered from moab"
+      ],
+      "book": "2 Kings",
+      "chapter": 3,
+      "id": "otm_elisha_predicts_victory"
+    },
+    {
+      "aliases": [
+        "elisha prophecy fulfilled",
+        "woman receives land restored"
+      ],
+      "book": "2 Kings",
+      "chapter": 8,
+      "id": "otm_elisha_prophecy_fulfilled"
+    },
+    {
+      "aliases": [
+        "water into wine",
+        "wedding at cana miracle",
+        "jesus first miracle"
+      ],
+      "book": "John",
+      "chapter": 2,
+      "id": "otm_water_into_wine"
+    },
+    {
+      "aliases": [
+        "healing royal officials son",
+        "officials son healed from distance",
+        "cana healing miracle"
+      ],
+      "book": "John",
+      "chapter": 4,
+      "id": "otm_healing_royal_officials_son"
+    },
+    {
+      "aliases": [
+        "large catch of fish",
+        "miraculous catch",
+        "peter catches many fish"
+      ],
+      "book": "Luke",
+      "chapter": 5,
+      "id": "otm_large_catch_of_fish"
+    },
+    {
+      "aliases": [
+        "jesus heals leper",
+        "cleansing leprosy",
+        "leper made clean"
+      ],
+      "book": "Mark",
+      "chapter": 1,
+      "id": "otm_jesus_heals_leper"
+    },
+    {
+      "aliases": [
+        "jesus heals paralytic",
+        "paralyzed man lowered through roof",
+        "sins forgiven and healed"
+      ],
+      "book": "Mark",
+      "chapter": 2,
+      "id": "otm_jesus_heals_paralytic"
+    },
+    {
+      "aliases": [
+        "jesus heals withered hand",
+        "man with crippled hand healed"
+      ],
+      "book": "Mark",
+      "chapter": 3,
+      "id": "otm_jesus_heals_withered_hand"
+    },
+    {
+      "aliases": [
+        "jesus casts out demon",
+        "unclean spirit in synagogue",
+        "demon obeys jesus"
+      ],
+      "book": "Mark",
+      "chapter": 1,
+      "id": "otm_jesus_casts_out_demon"
+    },
+    {
+      "aliases": [
+        "legion demon expelled",
+        "gerasene demoniac",
+        "many demons cast out"
+      ],
+      "book": "Mark",
+      "chapter": 5,
+      "id": "otm_legion_demon_expelled"
+    },
+    {
+      "aliases": [
+        "woman healed by touching jesus",
+        "bleeding woman healed",
+        "issue of blood miracle"
+      ],
+      "book": "Mark",
+      "chapter": 5,
+      "id": "otm_woman_healed_by_touching_jesus"
+    },
+    {
+      "aliases": [
+        "jairus daughter raised",
+        "little girl raised from dead",
+        "talitha koum"
+      ],
+      "book": "Mark",
+      "chapter": 5,
+      "id": "otm_jairus_daughter_raised"
+    },
+    {
+      "aliases": [
+        "blind men healed",
+        "jesus restores sight",
+        "two blind men receive sight"
+      ],
+      "book": "Matthew",
+      "chapter": 9,
+      "id": "otm_blind_men_healed"
+    },
+    {
+      "aliases": [
+        "mute demon cast out",
+        "jesus heals mute person"
+      ],
+      "book": "Matthew",
+      "chapter": 9,
+      "id": "otm_mute_demon_cast_out"
+    },
+    {
+      "aliases": [
+        "centurions servant healed",
+        "centurion faith miracle",
+        "servant healed by jesus word"
+      ],
+      "book": "Matthew",
+      "chapter": 8,
+      "id": "otm_centurions_servant_healed"
+    },
+    {
+      "aliases": [
+        "peters mother in law healed",
+        "fever healed",
+        "jesus heals peter mother"
+      ],
+      "book": "Matthew",
+      "chapter": 8,
+      "id": "otm_peters_mother_in_law_healed"
+    },
+    {
+      "aliases": [
+        "many sick healed",
+        "jesus evening healings",
+        "diseases removed"
+      ],
+      "book": "Matthew",
+      "chapter": 8,
+      "id": "otm_many_sick_healed"
+    },
+    {
+      "aliases": [
+        "storm calmed",
+        "jesus calms sea",
+        "wind and waves obey"
+      ],
+      "book": "Matthew",
+      "chapter": 8,
+      "id": "otm_storm_calmed"
+    },
+    {
+      "aliases": [
+        "demons enter pigs",
+        "swine miracle",
+        "demons cast into herd"
+      ],
+      "book": "Matthew",
+      "chapter": 8,
+      "id": "otm_demons_enter_pigs"
+    },
+    {
+      "aliases": [
+        "widow of nain son raised",
+        "young man restored to life"
+      ],
+      "book": "Luke",
+      "chapter": 7,
+      "id": "otm_widow_of_nain_son_raised"
+    },
+    {
+      "aliases": [
+        "woman bent over healed",
+        "eighteen years infirmity healed"
+      ],
+      "book": "Luke",
+      "chapter": 13,
+      "id": "otm_woman_bent_over_healed"
+    },
+    {
+      "aliases": [
+        "man with dropsy healed",
+        "sabbath healing miracle"
+      ],
+      "book": "Luke",
+      "chapter": 14,
+      "id": "otm_man_with_dropsy_healed"
+    },
+    {
+      "aliases": [
+        "ten lepers healed",
+        "one thankful leper",
+        "leprosy cleansed"
+      ],
+      "book": "Luke",
+      "chapter": 17,
+      "id": "otm_ten_lepers_healed"
+    },
+    {
+      "aliases": [
+        "blind bartimaeus healed",
+        "son of david mercy",
+        "blind beggar receives sight"
+      ],
+      "book": "Mark",
+      "chapter": 10,
+      "id": "otm_blind_bartimaeus_healed"
+    },
+    {
+      "aliases": [
+        "blind man at bethsaida healed",
+        "two stage healing",
+        "jesus restores sight"
+      ],
+      "book": "Mark",
+      "chapter": 8,
+      "id": "otm_blind_man_at_bethsaida_healed"
+    },
+    {
+      "aliases": [
+        "deaf man healed",
+        "ephphatha miracle",
+        "deaf and mute restored"
+      ],
+      "book": "Mark",
+      "chapter": 7,
+      "id": "otm_deaf_man_healed"
+    },
+    {
+      "aliases": [
+        "feeding five thousand",
+        "five loaves two fish",
+        "bread and fish miracle"
+      ],
+      "book": "Matthew",
+      "chapter": 14,
+      "id": "otm_feeding_five_thousand"
+    },
+    {
+      "aliases": [
+        "jesus walks on water",
+        "walking on sea",
+        "peter walks on water"
+      ],
+      "book": "Matthew",
+      "chapter": 14,
+      "id": "otm_jesus_walks_on_water"
+    },
+    {
+      "aliases": [
+        "feeding four thousand",
+        "seven loaves miracle",
+        "jesus feeds crowd"
+      ],
+      "book": "Matthew",
+      "chapter": 15,
+      "id": "otm_feeding_four_thousand"
+    },
+    {
+      "aliases": [
+        "coin in fish mouth",
+        "temple tax miracle",
+        "fish provides coin"
+      ],
+      "book": "Matthew",
+      "chapter": 17,
+      "id": "otm_coin_in_fish_mouth"
+    },
+    {
+      "aliases": [
+        "fig tree withers",
+        "jesus curses fig tree",
+        "faith and fig tree"
+      ],
+      "book": "Matthew",
+      "chapter": 21,
+      "id": "otm_fig_tree_withers"
+    },
+    {
+      "aliases": [
+        "healing blind man born blind",
+        "man born blind receives sight",
+        "pool of siloam"
+      ],
+      "book": "John",
+      "chapter": 9,
+      "id": "otm_healing_blind_man_born_blind"
+    },
+    {
+      "aliases": [
+        "lazarus raised",
+        "jesus raises lazarus",
+        "dead man comes alive",
+        "bethany miracle"
+      ],
+      "book": "John",
+      "chapter": 11,
+      "id": "otm_lazarus_raised"
+    },
+    {
+      "aliases": [
+        "temple guards fall back",
+        "jesus reveals authority at arrest"
+      ],
+      "book": "John",
+      "chapter": 18,
+      "id": "otm_temple_guards_fall_back"
+    },
+    {
+      "aliases": [
+        "jesus heals servants ear",
+        "malchus ear restored",
+        "ear healed at arrest"
+      ],
+      "book": "Luke",
+      "chapter": 22,
+      "id": "otm_jesus_heals_servants_ear"
+    },
+    {
+      "aliases": [
+        "darkness at crucifixion",
+        "three hours darkness",
+        "supernatural darkness"
+      ],
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "otm_darkness_at_crucifixion"
+    },
+    {
+      "aliases": [
+        "earthquake at jesus death",
+        "tombs opened",
+        "veil torn in temple"
+      ],
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "otm_earthquake_at_jesus_death"
+    },
+    {
+      "aliases": [
+        "resurrection of jesus",
+        "empty tomb",
+        "christ rises from dead"
+      ],
+      "book": "Matthew",
+      "chapter": 28,
+      "id": "otm_resurrection_of_jesus"
+    },
+    {
+      "aliases": [
+        "great catch after resurrection",
+        "153 fish miracle",
+        "breakfast by sea"
+      ],
+      "book": "John",
+      "chapter": 21,
+      "id": "otm_great_catch_after_resurrection"
+    },
+    {
+      "aliases": [
+        "ascension of jesus",
+        "jesus taken into heaven",
+        "cloud receives jesus"
+      ],
+      "book": "Acts",
+      "chapter": 1,
+      "id": "otm_ascension_of_jesus"
+    },
+    {
+      "aliases": [
+        "disciples receive holy spirit",
+        "jesus breathes spirit",
+        "holy spirit given"
+      ],
+      "book": "John",
+      "chapter": 20,
+      "id": "otm_disciples_receive_holy_spirit"
+    },
+    {
+      "aliases": [
+        "pentecost miracle",
+        "tongues of fire",
+        "holy spirit descends"
+      ],
+      "book": "Acts",
+      "chapter": 2,
+      "id": "otm_pentecost_miracle"
+    },
+    {
+      "aliases": [
+        "apostles speak languages",
+        "pentecost languages miracle"
+      ],
+      "book": "Acts",
+      "chapter": 2,
+      "id": "otm_apostles_speak_languages"
+    },
+    {
+      "aliases": [
+        "lame man healed at temple",
+        "beautiful gate healing",
+        "peter heals beggar"
+      ],
+      "book": "Acts",
+      "chapter": 3,
+      "id": "otm_lame_man_healed_at_temple"
+    },
+    {
+      "aliases": [
+        "apostles heal many",
+        "signs and wonders by apostles"
+      ],
+      "book": "Acts",
+      "chapter": 5,
+      "id": "otm_apostles_heal_many"
+    },
+    {
+      "aliases": [
+        "shadow of peter heals",
+        "peters shadow miracles"
+      ],
+      "book": "Acts",
+      "chapter": 5,
+      "id": "otm_shadow_of_peter_heals"
+    },
+    {
+      "aliases": [
+        "stephen miracles",
+        "wonders by stephen",
+        "stephen signs"
+      ],
+      "book": "Acts",
+      "chapter": 6,
+      "id": "otm_stephen_miracles"
+    },
+    {
+      "aliases": [
+        "philip miracles samaria",
+        "demons cast out by philip",
+        "healings in samaria"
+      ],
+      "book": "Acts",
+      "chapter": 8,
+      "id": "otm_philip_miracles_samaria"
+    },
+    {
+      "aliases": [
+        "paul blinded by vision",
+        "saul sees risen christ",
+        "damascus road light"
+      ],
+      "book": "Acts",
+      "chapter": 9,
+      "id": "otm_paul_blinded_by_vision"
+    },
+    {
+      "aliases": [
+        "aeneas healed",
+        "peter heals paralytic aeneas"
+      ],
+      "book": "Acts",
+      "chapter": 9,
+      "id": "otm_aeneas_healed"
+    },
+    {
+      "aliases": [
+        "tabitha raised",
+        "dorcas raised from dead",
+        "peter restores tabitha"
+      ],
+      "book": "Acts",
+      "chapter": 9,
+      "id": "otm_tabitha_raised"
+    },
+    {
+      "aliases": [
+        "cornelius vision",
+        "angel appears to cornelius",
+        "gentiles receive holy spirit"
+      ],
+      "book": "Acts",
+      "chapter": 10,
+      "id": "otm_cornelius_vision"
+    },
+    {
+      "aliases": [
+        "peter vision of animals",
+        "sheet from heaven",
+        "unclean animals vision"
+      ],
+      "book": "Acts",
+      "chapter": 10,
+      "id": "otm_peter_vision_of_animals"
+    },
+    {
+      "aliases": [
+        "peter freed from prison",
+        "angel opens prison doors",
+        "chains fall from peter"
+      ],
+      "book": "Acts",
+      "chapter": 12,
+      "id": "otm_peter_freed_from_prison"
+    },
+    {
+      "aliases": [
+        "herod struck by angel",
+        "herod death judgment",
+        "angel of the lord strikes"
+      ],
+      "book": "Acts",
+      "chapter": 12,
+      "id": "otm_herod_struck_by_angel"
+    },
+    {
+      "aliases": [
+        "paul blinds elymas",
+        "bar jesus blindness",
+        "sorcerer struck blind"
+      ],
+      "book": "Acts",
+      "chapter": 13,
+      "id": "otm_paul_blinds_elymas"
+    },
+    {
+      "aliases": [
+        "lame man healed at lystra",
+        "paul heals cripple",
+        "man unable to walk"
+      ],
+      "book": "Acts",
+      "chapter": 14,
+      "id": "otm_lame_man_healed_at_lystra"
+    },
+    {
+      "aliases": [
+        "paul visions",
+        "man of macedonia vision",
+        "come over to macedonia"
+      ],
+      "book": "Acts",
+      "chapter": 16,
+      "id": "otm_paul_visions"
+    },
+    {
+      "aliases": [
+        "paul and silas prison earthquake",
+        "prison doors open",
+        "chains broken"
+      ],
+      "book": "Acts",
+      "chapter": 16,
+      "id": "otm_paul_and_silas_prison_earthquake"
+    },
+    {
+      "aliases": [
+        "spirit leaves slave girl",
+        "fortune telling spirit cast out",
+        "paul delivers girl"
+      ],
+      "book": "Acts",
+      "chapter": 16,
+      "id": "otm_spirit_leaves_slave_girl"
+    },
+    {
+      "aliases": [
+        "extraordinary miracles by paul",
+        "handkerchiefs heal sick",
+        "ephesus miracles"
+      ],
+      "book": "Acts",
+      "chapter": 19,
+      "id": "otm_extraordinary_miracles_by_paul"
+    },
+    {
+      "aliases": [
+        "sons of sceva attacked",
+        "evil spirit overpowers exorcists"
+      ],
+      "book": "Acts",
+      "chapter": 19,
+      "id": "otm_sons_of_sceva_attacked"
+    },
+    {
+      "aliases": [
+        "eutychus raised",
+        "paul restores young man",
+        "man falls from window"
+      ],
+      "book": "Acts",
+      "chapter": 20,
+      "id": "otm_eutychus_raised"
+    },
+    {
+      "aliases": [
+        "paul unharmed by snake",
+        "viper bite on malta",
+        "snake miracle"
+      ],
+      "book": "Acts",
+      "chapter": 28,
+      "id": "otm_paul_unharmed_by_snake"
+    },
+    {
+      "aliases": [
+        "paul heals publius father",
+        "malta healing miracle",
+        "fever healed"
+      ],
+      "book": "Acts",
+      "chapter": 28,
+      "id": "otm_paul_heals_publius_father"
+    },
+    {
+      "aliases": [
+        "paul performs miracles",
+        "signs of apostle",
+        "miracles through paul"
+      ],
+      "book": "Romans",
+      "chapter": 15,
+      "id": "otm_paul_performs_miracles"
+    },
+    {
+      "aliases": [
+        "spiritual gifts miracles",
+        "gifts of healing",
+        "miracles by holy spirit"
+      ],
+      "book": "1 Corinthians",
+      "chapter": 12,
+      "id": "otm_spiritual_gifts_miracles"
+    },
+    {
+      "aliases": [
+        "resurrection of the dead promise",
+        "christ resurrection hope"
+      ],
+      "book": "1 Corinthians",
+      "chapter": 15,
+      "id": "otm_resurrection_of_the_dead_promise"
+    },
+    {
+      "aliases": [
+        "paul caught up to third heaven",
+        "third heaven vision",
+        "pauls revelation"
+      ],
+      "book": "2 Corinthians",
+      "chapter": 12,
+      "id": "otm_paul_caught_up_to_third_heaven"
+    },
+    {
+      "aliases": [
+        "signs of apostle paul",
+        "wonders and mighty works"
+      ],
+      "book": "2 Corinthians",
+      "chapter": 12,
+      "id": "otm_signs_of_apostle_paul"
+    },
+    {
+      "aliases": [
+        "antichrist false miracles",
+        "signs and wonders deception"
+      ],
+      "book": "2 Thessalonians",
+      "chapter": 2,
+      "id": "otm_antichrist_false_miracles"
+    },
+    {
+      "aliases": [
+        "two witnesses miracles",
+        "revelation witnesses fire",
+        "prophetic powers"
+      ],
+      "book": "Revelation",
+      "chapter": 11,
+      "id": "otm_two_witnesses_miracles"
+    },
+    {
+      "aliases": [
+        "woman protected in wilderness",
+        "god protects woman revelation"
+      ],
+      "book": "Revelation",
+      "chapter": 12,
+      "id": "otm_woman_protected_in_wilderness"
+    },
+    {
+      "aliases": [
+        "beast receives wound healed",
+        "false miracle of beast"
+      ],
+      "book": "Revelation",
+      "chapter": 13,
+      "id": "otm_beast_receives_wound_healed"
+    },
+    {
+      "aliases": [
+        "john sees glorified christ",
+        "vision of jesus in revelation",
+        "son of man vision"
+      ],
+      "book": "Revelation",
+      "chapter": 1,
+      "id": "otm_john_sees_glorified_christ"
+    },
+    {
+      "aliases": [
+        "heaven opened",
+        "john throne room vision",
+        "god on throne"
+      ],
+      "book": "Revelation",
+      "chapter": 4,
+      "id": "otm_heaven_opened"
+    },
+    {
+      "aliases": [
+        "lamb worthy to open scroll",
+        "seven sealed scroll",
+        "lamb of god revelation"
+      ],
+      "book": "Revelation",
+      "chapter": 5,
+      "id": "otm_lamb_worthy_to_open_scroll"
+    },
+    {
+      "aliases": [
+        "four horsemen",
+        "riders of apocalypse",
+        "first seals opened"
+      ],
+      "book": "Revelation",
+      "chapter": 6,
+      "id": "otm_four_horsemen"
+    },
+    {
+      "aliases": [
+        "earthquake at sixth seal",
+        "heavenly signs",
+        "cosmic disturbance"
+      ],
+      "book": "Revelation",
+      "chapter": 6,
+      "id": "otm_earthquake_at_sixth_seal"
+    },
+    {
+      "aliases": [
+        "angel seals servants",
+        "144000 sealed",
+        "mark of god servants"
+      ],
+      "book": "Revelation",
+      "chapter": 7,
+      "id": "otm_angel_seals_servants"
+    },
+    {
+      "aliases": [
+        "seven trumpets judgments",
+        "angels with trumpets",
+        "trumpet plagues"
+      ],
+      "book": "Revelation",
+      "chapter": 8,
+      "id": "otm_seven_trumpets_judgments"
+    },
+    {
+      "aliases": [
+        "star falls from heaven",
+        "wormwood judgment",
+        "bitter waters"
+      ],
+      "book": "Revelation",
+      "chapter": 8,
+      "id": "otm_star_falls_from_heaven"
+    },
+    {
+      "aliases": [
+        "locust army revelation",
+        "abyss opened",
+        "demonic locusts"
+      ],
+      "book": "Revelation",
+      "chapter": 9,
+      "id": "otm_locust_army_revelation"
+    },
+    {
+      "aliases": [
+        "four angels released",
+        "euphrates angels",
+        "end times army"
+      ],
+      "book": "Revelation",
+      "chapter": 9,
+      "id": "otm_four_angels_released"
+    },
+    {
+      "aliases": [
+        "mighty angel and little scroll",
+        "john eats scroll",
+        "sweet and bitter scroll"
+      ],
+      "book": "Revelation",
+      "chapter": 10,
+      "id": "otm_mighty_angel_and_little_scroll"
+    },
+    {
+      "aliases": [
+        "two witnesses raised",
+        "witnesses resurrected",
+        "breath of life enters them"
+      ],
+      "book": "Revelation",
+      "chapter": 11,
+      "id": "otm_two_witnesses_raised"
+    },
+    {
+      "aliases": [
+        "woman clothed with sun",
+        "dragon defeated",
+        "war in heaven"
+      ],
+      "book": "Revelation",
+      "chapter": 12,
+      "id": "otm_woman_clothed_with_sun"
+    },
+    {
+      "aliases": [
+        "beast power from dragon",
+        "beast performs signs",
+        "false worship"
+      ],
+      "book": "Revelation",
+      "chapter": 13,
+      "id": "otm_beast_power_from_dragon"
+    },
+    {
+      "aliases": [
+        "false prophet miracles",
+        "fire from heaven deception",
+        "beast signs"
+      ],
+      "book": "Revelation",
+      "chapter": 13,
+      "id": "otm_false_prophet_miracles"
+    },
+    {
+      "aliases": [
+        "seven bowls of wrath",
+        "final judgments",
+        "bowls poured out"
+      ],
+      "book": "Revelation",
+      "chapter": 16,
+      "id": "otm_seven_bowls_of_wrath"
+    },
+    {
+      "aliases": [
+        "great earthquake revelation",
+        "cities fall",
+        "islands disappear"
+      ],
+      "book": "Revelation",
+      "chapter": 16,
+      "id": "otm_great_earthquake_revelation"
+    },
+    {
+      "aliases": [
+        "christ defeats armies",
+        "battle of armageddon",
+        "king of kings victory"
+      ],
+      "book": "Revelation",
+      "chapter": 19,
+      "id": "otm_christ_defeats_armies"
+    },
+    {
+      "aliases": [
+        "satan bound",
+        "thousand years reign",
+        "devil imprisoned"
+      ],
+      "book": "Revelation",
+      "chapter": 20,
+      "id": "otm_satan_bound"
+    },
+    {
+      "aliases": [
+        "dead raised for judgment",
+        "great white throne",
+        "final resurrection"
+      ],
+      "book": "Revelation",
+      "chapter": 20,
+      "id": "otm_dead_raised_for_judgment"
+    },
+    {
+      "aliases": [
+        "new jerusalem descends",
+        "holy city from heaven",
+        "god dwells with humanity"
+      ],
+      "book": "Revelation",
+      "chapter": 21,
+      "id": "otm_new_jerusalem_descends"
+    },
+    {
+      "aliases": [
+        "river of life",
+        "tree of life restored",
+        "eternal paradise"
+      ],
+      "book": "Revelation",
+      "chapter": 22,
+      "id": "otm_river_of_life"
+    },
+    {
+      "aliases": [
+        "angel announces birth of john",
+        "gabriel appears to zacharias",
+        "john the baptist birth prophecy"
+      ],
+      "book": "Luke",
+      "chapter": 1,
+      "id": "otm_angel_announces_birth_of_john"
+    },
+    {
+      "aliases": [
+        "virgin birth of jesus",
+        "mary conceives by holy spirit",
+        "jesus miraculous birth"
+      ],
+      "book": "Luke",
+      "chapter": 1,
+      "id": "otm_virgin_birth_of_jesus"
+    },
+    {
+      "aliases": [
+        "angels announce jesus birth",
+        "heavenly host appears",
+        "shepherds visit jesus"
+      ],
+      "book": "Luke",
+      "chapter": 2,
+      "id": "otm_angels_announce_jesus_birth"
+    },
+    {
+      "aliases": [
+        "star of bethlehem",
+        "wise men guided by star",
+        "magi follow star"
+      ],
+      "book": "Matthew",
+      "chapter": 2,
+      "id": "otm_star_of_bethlehem"
+    },
+    {
+      "aliases": [
+        "escape to egypt",
+        "holy family protected",
+        "angel warns joseph"
+      ],
+      "book": "Matthew",
+      "chapter": 2,
+      "id": "otm_escape_to_egypt"
+    },
+    {
+      "aliases": [
+        "jesus childhood wisdom",
+        "boy jesus in temple",
+        "teachers amazed"
+      ],
+      "book": "Luke",
+      "chapter": 2,
+      "id": "otm_jesus_childhood_wisdom"
+    },
+    {
+      "aliases": [
+        "john baptist wilderness ministry",
+        "voice crying in wilderness",
+        "prophetic preparation"
+      ],
+      "book": "Matthew",
+      "chapter": 3,
+      "id": "otm_john_baptist_wilderness_ministry"
+    },
+    {
+      "aliases": [
+        "jesus baptism",
+        "holy spirit descends like dove",
+        "voice from heaven"
+      ],
+      "book": "Matthew",
+      "chapter": 3,
+      "id": "otm_jesus_baptism"
+    },
+    {
+      "aliases": [
+        "jesus temptation",
+        "satan tempts jesus",
+        "angels minister to jesus"
+      ],
+      "book": "Matthew",
+      "chapter": 4,
+      "id": "otm_jesus_temptation"
+    },
+    {
+      "aliases": [
+        "transfiguration of jesus",
+        "jesus glory revealed",
+        "moses and elijah appear"
+      ],
+      "book": "Matthew",
+      "chapter": 17,
+      "id": "otm_transfiguration_of_jesus"
+    },
+    {
+      "aliases": [
+        "resurrection of saints",
+        "tombs opened after jesus death",
+        "holy people appear"
+      ],
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "otm_resurrection_of_saints"
+    },
+    {
+      "aliases": [
+        "angel opens jesus tomb",
+        "earthquake at resurrection",
+        "stone rolled away"
+      ],
+      "book": "Matthew",
+      "chapter": 28,
+      "id": "otm_angel_opens_jesus_tomb"
+    },
+    {
+      "aliases": [
+        "angels at empty tomb",
+        "women see angels",
+        "resurrection announcement"
+      ],
+      "book": "Luke",
+      "chapter": 24,
+      "id": "otm_angels_at_empty_tomb"
+    },
+    {
+      "aliases": [
+        "jesus appears after resurrection",
+        "many witnesses see risen christ"
+      ],
+      "book": "1 Corinthians",
+      "chapter": 15,
+      "id": "otm_jesus_appears_after_resurrection"
+    },
+    {
+      "aliases": [
+        "holy spirit miracles",
+        "signs wonders gifts",
+        "spiritual manifestations"
+      ],
+      "book": "Hebrews",
+      "chapter": 2,
+      "id": "otm_holy_spirit_miracles"
+    },
+    {
+      "aliases": [
+        "faith miracles",
+        "heroes of faith miracles",
+        "biblical acts of faith"
+      ],
+      "book": "Hebrews",
+      "chapter": 11,
+      "id": "otm_faith_miracles"
+    },
+    {
+      "aliases": [
+        "prayer healing sick",
+        "elders pray for healing",
+        "anointing with oil"
+      ],
+      "book": "James",
+      "chapter": 5,
+      "id": "otm_prayer_healing_sick"
+    },
+    {
+      "aliases": [
+        "angels serve believers",
+        "ministering spirits",
+        "heavenly protection"
+      ],
+      "book": "Hebrews",
+      "chapter": 1,
+      "id": "otm_angels_serve_believers"
+    },
+    {
+      "aliases": [
+        "angels rescue apostles",
+        "divine prison rescue",
+        "angel intervention"
+      ],
+      "book": "Acts",
+      "chapter": 5,
+      "id": "otm_angels_rescue_apostles"
+    },
+    {
+      "aliases": [
+        "miracles of the early church",
+        "signs and wonders believers",
+        "apostolic power"
+      ],
+      "book": "Acts",
+      "chapter": 4,
+      "id": "otm_miracles_of_the_early_church"
+    }
+  ]
+}

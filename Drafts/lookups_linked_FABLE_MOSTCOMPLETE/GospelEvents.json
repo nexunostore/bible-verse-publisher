@@ -1,0 +1,2166 @@
+{
+  "description": "Gospel events -> the book+chapter where they appear. Many events appear in multiple Gospels; this selects ONE canonical location for lookup consistency. Includes major and lesser-known events from the life, ministry, death, resurrection, and early church beginnings of Jesus.",
+  "entries": [
+    {
+      "aliases": [
+        "annunciation",
+        "gabriel visits mary",
+        "angel tells mary she will have jesus",
+        "virgin birth announcement"
+      ],
+      "event": "Annunciation to Mary",
+      "book": "Luke",
+      "chapter": 1,
+      "id": "evt_annunciation_to_mary"
+    },
+    {
+      "aliases": [
+        "mary visits elizabeth",
+        "visitation",
+        "mary and elizabeth meet",
+        "john leaps in womb"
+      ],
+      "event": "Mary Visits Elizabeth",
+      "book": "Luke",
+      "chapter": 1,
+      "id": "evt_mary_visits_elizabeth"
+    },
+    {
+      "aliases": [
+        "mary magnificat",
+        "song of mary",
+        "mary praises god"
+      ],
+      "event": "Mary's Magnificat",
+      "book": "Luke",
+      "chapter": 1,
+      "id": "evt_marys_magnificat"
+    },
+    {
+      "aliases": [
+        "birth of john the baptist",
+        "john baptist born",
+        "birth of zacharias son"
+      ],
+      "event": "Birth of John the Baptist",
+      "book": "Luke",
+      "chapter": 1,
+      "id": "evt_birth_of_john_the_baptist"
+    },
+    {
+      "aliases": [
+        "zechariah prophecy",
+        "song of zechariah",
+        "benedictus"
+      ],
+      "event": "Zechariah's Prophecy",
+      "book": "Luke",
+      "chapter": 1,
+      "id": "evt_zechariahs_prophecy"
+    },
+    {
+      "aliases": [
+        "joseph learns mary is pregnant",
+        "angel appears to joseph",
+        "joseph accepts mary"
+      ],
+      "event": "Joseph's Dream About Mary",
+      "book": "Matthew",
+      "chapter": 1,
+      "id": "evt_josephs_dream_about_mary"
+    },
+    {
+      "aliases": [
+        "jesus birth",
+        "nativity",
+        "christmas",
+        "jesus born in bethlehem"
+      ],
+      "event": "Birth of Jesus",
+      "book": "Luke",
+      "chapter": 2,
+      "id": "evt_birth_of_jesus"
+    },
+    {
+      "aliases": [
+        "shepherds visit jesus",
+        "angels appear to shepherds",
+        "glory to god in highest"
+      ],
+      "event": "Shepherds Visit Jesus",
+      "book": "Luke",
+      "chapter": 2,
+      "id": "evt_shepherds_visit_jesus"
+    },
+    {
+      "aliases": [
+        "circumcision of jesus",
+        "jesus named",
+        "eighth day after birth"
+      ],
+      "event": "Circumcision and Naming of Jesus",
+      "book": "Luke",
+      "chapter": 2,
+      "id": "evt_circumcision_and_naming_of_jesus"
+    },
+    {
+      "aliases": [
+        "presentation in temple",
+        "simeon sees jesus",
+        "anna sees messiah"
+      ],
+      "event": "Jesus Presented at the Temple",
+      "book": "Luke",
+      "chapter": 2,
+      "id": "evt_jesus_presented_at_the_temple"
+    },
+    {
+      "aliases": [
+        "wise men visit jesus",
+        "magi",
+        "three kings",
+        "star of bethlehem"
+      ],
+      "event": "Visit of the Magi",
+      "book": "Matthew",
+      "chapter": 2,
+      "id": "evt_visit_of_the_magi"
+    },
+    {
+      "aliases": [
+        "herod seeks jesus",
+        "herod searches for child",
+        "king herod and magi"
+      ],
+      "event": "Herod Attempts to Find Jesus",
+      "book": "Matthew",
+      "chapter": 2,
+      "id": "evt_herod_attempts_to_find_jesus"
+    },
+    {
+      "aliases": [
+        "flight into egypt",
+        "holy family escapes herod",
+        "jesus taken to egypt"
+      ],
+      "event": "Flight Into Egypt",
+      "book": "Matthew",
+      "chapter": 2,
+      "id": "evt_flight_into_egypt"
+    },
+    {
+      "aliases": [
+        "massacre of innocents",
+        "herod kills babies",
+        "slaughter of children"
+      ],
+      "event": "Massacre of the Infants",
+      "book": "Matthew",
+      "chapter": 2,
+      "id": "evt_massacre_of_the_infants"
+    },
+    {
+      "aliases": [
+        "return from egypt",
+        "holy family returns",
+        "jesus grows up in nazareth"
+      ],
+      "event": "Return to Nazareth",
+      "book": "Matthew",
+      "chapter": 2,
+      "id": "evt_return_to_nazareth"
+    },
+    {
+      "aliases": [
+        "boy jesus in temple",
+        "jesus at twelve years old",
+        "jesus speaks with teachers"
+      ],
+      "event": "Jesus in the Temple as a Boy",
+      "book": "Luke",
+      "chapter": 2,
+      "id": "evt_jesus_in_the_temple_as_a_boy"
+    },
+    {
+      "aliases": [
+        "john baptist preaching",
+        "voice crying in wilderness",
+        "prepare the way"
+      ],
+      "event": "John the Baptist Begins Ministry",
+      "book": "Matthew",
+      "chapter": 3,
+      "id": "evt_john_the_baptist_begins_ministry"
+    },
+    {
+      "aliases": [
+        "john baptizes jesus",
+        "baptism of christ",
+        "holy spirit descends on jesus"
+      ],
+      "event": "Baptism of Jesus",
+      "book": "Matthew",
+      "chapter": 3,
+      "id": "evt_baptism_of_jesus"
+    },
+    {
+      "aliases": [
+        "temptation of jesus",
+        "jesus tempted by satan",
+        "forty days wilderness"
+      ],
+      "event": "Temptation of Jesus",
+      "book": "Matthew",
+      "chapter": 4,
+      "id": "evt_temptation_of_jesus"
+    },
+    {
+      "aliases": [
+        "john identifies jesus",
+        "behold the lamb of god",
+        "john witnesses jesus"
+      ],
+      "event": "John Testifies About Jesus",
+      "book": "John",
+      "chapter": 1,
+      "id": "evt_john_testifies_about_jesus"
+    },
+    {
+      "aliases": [
+        "first disciples follow jesus",
+        "andrew follows jesus",
+        "peter meets jesus",
+        "disciples called in john"
+      ],
+      "event": "Calling of the First Disciples",
+      "book": "John",
+      "chapter": 1,
+      "id": "evt_calling_of_the_first_disciples"
+    },
+    {
+      "aliases": [
+        "wedding at cana",
+        "water into wine",
+        "first miracle of jesus",
+        "cana miracle"
+      ],
+      "event": "Jesus Turns Water Into Wine",
+      "book": "John",
+      "chapter": 2,
+      "id": "evt_jesus_turns_water_into_wine"
+    },
+    {
+      "aliases": [
+        "jesus cleanses temple first time",
+        "money changers temple",
+        "temple cleansing"
+      ],
+      "event": "First Cleansing of the Temple",
+      "book": "John",
+      "chapter": 2,
+      "id": "evt_first_cleansing_of_the_temple"
+    },
+    {
+      "aliases": [
+        "nicodemus visits jesus",
+        "born again conversation",
+        "teacher of israel"
+      ],
+      "event": "Jesus and Nicodemus",
+      "book": "John",
+      "chapter": 3,
+      "id": "evt_jesus_and_nicodemus"
+    },
+    {
+      "aliases": [
+        "john baptist final testimony",
+        "jesus increases john decreases"
+      ],
+      "event": "John Testifies About Jesus' Supremacy",
+      "book": "John",
+      "chapter": 3,
+      "id": "evt_john_testifies_about_jesus_supremacy"
+    },
+    {
+      "aliases": [
+        "jesus leaves judea",
+        "returns to galilee",
+        "travels through samaria"
+      ],
+      "event": "Jesus Returns to Galilee",
+      "book": "John",
+      "chapter": 4,
+      "id": "evt_jesus_returns_to_galilee"
+    },
+    {
+      "aliases": [
+        "woman at the well",
+        "samaritan woman",
+        "living water",
+        "woman of sychar"
+      ],
+      "event": "Jesus and the Samaritan Woman",
+      "book": "John",
+      "chapter": 4,
+      "id": "evt_jesus_and_the_samaritan_woman"
+    },
+    {
+      "aliases": [
+        "samaritans believe jesus",
+        "many samaritans saved"
+      ],
+      "event": "Samaritans Believe in Jesus",
+      "book": "John",
+      "chapter": 4,
+      "id": "evt_samaritans_believe_in_jesus"
+    },
+    {
+      "aliases": [
+        "healing nobleman's son",
+        "official's son healed",
+        "second sign at cana"
+      ],
+      "event": "Jesus Heals the Official's Son",
+      "book": "John",
+      "chapter": 4,
+      "id": "evt_jesus_heals_the_officials_son"
+    },
+    {
+      "aliases": [
+        "jesus rejected at nazareth",
+        "nazareth synagogue",
+        "jesus reads isaiah scroll"
+      ],
+      "event": "Jesus Rejected at Nazareth",
+      "book": "Luke",
+      "chapter": 4,
+      "id": "evt_jesus_rejected_at_nazareth"
+    },
+    {
+      "aliases": [
+        "calling peter james john",
+        "fishers of men",
+        "miraculous catch of fish"
+      ],
+      "event": "Calling of Peter, James, and John",
+      "book": "Luke",
+      "chapter": 5,
+      "id": "evt_calling_of_peter_james_and_john"
+    },
+    {
+      "aliases": [
+        "calling of levi",
+        "calling of matthew",
+        "tax collector follows jesus"
+      ],
+      "event": "Calling of Matthew",
+      "book": "Matthew",
+      "chapter": 9,
+      "id": "evt_calling_of_matthew"
+    },
+    {
+      "aliases": [
+        "jesus heals demon possessed man in synagogue",
+        "unclean spirit cast out"
+      ],
+      "event": "Jesus Casts Out an Unclean Spirit",
+      "book": "Mark",
+      "chapter": 1,
+      "id": "evt_jesus_casts_out_an_unclean_spirit"
+    },
+    {
+      "aliases": [
+        "peter mother in law healed",
+        "healing in capernaum house"
+      ],
+      "event": "Jesus Heals Peter's Mother-in-Law",
+      "book": "Mark",
+      "chapter": 1,
+      "id": "evt_jesus_heals_peters_mother_in_law"
+    },
+    {
+      "aliases": [
+        "many healed at evening",
+        "jesus heals crowds",
+        "sick brought to jesus"
+      ],
+      "event": "Jesus Heals Many in Capernaum",
+      "book": "Mark",
+      "chapter": 1,
+      "id": "evt_jesus_heals_many_in_capernaum"
+    },
+    {
+      "aliases": [
+        "cleansing leper",
+        "jesus heals leper",
+        "leprosy healed"
+      ],
+      "event": "Jesus Cleanses a Leper",
+      "book": "Mark",
+      "chapter": 1,
+      "id": "evt_jesus_cleanses_a_leper"
+    },
+    {
+      "aliases": [
+        "paralytic lowered through roof",
+        "friends lower paralytic",
+        "your sins are forgiven"
+      ],
+      "event": "Jesus Heals the Paralytic",
+      "book": "Mark",
+      "chapter": 2,
+      "id": "evt_jesus_heals_the_paralytic"
+    },
+    {
+      "aliases": [
+        "sabbath grain controversy",
+        "disciples pick grain",
+        "lord of sabbath"
+      ],
+      "event": "Disciples Pick Grain on the Sabbath",
+      "book": "Mark",
+      "chapter": 2,
+      "id": "evt_disciples_pick_grain_on_the_sabbath"
+    },
+    {
+      "aliases": [
+        "man with withered hand",
+        "sabbath healing hand",
+        "jesus heals hand"
+      ],
+      "event": "Jesus Heals a Man With a Withered Hand",
+      "book": "Mark",
+      "chapter": 3,
+      "id": "evt_jesus_heals_a_man_with_a_withered_hand"
+    },
+    {
+      "aliases": [
+        "sermon on the mount",
+        "beatitudes",
+        "salt and light",
+        "great sermon"
+      ],
+      "event": "Sermon on the Mount",
+      "book": "Matthew",
+      "chapter": 5,
+      "id": "evt_sermon_on_the_mount"
+    },
+    {
+      "aliases": [
+        "lords prayer",
+        "our father",
+        "jesus teaches how to pray"
+      ],
+      "event": "Jesus Teaches the Lord's Prayer",
+      "book": "Matthew",
+      "chapter": 6,
+      "id": "evt_jesus_teaches_the_lords_prayer"
+    },
+    {
+      "aliases": [
+        "do not judge",
+        "speck and log teaching",
+        "judge not sermon"
+      ],
+      "event": "Jesus Teaches About Judgment",
+      "book": "Matthew",
+      "chapter": 7,
+      "id": "evt_jesus_teaches_about_judgment"
+    },
+    {
+      "aliases": [
+        "wise and foolish builders",
+        "house on rock",
+        "house on sand"
+      ],
+      "event": "Parable of the Wise and Foolish Builders",
+      "book": "Matthew",
+      "chapter": 7,
+      "id": "evt_parable_of_the_wise_and_foolish_builders"
+    },
+    {
+      "aliases": [
+        "centurion servant healed",
+        "roman centurion faith",
+        "servant healed at capernaum"
+      ],
+      "event": "Jesus Heals the Centurion's Servant",
+      "book": "Matthew",
+      "chapter": 8,
+      "id": "evt_jesus_heals_the_centurions_servant"
+    },
+    {
+      "aliases": [
+        "calming the storm",
+        "jesus calms sea",
+        "storm on galilee"
+      ],
+      "event": "Jesus Calms the Storm",
+      "book": "Mark",
+      "chapter": 4,
+      "id": "evt_jesus_calms_the_storm"
+    },
+    {
+      "aliases": [
+        "gerasene demoniac",
+        "legion demon",
+        "demons enter pigs"
+      ],
+      "event": "Jesus Frees the Gerasene Demoniac",
+      "book": "Mark",
+      "chapter": 5,
+      "id": "evt_jesus_frees_the_gerasene_demoniac"
+    },
+    {
+      "aliases": [
+        "jairus daughter raised",
+        "girl raised from dead",
+        "talitha koum"
+      ],
+      "event": "Jesus Raises Jairus' Daughter",
+      "book": "Mark",
+      "chapter": 5,
+      "id": "evt_jesus_raises_jairus_daughter"
+    },
+    {
+      "aliases": [
+        "woman with issue of blood",
+        "bleeding woman healed",
+        "twelve year illness"
+      ],
+      "event": "Jesus Heals the Woman With the Issue of Blood",
+      "book": "Mark",
+      "chapter": 5,
+      "id": "evt_jesus_heals_the_woman_with_the_issue_of"
+    },
+    {
+      "aliases": [
+        "two blind men healed",
+        "jesus restores sight",
+        "blind men receive sight"
+      ],
+      "event": "Jesus Heals Two Blind Men",
+      "book": "Matthew",
+      "chapter": 9,
+      "id": "evt_jesus_heals_two_blind_men"
+    },
+    {
+      "aliases": [
+        "mute demon cast out",
+        "jesus heals mute man",
+        "demon unable to speak"
+      ],
+      "event": "Jesus Heals a Mute Man",
+      "book": "Matthew",
+      "chapter": 9,
+      "id": "evt_jesus_heals_a_mute_man"
+    },
+    {
+      "aliases": [
+        "twelve apostles chosen",
+        "jesus appoints twelve",
+        "the twelve disciples"
+      ],
+      "event": "Jesus Chooses the Twelve Apostles",
+      "book": "Mark",
+      "chapter": 3,
+      "id": "evt_jesus_chooses_the_twelve_apostles"
+    },
+    {
+      "aliases": [
+        "parable of the sower",
+        "sower and seed",
+        "seed falling on ground"
+      ],
+      "event": "Parable of the Sower",
+      "book": "Mark",
+      "chapter": 4,
+      "id": "evt_parable_of_the_sower"
+    },
+    {
+      "aliases": [
+        "parable of the lamp",
+        "lamp under basket",
+        "light revealed"
+      ],
+      "event": "Parable of the Lamp",
+      "book": "Mark",
+      "chapter": 4,
+      "id": "evt_parable_of_the_lamp"
+    },
+    {
+      "aliases": [
+        "parable of growing seed",
+        "seed grows secretly"
+      ],
+      "event": "Parable of the Growing Seed",
+      "book": "Mark",
+      "chapter": 4,
+      "id": "evt_parable_of_the_growing_seed"
+    },
+    {
+      "aliases": [
+        "parable of mustard seed",
+        "mustard tree kingdom"
+      ],
+      "event": "Parable of the Mustard Seed",
+      "book": "Mark",
+      "chapter": 4,
+      "id": "evt_parable_of_the_mustard_seed"
+    },
+    {
+      "aliases": [
+        "jesus sends twelve",
+        "mission of apostles",
+        "disciples preach"
+      ],
+      "event": "Jesus Sends Out the Twelve",
+      "book": "Mark",
+      "chapter": 6,
+      "id": "evt_jesus_sends_out_the_twelve"
+    },
+    {
+      "aliases": [
+        "john baptist death",
+        "beheading of john",
+        "herod kills john"
+      ],
+      "event": "Death of John the Baptist",
+      "book": "Mark",
+      "chapter": 6,
+      "id": "evt_death_of_john_the_baptist"
+    },
+    {
+      "aliases": [
+        "feeding five thousand",
+        "five loaves two fish",
+        "bread and fish miracle"
+      ],
+      "event": "Feeding the Five Thousand",
+      "book": "Mark",
+      "chapter": 6,
+      "id": "evt_feeding_the_five_thousand"
+    },
+    {
+      "aliases": [
+        "jesus walks on water",
+        "peter walks on water",
+        "storm after feeding"
+      ],
+      "event": "Jesus Walks on Water",
+      "book": "Matthew",
+      "chapter": 14,
+      "id": "evt_jesus_walks_on_water"
+    },
+    {
+      "aliases": [
+        "bread of life teaching",
+        "jesus bread of life discourse"
+      ],
+      "event": "Bread of Life Discourse",
+      "book": "John",
+      "chapter": 6,
+      "id": "evt_bread_of_life_discourse"
+    },
+    {
+      "aliases": [
+        "feeding four thousand",
+        "seven loaves and fish",
+        "four thousand fed"
+      ],
+      "event": "Feeding the Four Thousand",
+      "book": "Matthew",
+      "chapter": 15,
+      "id": "evt_feeding_the_four_thousand"
+    },
+    {
+      "aliases": [
+        "blind man at bethsaida",
+        "jesus heals blind man gradually",
+        "bethsaida miracle"
+      ],
+      "event": "Jesus Heals the Blind Man at Bethsaida",
+      "book": "Mark",
+      "chapter": 8,
+      "id": "evt_jesus_heals_the_blind_man_at_bethsaida"
+    },
+    {
+      "aliases": [
+        "peter confesses christ",
+        "you are the christ",
+        "peters confession"
+      ],
+      "event": "Peter Confesses Jesus as the Christ",
+      "book": "Matthew",
+      "chapter": 16,
+      "id": "evt_peter_confesses_jesus_as_the_christ"
+    },
+    {
+      "aliases": [
+        "jesus predicts death",
+        "first passion prediction",
+        "take up your cross"
+      ],
+      "event": "Jesus Predicts His Death",
+      "book": "Matthew",
+      "chapter": 16,
+      "id": "evt_jesus_predicts_his_death"
+    },
+    {
+      "aliases": [
+        "transfiguration",
+        "jesus shines",
+        "moses and elijah appear",
+        "mountain glory"
+      ],
+      "event": "Transfiguration of Jesus",
+      "book": "Matthew",
+      "chapter": 17,
+      "id": "evt_transfiguration_of_jesus"
+    },
+    {
+      "aliases": [
+        "boy with demon healed",
+        "epileptic boy healed",
+        "disciples cannot cast demon"
+      ],
+      "event": "Jesus Heals a Demon-Possessed Boy",
+      "book": "Matthew",
+      "chapter": 17,
+      "id": "evt_jesus_heals_a_demon_possessed_boy"
+    },
+    {
+      "aliases": [
+        "temple tax coin",
+        "coin in fish mouth",
+        "jesus pays temple tax"
+      ],
+      "event": "Jesus Provides Temple Tax Coin",
+      "book": "Matthew",
+      "chapter": 17,
+      "id": "evt_jesus_provides_temple_tax_coin"
+    },
+    {
+      "aliases": [
+        "greatest in kingdom teaching",
+        "child example humility",
+        "who is greatest"
+      ],
+      "event": "Jesus Teaches About Greatness and Humility",
+      "book": "Matthew",
+      "chapter": 18,
+      "id": "evt_jesus_teaches_about_greatness_and_humili"
+    },
+    {
+      "aliases": [
+        "lost sheep parable",
+        "one sheep lost",
+        "shepherd seeks sheep"
+      ],
+      "event": "Parable of the Lost Sheep",
+      "book": "Matthew",
+      "chapter": 18,
+      "id": "evt_parable_of_the_lost_sheep"
+    },
+    {
+      "aliases": [
+        "unforgiving servant",
+        "parable of unforgiving servant",
+        "forgiven servant refuses mercy"
+      ],
+      "event": "Parable of the Unforgiving Servant",
+      "book": "Matthew",
+      "chapter": 18,
+      "id": "evt_parable_of_the_unforgiving_servant"
+    },
+    {
+      "aliases": [
+        "feast of tabernacles",
+        "jesus at feast",
+        "living water teaching"
+      ],
+      "event": "Jesus at the Feast of Tabernacles",
+      "book": "John",
+      "chapter": 7,
+      "id": "evt_jesus_at_the_feast_of_tabernacles"
+    },
+    {
+      "aliases": [
+        "woman caught in adultery",
+        "let him without sin cast stone"
+      ],
+      "event": "Woman Caught in Adultery",
+      "book": "John",
+      "chapter": 8,
+      "id": "evt_woman_caught_in_adultery"
+    },
+    {
+      "aliases": [
+        "light of the world teaching",
+        "jesus says i am the light"
+      ],
+      "event": "Jesus Declares Himself the Light of the World",
+      "book": "John",
+      "chapter": 8,
+      "id": "evt_jesus_declares_himself_the_light_of_the"
+    },
+    {
+      "aliases": [
+        "man born blind",
+        "blind from birth healed",
+        "pool of siloam"
+      ],
+      "event": "Jesus Heals a Man Born Blind",
+      "book": "John",
+      "chapter": 9,
+      "id": "evt_jesus_heals_a_man_born_blind"
+    },
+    {
+      "aliases": [
+        "good shepherd discourse",
+        "jesus good shepherd",
+        "sheep hear my voice"
+      ],
+      "event": "Jesus Teaches About the Good Shepherd",
+      "book": "John",
+      "chapter": 10,
+      "id": "evt_jesus_teaches_about_the_good_shepherd"
+    },
+    {
+      "aliases": [
+        "seventy two sent out",
+        "seventy disciples sent",
+        "mission of seventy"
+      ],
+      "event": "Jesus Sends Out the Seventy-Two",
+      "book": "Luke",
+      "chapter": 10,
+      "id": "evt_jesus_sends_out_the_seventy_two"
+    },
+    {
+      "aliases": [
+        "good samaritan",
+        "parable of the good samaritan",
+        "neighbor teaching"
+      ],
+      "event": "Parable of the Good Samaritan",
+      "book": "Luke",
+      "chapter": 10,
+      "id": "evt_parable_of_the_good_samaritan"
+    },
+    {
+      "aliases": [
+        "mary and martha",
+        "martha serves jesus",
+        "mary sits at jesus feet"
+      ],
+      "event": "Jesus Visits Mary and Martha",
+      "book": "Luke",
+      "chapter": 10,
+      "id": "evt_jesus_visits_mary_and_martha"
+    },
+    {
+      "aliases": [
+        "raising lazarus",
+        "lazarus raised",
+        "bethany resurrection miracle"
+      ],
+      "event": "Jesus Raises Lazarus",
+      "book": "John",
+      "chapter": 11,
+      "id": "evt_jesus_raises_lazarus"
+    },
+    {
+      "aliases": [
+        "ten lepers healed",
+        "jesus heals ten lepers",
+        "only one returns"
+      ],
+      "event": "Jesus Cleanses Ten Lepers",
+      "book": "Luke",
+      "chapter": 17,
+      "id": "evt_jesus_cleanses_ten_lepers"
+    },
+    {
+      "aliases": [
+        "parable of persistent widow",
+        "unjust judge",
+        "pray always"
+      ],
+      "event": "Parable of the Persistent Widow",
+      "book": "Luke",
+      "chapter": 18,
+      "id": "evt_parable_of_the_persistent_widow"
+    },
+    {
+      "aliases": [
+        "pharisee and tax collector",
+        "humble prayer parable",
+        "two men praying"
+      ],
+      "event": "Parable of the Pharisee and Tax Collector",
+      "book": "Luke",
+      "chapter": 18,
+      "id": "evt_parable_of_the_pharisee_and_tax_collecto"
+    },
+    {
+      "aliases": [
+        "rich young ruler",
+        "young wealthy man",
+        "sell everything follow jesus"
+      ],
+      "event": "Jesus and the Rich Young Ruler",
+      "book": "Mark",
+      "chapter": 10,
+      "id": "evt_jesus_and_the_rich_young_ruler"
+    },
+    {
+      "aliases": [
+        "jesus blesses children",
+        "let children come to me"
+      ],
+      "event": "Jesus Blesses the Children",
+      "book": "Mark",
+      "chapter": 10,
+      "id": "evt_jesus_blesses_the_children"
+    },
+    {
+      "aliases": [
+        "bartimaeus healed",
+        "blind bartimaeus",
+        "son of timaeus"
+      ],
+      "event": "Jesus Heals Bartimaeus",
+      "book": "Mark",
+      "chapter": 10,
+      "id": "evt_jesus_heals_bartimaeus"
+    },
+    {
+      "aliases": [
+        "zacchaeus meets jesus",
+        "tax collector climbs tree",
+        "salvation comes to house"
+      ],
+      "event": "Jesus Visits Zacchaeus",
+      "book": "Luke",
+      "chapter": 19,
+      "id": "evt_jesus_visits_zacchaeus"
+    },
+    {
+      "aliases": [
+        "parable of minas",
+        "ten minas",
+        "kingdom investment parable"
+      ],
+      "event": "Parable of the Minas",
+      "book": "Luke",
+      "chapter": 19,
+      "id": "evt_parable_of_the_minas"
+    },
+    {
+      "aliases": [
+        "anointing at bethany",
+        "woman pours perfume",
+        "nard perfume on jesus"
+      ],
+      "event": "Jesus Anointed at Bethany",
+      "book": "Mark",
+      "chapter": 14,
+      "id": "evt_jesus_anointed_at_bethany"
+    },
+    {
+      "aliases": [
+        "triumphal entry",
+        "palm sunday",
+        "jesus enters jerusalem",
+        "hosanna"
+      ],
+      "event": "Triumphal Entry Into Jerusalem",
+      "book": "Matthew",
+      "chapter": 21,
+      "id": "evt_triumphal_entry_into_jerusalem"
+    },
+    {
+      "aliases": [
+        "second temple cleansing",
+        "jesus overturns tables again",
+        "den of thieves"
+      ],
+      "event": "Second Cleansing of the Temple",
+      "book": "Matthew",
+      "chapter": 21,
+      "id": "evt_second_cleansing_of_the_temple"
+    },
+    {
+      "aliases": [
+        "cursing fig tree",
+        "fig tree withers",
+        "jesus curses tree"
+      ],
+      "event": "Jesus Curses the Fig Tree",
+      "book": "Matthew",
+      "chapter": 21,
+      "id": "evt_jesus_curses_the_fig_tree"
+    },
+    {
+      "aliases": [
+        "authority questioned",
+        "chief priests question jesus authority"
+      ],
+      "event": "Jesus' Authority Is Challenged",
+      "book": "Matthew",
+      "chapter": 21,
+      "id": "evt_jesus_authority_is_challenged"
+    },
+    {
+      "aliases": [
+        "parable two sons",
+        "two sons vineyard",
+        "obedience teaching"
+      ],
+      "event": "Parable of the Two Sons",
+      "book": "Matthew",
+      "chapter": 21,
+      "id": "evt_parable_of_the_two_sons"
+    },
+    {
+      "aliases": [
+        "parable wicked tenants",
+        "evil vineyard workers",
+        "son killed in vineyard"
+      ],
+      "event": "Parable of the Wicked Tenants",
+      "book": "Matthew",
+      "chapter": 21,
+      "id": "evt_parable_of_the_wicked_tenants"
+    },
+    {
+      "aliases": [
+        "parable wedding banquet",
+        "king wedding feast",
+        "invitation refused"
+      ],
+      "event": "Parable of the Wedding Banquet",
+      "book": "Matthew",
+      "chapter": 22,
+      "id": "evt_parable_of_the_wedding_banquet"
+    },
+    {
+      "aliases": [
+        "pay taxes caesar",
+        "render unto caesar",
+        "coin question"
+      ],
+      "event": "Jesus Answers About Paying Taxes",
+      "book": "Matthew",
+      "chapter": 22,
+      "id": "evt_jesus_answers_about_paying_taxes"
+    },
+    {
+      "aliases": [
+        "greatest commandment",
+        "love god love neighbor"
+      ],
+      "event": "Jesus Gives the Greatest Commandment",
+      "book": "Matthew",
+      "chapter": 22,
+      "id": "evt_jesus_gives_the_greatest_commandment"
+    },
+    {
+      "aliases": [
+        "widow's offering",
+        "poor widow two coins",
+        "temple offering"
+      ],
+      "event": "The Widow's Offering",
+      "book": "Mark",
+      "chapter": 12,
+      "id": "evt_the_widows_offering"
+    },
+    {
+      "aliases": [
+        "olivet discourse",
+        "end times sermon",
+        "signs of the end",
+        "mount of olives teaching"
+      ],
+      "event": "Olivet Discourse",
+      "book": "Matthew",
+      "chapter": 24,
+      "id": "evt_olivet_discourse"
+    },
+    {
+      "aliases": [
+        "parable ten virgins",
+        "wise and foolish virgins",
+        "bridegroom parable"
+      ],
+      "event": "Parable of the Ten Virgins",
+      "book": "Matthew",
+      "chapter": 25,
+      "id": "evt_parable_of_the_ten_virgins"
+    },
+    {
+      "aliases": [
+        "parable talents",
+        "servants and talents",
+        "faithful servants"
+      ],
+      "event": "Parable of the Talents",
+      "book": "Matthew",
+      "chapter": 25,
+      "id": "evt_parable_of_the_talents"
+    },
+    {
+      "aliases": [
+        "sheep and goats judgment",
+        "separation of sheep and goats",
+        "final judgment teaching"
+      ],
+      "event": "Sheep and Goats Judgment",
+      "book": "Matthew",
+      "chapter": 25,
+      "id": "evt_sheep_and_goats_judgment"
+    },
+    {
+      "aliases": [
+        "judas agrees to betray jesus",
+        "thirty pieces of silver",
+        "judas betrayal arranged"
+      ],
+      "event": "Judas Agrees to Betray Jesus",
+      "book": "Matthew",
+      "chapter": 26,
+      "id": "evt_judas_agrees_to_betray_jesus"
+    },
+    {
+      "aliases": [
+        "passover preparation",
+        "disciples prepare upper room",
+        "prepare passover meal"
+      ],
+      "event": "Preparation for the Passover",
+      "book": "Mark",
+      "chapter": 14,
+      "id": "evt_preparation_for_the_passover"
+    },
+    {
+      "aliases": [
+        "last supper",
+        "final meal",
+        "lords supper",
+        "communion instituted"
+      ],
+      "event": "The Last Supper",
+      "book": "Luke",
+      "chapter": 22,
+      "id": "evt_the_last_supper"
+    },
+    {
+      "aliases": [
+        "washing disciples feet",
+        "jesus washes feet",
+        "servant leadership lesson"
+      ],
+      "event": "Jesus Washes the Disciples' Feet",
+      "book": "John",
+      "chapter": 13,
+      "id": "evt_jesus_washes_the_disciples_feet"
+    },
+    {
+      "aliases": [
+        "new commandment",
+        "love one another",
+        "jesus gives commandment"
+      ],
+      "event": "Jesus Gives the New Commandment",
+      "book": "John",
+      "chapter": 13,
+      "id": "evt_jesus_gives_the_new_commandment"
+    },
+    {
+      "aliases": [
+        "farewell discourse",
+        "upper room teachings",
+        "comforter promise"
+      ],
+      "event": "Jesus' Farewell Discourse",
+      "book": "John",
+      "chapter": 14,
+      "id": "evt_jesus_farewell_discourse"
+    },
+    {
+      "aliases": [
+        "vine and branches",
+        "abide in me",
+        "jesus true vine"
+      ],
+      "event": "Jesus Teaches the Vine and Branches",
+      "book": "John",
+      "chapter": 15,
+      "id": "evt_jesus_teaches_the_vine_and_branches"
+    },
+    {
+      "aliases": [
+        "holy spirit promise",
+        "advocate promise",
+        "spirit of truth"
+      ],
+      "event": "Jesus Promises the Holy Spirit",
+      "book": "John",
+      "chapter": 16,
+      "id": "evt_jesus_promises_the_holy_spirit"
+    },
+    {
+      "aliases": [
+        "high priestly prayer",
+        "jesus prays for disciples",
+        "john 17 prayer"
+      ],
+      "event": "Jesus' High Priestly Prayer",
+      "book": "John",
+      "chapter": 17,
+      "id": "evt_jesus_high_priestly_prayer"
+    },
+    {
+      "aliases": [
+        "peter predicts denial",
+        "all disciples scatter",
+        "jesus predicts peter denial"
+      ],
+      "event": "Jesus Predicts Peter's Denial",
+      "book": "Matthew",
+      "chapter": 26,
+      "id": "evt_jesus_predicts_peters_denial"
+    },
+    {
+      "aliases": [
+        "agony in gethsemane",
+        "jesus prays in garden",
+        "cup of suffering"
+      ],
+      "event": "Prayer in Gethsemane",
+      "book": "Matthew",
+      "chapter": 26,
+      "id": "evt_prayer_in_gethsemane"
+    },
+    {
+      "aliases": [
+        "jesus arrested",
+        "betrayal kiss",
+        "judas kiss"
+      ],
+      "event": "Jesus Is Arrested",
+      "book": "Matthew",
+      "chapter": 26,
+      "id": "evt_jesus_is_arrested"
+    },
+    {
+      "aliases": [
+        "malchus ear healed",
+        "servant of high priest ear cut off"
+      ],
+      "event": "Jesus Heals Malchus' Ear",
+      "book": "Luke",
+      "chapter": 22,
+      "id": "evt_jesus_heals_malchus_ear"
+    },
+    {
+      "aliases": [
+        "jesus before annas",
+        "annas questions jesus"
+      ],
+      "event": "Jesus Before Annas",
+      "book": "John",
+      "chapter": 18,
+      "id": "evt_jesus_before_annas"
+    },
+    {
+      "aliases": [
+        "jesus before caiaphas",
+        "sanhedrin trial",
+        "high priest trial"
+      ],
+      "event": "Jesus Before Caiaphas and the Council",
+      "book": "Matthew",
+      "chapter": 26,
+      "id": "evt_jesus_before_caiaphas_and_the_council"
+    },
+    {
+      "aliases": [
+        "peter denies jesus",
+        "three denials",
+        "rooster crows"
+      ],
+      "event": "Peter Denies Jesus",
+      "book": "Matthew",
+      "chapter": 26,
+      "id": "evt_peter_denies_jesus"
+    },
+    {
+      "aliases": [
+        "judas death",
+        "judas hangs himself",
+        "judas remorse"
+      ],
+      "event": "Death of Judas Iscariot",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "evt_death_of_judas_iscariot"
+    },
+    {
+      "aliases": [
+        "jesus before pilate",
+        "pilate questions jesus",
+        "roman trial of jesus"
+      ],
+      "event": "Jesus Before Pontius Pilate",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "evt_jesus_before_pontius_pilate"
+    },
+    {
+      "aliases": [
+        "jesus before herod",
+        "herod questions jesus",
+        "trial before herod antipas"
+      ],
+      "event": "Jesus Before Herod Antipas",
+      "book": "Luke",
+      "chapter": 23,
+      "id": "evt_jesus_before_herod_antipas"
+    },
+    {
+      "aliases": [
+        "barabbas released",
+        "crowd chooses barabbas",
+        "pilate releases prisoner"
+      ],
+      "event": "Barabbas Is Released",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "evt_barabbas_is_released"
+    },
+    {
+      "aliases": [
+        "jesus scourged",
+        "flogging of jesus",
+        "roman punishment"
+      ],
+      "event": "Jesus Is Scourged",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "evt_jesus_is_scourged"
+    },
+    {
+      "aliases": [
+        "crown of thorns",
+        "soldiers mock jesus",
+        "purple robe"
+      ],
+      "event": "Jesus Is Mocked by Soldiers",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "evt_jesus_is_mocked_by_soldiers"
+    },
+    {
+      "aliases": [
+        "way of the cross",
+        "jesus carries cross",
+        "simon of cyrene carries cross"
+      ],
+      "event": "Jesus Carries the Cross",
+      "book": "Luke",
+      "chapter": 23,
+      "id": "evt_jesus_carries_the_cross"
+    },
+    {
+      "aliases": [
+        "crucifixion",
+        "jesus crucified",
+        "calvary",
+        "golgotha"
+      ],
+      "event": "Crucifixion of Jesus",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "evt_crucifixion_of_jesus"
+    },
+    {
+      "aliases": [
+        "seven sayings of jesus",
+        "words from the cross",
+        "jesus last words"
+      ],
+      "event": "Jesus Speaks From the Cross",
+      "book": "Luke",
+      "chapter": 23,
+      "id": "evt_jesus_speaks_from_the_cross"
+    },
+    {
+      "aliases": [
+        "darkness at crucifixion",
+        "earthquake at jesus death",
+        "veil torn"
+      ],
+      "event": "Signs at Jesus' Death",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "evt_signs_at_jesus_death"
+    },
+    {
+      "aliases": [
+        "centurion declares son of god",
+        "roman centurion at cross"
+      ],
+      "event": "Centurion Confesses Jesus as Son of God",
+      "book": "Mark",
+      "chapter": 15,
+      "id": "evt_centurion_confesses_jesus_as_son_of_god"
+    },
+    {
+      "aliases": [
+        "jesus side pierced",
+        "spear in jesus side",
+        "blood and water"
+      ],
+      "event": "Jesus' Side Is Pierced",
+      "book": "John",
+      "chapter": 19,
+      "id": "evt_jesus_side_is_pierced"
+    },
+    {
+      "aliases": [
+        "burial of jesus",
+        "joseph of arimathea tomb",
+        "new tomb"
+      ],
+      "event": "Jesus Is Buried",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "evt_jesus_is_buried"
+    },
+    {
+      "aliases": [
+        "women visit tomb",
+        "empty tomb",
+        "angel announces resurrection"
+      ],
+      "event": "Women Discover the Empty Tomb",
+      "book": "Matthew",
+      "chapter": 28,
+      "id": "evt_women_discover_the_empty_tomb"
+    },
+    {
+      "aliases": [
+        "resurrection of jesus",
+        "jesus rises",
+        "easter morning"
+      ],
+      "event": "Resurrection of Jesus",
+      "book": "Matthew",
+      "chapter": 28,
+      "id": "evt_resurrection_of_jesus"
+    },
+    {
+      "aliases": [
+        "jesus appears to mary magdalene",
+        "mary sees risen jesus"
+      ],
+      "event": "Jesus Appears to Mary Magdalene",
+      "book": "John",
+      "chapter": 20,
+      "id": "evt_jesus_appears_to_mary_magdalene"
+    },
+    {
+      "aliases": [
+        "road to emmaus",
+        "two disciples meet jesus",
+        "jesus explains scriptures"
+      ],
+      "event": "Jesus Appears on the Road to Emmaus",
+      "book": "Luke",
+      "chapter": 24,
+      "id": "evt_jesus_appears_on_the_road_to_emmaus"
+    },
+    {
+      "aliases": [
+        "doubting thomas",
+        "thomas sees risen jesus",
+        "my lord and my god"
+      ],
+      "event": "Jesus Appears to Thomas",
+      "book": "John",
+      "chapter": 20,
+      "id": "evt_jesus_appears_to_thomas"
+    },
+    {
+      "aliases": [
+        "breakfast by sea",
+        "miraculous catch after resurrection",
+        "jesus restores peter"
+      ],
+      "event": "Jesus Appears by the Sea of Galilee",
+      "book": "John",
+      "chapter": 21,
+      "id": "evt_jesus_appears_by_the_sea_of_galilee"
+    },
+    {
+      "aliases": [
+        "great commission",
+        "make disciples",
+        "go into all nations"
+      ],
+      "event": "Great Commission",
+      "book": "Matthew",
+      "chapter": 28,
+      "id": "evt_great_commission"
+    },
+    {
+      "aliases": [
+        "ascension of jesus",
+        "jesus taken to heaven",
+        "mount of olives ascension"
+      ],
+      "event": "Ascension of Jesus",
+      "book": "Acts",
+      "chapter": 1,
+      "id": "evt_ascension_of_jesus"
+    },
+    {
+      "aliases": [
+        "matthias chosen",
+        "replacement for judas",
+        "apostle selected by lot"
+      ],
+      "event": "Matthias Chosen as Apostle",
+      "book": "Acts",
+      "chapter": 1,
+      "id": "evt_matthias_chosen_as_apostle"
+    },
+    {
+      "aliases": [
+        "pentecost",
+        "holy spirit comes",
+        "tongues of fire",
+        "birth of church"
+      ],
+      "event": "Pentecost",
+      "book": "Acts",
+      "chapter": 2,
+      "id": "evt_pentecost",
+      "related": [
+        "evt_life_of_the_early_church"
+      ]
+    },
+    {
+      "aliases": [
+        "peters first sermon",
+        "three thousand saved",
+        "apostles preach pentecost"
+      ],
+      "event": "Peter's Pentecost Sermon",
+      "book": "Acts",
+      "chapter": 2,
+      "id": "evt_peters_pentecost_sermon"
+    },
+    {
+      "aliases": [
+        "early church fellowship",
+        "believers share possessions",
+        "breaking bread"
+      ],
+      "event": "Life of the Early Church",
+      "book": "Acts",
+      "chapter": 2,
+      "id": "evt_life_of_the_early_church"
+    },
+    {
+      "aliases": [
+        "healing lame man at temple",
+        "beautiful gate miracle",
+        "peter heals beggar"
+      ],
+      "event": "Peter Heals the Lame Man at the Temple",
+      "book": "Acts",
+      "chapter": 3,
+      "id": "evt_peter_heals_the_lame_man_at_the_temple"
+    },
+    {
+      "aliases": [
+        "peter and john arrested",
+        "temple preaching arrest"
+      ],
+      "event": "Peter and John Arrested",
+      "book": "Acts",
+      "chapter": 4,
+      "id": "evt_peter_and_john_arrested"
+    },
+    {
+      "aliases": [
+        "believers pray for boldness",
+        "church prayer after persecution"
+      ],
+      "event": "Believers Pray for Boldness",
+      "book": "Acts",
+      "chapter": 4,
+      "id": "evt_believers_pray_for_boldness"
+    },
+    {
+      "aliases": [
+        "ananias sapphira death",
+        "lying to holy spirit",
+        "church judgment"
+      ],
+      "event": "Ananias and Sapphira Judged",
+      "book": "Acts",
+      "chapter": 5,
+      "id": "evt_ananias_and_sapphira_judged"
+    },
+    {
+      "aliases": [
+        "apostles imprisoned",
+        "angel opens prison",
+        "apostles freed"
+      ],
+      "event": "Apostles Freed From Prison",
+      "book": "Acts",
+      "chapter": 5,
+      "id": "evt_apostles_freed_from_prison"
+    },
+    {
+      "aliases": [
+        "seven deacons chosen",
+        "stephen philip appointed",
+        "serving widows"
+      ],
+      "event": "Seven Servants Chosen",
+      "book": "Acts",
+      "chapter": 6,
+      "id": "evt_seven_servants_chosen"
+    },
+    {
+      "aliases": [
+        "stephen arrested",
+        "stephen trial",
+        "synagogue dispute"
+      ],
+      "event": "Stephen Arrested",
+      "book": "Acts",
+      "chapter": 6,
+      "id": "evt_stephen_arrested"
+    },
+    {
+      "aliases": [
+        "stephen speech",
+        "stephen defense before council"
+      ],
+      "event": "Stephen's Speech Before the Council",
+      "book": "Acts",
+      "chapter": 7,
+      "id": "evt_stephens_speech_before_the_council"
+    },
+    {
+      "aliases": [
+        "stephen martyrdom",
+        "stephen stoned",
+        "first christian martyr"
+      ],
+      "event": "Martyrdom of Stephen",
+      "book": "Acts",
+      "chapter": 7,
+      "id": "evt_martyrdom_of_stephen"
+    },
+    {
+      "aliases": [
+        "church persecution jerusalem",
+        "believers scattered",
+        "saul persecutes church"
+      ],
+      "event": "Persecution Scatters the Church",
+      "book": "Acts",
+      "chapter": 8,
+      "id": "evt_persecution_scatters_the_church"
+    },
+    {
+      "aliases": [
+        "philip samaritan ministry",
+        "samaritans receive gospel"
+      ],
+      "event": "Philip Preaches in Samaria",
+      "book": "Acts",
+      "chapter": 8,
+      "id": "evt_philip_preaches_in_samaria"
+    },
+    {
+      "aliases": [
+        "simon magus",
+        "simon the sorcerer believes",
+        "sorcerer rebuked by peter"
+      ],
+      "event": "Simon the Sorcerer Rebuked",
+      "book": "Acts",
+      "chapter": 8,
+      "id": "evt_simon_the_sorcerer_rebuked"
+    },
+    {
+      "aliases": [
+        "ethiopian eunuch",
+        "philip baptizes eunuch",
+        "isaiah scroll convert"
+      ],
+      "event": "Philip and the Ethiopian Eunuch",
+      "book": "Acts",
+      "chapter": 8,
+      "id": "evt_philip_and_the_ethiopian_eunuch"
+    },
+    {
+      "aliases": [
+        "paul conversion",
+        "saul road to damascus",
+        "jesus appears to saul"
+      ],
+      "event": "Conversion of Saul",
+      "book": "Acts",
+      "chapter": 9,
+      "id": "evt_conversion_of_saul"
+    },
+    {
+      "aliases": [
+        "paul receives sight",
+        "ananias heals saul",
+        "saul baptized"
+      ],
+      "event": "Ananias Restores Saul's Sight",
+      "book": "Acts",
+      "chapter": 9,
+      "id": "evt_ananias_restores_sauls_sight"
+    },
+    {
+      "aliases": [
+        "paul preaches in damascus",
+        "saul begins preaching jesus"
+      ],
+      "event": "Saul Begins Preaching Jesus",
+      "book": "Acts",
+      "chapter": 9,
+      "id": "evt_saul_begins_preaching_jesus"
+    },
+    {
+      "aliases": [
+        "paul escapes damascus",
+        "saul lowered in basket",
+        "escape from city"
+      ],
+      "event": "Saul Escapes Damascus",
+      "book": "Acts",
+      "chapter": 9,
+      "id": "evt_saul_escapes_damascus"
+    },
+    {
+      "aliases": [
+        "peter heals aeneas",
+        "aeneas paralysis healed"
+      ],
+      "event": "Peter Heals Aeneas",
+      "book": "Acts",
+      "chapter": 9,
+      "id": "evt_peter_heals_aeneas"
+    },
+    {
+      "aliases": [
+        "tabitha raised",
+        "dorcas raised from dead",
+        "peter raises woman"
+      ],
+      "event": "Peter Raises Tabitha",
+      "book": "Acts",
+      "chapter": 9,
+      "id": "evt_peter_raises_tabitha"
+    },
+    {
+      "aliases": [
+        "cornelius vision",
+        "peter and gentiles",
+        "roman centurion receives gospel"
+      ],
+      "event": "Peter and Cornelius",
+      "book": "Acts",
+      "chapter": 10,
+      "id": "evt_peter_and_cornelius"
+    },
+    {
+      "aliases": [
+        "holy spirit falls on gentiles",
+        "gentile pentecost",
+        "cornelius household"
+      ],
+      "event": "Holy Spirit Comes Upon Gentiles",
+      "book": "Acts",
+      "chapter": 10,
+      "id": "evt_holy_spirit_comes_upon_gentiles"
+    },
+    {
+      "aliases": [
+        "peter reports gentile conversion",
+        "jerusalem accepts gentiles"
+      ],
+      "event": "Jerusalem Accepts Gentile Believers",
+      "book": "Acts",
+      "chapter": 11,
+      "id": "evt_jerusalem_accepts_gentile_believers"
+    },
+    {
+      "aliases": [
+        "antioch church founded",
+        "disciples called christians first"
+      ],
+      "event": "Church Established at Antioch",
+      "book": "Acts",
+      "chapter": 11,
+      "id": "evt_church_established_at_antioch"
+    },
+    {
+      "aliases": [
+        "herod kills james",
+        "james son of zebedee martyr"
+      ],
+      "event": "James the Apostle Is Martyred",
+      "book": "Acts",
+      "chapter": 12,
+      "id": "evt_james_the_apostle_is_martyred"
+    },
+    {
+      "aliases": [
+        "peter imprisoned by herod",
+        "angel rescues peter",
+        "prison doors open"
+      ],
+      "event": "Peter Rescued From Prison",
+      "book": "Acts",
+      "chapter": 12,
+      "id": "evt_peter_rescued_from_prison"
+    },
+    {
+      "aliases": [
+        "paul and barnabas sent",
+        "first missionary journey begins"
+      ],
+      "event": "Paul and Barnabas Sent Out",
+      "book": "Acts",
+      "chapter": 13,
+      "id": "evt_paul_and_barnabas_sent_out"
+    },
+    {
+      "aliases": [
+        "elymas blinded",
+        "bar jesus opposed paul"
+      ],
+      "event": "Elymas Is Struck Blind",
+      "book": "Acts",
+      "chapter": 13,
+      "id": "evt_elymas_is_struck_blind"
+    },
+    {
+      "aliases": [
+        "paul sermon pisidian antioch",
+        "paul preaches synagogue"
+      ],
+      "event": "Paul Preaches in Pisidian Antioch",
+      "book": "Acts",
+      "chapter": 13,
+      "id": "evt_paul_preaches_in_pisidian_antioch"
+    },
+    {
+      "aliases": [
+        "lame man lystra healed",
+        "paul miracle lystra"
+      ],
+      "event": "Paul Heals a Man at Lystra",
+      "book": "Acts",
+      "chapter": 14,
+      "id": "evt_paul_heals_a_man_at_lystra"
+    },
+    {
+      "aliases": [
+        "jerusalem council",
+        "council of apostles",
+        "gentile law debate"
+      ],
+      "event": "Jerusalem Council",
+      "book": "Acts",
+      "chapter": 15,
+      "id": "evt_jerusalem_council"
+    },
+    {
+      "aliases": [
+        "paul and silas imprisoned",
+        "earthquake prison",
+        "philippian jailer"
+      ],
+      "event": "Paul and Silas in Prison",
+      "book": "Acts",
+      "chapter": 16,
+      "id": "evt_paul_and_silas_in_prison"
+    },
+    {
+      "aliases": [
+        "philippian jailer converted",
+        "believe in lord jesus",
+        "jailer baptism"
+      ],
+      "event": "Philippian Jailer Believes",
+      "book": "Acts",
+      "chapter": 16,
+      "id": "evt_philippian_jailer_believes"
+    },
+    {
+      "aliases": [
+        "paul preaches athens",
+        "areopagus sermon",
+        "unknown god"
+      ],
+      "event": "Paul Preaches at Athens",
+      "book": "Acts",
+      "chapter": 17,
+      "id": "evt_paul_preaches_at_athens"
+    },
+    {
+      "aliases": [
+        "paul in corinth",
+        "corinthian church founded",
+        "paul stays with aquila priscilla"
+      ],
+      "event": "Paul Ministers in Corinth",
+      "book": "Acts",
+      "chapter": 18,
+      "id": "evt_paul_ministers_in_corinth"
+    },
+    {
+      "aliases": [
+        "apollos taught by priscilla aquila",
+        "apollos learns gospel"
+      ],
+      "event": "Priscilla and Aquila Teach Apollos",
+      "book": "Acts",
+      "chapter": 18,
+      "id": "evt_priscilla_and_aquila_teach_apollos"
+    },
+    {
+      "aliases": [
+        "paul third missionary journey",
+        "paul strengthens churches",
+        "paul travels asia minor"
+      ],
+      "event": "Paul's Third Missionary Journey",
+      "book": "Acts",
+      "chapter": 19,
+      "id": "evt_pauls_third_missionary_journey"
+    },
+    {
+      "aliases": [
+        "paul in ephesus",
+        "ephesian ministry",
+        "gospel spreads in asia"
+      ],
+      "event": "Paul Ministers in Ephesus",
+      "book": "Acts",
+      "chapter": 19,
+      "id": "evt_paul_ministers_in_ephesus"
+    },
+    {
+      "aliases": [
+        "sons of sceva",
+        "jewish exorcists defeated",
+        "evil spirit attacks"
+      ],
+      "event": "The Sons of Sceva Incident",
+      "book": "Acts",
+      "chapter": 19,
+      "id": "evt_the_sons_of_sceva_incident"
+    },
+    {
+      "aliases": [
+        "riot in ephesus",
+        "demetrius silversmith riot",
+        "great is artemis"
+      ],
+      "event": "Ephesus Riot",
+      "book": "Acts",
+      "chapter": 19,
+      "id": "evt_ephesus_riot"
+    },
+    {
+      "aliases": [
+        "eutychus raised",
+        "young man falls from window",
+        "paul raises eutychus"
+      ],
+      "event": "Paul Raises Eutychus",
+      "book": "Acts",
+      "chapter": 20,
+      "id": "evt_paul_raises_eutychus"
+    },
+    {
+      "aliases": [
+        "paul farewell elders",
+        "elders of ephesus speech",
+        "paul warns church leaders"
+      ],
+      "event": "Paul's Farewell to Ephesian Elders",
+      "book": "Acts",
+      "chapter": 20,
+      "id": "evt_pauls_farewell_to_ephesian_elders"
+    },
+    {
+      "aliases": [
+        "paul arrested jerusalem",
+        "temple arrest",
+        "jewish crowd attacks paul"
+      ],
+      "event": "Paul Arrested in Jerusalem",
+      "book": "Acts",
+      "chapter": 21,
+      "id": "evt_paul_arrested_in_jerusalem"
+    },
+    {
+      "aliases": [
+        "paul before sanhedrin",
+        "resurrection debate",
+        "paul defense council"
+      ],
+      "event": "Paul Before the Sanhedrin",
+      "book": "Acts",
+      "chapter": 23,
+      "id": "evt_paul_before_the_sanhedrin"
+    },
+    {
+      "aliases": [
+        "paul sent to felix",
+        "trial before governor felix"
+      ],
+      "event": "Paul Before Felix",
+      "book": "Acts",
+      "chapter": 24,
+      "id": "evt_paul_before_felix"
+    },
+    {
+      "aliases": [
+        "paul before festus",
+        "appeal to caesar",
+        "festus trial"
+      ],
+      "event": "Paul Appeals to Caesar",
+      "book": "Acts",
+      "chapter": 25,
+      "id": "evt_paul_appeals_to_caesar"
+    },
+    {
+      "aliases": [
+        "paul before agrippa",
+        "king agrippa hears paul",
+        "paul defense speech"
+      ],
+      "event": "Paul Before King Agrippa",
+      "book": "Acts",
+      "chapter": 26,
+      "id": "evt_paul_before_king_agrippa"
+    },
+    {
+      "aliases": [
+        "paul voyage to rome",
+        "ship journey to rome",
+        "prisoner voyage"
+      ],
+      "event": "Paul Travels to Rome",
+      "book": "Acts",
+      "chapter": 27,
+      "id": "evt_paul_travels_to_rome"
+    },
+    {
+      "aliases": [
+        "paul shipwreck",
+        "shipwreck on malta",
+        "storm at sea"
+      ],
+      "event": "Paul's Shipwreck",
+      "book": "Acts",
+      "chapter": 27,
+      "id": "evt_pauls_shipwreck"
+    },
+    {
+      "aliases": [
+        "paul bitten by snake",
+        "malta snake bite",
+        "viper miracle"
+      ],
+      "event": "Paul Survives a Snake Bite",
+      "book": "Acts",
+      "chapter": 28,
+      "id": "evt_paul_survives_a_snake_bite"
+    },
+    {
+      "aliases": [
+        "paul heals publius father",
+        "malta healings"
+      ],
+      "event": "Paul Heals Publius' Father",
+      "book": "Acts",
+      "chapter": 28,
+      "id": "evt_paul_heals_publius_father"
+    },
+    {
+      "aliases": [
+        "paul arrives rome",
+        "paul under house arrest",
+        "roman imprisonment"
+      ],
+      "event": "Paul Arrives in Rome",
+      "book": "Acts",
+      "chapter": 28,
+      "id": "evt_paul_arrives_in_rome"
+    },
+    {
+      "aliases": [
+        "paul preaches in rome",
+        "kingdom of god teaching rome"
+      ],
+      "event": "Paul Preaches in Rome",
+      "book": "Acts",
+      "chapter": 28,
+      "id": "evt_paul_preaches_in_rome"
+    },
+    {
+      "aliases": [
+        "jesus appears to seven disciples",
+        "breakfast with jesus galilee"
+      ],
+      "event": "Post-Resurrection Appearance to Seven Disciples",
+      "book": "John",
+      "chapter": 21,
+      "id": "evt_post_resurrection_appearance_to_seven_di"
+    },
+    {
+      "aliases": [
+        "great commission acts",
+        "witnesses to ends of earth",
+        "jesus final instructions"
+      ],
+      "event": "Jesus Commands Witnesses to All Nations",
+      "book": "Acts",
+      "chapter": 1,
+      "id": "evt_jesus_commands_witnesses_to_all_nations"
+    },
+    {
+      "aliases": [
+        "church begins",
+        "apostolic age begins",
+        "gospel spreads"
+      ],
+      "event": "The Gospel Spreads Through the Early Church",
+      "book": "Acts",
+      "chapter": 28,
+      "id": "evt_the_gospel_spreads_through_the_early_chu"
+    }
+  ]
+}

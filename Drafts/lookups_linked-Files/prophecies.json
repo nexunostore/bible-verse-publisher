@@ -1,0 +1,446 @@
+{
+  "description": "Major biblical prophecies and their New Testament fulfillments. Each entry selects ONE canonical book+chapter for lookup consistency.",
+  "entries": [
+    {
+      "aliases": [
+        "immanuel prophecy",
+        "virgin birth prophecy",
+        "isaiah 7:14"
+      ],
+      "prophecy": "Virgin Birth",
+      "fulfilled": "Birth of Jesus",
+      "book": "Matthew",
+      "chapter": 1,
+      "id": "proph_virgin_birth"
+    },
+    {
+      "aliases": [
+        "bethlehem prophecy",
+        "micah 5:2"
+      ],
+      "prophecy": "Messiah Born in Bethlehem",
+      "fulfilled": "Birth of Jesus",
+      "book": "Matthew",
+      "chapter": 2,
+      "id": "proph_messiah_born_in_bethlehem"
+    },
+    {
+      "aliases": [
+        "out of egypt prophecy",
+        "hosea 11:1"
+      ],
+      "prophecy": "Messiah Called Out of Egypt",
+      "fulfilled": "Return from Egypt",
+      "book": "Matthew",
+      "chapter": 2,
+      "id": "proph_messiah_called_out_of_egypt"
+    },
+    {
+      "aliases": [
+        "rachel weeping",
+        "jeremiah 31:15"
+      ],
+      "prophecy": "Weeping in Ramah",
+      "fulfilled": "Herod's Massacre",
+      "book": "Matthew",
+      "chapter": 2,
+      "id": "proph_weeping_in_ramah"
+    },
+    {
+      "aliases": [
+        "voice in wilderness",
+        "isaiah 40:3"
+      ],
+      "prophecy": "Forerunner of Messiah",
+      "fulfilled": "John the Baptist Ministry",
+      "book": "Matthew",
+      "chapter": 3,
+      "id": "proph_forerunner_of_messiah"
+    },
+    {
+      "aliases": [
+        "galilee of nations",
+        "isaiah 9:1"
+      ],
+      "prophecy": "Light in Galilee",
+      "fulfilled": "Jesus Begins Ministry in Galilee",
+      "book": "Matthew",
+      "chapter": 4,
+      "id": "proph_light_in_galilee"
+    },
+    {
+      "aliases": [
+        "zeal for your house",
+        "psalm 69:9"
+      ],
+      "prophecy": "Zeal for God's House",
+      "fulfilled": "Temple Cleansing",
+      "book": "John",
+      "chapter": 2,
+      "id": "proph_zeal_for_gods_house"
+    },
+    {
+      "aliases": [
+        "messiah heals",
+        "isaiah 35:5"
+      ],
+      "prophecy": "Messiah Heals the Blind",
+      "fulfilled": "Jesus Heals Blind Man",
+      "book": "John",
+      "chapter": 9,
+      "id": "proph_messiah_heals_the_blind"
+    },
+    {
+      "aliases": [
+        "messiah heals lame",
+        "isaiah 35:6"
+      ],
+      "prophecy": "Messiah Heals the Lame",
+      "fulfilled": "Healing at Pool of Bethesda",
+      "book": "John",
+      "chapter": 5,
+      "id": "proph_messiah_heals_the_lame"
+    },
+    {
+      "aliases": [
+        "messiah heals lepers",
+        "isaiah 53 healing"
+      ],
+      "prophecy": "Messiah Heals Leprosy",
+      "fulfilled": "Jesus Heals Lepers",
+      "book": "Luke",
+      "chapter": 17,
+      "id": "proph_messiah_heals_leprosy"
+    },
+    {
+      "aliases": [
+        "messiah teaches in parables",
+        "psalm 78:2"
+      ],
+      "prophecy": "Messiah Speaks in Parables",
+      "fulfilled": "Jesus Teaches Parables",
+      "book": "Matthew",
+      "chapter": 13,
+      "id": "proph_messiah_speaks_in_parables"
+    },
+    {
+      "aliases": [
+        "messiah enters on donkey",
+        "zechariah 9:9"
+      ],
+      "prophecy": "Triumphal Entry",
+      "fulfilled": "Jesus Enters Jerusalem",
+      "book": "Matthew",
+      "chapter": 21,
+      "id": "proph_triumphal_entry"
+    },
+    {
+      "aliases": [
+        "betrayed by friend",
+        "psalm 41:9"
+      ],
+      "prophecy": "Betrayal by Close Friend",
+      "fulfilled": "Judas Betrays Jesus",
+      "book": "Matthew",
+      "chapter": 26,
+      "id": "proph_betrayal_by_close_friend"
+    },
+    {
+      "aliases": [
+        "30 pieces of silver",
+        "zechariah 11:12"
+      ],
+      "prophecy": "Price of Betrayal",
+      "fulfilled": "Judas Paid 30 Silver",
+      "book": "Matthew",
+      "chapter": 26,
+      "id": "proph_price_of_betrayal"
+    },
+    {
+      "aliases": [
+        "potter's field",
+        "zechariah 11:13"
+      ],
+      "prophecy": "Money Thrown in Temple",
+      "fulfilled": "Field of Blood Purchased",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "proph_money_thrown_in_temple"
+    },
+    {
+      "aliases": [
+        "struck shepherd",
+        "zechariah 13:7"
+      ],
+      "prophecy": "Shepherd Struck, Sheep Scatter",
+      "fulfilled": "Disciples Flee",
+      "book": "Matthew",
+      "chapter": 26,
+      "id": "proph_shepherd_struck_sheep_scatter"
+    },
+    {
+      "aliases": [
+        "silent before accusers",
+        "isaiah 53:7"
+      ],
+      "prophecy": "Messiah Silent Before Accusers",
+      "fulfilled": "Jesus Silent Before Pilate",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "proph_messiah_silent_before_accusers"
+    },
+    {
+      "aliases": [
+        "mocked and insulted",
+        "psalm 22:7"
+      ],
+      "prophecy": "Messiah Mocked",
+      "fulfilled": "Jesus Mocked",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "proph_messiah_mocked"
+    },
+    {
+      "aliases": [
+        "hands and feet pierced",
+        "psalm 22:16"
+      ],
+      "prophecy": "Crucifixion",
+      "fulfilled": "Jesus Crucified",
+      "book": "John",
+      "chapter": 19,
+      "id": "proph_crucifixion"
+    },
+    {
+      "aliases": [
+        "lots for clothing",
+        "psalm 22:18"
+      ],
+      "prophecy": "Casting Lots for Garments",
+      "fulfilled": "Soldiers Cast Lots",
+      "book": "John",
+      "chapter": 19,
+      "id": "proph_casting_lots_for_garments"
+    },
+    {
+      "aliases": [
+        "given gall and vinegar",
+        "psalm 69:21"
+      ],
+      "prophecy": "Messiah Given Bitter Drink",
+      "fulfilled": "Jesus Given Vinegar",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "proph_messiah_given_bitter_drink"
+    },
+    {
+      "aliases": [
+        "no bones broken",
+        "psalm 34:20"
+      ],
+      "prophecy": "No Bones Broken",
+      "fulfilled": "Jesus' Bones Not Broken",
+      "book": "John",
+      "chapter": 19,
+      "id": "proph_no_bones_broken"
+    },
+    {
+      "aliases": [
+        "pierced side",
+        "zechariah 12:10"
+      ],
+      "prophecy": "They Will Look on Him Whom They Pierced",
+      "fulfilled": "Jesus' Side Pierced",
+      "book": "John",
+      "chapter": 19,
+      "id": "proph_they_will_look_on_him_whom_they_pierced"
+    },
+    {
+      "aliases": [
+        "buried with rich",
+        "isaiah 53:9"
+      ],
+      "prophecy": "Buried with the Rich",
+      "fulfilled": "Jesus Buried in Joseph's Tomb",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "proph_buried_with_the_rich"
+    },
+    {
+      "aliases": [
+        "resurrection prophecy",
+        "psalm 16:10"
+      ],
+      "prophecy": "Messiah Will Rise",
+      "fulfilled": "Resurrection of Jesus",
+      "book": "Matthew",
+      "chapter": 28,
+      "id": "proph_messiah_will_rise"
+    },
+    {
+      "aliases": [
+        "ascension prophecy",
+        "psalm 68:18"
+      ],
+      "prophecy": "Messiah Ascends",
+      "fulfilled": "Ascension of Jesus",
+      "book": "Acts",
+      "chapter": 1,
+      "id": "proph_messiah_ascends"
+    },
+    {
+      "aliases": [
+        "spirit poured out",
+        "joel 2:28"
+      ],
+      "prophecy": "Outpouring of the Spirit",
+      "fulfilled": "Pentecost",
+      "book": "Acts",
+      "chapter": 2,
+      "id": "proph_outpouring_of_the_spirit"
+    },
+    {
+      "aliases": [
+        "new covenant",
+        "jeremiah 31:31"
+      ],
+      "prophecy": "New Covenant Promised",
+      "fulfilled": "Last Supper Covenant",
+      "book": "Luke",
+      "chapter": 22,
+      "id": "proph_new_covenant_promised"
+    },
+    {
+      "aliases": [
+        "stone rejected",
+        "psalm 118:22"
+      ],
+      "prophecy": "Rejected Stone Becomes Cornerstone",
+      "fulfilled": "Jesus Rejected by Leaders",
+      "book": "Matthew",
+      "chapter": 21,
+      "id": "proph_rejected_stone_becomes_cornerstone"
+    },
+    {
+      "aliases": [
+        "messiah brings good news",
+        "isaiah 61:1"
+      ],
+      "prophecy": "Good News to Poor",
+      "fulfilled": "Jesus' Nazareth Sermon",
+      "book": "Luke",
+      "chapter": 4,
+      "id": "proph_good_news_to_poor"
+    },
+    {
+      "aliases": [
+        "messiah binds brokenhearted",
+        "isaiah 61:1"
+      ],
+      "prophecy": "Healing the Brokenhearted",
+      "fulfilled": "Jesus' Ministry",
+      "book": "Luke",
+      "chapter": 7,
+      "id": "proph_healing_the_brokenhearted"
+    },
+    {
+      "aliases": [
+        "messiah proclaims liberty",
+        "isaiah 61:1"
+      ],
+      "prophecy": "Proclaiming Liberty",
+      "fulfilled": "Jesus Frees Captives",
+      "book": "Luke",
+      "chapter": 13,
+      "id": "proph_proclaiming_liberty"
+    },
+    {
+      "aliases": [
+        "messiah opens prison",
+        "isaiah 61:1"
+      ],
+      "prophecy": "Opening Prison to Those Bound",
+      "fulfilled": "Demoniac Freed",
+      "book": "Mark",
+      "chapter": 5,
+      "id": "proph_opening_prison_to_those_bound"
+    },
+    {
+      "aliases": [
+        "messiah brings justice",
+        "isaiah 42:1"
+      ],
+      "prophecy": "Servant Brings Justice",
+      "fulfilled": "Jesus' Ministry",
+      "book": "Matthew",
+      "chapter": 12,
+      "id": "proph_servant_brings_justice"
+    },
+    {
+      "aliases": [
+        "messiah gentle",
+        "isaiah 42:2"
+      ],
+      "prophecy": "Servant Gentle and Lowly",
+      "fulfilled": "Jesus' Character",
+      "book": "Matthew",
+      "chapter": 11,
+      "id": "proph_servant_gentle_and_lowly"
+    },
+    {
+      "aliases": [
+        "messiah light to gentiles",
+        "isaiah 42:6"
+      ],
+      "prophecy": "Light to the Gentiles",
+      "fulfilled": "Gentile Inclusion",
+      "book": "Acts",
+      "chapter": 10,
+      "id": "proph_light_to_the_gentiles"
+    },
+    {
+      "aliases": [
+        "messiah suffers",
+        "isaiah 53"
+      ],
+      "prophecy": "Suffering Servant",
+      "fulfilled": "Jesus' Passion",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "proph_suffering_servant"
+    },
+    {
+      "aliases": [
+        "messiah despised",
+        "isaiah 53:3"
+      ],
+      "prophecy": "Despised and Rejected",
+      "fulfilled": "Jesus Rejected",
+      "book": "John",
+      "chapter": 7,
+      "id": "proph_despised_and_rejected"
+    },
+    {
+      "aliases": [
+        "messiah bears sins",
+        "isaiah 53:4"
+      ],
+      "prophecy": "Bears Our Griefs",
+      "fulfilled": "Crucifixion",
+      "book": "John",
+      "chapter": 19,
+      "id": "proph_bears_our_griefs"
+    },
+    {
+      "aliases": [
+        "messiah silent",
+        "isaiah 53:7"
+      ],
+      "prophecy": "Silent Before Shearers",
+      "fulfilled": "Silent Before Pilate",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "proph_silent_before_shearers"
+    }
+  ]
+}

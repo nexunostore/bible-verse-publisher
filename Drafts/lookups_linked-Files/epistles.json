@@ -1,0 +1,257 @@
+{
+  "description": "Major New Testament epistles with one canonical book+chapter reference summarizing their core theme.",
+  "entries": [
+    {
+      "aliases": [
+        "romans letter",
+        "paul to romans",
+        "justification by faith"
+      ],
+      "epistle": "Romans",
+      "theme": "Righteousness of God and justification by faith",
+      "book": "Romans",
+      "chapter": 1,
+      "id": "ep_romans"
+    },
+    {
+      "aliases": [
+        "1 corinthians letter",
+        "paul to corinth",
+        "church correction"
+      ],
+      "epistle": "1 Corinthians",
+      "theme": "Church unity, correction, spiritual gifts",
+      "book": "1 Corinthians",
+      "chapter": 1,
+      "id": "ep_1_corinthians"
+    },
+    {
+      "aliases": [
+        "2 corinthians letter",
+        "paul defense",
+        "new covenant ministry"
+      ],
+      "epistle": "2 Corinthians",
+      "theme": "Paul’s defense and new covenant ministry",
+      "book": "2 Corinthians",
+      "chapter": 1,
+      "id": "ep_2_corinthians"
+    },
+    {
+      "aliases": [
+        "galatians letter",
+        "law vs grace",
+        "fruit of spirit"
+      ],
+      "epistle": "Galatians",
+      "theme": "Freedom from the law; life in the Spirit",
+      "book": "Galatians",
+      "chapter": 1,
+      "id": "ep_galatians"
+    },
+    {
+      "aliases": [
+        "ephesians letter",
+        "church body",
+        "armor of god"
+      ],
+      "epistle": "Ephesians",
+      "theme": "Unity of the church and spiritual warfare",
+      "book": "Ephesians",
+      "chapter": 1,
+      "id": "ep_ephesians"
+    },
+    {
+      "aliases": [
+        "philippians letter",
+        "joy letter",
+        "christ humility"
+      ],
+      "epistle": "Philippians",
+      "theme": "Joy in Christ and humility",
+      "book": "Philippians",
+      "chapter": 1,
+      "id": "ep_philippians"
+    },
+    {
+      "aliases": [
+        "colossians letter",
+        "christ supremacy",
+        "false teaching"
+      ],
+      "epistle": "Colossians",
+      "theme": "Supremacy of Christ over all creation",
+      "book": "Colossians",
+      "chapter": 1,
+      "id": "ep_colossians"
+    },
+    {
+      "aliases": [
+        "1 thessalonians letter",
+        "second coming",
+        "encouragement"
+      ],
+      "epistle": "1 Thessalonians",
+      "theme": "Encouragement and Christ’s return",
+      "book": "1 Thessalonians",
+      "chapter": 1,
+      "id": "ep_1_thessalonians"
+    },
+    {
+      "aliases": [
+        "2 thessalonians letter",
+        "day of lord",
+        "end times"
+      ],
+      "epistle": "2 Thessalonians",
+      "theme": "Clarification on the Day of the Lord",
+      "book": "2 Thessalonians",
+      "chapter": 1,
+      "id": "ep_2_thessalonians"
+    },
+    {
+      "aliases": [
+        "1 timothy letter",
+        "pastoral epistle",
+        "church leadership"
+      ],
+      "epistle": "1 Timothy",
+      "theme": "Instructions for church leadership",
+      "book": "1 Timothy",
+      "chapter": 1,
+      "id": "ep_1_timothy"
+    },
+    {
+      "aliases": [
+        "2 timothy letter",
+        "paul final letter",
+        "endurance"
+      ],
+      "epistle": "2 Timothy",
+      "theme": "Perseverance in ministry",
+      "book": "2 Timothy",
+      "chapter": 1,
+      "id": "ep_2_timothy"
+    },
+    {
+      "aliases": [
+        "titus letter",
+        "pastoral epistle",
+        "sound doctrine"
+      ],
+      "epistle": "Titus",
+      "theme": "Sound doctrine and good works",
+      "book": "Titus",
+      "chapter": 1,
+      "id": "ep_titus"
+    },
+    {
+      "aliases": [
+        "philemon letter",
+        "onesimus",
+        "forgiveness in philemon"
+      ],
+      "epistle": "Philemon",
+      "theme": "Christian forgiveness and reconciliation",
+      "book": "Philemon",
+      "chapter": 1,
+      "id": "ep_philemon"
+    },
+    {
+      "aliases": [
+        "hebrews letter",
+        "melchizedek",
+        "christ high priest"
+      ],
+      "epistle": "Hebrews",
+      "theme": "Christ as superior high priest",
+      "book": "Hebrews",
+      "chapter": 1,
+      "id": "ep_hebrews"
+    },
+    {
+      "aliases": [
+        "james letter",
+        "faith and works",
+        "wisdom in james"
+      ],
+      "epistle": "James",
+      "theme": "Faith demonstrated through works",
+      "book": "James",
+      "chapter": 1,
+      "id": "ep_james"
+    },
+    {
+      "aliases": [
+        "1 peter letter",
+        "suffering in 1 peter",
+        "holiness in 1 peter"
+      ],
+      "epistle": "1 Peter",
+      "theme": "Hope and holiness in suffering",
+      "book": "1 Peter",
+      "chapter": 1,
+      "id": "ep_1_peter"
+    },
+    {
+      "aliases": [
+        "2 peter letter",
+        "false teachers",
+        "day of lord"
+      ],
+      "epistle": "2 Peter",
+      "theme": "Warning against false teachers",
+      "book": "2 Peter",
+      "chapter": 1,
+      "id": "ep_2_peter"
+    },
+    {
+      "aliases": [
+        "1 john letter",
+        "love in 1 john",
+        "assurance"
+      ],
+      "epistle": "1 John",
+      "theme": "Love, obedience, and assurance",
+      "book": "1 John",
+      "chapter": 1,
+      "id": "ep_1_john"
+    },
+    {
+      "aliases": [
+        "2 john letter",
+        "truth and love",
+        "hospitality"
+      ],
+      "epistle": "2 John",
+      "theme": "Walking in truth and love",
+      "book": "2 John",
+      "chapter": 1,
+      "id": "ep_2_john"
+    },
+    {
+      "aliases": [
+        "3 john letter",
+        "hospitality",
+        "diotrephes"
+      ],
+      "epistle": "3 John",
+      "theme": "Hospitality and faithfulness",
+      "book": "3 John",
+      "chapter": 1,
+      "id": "ep_3_john"
+    },
+    {
+      "aliases": [
+        "jude letter",
+        "contend for faith",
+        "false teachers"
+      ],
+      "epistle": "Jude",
+      "theme": "Contending for the faith",
+      "book": "Jude",
+      "chapter": 1,
+      "id": "ep_jude"
+    }
+  ]
+}

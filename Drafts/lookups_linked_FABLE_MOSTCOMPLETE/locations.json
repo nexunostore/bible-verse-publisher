@@ -1,0 +1,432 @@
+{
+  "description": "Major biblical locations with one canonical book+chapter reference for lookup consistency.",
+  "entries": [
+    {
+      "aliases": [
+        "eden",
+        "garden of eden",
+        "creation garden"
+      ],
+      "location": "Garden of Eden",
+      "book": "Genesis",
+      "chapter": 2,
+      "id": "loc_garden_of_eden"
+    },
+    {
+      "aliases": [
+        "ark landing",
+        "mountain of ararat"
+      ],
+      "location": "Mount Ararat",
+      "book": "Genesis",
+      "chapter": 8,
+      "id": "loc_mount_ararat"
+    },
+    {
+      "aliases": [
+        "ur of chaldeans",
+        "abraham birthplace"
+      ],
+      "location": "Ur of the Chaldeans",
+      "book": "Genesis",
+      "chapter": 11,
+      "id": "loc_ur_of_the_chaldeans"
+    },
+    {
+      "aliases": [
+        "haran",
+        "abraham travels"
+      ],
+      "location": "Haran",
+      "book": "Genesis",
+      "chapter": 12,
+      "id": "loc_haran"
+    },
+    {
+      "aliases": [
+        "bethel",
+        "jacob ladder",
+        "house of god"
+      ],
+      "location": "Bethel",
+      "book": "Genesis",
+      "chapter": 28,
+      "id": "loc_bethel"
+    },
+    {
+      "aliases": [
+        "egypt",
+        "pharaoh land",
+        "israel slavery"
+      ],
+      "location": "Egypt",
+      "book": "Exodus",
+      "chapter": 1,
+      "id": "loc_egypt"
+    },
+    {
+      "aliases": [
+        "goshen",
+        "israel dwelling egypt"
+      ],
+      "location": "Land of Goshen",
+      "book": "Genesis",
+      "chapter": 47,
+      "id": "loc_land_of_goshen"
+    },
+    {
+      "aliases": [
+        "red sea",
+        "sea of reeds",
+        "exodus crossing"
+      ],
+      "location": "Red Sea",
+      "book": "Exodus",
+      "chapter": 14,
+      "id": "loc_red_sea"
+    },
+    {
+      "aliases": [
+        "sinai",
+        "mount sinai",
+        "mount horeb"
+      ],
+      "location": "Mount Sinai",
+      "book": "Exodus",
+      "chapter": 19,
+      "id": "loc_mount_sinai"
+    },
+    {
+      "aliases": [
+        "kadesh",
+        "kadesh barnea",
+        "wilderness camp"
+      ],
+      "location": "Kadesh-Barnea",
+      "book": "Numbers",
+      "chapter": 13,
+      "id": "loc_kadesh_barnea"
+    },
+    {
+      "aliases": [
+        "jericho",
+        "walls of jericho"
+      ],
+      "location": "Jericho",
+      "book": "Joshua",
+      "chapter": 6,
+      "id": "loc_jericho"
+    },
+    {
+      "aliases": [
+        "ai",
+        "battle of ai"
+      ],
+      "location": "Ai",
+      "book": "Joshua",
+      "chapter": 7,
+      "id": "loc_ai"
+    },
+    {
+      "aliases": [
+        "shiloh",
+        "tabernacle shiloh"
+      ],
+      "location": "Shiloh",
+      "book": "Joshua",
+      "chapter": 18,
+      "id": "loc_shiloh"
+    },
+    {
+      "aliases": [
+        "bethlehem",
+        "city of david",
+        "jesus birthplace"
+      ],
+      "location": "Bethlehem",
+      "book": "Matthew",
+      "chapter": 2,
+      "id": "loc_bethlehem"
+    },
+    {
+      "aliases": [
+        "nazareth",
+        "jesus hometown"
+      ],
+      "location": "Nazareth",
+      "book": "Luke",
+      "chapter": 4,
+      "id": "loc_nazareth"
+    },
+    {
+      "aliases": [
+        "capernaum",
+        "jesus ministry base"
+      ],
+      "location": "Capernaum",
+      "book": "Matthew",
+      "chapter": 4,
+      "id": "loc_capernaum"
+    },
+    {
+      "aliases": [
+        "galilee",
+        "sea of galilee",
+        "galilee region"
+      ],
+      "location": "Sea of Galilee",
+      "book": "Matthew",
+      "chapter": 4,
+      "id": "loc_sea_of_galilee"
+    },
+    {
+      "aliases": [
+        "jordan river",
+        "jesus baptism",
+        "john baptizes"
+      ],
+      "location": "Jordan River",
+      "book": "Matthew",
+      "chapter": 3,
+      "id": "loc_jordan_river"
+    },
+    {
+      "aliases": [
+        "jerusalem",
+        "holy city",
+        "temple mount"
+      ],
+      "location": "Jerusalem",
+      "book": "Matthew",
+      "chapter": 21,
+      "id": "loc_jerusalem"
+    },
+    {
+      "aliases": [
+        "the jerusalem temple",
+        "solomon temple",
+        "second temple"
+      ],
+      "location": "Jerusalem Temple",
+      "book": "Matthew",
+      "chapter": 21,
+      "id": "loc_jerusalem_temple"
+    },
+    {
+      "aliases": [
+        "mount of olives",
+        "olivet",
+        "jesus ascension"
+      ],
+      "location": "Mount of Olives",
+      "book": "Matthew",
+      "chapter": 24,
+      "id": "loc_mount_of_olives"
+    },
+    {
+      "aliases": [
+        "gethsemane",
+        "garden of gethsemane"
+      ],
+      "location": "Gethsemane",
+      "book": "Matthew",
+      "chapter": 26,
+      "id": "loc_gethsemane"
+    },
+    {
+      "aliases": [
+        "golgotha",
+        "calvary",
+        "place of skull"
+      ],
+      "location": "Golgotha",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "loc_golgotha"
+    },
+    {
+      "aliases": [
+        "emmaus",
+        "road to emmaus"
+      ],
+      "location": "Emmaus",
+      "book": "Luke",
+      "chapter": 24,
+      "id": "loc_emmaus"
+    },
+    {
+      "aliases": [
+        "bethany",
+        "mary and martha",
+        "lazarus"
+      ],
+      "location": "Bethany",
+      "book": "John",
+      "chapter": 11,
+      "id": "loc_bethany"
+    },
+    {
+      "aliases": [
+        "samaria",
+        "samaritans",
+        "woman at well"
+      ],
+      "location": "Samaria",
+      "book": "John",
+      "chapter": 4,
+      "id": "loc_samaria"
+    },
+    {
+      "aliases": [
+        "sychar",
+        "jacob well"
+      ],
+      "location": "Sychar",
+      "book": "John",
+      "chapter": 4,
+      "id": "loc_sychar"
+    },
+    {
+      "aliases": [
+        "caesarea philippi",
+        "peter confession"
+      ],
+      "location": "Caesarea Philippi",
+      "book": "Matthew",
+      "chapter": 16,
+      "id": "loc_caesarea_philippi"
+    },
+    {
+      "aliases": [
+        "decapolis",
+        "ten cities"
+      ],
+      "location": "Decapolis",
+      "book": "Mark",
+      "chapter": 7,
+      "id": "loc_decapolis"
+    },
+    {
+      "aliases": [
+        "tyre and sidon",
+        "gentile region"
+      ],
+      "location": "Tyre and Sidon",
+      "book": "Mark",
+      "chapter": 7,
+      "id": "loc_tyre_and_sidon"
+    },
+    {
+      "aliases": [
+        "damascus",
+        "paul conversion"
+      ],
+      "location": "Damascus",
+      "book": "Acts",
+      "chapter": 9,
+      "id": "loc_damascus"
+    },
+    {
+      "aliases": [
+        "antioch",
+        "antioch of syria"
+      ],
+      "location": "Antioch",
+      "book": "Acts",
+      "chapter": 11,
+      "id": "loc_antioch"
+    },
+    {
+      "aliases": [
+        "lystra",
+        "paul stoned"
+      ],
+      "location": "Lystra",
+      "book": "Acts",
+      "chapter": 14,
+      "id": "loc_lystra"
+    },
+    {
+      "aliases": [
+        "derbe",
+        "paul missionary"
+      ],
+      "location": "Derbe",
+      "book": "Acts",
+      "chapter": 14,
+      "id": "loc_derbe"
+    },
+    {
+      "aliases": [
+        "philippi",
+        "paul and silas prison"
+      ],
+      "location": "Philippi",
+      "book": "Acts",
+      "chapter": 16,
+      "id": "loc_philippi"
+    },
+    {
+      "aliases": [
+        "athens",
+        "areopagus",
+        "mars hill"
+      ],
+      "location": "Athens",
+      "book": "Acts",
+      "chapter": 17,
+      "id": "loc_athens"
+    },
+    {
+      "aliases": [
+        "corinth",
+        "paul ministry"
+      ],
+      "location": "Corinth",
+      "book": "Acts",
+      "chapter": 18,
+      "id": "loc_corinth"
+    },
+    {
+      "aliases": [
+        "ephesus",
+        "paul ministry ephesus"
+      ],
+      "location": "Ephesus",
+      "book": "Acts",
+      "chapter": 19,
+      "id": "loc_ephesus"
+    },
+    {
+      "aliases": [
+        "troas",
+        "eutychus"
+      ],
+      "location": "Troas",
+      "book": "Acts",
+      "chapter": 20,
+      "id": "loc_troas"
+    },
+    {
+      "aliases": [
+        "malta",
+        "paul shipwreck"
+      ],
+      "location": "Malta",
+      "book": "Acts",
+      "chapter": 28,
+      "id": "loc_malta"
+    },
+    {
+      "aliases": [
+        "rome",
+        "paul trial",
+        "paul imprisonment"
+      ],
+      "location": "Rome",
+      "book": "Acts",
+      "chapter": 28,
+      "id": "loc_rome"
+    }
+  ]
+}

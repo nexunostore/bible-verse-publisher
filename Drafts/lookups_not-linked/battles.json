@@ -1,0 +1,29 @@
+{
+  "description": "Major biblical battles with one canonical book+chapter reference for lookup consistency.",
+  "entries": [
+    {"aliases": ["four kings vs five", "lot rescue", "abraham battle"], "battle": "Battle of the Kings", "book": "Genesis", "chapter": 14},
+    {"aliases": ["exodus battle", "amalekites", "moses hands raised"], "battle": "Battle with Amalek", "book": "Exodus", "chapter": 17},
+    {"aliases": ["jericho walls", "fall of jericho"], "battle": "Battle of Jericho", "book": "Joshua", "chapter": 6},
+    {"aliases": ["ai battle", "israel defeat then victory"], "battle": "Battle of Ai", "book": "Joshua", "chapter": 7},
+    {"aliases": ["gibeon battle", "sun stands still"], "battle": "Battle of Gibeon", "book": "Joshua", "chapter": 10},
+    {"aliases": ["hazor battle", "northern kings"], "battle": "Battle of Hazor", "book": "Joshua", "chapter": 11},
+    {"aliases": ["midian battle", "gideon 300 men"], "battle": "Gideon vs Midian", "book": "Judges", "chapter": 7},
+    {"aliases": ["philistines battle", "ark captured"], "battle": "Battle of Aphek", "book": "1 Samuel", "chapter": 4},
+    {"aliases": ["david goliath", "valley of elah"], "battle": "David vs Goliath", "book": "1 Samuel", "chapter": 17},
+    {"aliases": ["saul vs philistines", "mount gilboa"], "battle": "Battle of Mount Gilboa", "book": "1 Samuel", "chapter": 31},
+    {"aliases": ["david battles", "philistines defeated"], "battle": "David’s Philistine Wars", "book": "2 Samuel", "chapter": 5},
+    {"aliases": ["syrian war", "ben-hadad", "samaria siege"], "battle": "Battle of Samaria", "book": "1 Kings", "chapter": 20},
+    {"aliases": ["elijah fire", "prophets of baal"], "battle": "Mount Carmel Confrontation", "book": "1 Kings", "chapter": 18},
+    {"aliases": ["jehoshaphat battle", "praise army", "god fights"], "battle": "Battle of the Valley of Berakah", "book": "2 Chronicles", "chapter": 20},
+    {"aliases": ["assyrian siege", "sennacherib", "angel of the lord"], "battle": "Siege of Jerusalem", "book": "2 Kings", "chapter": 19},
+    {"aliases": ["babylon conquest", "jerusalem fall"], "battle": "Fall of Jerusalem", "book": "2 Kings", "chapter": 25},
+    {"aliases": ["persian conquest", "cyrus victory"], "battle": "Fall of Babylon", "book": "Daniel", "chapter": 5},
+    {"aliases": ["maccabees battle", "antiochus", "temple rededication"], "battle": "Maccabean Revolt", "book": "1 Maccabees", "chapter": 4},
+    {"aliases": ["herod slaughter", "bethlehem massacre"], "battle": "Massacre of the Innocents", "book": "Matthew", "chapter": 2},
+    {"aliases": ["jesus temptation", "wilderness battle"], "battle": "Spiritual Battle in the Wilderness", "book": "Matthew", "chapter": 4},
+    {"aliases": ["gethsemane struggle", "spiritual warfare"], "battle": "Gethsemane Agony", "book": "Matthew", "chapter": 26},
+    {"aliases": ["cross victory", "spiritual battle", "atonement"], "battle": "Victory at the Cross", "book": "John", "chapter": 19},
+    {"aliases": ["armageddon", "final battle", "end times"], "battle": "Battle of Armageddon", "book": "Revelation", "chapter": 16},
+    {"aliases": ["satan defeated", "final judgment"], "battle": "Final Defeat of Satan", "book": "Revelation", "chapter": 20}
+  ]
+}

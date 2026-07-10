@@ -1,0 +1,633 @@
+{
+  "description": "Major kings of Israel and Judah with one canonical book+chapter reference summarizing their introduction or defining moment.",
+  "entries": [
+    {
+      "aliases": [
+        "saul",
+        "first king",
+        "benjamite king"
+      ],
+      "king": "Saul",
+      "kingdom": "United Kingdom",
+      "book": "1 Samuel",
+      "chapter": 9,
+      "id": "king_saul",
+      "related": [
+        "king_david"
+      ]
+    },
+    {
+      "aliases": [
+        "shepherd king"
+      ],
+      "king": "David",
+      "kingdom": "United Kingdom",
+      "book": "1 Samuel",
+      "chapter": 16,
+      "id": "king_david",
+      "related": [
+        "king_saul",
+        "king_solomon"
+      ]
+    },
+    {
+      "aliases": [
+        "wise king",
+        "temple builder"
+      ],
+      "king": "Solomon",
+      "kingdom": "United Kingdom",
+      "book": "1 Kings",
+      "chapter": 3,
+      "id": "king_solomon",
+      "related": [
+        "king_david",
+        "king_rehoboam",
+        "king_jeroboam_i"
+      ]
+    },
+    {
+      "aliases": [
+        "solomon son",
+        "judah king"
+      ],
+      "king": "Rehoboam",
+      "kingdom": "Judah",
+      "book": "1 Kings",
+      "chapter": 12,
+      "id": "king_rehoboam",
+      "related": [
+        "king_abijah"
+      ]
+    },
+    {
+      "aliases": [
+        "jeroboam",
+        "northern king"
+      ],
+      "king": "Jeroboam I",
+      "kingdom": "Israel",
+      "book": "1 Kings",
+      "chapter": 12,
+      "id": "king_jeroboam_i",
+      "related": [
+        "king_nadab"
+      ]
+    },
+    {
+      "aliases": [
+        "abijah",
+        "abijam",
+        "judah king"
+      ],
+      "king": "Abijah",
+      "kingdom": "Judah",
+      "book": "1 Kings",
+      "chapter": 15,
+      "id": "king_abijah",
+      "related": [
+        "king_rehoboam",
+        "king_asa"
+      ]
+    },
+    {
+      "aliases": [
+        "asa",
+        "judah king",
+        "reformer"
+      ],
+      "king": "Asa",
+      "kingdom": "Judah",
+      "book": "1 Kings",
+      "chapter": 15,
+      "id": "king_asa",
+      "related": [
+        "king_abijah",
+        "king_jehoshaphat"
+      ]
+    },
+    {
+      "aliases": [
+        "nadab",
+        "jeroboam son",
+        "israel king"
+      ],
+      "king": "Nadab",
+      "kingdom": "Israel",
+      "book": "1 Kings",
+      "chapter": 15,
+      "id": "king_nadab",
+      "related": [
+        "king_jeroboam_i",
+        "king_baasha"
+      ]
+    },
+    {
+      "aliases": [
+        "baasha",
+        "israel king",
+        "war with asa"
+      ],
+      "king": "Baasha",
+      "kingdom": "Israel",
+      "book": "1 Kings",
+      "chapter": 15,
+      "id": "king_baasha",
+      "related": [
+        "king_nadab",
+        "king_elah"
+      ]
+    },
+    {
+      "aliases": [
+        "elah",
+        "israel king",
+        "baasha son"
+      ],
+      "king": "Elah",
+      "kingdom": "Israel",
+      "book": "1 Kings",
+      "chapter": 16,
+      "id": "king_elah",
+      "related": [
+        "king_baasha",
+        "king_zimri"
+      ]
+    },
+    {
+      "aliases": [
+        "zimri",
+        "seven day king"
+      ],
+      "king": "Zimri",
+      "kingdom": "Israel",
+      "book": "1 Kings",
+      "chapter": 16,
+      "id": "king_zimri",
+      "related": [
+        "king_elah",
+        "king_omri"
+      ]
+    },
+    {
+      "aliases": [
+        "omri",
+        "israel king",
+        "samaria builder"
+      ],
+      "king": "Omri",
+      "kingdom": "Israel",
+      "book": "1 Kings",
+      "chapter": 16,
+      "id": "king_omri",
+      "related": [
+        "king_zimri",
+        "king_ahab"
+      ]
+    },
+    {
+      "aliases": [
+        "jezebel husband",
+        "baal worship"
+      ],
+      "king": "Ahab",
+      "kingdom": "Israel",
+      "book": "1 Kings",
+      "chapter": 16,
+      "id": "king_ahab",
+      "related": [
+        "king_omri",
+        "king_ahaziah_israel"
+      ]
+    },
+    {
+      "aliases": [
+        "judah king",
+        "alliance with ahab"
+      ],
+      "king": "Jehoshaphat",
+      "kingdom": "Judah",
+      "book": "1 Kings",
+      "chapter": 22,
+      "id": "king_jehoshaphat",
+      "related": [
+        "king_asa",
+        "king_jehoram_judah"
+      ]
+    },
+    {
+      "aliases": [
+        "ahaziah",
+        "israel king",
+        "ahab son"
+      ],
+      "king": "Ahaziah (Israel)",
+      "kingdom": "Israel",
+      "book": "1 Kings",
+      "chapter": 22,
+      "id": "king_ahaziah_israel",
+      "related": [
+        "king_ahab",
+        "king_joram_israel"
+      ]
+    },
+    {
+      "aliases": [
+        "joram",
+        "jehoram",
+        "israel king"
+      ],
+      "king": "Joram (Israel)",
+      "kingdom": "Israel",
+      "book": "2 Kings",
+      "chapter": 3,
+      "id": "king_joram_israel",
+      "related": [
+        "king_ahaziah_israel",
+        "king_jehoahaz_israel"
+      ]
+    },
+    {
+      "aliases": [
+        "jehoram",
+        "judah king",
+        "athaliah husband"
+      ],
+      "king": "Jehoram (Judah)",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 8,
+      "id": "king_jehoram_judah",
+      "related": [
+        "king_jehoshaphat",
+        "king_ahaziah_judah"
+      ]
+    },
+    {
+      "aliases": [
+        "ahaziah",
+        "judah king",
+        "short reign"
+      ],
+      "king": "Ahaziah (Judah)",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 8,
+      "id": "king_ahaziah_judah",
+      "related": [
+        "king_jehoram_judah",
+        "king_athaliah"
+      ]
+    },
+    {
+      "aliases": [
+        "queen athaliah",
+        "baal worship"
+      ],
+      "king": "Athaliah",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 11,
+      "id": "king_athaliah",
+      "related": [
+        "king_ahaziah_judah",
+        "king_joash_judah"
+      ]
+    },
+    {
+      "aliases": [
+        "joash",
+        "temple repair"
+      ],
+      "king": "Joash (Judah)",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 12,
+      "id": "king_joash_judah",
+      "related": [
+        "king_athaliah",
+        "king_amaziah"
+      ]
+    },
+    {
+      "aliases": [
+        "jehoahaz",
+        "israel king",
+        "hazael oppression"
+      ],
+      "king": "Jehoahaz (Israel)",
+      "kingdom": "Israel",
+      "book": "2 Kings",
+      "chapter": 13,
+      "id": "king_jehoahaz_israel",
+      "related": [
+        "king_joram_israel",
+        "king_jehoash_israel"
+      ]
+    },
+    {
+      "aliases": [
+        "joash",
+        "israel king"
+      ],
+      "king": "Jehoash (Israel)",
+      "kingdom": "Israel",
+      "book": "2 Kings",
+      "chapter": 13,
+      "id": "king_jehoash_israel",
+      "related": [
+        "king_jehoahaz_israel",
+        "king_jeroboam_ii"
+      ]
+    },
+    {
+      "aliases": [
+        "amaziah",
+        "judah king",
+        "edom battle"
+      ],
+      "king": "Amaziah",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 14,
+      "id": "king_amaziah",
+      "related": [
+        "king_joash_judah",
+        "king_uzziah"
+      ]
+    },
+    {
+      "aliases": [
+        "jeroboam ii",
+        "israel king",
+        "prosperity"
+      ],
+      "king": "Jeroboam II",
+      "kingdom": "Israel",
+      "book": "2 Kings",
+      "chapter": 14,
+      "id": "king_jeroboam_ii",
+      "related": [
+        "king_jehoash_israel",
+        "king_zechariah"
+      ]
+    },
+    {
+      "aliases": [
+        "judah king"
+      ],
+      "king": "Uzziah",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 15,
+      "id": "king_uzziah",
+      "related": [
+        "king_amaziah",
+        "king_jotham"
+      ]
+    },
+    {
+      "aliases": [
+        "israel king",
+        "short reign"
+      ],
+      "king": "Zechariah",
+      "kingdom": "Israel",
+      "book": "2 Kings",
+      "chapter": 15,
+      "id": "king_zechariah",
+      "related": [
+        "king_jeroboam_ii",
+        "king_shallum"
+      ]
+    },
+    {
+      "aliases": [
+        "shallum",
+        "israel king",
+        "one month reign"
+      ],
+      "king": "Shallum",
+      "kingdom": "Israel",
+      "book": "2 Kings",
+      "chapter": 15,
+      "id": "king_shallum",
+      "related": [
+        "king_zechariah",
+        "king_menahem"
+      ]
+    },
+    {
+      "aliases": [
+        "menahem",
+        "israel king",
+        "assyrian tribute"
+      ],
+      "king": "Menahem",
+      "kingdom": "Israel",
+      "book": "2 Kings",
+      "chapter": 15,
+      "id": "king_menahem",
+      "related": [
+        "king_shallum",
+        "king_pekahiah"
+      ]
+    },
+    {
+      "aliases": [
+        "pekaiah",
+        "israel king"
+      ],
+      "king": "Pekahiah",
+      "kingdom": "Israel",
+      "book": "2 Kings",
+      "chapter": 15,
+      "id": "king_pekahiah",
+      "related": [
+        "king_menahem",
+        "king_pekah"
+      ]
+    },
+    {
+      "aliases": [
+        "pekah",
+        "israel king",
+        "syro-ephraimite war"
+      ],
+      "king": "Pekah",
+      "kingdom": "Israel",
+      "book": "2 Kings",
+      "chapter": 15,
+      "id": "king_pekah",
+      "related": [
+        "king_pekahiah",
+        "king_hoshea"
+      ]
+    },
+    {
+      "aliases": [
+        "last israel king",
+        "fall of samaria"
+      ],
+      "king": "Hoshea",
+      "kingdom": "Israel",
+      "book": "2 Kings",
+      "chapter": 17,
+      "id": "king_hoshea",
+      "related": [
+        "king_pekah"
+      ]
+    },
+    {
+      "aliases": [
+        "jotham",
+        "judah king"
+      ],
+      "king": "Jotham",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 15,
+      "id": "king_jotham",
+      "related": [
+        "king_uzziah",
+        "king_ahaz"
+      ]
+    },
+    {
+      "aliases": [
+        "ahaz",
+        "judah king",
+        "assyrian alliance"
+      ],
+      "king": "Ahaz",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 16,
+      "id": "king_ahaz",
+      "related": [
+        "king_jotham",
+        "king_hezekiah"
+      ]
+    },
+    {
+      "aliases": [
+        "judah king",
+        "assyrian siege"
+      ],
+      "king": "Hezekiah",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 18,
+      "id": "king_hezekiah",
+      "related": [
+        "king_ahaz",
+        "king_manasseh"
+      ]
+    },
+    {
+      "aliases": [
+        "manasseh",
+        "judah king",
+        "evil reign"
+      ],
+      "king": "Manasseh",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 21,
+      "id": "king_manasseh",
+      "related": [
+        "king_hezekiah",
+        "king_amon"
+      ]
+    },
+    {
+      "aliases": [
+        "amon",
+        "judah king"
+      ],
+      "king": "Amon",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 21,
+      "id": "king_amon",
+      "related": [
+        "king_manasseh",
+        "king_josiah"
+      ]
+    },
+    {
+      "aliases": [
+        "judah king",
+        "reformer"
+      ],
+      "king": "Josiah",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 22,
+      "id": "king_josiah",
+      "related": [
+        "king_amon",
+        "king_jehoahaz_judah"
+      ]
+    },
+    {
+      "aliases": [
+        "jehoahaz",
+        "judah king"
+      ],
+      "king": "Jehoahaz (Judah)",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 23,
+      "id": "king_jehoahaz_judah",
+      "related": [
+        "king_josiah",
+        "king_jehoiakim"
+      ]
+    },
+    {
+      "aliases": [
+        "judah king",
+        "babylon pressure"
+      ],
+      "king": "Jehoiakim",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 23,
+      "id": "king_jehoiakim",
+      "related": [
+        "king_jehoahaz_judah",
+        "king_jehoiachin"
+      ]
+    },
+    {
+      "aliases": [
+        "judah king",
+        "exile"
+      ],
+      "king": "Jehoiachin",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 24,
+      "id": "king_jehoiachin",
+      "related": [
+        "king_jehoiakim",
+        "king_zedekiah"
+      ]
+    },
+    {
+      "aliases": [
+        "last judah king",
+        "fall of jerusalem"
+      ],
+      "king": "Zedekiah",
+      "kingdom": "Judah",
+      "book": "2 Kings",
+      "chapter": 24,
+      "id": "king_zedekiah",
+      "related": [
+        "king_jehoiachin"
+      ]
+    }
+  ]
+}

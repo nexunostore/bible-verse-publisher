@@ -1,0 +1,37 @@
+--
+
+## 🕊️ Major Missing Categories
+
+### Sermons & Discourses
+Large teaching units (Sermon on the Mount, Olivet Discourse, Upper Room Discourse).
+
+### Prophecies & Fulfillments
+OT prophecies + their NT fulfillment anchors.
+
+### Genealogies & Lineages
+Adam → Noah → Abraham, tribes of Israel, Davidic line, NT genealogies.
+
+### Covenants & Laws
+Abrahamic, Mosaic, Davidic, New Covenant; Ten Commandments; major legal sections.
+
+### Wisdom & Poetry Sections
+Psalms categories, Proverbs themes, Job dialogues, Ecclesiastes sections.
+
+### Feasts, Rituals & Jewish Cultural Context
+Passover, Pentecost, Tabernacles, purification laws, Sabbath regulations.
+
+### Geography & Locations
+Nazareth, Bethlehem, Jerusalem, Capernaum, Galilee, Sinai, etc.
+
+### Kings, Prophets & Major OT Figures
+Prophets (major/minor), kings of Israel/Judah, patriarchs, judges.
+
+### Epistles & Apostolic Teachings
+Romans themes, Corinthian issues, Galatians law/grace, Hebrews Christology.
+
+### Apocalyptic Visions & Symbolic Imagery
+Daniel visions, Ezekiel imagery, Revelation symbols.
+
+---
+
+If you want, I can generate **starter JSON templates** for any one of these categories. Which one do you want to build first?

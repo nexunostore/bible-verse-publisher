@@ -1,0 +1,281 @@
+{
+  "description": "Major biblical genealogies and lineages. Each entry selects ONE canonical book+chapter for lookup consistency.",
+  "entries": [
+    {
+      "aliases": [
+        "adam genealogy",
+        "genesis 5 lineage",
+        "antediluvian genealogy"
+      ],
+      "lineage": "Adam to Noah",
+      "book": "Genesis",
+      "chapter": 5,
+      "id": "gen_adam_to_noah"
+    },
+    {
+      "aliases": [
+        "post-flood genealogy",
+        "genesis 11 lineage",
+        "shemites genealogy"
+      ],
+      "lineage": "Noah to Abraham",
+      "book": "Genesis",
+      "chapter": 11,
+      "id": "gen_noah_to_abraham"
+    },
+    {
+      "aliases": [
+        "abraham lineage",
+        "patriarch genealogy",
+        "genesis 12-25 genealogy"
+      ],
+      "lineage": "Abraham and His Descendants",
+      "book": "Genesis",
+      "chapter": 25,
+      "id": "gen_abraham_and_his_descendants"
+    },
+    {
+      "aliases": [
+        "12 tribes",
+        "jacob sons",
+        "israel tribes",
+        "genesis 49 genealogy"
+      ],
+      "lineage": "Twelve Tribes of Israel",
+      "book": "Genesis",
+      "chapter": 49,
+      "id": "gen_twelve_tribes_of_israel"
+    },
+    {
+      "aliases": [
+        "david genealogy",
+        "royal lineage",
+        "messianic line",
+        "2 samuel 7 lineage"
+      ],
+      "lineage": "Davidic Line",
+      "book": "1 Chronicles",
+      "chapter": 3,
+      "id": "gen_davidic_line"
+    },
+    {
+      "aliases": [
+        "levi genealogy",
+        "levite lineage",
+        "levitical line"
+      ],
+      "lineage": "Tribe of Levi Lineage",
+      "book": "Exodus",
+      "chapter": 6,
+      "id": "gen_tribe_of_levi_lineage"
+    },
+    {
+      "aliases": [
+        "aaron genealogy",
+        "priestly line",
+        "high priest lineage"
+      ],
+      "lineage": "Priestly Line of Aaron",
+      "book": "Exodus",
+      "chapter": 6,
+      "id": "gen_priestly_line_of_aaron"
+    },
+    {
+      "aliases": [
+        "high priests genealogy",
+        "zadok line",
+        "priestly succession"
+      ],
+      "lineage": "High Priests of Israel",
+      "book": "1 Chronicles",
+      "chapter": 6,
+      "id": "gen_high_priests_of_israel"
+    },
+    {
+      "aliases": [
+        "jesus genealogy matthew",
+        "messiah lineage",
+        "son of david genealogy"
+      ],
+      "lineage": "Jesus Genealogy (Matthew)",
+      "book": "Matthew",
+      "chapter": 1,
+      "id": "gen_jesus_genealogy_matthew"
+    },
+    {
+      "aliases": [
+        "jesus genealogy luke",
+        "adam to jesus lineage",
+        "son of god genealogy"
+      ],
+      "lineage": "Jesus Genealogy (Luke)",
+      "book": "Luke",
+      "chapter": 3,
+      "id": "gen_jesus_genealogy_luke"
+    },
+    {
+      "aliases": [
+        "ishmael sons",
+        "ishmael genealogy",
+        "twelve princes"
+      ],
+      "lineage": "Descendants of Ishmael",
+      "book": "Genesis",
+      "chapter": 25,
+      "id": "gen_descendants_of_ishmael"
+    },
+    {
+      "aliases": [
+        "esau genealogy",
+        "edom genealogy",
+        "esau descendants"
+      ],
+      "lineage": "Descendants of Esau (Edom)",
+      "book": "Genesis",
+      "chapter": 36,
+      "id": "gen_descendants_of_esau_edom"
+    },
+    {
+      "aliases": [
+        "judah genealogy",
+        "judah line",
+        "messianic tribe"
+      ],
+      "lineage": "Tribe of Judah Lineage",
+      "book": "Genesis",
+      "chapter": 38,
+      "id": "gen_tribe_of_judah_lineage"
+    },
+    {
+      "aliases": [
+        "benjamin genealogy",
+        "benjamin tribe",
+        "benjamin lineage"
+      ],
+      "lineage": "Tribe of Benjamin Lineage",
+      "book": "Genesis",
+      "chapter": 46,
+      "id": "gen_tribe_of_benjamin_lineage"
+    },
+    {
+      "aliases": [
+        "levite cities",
+        "levite genealogy",
+        "levite distribution"
+      ],
+      "lineage": "Levitical Cities & Lineage",
+      "book": "Joshua",
+      "chapter": 21,
+      "id": "gen_levitical_cities_lineage"
+    },
+    {
+      "aliases": [
+        "zerubbabel genealogy",
+        "post-exilic lineage",
+        "return from exile genealogy"
+      ],
+      "lineage": "Post‑Exilic Lineage (Zerubbabel)",
+      "book": "Ezra",
+      "chapter": 2,
+      "id": "gen_postexilic_lineage_zerubbabel"
+    },
+    {
+      "aliases": [
+        "saul genealogy",
+        "king saul lineage",
+        "benjamite king"
+      ],
+      "lineage": "Lineage of King Saul",
+      "book": "1 Samuel",
+      "chapter": 9,
+      "id": "gen_lineage_of_king_saul"
+    },
+    {
+      "aliases": [
+        "samuel genealogy",
+        "elkanah genealogy",
+        "levite prophet lineage"
+      ],
+      "lineage": "Lineage of Samuel",
+      "book": "1 Samuel",
+      "chapter": 1,
+      "id": "gen_lineage_of_samuel"
+    },
+    {
+      "aliases": [
+        "moses genealogy",
+        "moses lineage",
+        "levite prophet"
+      ],
+      "lineage": "Lineage of Moses",
+      "book": "Exodus",
+      "chapter": 2,
+      "id": "gen_lineage_of_moses"
+    },
+    {
+      "aliases": [
+        "caleb genealogy",
+        "caleb lineage",
+        "judah warrior lineage"
+      ],
+      "lineage": "Lineage of Caleb",
+      "book": "1 Chronicles",
+      "chapter": 2,
+      "id": "gen_lineage_of_caleb"
+    },
+    {
+      "aliases": [
+        "boaz genealogy",
+        "ruth genealogy",
+        "messianic ancestry"
+      ],
+      "lineage": "Lineage of Boaz & Ruth",
+      "book": "Ruth",
+      "chapter": 4,
+      "id": "gen_lineage_of_boaz_ruth"
+    },
+    {
+      "aliases": [
+        "solomon genealogy",
+        "solomon lineage",
+        "davidic kings"
+      ],
+      "lineage": "Lineage of Solomon",
+      "book": "1 Kings",
+      "chapter": 11,
+      "id": "gen_lineage_of_solomon"
+    },
+    {
+      "aliases": [
+        "hezekiah genealogy",
+        "hezekiah lineage",
+        "judah king lineage"
+      ],
+      "lineage": "Lineage of Hezekiah",
+      "book": "2 Kings",
+      "chapter": 18,
+      "id": "gen_lineage_of_hezekiah"
+    },
+    {
+      "aliases": [
+        "josiah genealogy",
+        "josiah lineage",
+        "reform king lineage"
+      ],
+      "lineage": "Lineage of Josiah",
+      "book": "2 Kings",
+      "chapter": 22,
+      "id": "gen_lineage_of_josiah"
+    },
+    {
+      "aliases": [
+        "zerubbabel davidic line",
+        "post-exile davidic line"
+      ],
+      "lineage": "Davidic Line After Exile",
+      "book": "Matthew",
+      "chapter": 1,
+      "id": "gen_davidic_line_after_exile"
+    }
+  ]
+}

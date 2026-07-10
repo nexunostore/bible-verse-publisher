@@ -1,0 +1,20 @@
+{
+  "description": "Major wisdom and poetry books of the Bible with one canonical book+chapter reference summarizing their core theme or introduction.",
+  "entries": [
+    {"aliases": ["job", "suffering wisdom", "job trials"], "wisdom": "Job", "theme": "Wisdom through suffering and perseverance", "book": "Job", "chapter": 1},
+    {"aliases": ["psalms", "songs", "david psalms"], "wisdom": "Psalms", "theme": "Poetry, worship, lament, praise", "book": "Psalms", "chapter": 1},
+    {"aliases": ["proverbs", "solomon proverbs", "wisdom sayings"], "wisdom": "Proverbs", "theme": "Practical wisdom for life", "book": "Proverbs", "chapter": 1},
+    {"aliases": ["ecclesiastes", "qoheleth", "meaningless"], "wisdom": "Ecclesiastes", "theme": "Meaning of life and human limitations", "book": "Ecclesiastes", "chapter": 1},
+    {"aliases": ["song of songs", "song of solomon", "love poetry"], "wisdom": "Song of Songs", "theme": "Poetic celebration of love", "book": "Song of Solomon", "chapter": 1},
+    {"aliases": ["lamentations", "jeremiah lament", "weeping"], "wisdom": "Lamentations", "theme": "Poetic lament over Jerusalem’s destruction", "book": "Lamentations", "chapter": 1},
+    {"aliases": ["psalm of moses", "moses prayer", "psalm 90"], "wisdom": "Psalm 90", "theme": "Reflection on human frailty and God’s eternity", "book": "Psalms", "chapter": 90},
+    {"aliases": ["asaph psalms", "psalm 73", "temple singer"], "wisdom": "Psalm 73", "theme": "Struggle with the prosperity of the wicked", "book": "Psalms", "chapter": 73},
+    {"aliases": ["psalm of repentance", "psalm 51", "david repentance"], "wisdom": "Psalm 51", "theme": "Repentance and mercy", "book": "Psalms", "chapter": 51},
+    {"aliases": ["psalm of trust", "psalm 23", "shepherd psalm"], "wisdom": "Psalm 23", "theme": "Trust in God as shepherd", "book": "Psalms", "chapter": 23},
+    {"aliases": ["psalm of creation", "psalm 19", "heavens declare"], "wisdom": "Psalm 19", "theme": "Creation and the perfection of God’s law", "book": "Psalms", "chapter": 19},
+    {"aliases": ["psalm of protection", "psalm 91", "most high shelter"], "wisdom": "Psalm 91", "theme": "God’s protection and refuge", "book": "Psalms", "chapter": 91},
+    {"aliases": ["agur proverbs", "proverbs 30", "agur wisdom"], "wisdom": "Proverbs 30", "theme": "Agur’s reflections on humility and truth", "book": "Proverbs", "chapter": 30},
+    {"aliases": ["lemuel proverbs", "proverbs 31", "virtuous woman"], "wisdom": "Proverbs 31", "theme": "Wisdom of King Lemuel and the virtuous woman", "book": "Proverbs", "chapter": 31},
+    {"aliases": ["ecclesiastes conclusion", "fear god", "ecclesiastes 12"], "wisdom": "Ecclesiastes 12", "theme": "Final conclusion: fear God and keep His commands", "book": "Ecclesiastes", "chapter": 12}
+  ]
+}

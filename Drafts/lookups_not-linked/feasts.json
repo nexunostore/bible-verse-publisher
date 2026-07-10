@@ -1,0 +1,31 @@
+{
+  "description": "Major biblical feasts and rituals with one canonical book+chapter reference summarizing their institution or defining practice.",
+  "entries": [
+    {"aliases": ["passover", "pesach", "exodus passover"], "feast": "Passover", "book": "Exodus", "chapter": 12},
+    {"aliases": ["unleavened bread", "matzah feast"], "feast": "Feast of Unleavened Bread", "book": "Exodus", "chapter": 12},
+    {"aliases": ["firstfruits", "resurrection typology"], "feast": "Feast of Firstfruits", "book": "Leviticus", "chapter": 23},
+    {"aliases": ["pentecost", "shavuot", "weeks"], "feast": "Feast of Weeks (Pentecost)", "book": "Leviticus", "chapter": 23},
+    {"aliases": ["trumpets", "rosh hashanah"], "feast": "Feast of Trumpets", "book": "Leviticus", "chapter": 23},
+    {"aliases": ["day of atonement", "yom kippur"], "feast": "Day of Atonement", "book": "Leviticus", "chapter": 16},
+    {"aliases": ["tabernacles", "sukkot", "booths"], "feast": "Feast of Tabernacles", "book": "Leviticus", "chapter": 23},
+    {"aliases": ["sabbath", "shabbat", "rest day"], "ritual": "Sabbath", "book": "Exodus", "chapter": 20},
+    {"aliases": ["circumcision", "brit milah", "abraham sign"], "ritual": "Circumcision", "book": "Genesis", "chapter": 17},
+    {"aliases": ["nazirite vow", "nazirite ritual"], "ritual": "Nazirite Vow", "book": "Numbers", "chapter": 6},
+    {"aliases": ["burnt offering", "sacrifice ritual"], "ritual": "Burnt Offering", "book": "Leviticus", "chapter": 1},
+    {"aliases": ["grain offering", "meal offering"], "ritual": "Grain Offering", "book": "Leviticus", "chapter": 2},
+    {"aliases": ["peace offering", "fellowship offering"], "ritual": "Peace Offering", "book": "Leviticus", "chapter": 3},
+    {"aliases": ["sin offering", "atonement ritual"], "ritual": "Sin Offering", "book": "Leviticus", "chapter": 4},
+    {"aliases": ["guilt offering", "trespass offering"], "ritual": "Guilt Offering", "book": "Leviticus", "chapter": 5},
+    {"aliases": ["priest consecration", "ordination"], "ritual": "Priestly Consecration", "book": "Leviticus", "chapter": 8},
+    {"aliases": ["purification ritual", "unclean laws"], "ritual": "Purification Rituals", "book": "Leviticus", "chapter": 11},
+    {"aliases": ["jubilee", "year of liberty"], "ritual": "Year of Jubilee", "book": "Leviticus", "chapter": 25},
+    {"aliases": ["red heifer", "purification water"], "ritual": "Red Heifer Ritual", "book": "Numbers", "chapter": 19},
+    {"aliases": ["phylacteries", "tefillin", "law reminder"], "ritual": "Phylacteries", "book": "Deuteronomy", "chapter": 6},
+    {"aliases": ["mezuzah", "doorpost law"], "ritual": "Mezuzah", "book": "Deuteronomy", "chapter": 6},
+    {"aliases": ["purim", "esther feast"], "feast": "Purim", "book": "Esther", "chapter": 9},
+    {"aliases": ["hanukkah", "dedication feast"], "feast": "Hanukkah (Feast of Dedication)", "book": "John", "chapter": 10},
+    {"aliases": ["lord's supper", "communion", "new covenant"], "ritual": "Lord’s Supper", "book": "Luke", "chapter": 22},
+    {"aliases": ["baptism", "immersion", "new life"], "ritual": "Baptism", "book": "Matthew", "chapter": 3},
+    {"aliases": ["anointing with oil", "healing ritual"], "ritual": "Anointing with Oil", "book": "James", "chapter": 5}
+  ]
+}

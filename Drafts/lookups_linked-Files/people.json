@@ -1,0 +1,3960 @@
+{
+  "description": "Bible people index -> identifies individuals with disambiguated names and one canonical book+chapter reference. Repeated names are separated into distinct people.",
+  "entries": [
+    {
+      "aliases": [
+        "god",
+        "the lord",
+        "yahweh",
+        "jehovah",
+        "creator",
+        "father god"
+      ],
+      "name": "God the Father",
+      "category": "deity",
+      "book": "Genesis",
+      "chapter": 1,
+      "id": "chr_god_the_father"
+    },
+    {
+      "aliases": [
+        "jesus",
+        "jesus christ",
+        "christ",
+        "messiah",
+        "son of god",
+        "son of man",
+        "lamb of god"
+      ],
+      "name": "Jesus Christ",
+      "category": "messiah",
+      "book": "Matthew",
+      "chapter": 1,
+      "id": "chr_jesus_christ"
+    },
+    {
+      "aliases": [
+        "holy spirit",
+        "spirit of god",
+        "holy ghost",
+        "comforter",
+        "helper"
+      ],
+      "name": "Holy Spirit",
+      "category": "deity",
+      "book": "Genesis",
+      "chapter": 1,
+      "id": "chr_holy_spirit"
+    },
+    {
+      "aliases": [
+        "angel of the lord",
+        "the angel of yahweh",
+        "messenger of the lord"
+      ],
+      "name": "Angel of the Lord",
+      "category": "angelic being",
+      "book": "Genesis",
+      "chapter": 16,
+      "id": "chr_angel_of_the_lord"
+    },
+    {
+      "aliases": [
+        "gabriel",
+        "angel gabriel",
+        "gabriel the messenger"
+      ],
+      "name": "Gabriel",
+      "category": "angel",
+      "book": "Daniel",
+      "chapter": 8,
+      "id": "chr_gabriel"
+    },
+    {
+      "aliases": [
+        "michael",
+        "archangel michael",
+        "michael the archangel"
+      ],
+      "name": "Michael",
+      "category": "angel",
+      "book": "Daniel",
+      "chapter": 10,
+      "id": "chr_michael"
+    },
+    {
+      "aliases": [
+        "adam",
+        "first man",
+        "man created by god"
+      ],
+      "name": "Adam",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 2,
+      "id": "chr_adam"
+    },
+    {
+      "aliases": [
+        "eve",
+        "first woman",
+        "mother of all living"
+      ],
+      "name": "Eve",
+      "category": "matriarch",
+      "book": "Genesis",
+      "chapter": 2,
+      "id": "chr_eve"
+    },
+    {
+      "aliases": [
+        "cain",
+        "first son of adam",
+        "brother of abel"
+      ],
+      "name": "Cain",
+      "category": "early humanity",
+      "book": "Genesis",
+      "chapter": 4,
+      "id": "chr_cain"
+    },
+    {
+      "aliases": [
+        "abel",
+        "son of adam",
+        "brother of cain",
+        "righteous abel"
+      ],
+      "name": "Abel",
+      "category": "early humanity",
+      "book": "Genesis",
+      "chapter": 4,
+      "id": "chr_abel"
+    },
+    {
+      "aliases": [
+        "seth",
+        "son of adam",
+        "replacement for abel"
+      ],
+      "name": "Seth",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 4,
+      "id": "chr_seth"
+    },
+    {
+      "aliases": [
+        "enoch",
+        "seventh from adam",
+        "walked with god"
+      ],
+      "name": "Enoch",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 5,
+      "id": "chr_enoch"
+    },
+    {
+      "aliases": [
+        "noah",
+        "builder of ark",
+        "preacher of righteousness"
+      ],
+      "name": "Noah",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 6,
+      "id": "chr_noah",
+      "related": [
+        "ot_noah",
+        "ot_covenant_with_noah",
+        "cov_noahic_covenant",
+        "otm_rainbow_covenant"
+      ]
+    },
+    {
+      "aliases": [
+        "shem",
+        "son of noah",
+        "ancestor of semitic peoples"
+      ],
+      "name": "Shem",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 5,
+      "id": "chr_shem"
+    },
+    {
+      "aliases": [
+        "ham",
+        "son of noah"
+      ],
+      "name": "Ham",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 5,
+      "id": "chr_ham"
+    },
+    {
+      "aliases": [
+        "japheth",
+        "son of noah"
+      ],
+      "name": "Japheth",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 5,
+      "id": "chr_japheth"
+    },
+    {
+      "aliases": [
+        "abraham",
+        "abram",
+        "father of faith",
+        "friend of god"
+      ],
+      "name": "Abraham",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 12,
+      "id": "chr_abraham",
+      "related": [
+        "ot_god_promises_abraham_a_son",
+        "ot_sodom_and_gomorrah",
+        "ot_binding_of_isaac",
+        "cov_abrahamic_covenant_call",
+        "otm_sarah_conceives",
+        "otm_sodom_destroyed"
+      ]
+    },
+    {
+      "aliases": [
+        "sarah",
+        "sarai",
+        "wife of abraham",
+        "mother of isaac"
+      ],
+      "name": "Sarah",
+      "category": "matriarch",
+      "book": "Genesis",
+      "chapter": 17,
+      "id": "chr_sarah"
+    },
+    {
+      "aliases": [
+        "lot",
+        "nephew of abraham",
+        "man rescued from sodom"
+      ],
+      "name": "Lot",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 11,
+      "id": "chr_lot"
+    },
+    {
+      "aliases": [
+        "hagar",
+        "egyptian servant of sarah",
+        "mother of ishmael"
+      ],
+      "name": "Hagar",
+      "category": "matriarch",
+      "book": "Genesis",
+      "chapter": 16,
+      "id": "chr_hagar"
+    },
+    {
+      "aliases": [
+        "ishmael",
+        "son of abraham and hagar",
+        "father of ishmaelites"
+      ],
+      "name": "Ishmael",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 16,
+      "id": "chr_ishmael"
+    },
+    {
+      "aliases": [
+        "isaac",
+        "son of abraham",
+        "child of promise"
+      ],
+      "name": "Isaac",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 21,
+      "id": "chr_isaac",
+      "related": [
+        "ot_binding_of_isaac",
+        "ot_isaac_and_rebekah"
+      ]
+    },
+    {
+      "aliases": [
+        "rebekah",
+        "rebecca",
+        "wife of isaac",
+        "mother of jacob and esau"
+      ],
+      "name": "Rebekah",
+      "category": "matriarch",
+      "book": "Genesis",
+      "chapter": 24,
+      "id": "chr_rebekah"
+    },
+    {
+      "aliases": [
+        "esau",
+        "edom",
+        "brother of jacob",
+        "son of isaac"
+      ],
+      "name": "Esau",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 25,
+      "id": "chr_esau"
+    },
+    {
+      "aliases": [
+        "jacob",
+        "israel",
+        "son of isaac",
+        "father of twelve tribes"
+      ],
+      "name": "Jacob / Israel",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 25,
+      "id": "chr_jacob_israel"
+    },
+    {
+      "aliases": [
+        "leah",
+        "wife of jacob",
+        "mother of israelite tribes"
+      ],
+      "name": "Leah",
+      "category": "matriarch",
+      "book": "Genesis",
+      "chapter": 29,
+      "id": "chr_leah"
+    },
+    {
+      "aliases": [
+        "rachel",
+        "wife of jacob",
+        "mother of joseph and benjamin"
+      ],
+      "name": "Rachel",
+      "category": "matriarch",
+      "book": "Genesis",
+      "chapter": 29,
+      "id": "chr_rachel"
+    },
+    {
+      "aliases": [
+        "joseph son of jacob",
+        "coat of many colors",
+        "dream interpreter",
+        "governor of egypt"
+      ],
+      "name": "Joseph son of Jacob",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 30,
+      "id": "chr_joseph_son_of_jacob",
+      "related": [
+        "ot_josephs_coat",
+        "ot_joseph_and_potiphars_wife",
+        "ot_joseph_interprets_dreams",
+        "ot_joseph_becomes_governor_of_egypt",
+        "ot_joseph_and_his_brothers_in_egypt",
+        "ot_joseph_forgives_his_brothers",
+        "otm_joseph_interprets_dreams"
+      ]
+    },
+    {
+      "aliases": [
+        "benjamin",
+        "youngest son of jacob",
+        "brother of joseph",
+        "son of rachel"
+      ],
+      "name": "Benjamin",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 35,
+      "id": "chr_benjamin"
+    },
+    {
+      "aliases": [
+        "reuben",
+        "eldest son of jacob",
+        "firstborn of israel"
+      ],
+      "name": "Reuben",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 29,
+      "id": "chr_reuben"
+    },
+    {
+      "aliases": [
+        "simeon son of jacob",
+        "tribe of simeon"
+      ],
+      "name": "Simeon son of Jacob",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 29,
+      "id": "chr_simeon_son_of_jacob"
+    },
+    {
+      "aliases": [
+        "levi son of jacob",
+        "ancestor of levites"
+      ],
+      "name": "Levi son of Jacob",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 29,
+      "id": "chr_levi_son_of_jacob"
+    },
+    {
+      "aliases": [
+        "judah son of jacob",
+        "ancestor of kings",
+        "tribe of judah"
+      ],
+      "name": "Judah son of Jacob",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 29,
+      "id": "chr_judah_son_of_jacob"
+    },
+    {
+      "aliases": [
+        "dan son of jacob",
+        "tribe of dan"
+      ],
+      "name": "Dan son of Jacob",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 30,
+      "id": "chr_dan_son_of_jacob"
+    },
+    {
+      "aliases": [
+        "naphtali son of jacob",
+        "tribe of naphtali"
+      ],
+      "name": "Naphtali son of Jacob",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 30,
+      "id": "chr_naphtali_son_of_jacob"
+    },
+    {
+      "aliases": [
+        "gad son of jacob",
+        "tribe of gad"
+      ],
+      "name": "Gad son of Jacob",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 30,
+      "id": "chr_gad_son_of_jacob"
+    },
+    {
+      "aliases": [
+        "asher son of jacob",
+        "tribe of asher"
+      ],
+      "name": "Asher son of Jacob",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 30,
+      "id": "chr_asher_son_of_jacob"
+    },
+    {
+      "aliases": [
+        "issachar son of jacob",
+        "tribe of issachar"
+      ],
+      "name": "Issachar son of Jacob",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 30,
+      "id": "chr_issachar_son_of_jacob"
+    },
+    {
+      "aliases": [
+        "zebulun son of jacob",
+        "tribe of zebulun"
+      ],
+      "name": "Zebulun son of Jacob",
+      "category": "patriarch",
+      "book": "Genesis",
+      "chapter": 30,
+      "id": "chr_zebulun_son_of_jacob"
+    },
+    {
+      "aliases": [
+        "moses",
+        "deliverer of israel",
+        "lawgiver",
+        "prophet of god"
+      ],
+      "name": "Moses",
+      "category": "prophet",
+      "book": "Exodus",
+      "chapter": 2,
+      "id": "chr_moses",
+      "related": [
+        "ot_birth_of_moses",
+        "ot_burning_bush",
+        "ot_ten_plagues",
+        "ot_crossing_the_red_sea",
+        "ot_manna_from_heaven",
+        "ot_water_from_the_rock",
+        "ot_ten_commandments",
+        "ot_golden_calf",
+        "ot_moses_views_promised_land",
+        "cov_mosaic_covenant_sinai",
+        "cov_ten_commandments",
+        "otm_burning_bush",
+        "otm_red_sea_parted",
+        "otm_manna_from_heaven",
+        "otm_golden_calf_judgment",
+        "theme_law"
+      ]
+    },
+    {
+      "aliases": [
+        "jochebed",
+        "mother of moses",
+        "levite woman who hid moses"
+      ],
+      "name": "Jochebed",
+      "category": "family of moses",
+      "book": "Exodus",
+      "chapter": 6,
+      "id": "chr_jochebed"
+    },
+    {
+      "aliases": [
+        "amram",
+        "father of moses",
+        "husband of jochebed"
+      ],
+      "name": "Amram",
+      "category": "family of moses",
+      "book": "Exodus",
+      "chapter": 6,
+      "id": "chr_amram"
+    },
+    {
+      "aliases": [
+        "aaron",
+        "brother of moses",
+        "first high priest",
+        "moses spokesman"
+      ],
+      "name": "Aaron",
+      "category": "priest",
+      "book": "Exodus",
+      "chapter": 4,
+      "id": "chr_aaron"
+    },
+    {
+      "aliases": [
+        "miriam",
+        "sister of moses",
+        "prophetess",
+        "sister of aaron"
+      ],
+      "name": "Miriam",
+      "category": "prophetess",
+      "book": "Exodus",
+      "chapter": 15,
+      "id": "chr_miriam"
+    },
+    {
+      "aliases": [
+        "zipporah",
+        "wife of moses",
+        "daughter of jethro"
+      ],
+      "name": "Zipporah",
+      "category": "family of moses",
+      "book": "Exodus",
+      "chapter": 2,
+      "id": "chr_zipporah"
+    },
+    {
+      "aliases": [
+        "jethro",
+        "reuel",
+        "father in law of moses",
+        "priest of midian"
+      ],
+      "name": "Jethro",
+      "category": "priest",
+      "book": "Exodus",
+      "chapter": 3,
+      "id": "chr_jethro"
+    },
+    {
+      "aliases": [
+        "pharaoh of exodus",
+        "egyptian king of moses time",
+        "king of egypt"
+      ],
+      "name": "Pharaoh of the Exodus",
+      "category": "ruler",
+      "book": "Exodus",
+      "chapter": 5,
+      "id": "chr_pharaoh_of_the_exodus"
+    },
+    {
+      "aliases": [
+        "joshua",
+        "hoshea",
+        "son of nun",
+        "successor of moses",
+        "leader of israel"
+      ],
+      "name": "Joshua son of Nun",
+      "category": "leader",
+      "book": "Exodus",
+      "chapter": 17,
+      "id": "chr_joshua_son_of_nun",
+      "related": [
+        "king_hoshea"
+      ]
+    },
+    {
+      "aliases": [
+        "caleb",
+        "caleb son of jephunneh",
+        "faithful spy",
+        "companion of joshua"
+      ],
+      "name": "Caleb son of Jephunneh",
+      "category": "leader",
+      "book": "Numbers",
+      "chapter": 13,
+      "id": "chr_caleb_son_of_jephunneh"
+    },
+    {
+      "aliases": [
+        "eleazar son of aaron",
+        "high priest after aaron"
+      ],
+      "name": "Eleazar son of Aaron",
+      "category": "priest",
+      "book": "Numbers",
+      "chapter": 20,
+      "id": "chr_eleazar_son_of_aaron"
+    },
+    {
+      "aliases": [
+        "phinehas",
+        "son of eleazar",
+        "zealous priest"
+      ],
+      "name": "Phinehas son of Eleazar",
+      "category": "priest",
+      "book": "Numbers",
+      "chapter": 25,
+      "id": "chr_phinehas_son_of_eleazar"
+    },
+    {
+      "aliases": [
+        "balaam",
+        "prophet for hire",
+        "man whose donkey spoke"
+      ],
+      "name": "Balaam",
+      "category": "prophet",
+      "book": "Numbers",
+      "chapter": 22,
+      "id": "chr_balaam"
+    },
+    {
+      "aliases": [
+        "balak",
+        "king of moab",
+        "summons balaam"
+      ],
+      "name": "Balak",
+      "category": "king",
+      "book": "Numbers",
+      "chapter": 22,
+      "id": "chr_balak"
+    },
+    {
+      "aliases": [
+        "othniel",
+        "first judge of israel",
+        "son of kenaz"
+      ],
+      "name": "Othniel",
+      "category": "judge",
+      "book": "Judges",
+      "chapter": 3,
+      "id": "chr_othniel"
+    },
+    {
+      "aliases": [
+        "ehud",
+        "left handed judge",
+        "deliverer from moab"
+      ],
+      "name": "Ehud",
+      "category": "judge",
+      "book": "Judges",
+      "chapter": 3,
+      "id": "chr_ehud"
+    },
+    {
+      "aliases": [
+        "shamgar",
+        "judge who used oxgoad",
+        "deliverer of israel"
+      ],
+      "name": "Shamgar",
+      "category": "judge",
+      "book": "Judges",
+      "chapter": 3,
+      "id": "chr_shamgar"
+    },
+    {
+      "aliases": [
+        "deborah",
+        "prophetess",
+        "judge of israel",
+        "wife of lappidoth"
+      ],
+      "name": "Deborah",
+      "category": "judge",
+      "book": "Judges",
+      "chapter": 4,
+      "id": "chr_deborah",
+      "related": [
+        "ot_deborah_and_barak",
+        "ot_jael_and_sisera"
+      ]
+    },
+    {
+      "aliases": [
+        "barak",
+        "commander with deborah",
+        "son of abinoam"
+      ],
+      "name": "Barak",
+      "category": "judge",
+      "book": "Judges",
+      "chapter": 4,
+      "id": "chr_barak"
+    },
+    {
+      "aliases": [
+        "jael",
+        "woman who killed sisera",
+        "wife of heber"
+      ],
+      "name": "Jael",
+      "category": "hero of israel",
+      "book": "Judges",
+      "chapter": 4,
+      "id": "chr_jael"
+    },
+    {
+      "aliases": [
+        "gideon",
+        "jerubbaal",
+        "judge with three hundred men"
+      ],
+      "name": "Gideon",
+      "category": "judge",
+      "book": "Judges",
+      "chapter": 6,
+      "id": "chr_gideon",
+      "related": [
+        "ot_gideon_called",
+        "ot_gideons_army"
+      ]
+    },
+    {
+      "aliases": [
+        "abimelech son of gideon",
+        "king of shechem",
+        "gideons son"
+      ],
+      "name": "Abimelech son of Gideon",
+      "category": "ruler",
+      "book": "Judges",
+      "chapter": 8,
+      "id": "chr_abimelech_son_of_gideon"
+    },
+    {
+      "aliases": [
+        "jephthah",
+        "judge who made vow",
+        "deliverer of israel"
+      ],
+      "name": "Jephthah",
+      "category": "judge",
+      "book": "Judges",
+      "chapter": 11,
+      "id": "chr_jephthah"
+    },
+    {
+      "aliases": [
+        "samson",
+        "nazirite judge",
+        "strong man of israel",
+        "son of manoah"
+      ],
+      "name": "Samson",
+      "category": "judge",
+      "book": "Judges",
+      "chapter": 13,
+      "id": "chr_samson",
+      "related": [
+        "ot_samson_birth",
+        "ot_samson_and_delilah",
+        "ot_samson_defeats_philistines",
+        "otm_samson_strength"
+      ]
+    },
+    {
+      "aliases": [
+        "delilah",
+        "woman who betrayed samson",
+        "samsons lover"
+      ],
+      "name": "Delilah",
+      "category": "biblical figure",
+      "book": "Judges",
+      "chapter": 16,
+      "id": "chr_delilah"
+    },
+    {
+      "aliases": [
+        "ruth",
+        "moabite woman",
+        "wife of boaz",
+        "ancestor of david"
+      ],
+      "name": "Ruth",
+      "category": "matriarch",
+      "book": "Ruth",
+      "chapter": 1,
+      "id": "chr_ruth",
+      "related": [
+        "ot_ruth_and_naomi",
+        "ot_ruth_and_boaz"
+      ]
+    },
+    {
+      "aliases": [
+        "naomi",
+        "mother in law of ruth",
+        "wife of elimelech"
+      ],
+      "name": "Naomi",
+      "category": "matriarch",
+      "book": "Ruth",
+      "chapter": 1,
+      "id": "chr_naomi"
+    },
+    {
+      "aliases": [
+        "boaz",
+        "kinsman redeemer",
+        "husband of ruth"
+      ],
+      "name": "Boaz",
+      "category": "patriarch",
+      "book": "Ruth",
+      "chapter": 2,
+      "id": "chr_boaz"
+    },
+    {
+      "aliases": [
+        "eli",
+        "high priest at shiloh",
+        "mentor of samuel"
+      ],
+      "name": "Eli",
+      "category": "priest",
+      "book": "1 Samuel",
+      "chapter": 1,
+      "id": "chr_eli"
+    },
+    {
+      "aliases": [
+        "hannah",
+        "mother of samuel",
+        "woman who prayed for child"
+      ],
+      "name": "Hannah",
+      "category": "matriarch",
+      "book": "1 Samuel",
+      "chapter": 1,
+      "id": "chr_hannah"
+    },
+    {
+      "aliases": [
+        "samuel",
+        "prophet samuel",
+        "last judge of israel",
+        "anointer of kings"
+      ],
+      "name": "Samuel",
+      "category": "prophet",
+      "book": "1 Samuel",
+      "chapter": 3,
+      "id": "chr_samuel",
+      "related": [
+        "ot_samuel_called_by_god",
+        "ot_saul_becomes_king",
+        "ot_david_anointed",
+        "ot_samuel_anoints_david"
+      ]
+    },
+    {
+      "aliases": [
+        "saul king of israel",
+        "first king of israel",
+        "son of kish"
+      ],
+      "name": "Saul son of Kish",
+      "category": "king",
+      "book": "1 Samuel",
+      "chapter": 9,
+      "id": "chr_saul_son_of_kish",
+      "related": [
+        "ot_saul_becomes_king",
+        "ot_saul_rejected_by_god",
+        "ot_saul_tries_to_kill_david",
+        "ot_saul_and_the_witch_of_endor"
+      ]
+    },
+    {
+      "aliases": [
+        "jonathan son of saul",
+        "david friend",
+        "sauls son"
+      ],
+      "name": "Jonathan son of Saul",
+      "category": "prince",
+      "book": "1 Samuel",
+      "chapter": 13,
+      "id": "chr_jonathan_son_of_saul"
+    },
+    {
+      "aliases": [
+        "michal",
+        "daughter of saul",
+        "wife of david"
+      ],
+      "name": "Michal daughter of Saul",
+      "category": "royal family",
+      "book": "1 Samuel",
+      "chapter": 18,
+      "id": "chr_michal_daughter_of_saul"
+    },
+    {
+      "aliases": [
+        "abigail",
+        "wife of david",
+        "wise woman of carmel"
+      ],
+      "name": "Abigail",
+      "category": "queen",
+      "book": "1 Samuel",
+      "chapter": 25,
+      "id": "chr_abigail"
+    },
+    {
+      "aliases": [
+        "nabal",
+        "husband of abigail",
+        "wealthy fool"
+      ],
+      "name": "Nabal",
+      "category": "biblical figure",
+      "book": "1 Samuel",
+      "chapter": 25,
+      "id": "chr_nabal"
+    },
+    {
+      "aliases": [
+        "david",
+        "king david",
+        "son of jesse",
+        "psalmist",
+        "man after gods heart"
+      ],
+      "name": "David",
+      "category": "king",
+      "book": "1 Samuel",
+      "chapter": 16,
+      "id": "chr_david",
+      "related": [
+        "ot_david_and_goliath",
+        "ot_david_and_jonathan",
+        "ot_david_spares_saul",
+        "ot_david_and_abigail",
+        "ot_david_spares_saul_again",
+        "ot_david_becomes_king",
+        "ot_ark_brought_to_jerusalem",
+        "ot_davidic_covenant",
+        "ot_david_and_bathsheba",
+        "ot_nathan_rebukes_david",
+        "ot_absalom_rebellion",
+        "ot_absalom_death",
+        "ot_david_and_goliath_song",
+        "ot_david_spares_saul_in_cave",
+        "king_david"
+      ]
+    },
+    {
+      "aliases": [
+        "jesse",
+        "father of david",
+        "father of eight sons"
+      ],
+      "name": "Jesse",
+      "category": "patriarch",
+      "book": "1 Samuel",
+      "chapter": 16,
+      "id": "chr_jesse"
+    },
+    {
+      "aliases": [
+        "goliath",
+        "philistine giant",
+        "champion of philistines"
+      ],
+      "name": "Goliath",
+      "category": "warrior",
+      "book": "1 Samuel",
+      "chapter": 17,
+      "id": "chr_goliath"
+    },
+    {
+      "aliases": [
+        "abner",
+        "commander of sauls army",
+        "son of ner"
+      ],
+      "name": "Abner",
+      "category": "military leader",
+      "book": "1 Samuel",
+      "chapter": 14,
+      "id": "chr_abner"
+    },
+    {
+      "aliases": [
+        "joab",
+        "commander of davids army",
+        "son of zeruiah"
+      ],
+      "name": "Joab",
+      "category": "military leader",
+      "book": "2 Samuel",
+      "chapter": 2,
+      "id": "chr_joab"
+    },
+    {
+      "aliases": [
+        "asahel",
+        "brother of joab",
+        "swift warrior"
+      ],
+      "name": "Asahel",
+      "category": "warrior",
+      "book": "2 Samuel",
+      "chapter": 2,
+      "id": "chr_asahel"
+    },
+    {
+      "aliases": [
+        "abishai",
+        "brother of joab",
+        "mighty warrior of david"
+      ],
+      "name": "Abishai son of Zeruiah",
+      "category": "warrior",
+      "book": "1 Samuel",
+      "chapter": 26,
+      "id": "chr_abishai_son_of_zeruiah"
+    },
+    {
+      "aliases": [
+        "uriah the hittite",
+        "husband of bathsheba",
+        "soldier killed by david"
+      ],
+      "name": "Uriah the Hittite",
+      "category": "warrior",
+      "book": "2 Samuel",
+      "chapter": 11,
+      "id": "chr_uriah_the_hittite"
+    },
+    {
+      "aliases": [
+        "bathsheba",
+        "wife of david",
+        "mother of solomon"
+      ],
+      "name": "Bathsheba",
+      "category": "queen",
+      "book": "2 Samuel",
+      "chapter": 11,
+      "id": "chr_bathsheba",
+      "related": [
+        "ot_david_and_bathsheba"
+      ]
+    },
+    {
+      "aliases": [
+        "nathan prophet",
+        "prophet who confronted david",
+        "david advisor"
+      ],
+      "name": "Nathan the Prophet",
+      "category": "prophet",
+      "book": "2 Samuel",
+      "chapter": 7,
+      "id": "chr_nathan_the_prophet"
+    },
+    {
+      "aliases": [
+        "gad prophet",
+        "seer of david",
+        "prophet gad"
+      ],
+      "name": "Gad the Prophet",
+      "category": "prophet",
+      "book": "1 Samuel",
+      "chapter": 22,
+      "id": "chr_gad_the_prophet"
+    },
+    {
+      "aliases": [
+        "absalom",
+        "son of david",
+        "rebel son of david"
+      ],
+      "name": "Absalom",
+      "category": "royal family",
+      "book": "2 Samuel",
+      "chapter": 13,
+      "id": "chr_absalom"
+    },
+    {
+      "aliases": [
+        "amnon",
+        "son of david",
+        "brother of absalom"
+      ],
+      "name": "Amnon",
+      "category": "royal family",
+      "book": "2 Samuel",
+      "chapter": 13,
+      "id": "chr_amnon"
+    },
+    {
+      "aliases": [
+        "tamar daughter of david",
+        "sister of absalom",
+        "daughter of david"
+      ],
+      "name": "Tamar daughter of David",
+      "category": "royal family",
+      "book": "2 Samuel",
+      "chapter": 13,
+      "id": "chr_tamar_daughter_of_david"
+    },
+    {
+      "aliases": [
+        "solomon",
+        "king solomon",
+        "son of david",
+        "wisest king",
+        "builder of temple"
+      ],
+      "name": "Solomon",
+      "category": "king",
+      "book": "1 Kings",
+      "chapter": 1,
+      "id": "chr_solomon",
+      "related": [
+        "ot_solomon_becomes_king",
+        "ot_solomons_wisdom",
+        "ot_solomon_builds_temple",
+        "ot_queen_of_sheba",
+        "ot_kingdom_divided",
+        "chr_rehoboam",
+        "king_solomon"
+      ]
+    },
+    {
+      "aliases": [
+        "rehoboam",
+        "son of solomon",
+        "king of judah",
+        "kingdom divided"
+      ],
+      "name": "Rehoboam",
+      "category": "king",
+      "book": "1 Kings",
+      "chapter": 12,
+      "id": "chr_rehoboam",
+      "related": [
+        "king_rehoboam"
+      ]
+    },
+    {
+      "aliases": [
+        "jeroboam son of nebat",
+        "first king of northern israel",
+        "golden calves"
+      ],
+      "name": "Jeroboam son of Nebat",
+      "category": "king",
+      "book": "1 Kings",
+      "chapter": 11,
+      "id": "chr_jeroboam_son_of_nebat",
+      "related": [
+        "king_jeroboam_i"
+      ]
+    },
+    {
+      "aliases": [
+        "asa king of judah",
+        "reformer king",
+        "descendant of david"
+      ],
+      "name": "Asa",
+      "category": "king",
+      "book": "1 Kings",
+      "chapter": 15,
+      "id": "chr_asa"
+    },
+    {
+      "aliases": [
+        "jehoshaphat",
+        "king of judah",
+        "prayer before battle"
+      ],
+      "name": "Jehoshaphat",
+      "category": "king",
+      "book": "1 Kings",
+      "chapter": 22,
+      "id": "chr_jehoshaphat",
+      "related": [
+        "king_jehoshaphat"
+      ]
+    },
+    {
+      "aliases": [
+        "ahab",
+        "king of israel",
+        "husband of jezebel"
+      ],
+      "name": "Ahab",
+      "category": "king",
+      "book": "1 Kings",
+      "chapter": 16,
+      "id": "chr_ahab",
+      "related": [
+        "king_ahab"
+      ]
+    },
+    {
+      "aliases": [
+        "jezebel",
+        "wife of ahab",
+        "queen who opposed elijah"
+      ],
+      "name": "Jezebel",
+      "category": "queen",
+      "book": "1 Kings",
+      "chapter": 16,
+      "id": "chr_jezebel"
+    },
+    {
+      "aliases": [
+        "ahaziah king of israel",
+        "son of ahab"
+      ],
+      "name": "Ahaziah son of Ahab",
+      "category": "king",
+      "book": "1 Kings",
+      "chapter": 22,
+      "id": "chr_ahaziah_son_of_ahab"
+    },
+    {
+      "aliases": [
+        "jehoram son of ahab",
+        "king of israel",
+        "brother of ahaziah"
+      ],
+      "name": "Jehoram son of Ahab",
+      "category": "king",
+      "book": "2 Kings",
+      "chapter": 3,
+      "id": "chr_jehoram_son_of_ahab"
+    },
+    {
+      "aliases": [
+        "jehu",
+        "king of israel",
+        "destroyer of ahabs house"
+      ],
+      "name": "Jehu",
+      "category": "king",
+      "book": "1 Kings",
+      "chapter": 19,
+      "id": "chr_jehu"
+    },
+    {
+      "aliases": [
+        "elijah",
+        "prophet elijah",
+        "tishbite prophet",
+        "prophet of fire"
+      ],
+      "name": "Elijah",
+      "category": "prophet",
+      "book": "1 Kings",
+      "chapter": 17,
+      "id": "chr_elijah",
+      "related": [
+        "ot_elijah_fed_by_ravens",
+        "ot_widow_of_zarephath",
+        "ot_elijah_and_prophets_of_baal",
+        "ot_naboths_vineyard",
+        "ot_elijah_taken_to_heaven",
+        "otm_elijah_fed_by_ravens",
+        "otm_elijah_taken_to_heaven"
+      ]
+    },
+    {
+      "aliases": [
+        "elisha",
+        "prophet elisha",
+        "successor of elijah",
+        "son of shaphat"
+      ],
+      "name": "Elisha",
+      "category": "prophet",
+      "book": "1 Kings",
+      "chapter": 19,
+      "id": "chr_elisha"
+    },
+    {
+      "aliases": [
+        "joash king of judah",
+        "jehoash",
+        "child king protected by jehosheba"
+      ],
+      "name": "Joash / Jehoash of Judah",
+      "category": "king",
+      "book": "2 Kings",
+      "chapter": 11,
+      "id": "chr_joash_jehoash_of_judah",
+      "related": [
+        "king_joash_judah",
+        "king_jehoash_israel"
+      ]
+    },
+    {
+      "aliases": [
+        "athaliah",
+        "queen of judah",
+        "daughter of ahab",
+        "usurper queen"
+      ],
+      "name": "Athaliah",
+      "category": "queen",
+      "book": "2 Kings",
+      "chapter": 11,
+      "id": "chr_athaliah",
+      "related": [
+        "king_athaliah"
+      ]
+    },
+    {
+      "aliases": [
+        "amaziah king of judah",
+        "son of joash",
+        "king of judah"
+      ],
+      "name": "Amaziah",
+      "category": "king",
+      "book": "2 Kings",
+      "chapter": 14,
+      "id": "chr_amaziah"
+    },
+    {
+      "aliases": [
+        "uzziah",
+        "azariah king of judah",
+        "king struck with leprosy"
+      ],
+      "name": "Uzziah / Azariah",
+      "category": "king",
+      "book": "2 Kings",
+      "chapter": 15,
+      "id": "chr_uzziah_azariah",
+      "related": [
+        "king_uzziah"
+      ]
+    },
+    {
+      "aliases": [
+        "jotham king of judah",
+        "son of uzziah"
+      ],
+      "name": "Jotham",
+      "category": "king",
+      "book": "2 Kings",
+      "chapter": 15,
+      "id": "chr_jotham"
+    },
+    {
+      "aliases": [
+        "ahaz king of judah",
+        "father of hezekiah"
+      ],
+      "name": "Ahaz",
+      "category": "king",
+      "book": "2 Kings",
+      "chapter": 16,
+      "id": "chr_ahaz"
+    },
+    {
+      "aliases": [
+        "hezekiah",
+        "king hezekiah",
+        "faithful king of judah",
+        "son of ahaz"
+      ],
+      "name": "Hezekiah",
+      "category": "king",
+      "book": "2 Kings",
+      "chapter": 18,
+      "id": "chr_hezekiah",
+      "related": [
+        "king_hezekiah"
+      ]
+    },
+    {
+      "aliases": [
+        "manasseh king of judah",
+        "son of hezekiah",
+        "repentant king"
+      ],
+      "name": "Manasseh",
+      "category": "king",
+      "book": "2 Kings",
+      "chapter": 21,
+      "id": "chr_manasseh"
+    },
+    {
+      "aliases": [
+        "amon king of judah",
+        "son of manasseh"
+      ],
+      "name": "Amon",
+      "category": "king",
+      "book": "2 Kings",
+      "chapter": 21,
+      "id": "chr_amon"
+    },
+    {
+      "aliases": [
+        "josiah",
+        "king josiah",
+        "young reforming king",
+        "found book of law"
+      ],
+      "name": "Josiah",
+      "category": "king",
+      "book": "2 Kings",
+      "chapter": 22,
+      "id": "chr_josiah",
+      "related": [
+        "king_josiah"
+      ]
+    },
+    {
+      "aliases": [
+        "jehoahaz king of judah",
+        "son of josiah"
+      ],
+      "name": "Jehoahaz",
+      "category": "king",
+      "book": "2 Kings",
+      "chapter": 23,
+      "id": "chr_jehoahaz"
+    },
+    {
+      "aliases": [
+        "jehoiakim",
+        "king of judah",
+        "son of josiah"
+      ],
+      "name": "Jehoiakim",
+      "category": "king",
+      "book": "2 Kings",
+      "chapter": 23,
+      "id": "chr_jehoiakim",
+      "related": [
+        "king_jehoiakim"
+      ]
+    },
+    {
+      "aliases": [
+        "jehoiachin",
+        "coniah",
+        "king taken to babylon"
+      ],
+      "name": "Jehoiachin",
+      "category": "king",
+      "book": "2 Kings",
+      "chapter": 24,
+      "id": "chr_jehoiachin",
+      "related": [
+        "king_jehoiachin"
+      ]
+    },
+    {
+      "aliases": [
+        "zedekiah",
+        "last king of judah",
+        "king before jerusalem fall"
+      ],
+      "name": "Zedekiah",
+      "category": "king",
+      "book": "2 Kings",
+      "chapter": 24,
+      "id": "chr_zedekiah",
+      "related": [
+        "king_zedekiah"
+      ]
+    },
+    {
+      "aliases": [
+        "isaiah",
+        "prophet isaiah",
+        "son of amoz",
+        "messianic prophet"
+      ],
+      "name": "Isaiah",
+      "category": "prophet",
+      "book": "Isaiah",
+      "chapter": 1,
+      "id": "chr_isaiah",
+      "related": [
+        "ot_isaiah_and_hezekiah",
+        "ot_isaiah_and_immanuel_prophecy",
+        "ot_suffering_servant",
+        "proph_virgin_birth",
+        "proph_good_news_to_poor",
+        "proph_healing_the_brokenhearted",
+        "proph_proclaiming_liberty",
+        "proph_opening_prison_to_those_bound"
+      ]
+    },
+    {
+      "aliases": [
+        "jeremiah",
+        "weeping prophet",
+        "prophet before exile"
+      ],
+      "name": "Jeremiah",
+      "category": "prophet",
+      "book": "Jeremiah",
+      "chapter": 1,
+      "id": "chr_jeremiah",
+      "related": [
+        "ot_new_covenant_prophecy",
+        "cov_new_covenant_prophecy"
+      ]
+    },
+    {
+      "aliases": [
+        "baruch son of neriah",
+        "jeremiahs scribe",
+        "writer of jeremiah scroll"
+      ],
+      "name": "Baruch son of Neriah",
+      "category": "scribe",
+      "book": "Jeremiah",
+      "chapter": 36,
+      "id": "chr_baruch_son_of_neriah"
+    },
+    {
+      "aliases": [
+        "ezekiel",
+        "prophet ezekiel",
+        "priest prophet by the river chebar"
+      ],
+      "name": "Ezekiel",
+      "category": "prophet",
+      "book": "Ezekiel",
+      "chapter": 1,
+      "id": "chr_ezekiel"
+    },
+    {
+      "aliases": [
+        "daniel",
+        "prophet daniel",
+        "daniel in babylon",
+        "dream interpreter"
+      ],
+      "name": "Daniel",
+      "category": "prophet",
+      "book": "Daniel",
+      "chapter": 1,
+      "id": "chr_daniel",
+      "related": [
+        "ot_daniel_taken_to_babylon",
+        "ot_daniel_interprets_nebuchadnezzars_dream",
+        "ot_fiery_furnace",
+        "ot_writing_on_the_wall",
+        "ot_daniel_in_the_lions_den",
+        "ot_daniels_visions",
+        "ot_daniels_seventy_weeks"
+      ]
+    },
+    {
+      "aliases": [
+        "hananiah",
+        "shadrach",
+        "friend of daniel",
+        "three hebrews"
+      ],
+      "name": "Hananiah / Shadrach",
+      "category": "exile figure",
+      "book": "Daniel",
+      "chapter": 1,
+      "id": "chr_hananiah_shadrach"
+    },
+    {
+      "aliases": [
+        "mishael",
+        "meshach",
+        "friend of daniel",
+        "three hebrews"
+      ],
+      "name": "Mishael / Meshach",
+      "category": "exile figure",
+      "book": "Daniel",
+      "chapter": 1,
+      "id": "chr_mishael_meshach"
+    },
+    {
+      "aliases": [
+        "azariah",
+        "abednego",
+        "friend of daniel",
+        "three hebrews"
+      ],
+      "name": "Azariah / Abednego",
+      "category": "exile figure",
+      "book": "Daniel",
+      "chapter": 1,
+      "id": "chr_azariah_abednego",
+      "related": [
+        "king_uzziah"
+      ]
+    },
+    {
+      "aliases": [
+        "hosea",
+        "prophet hosea",
+        "husband of gomer"
+      ],
+      "name": "Hosea",
+      "category": "minor prophet",
+      "book": "Hosea",
+      "chapter": 1,
+      "id": "chr_hosea"
+    },
+    {
+      "aliases": [
+        "joel",
+        "prophet joel",
+        "day of the lord prophet"
+      ],
+      "name": "Joel",
+      "category": "minor prophet",
+      "book": "Joel",
+      "chapter": 1,
+      "id": "chr_joel"
+    },
+    {
+      "aliases": [
+        "amos",
+        "prophet amos",
+        "shepherd prophet"
+      ],
+      "name": "Amos",
+      "category": "minor prophet",
+      "book": "Amos",
+      "chapter": 1,
+      "id": "chr_amos"
+    },
+    {
+      "aliases": [
+        "obadiah",
+        "prophet obadiah"
+      ],
+      "name": "Obadiah",
+      "category": "minor prophet",
+      "book": "Obadiah",
+      "chapter": 1,
+      "id": "chr_obadiah"
+    },
+    {
+      "aliases": [
+        "jonah",
+        "prophet jonah",
+        "prophet swallowed by fish"
+      ],
+      "name": "Jonah",
+      "category": "minor prophet",
+      "book": "Jonah",
+      "chapter": 1,
+      "id": "chr_jonah"
+    },
+    {
+      "aliases": [
+        "micah",
+        "prophet micah",
+        "prophet from moresheth"
+      ],
+      "name": "Micah",
+      "category": "minor prophet",
+      "book": "Micah",
+      "chapter": 1,
+      "id": "chr_micah"
+    },
+    {
+      "aliases": [
+        "nahum",
+        "prophet nahum",
+        "prophet against nineveh"
+      ],
+      "name": "Nahum",
+      "category": "minor prophet",
+      "book": "Nahum",
+      "chapter": 1,
+      "id": "chr_nahum"
+    },
+    {
+      "aliases": [
+        "habakkuk",
+        "prophet habakkuk",
+        "watchman prophet"
+      ],
+      "name": "Habakkuk",
+      "category": "minor prophet",
+      "book": "Habakkuk",
+      "chapter": 1,
+      "id": "chr_habakkuk"
+    },
+    {
+      "aliases": [
+        "zephaniah",
+        "prophet zephaniah",
+        "son of cushi"
+      ],
+      "name": "Zephaniah",
+      "category": "minor prophet",
+      "book": "Zephaniah",
+      "chapter": 1,
+      "id": "chr_zephaniah"
+    },
+    {
+      "aliases": [
+        "haggai",
+        "prophet haggai",
+        "post exile prophet"
+      ],
+      "name": "Haggai",
+      "category": "minor prophet",
+      "book": "Haggai",
+      "chapter": 1,
+      "id": "chr_haggai"
+    },
+    {
+      "aliases": [
+        "zechariah",
+        "prophet zechariah",
+        "son of berechiah",
+        "post exile prophet"
+      ],
+      "name": "Zechariah",
+      "category": "minor prophet",
+      "book": "Zechariah",
+      "chapter": 1,
+      "id": "chr_zechariah",
+      "related": [
+        "king_zechariah"
+      ]
+    },
+    {
+      "aliases": [
+        "malachi",
+        "prophet malachi",
+        "last old testament prophet"
+      ],
+      "name": "Malachi",
+      "category": "minor prophet",
+      "book": "Malachi",
+      "chapter": 1,
+      "id": "chr_malachi"
+    },
+    {
+      "aliases": [
+        "gomer wife of hosea",
+        "wife who represented israel"
+      ],
+      "name": "Gomer",
+      "category": "prophetic figure",
+      "book": "Hosea",
+      "chapter": 1,
+      "id": "chr_gomer"
+    },
+    {
+      "aliases": [
+        "nebuchadnezzar",
+        "king of babylon",
+        "destroyer of jerusalem",
+        "babylonian king"
+      ],
+      "name": "Nebuchadnezzar II",
+      "category": "king",
+      "book": "Daniel",
+      "chapter": 1,
+      "id": "chr_nebuchadnezzar_ii"
+    },
+    {
+      "aliases": [
+        "belshazzar",
+        "babylonian king",
+        "son of nebuchadnezzar",
+        "writing on wall king"
+      ],
+      "name": "Belshazzar",
+      "category": "king",
+      "book": "Daniel",
+      "chapter": 5,
+      "id": "chr_belshazzar"
+    },
+    {
+      "aliases": [
+        "darius the mede",
+        "king who appointed daniel",
+        "darius of daniel"
+      ],
+      "name": "Darius the Mede",
+      "category": "king",
+      "book": "Daniel",
+      "chapter": 5,
+      "id": "chr_darius_the_mede"
+    },
+    {
+      "aliases": [
+        "cyrus king of persia",
+        "king cyrus",
+        "allowed jews return"
+      ],
+      "name": "Cyrus the Great",
+      "category": "king",
+      "book": "Ezra",
+      "chapter": 1,
+      "id": "chr_cyrus_the_great"
+    },
+    {
+      "aliases": [
+        "xerxes",
+        "ahasuerus",
+        "persian king in esther"
+      ],
+      "name": "Xerxes I / Ahasuerus",
+      "category": "king",
+      "book": "Esther",
+      "chapter": 1,
+      "id": "chr_xerxes_i_ahasuerus"
+    },
+    {
+      "aliases": [
+        "artaxerxes",
+        "persian king",
+        "king who supported ezra and nehemiah"
+      ],
+      "name": "Artaxerxes I",
+      "category": "king",
+      "book": "Ezra",
+      "chapter": 7,
+      "id": "chr_artaxerxes_i"
+    },
+    {
+      "aliases": [
+        "ezra",
+        "scribe ezra",
+        "priest and teacher of law"
+      ],
+      "name": "Ezra",
+      "category": "scribe",
+      "book": "Ezra",
+      "chapter": 7,
+      "id": "chr_ezra"
+    },
+    {
+      "aliases": [
+        "nehemiah",
+        "cupbearer of king",
+        "rebuilder of jerusalem walls"
+      ],
+      "name": "Nehemiah",
+      "category": "leader",
+      "book": "Nehemiah",
+      "chapter": 1,
+      "id": "chr_nehemiah"
+    },
+    {
+      "aliases": [
+        "zerubbabel",
+        "governor of judah",
+        "builder of second temple"
+      ],
+      "name": "Zerubbabel",
+      "category": "leader",
+      "book": "Ezra",
+      "chapter": 2,
+      "id": "chr_zerubbabel"
+    },
+    {
+      "aliases": [
+        "joshua son of jehozadak",
+        "high priest after exile",
+        "zechariah vision figure"
+      ],
+      "name": "Joshua son of Jehozadak",
+      "category": "high priest",
+      "book": "Ezra",
+      "chapter": 3,
+      "id": "chr_joshua_son_of_jehozadak"
+    },
+    {
+      "aliases": [
+        "mordecai",
+        "esthers cousin",
+        "jewish leader in persia"
+      ],
+      "name": "Mordecai",
+      "category": "exile figure",
+      "book": "Esther",
+      "chapter": 2,
+      "id": "chr_mordecai"
+    },
+    {
+      "aliases": [
+        "esther",
+        "hadassah",
+        "queen esther",
+        "jewish queen of persia"
+      ],
+      "name": "Esther",
+      "category": "queen",
+      "book": "Esther",
+      "chapter": 2,
+      "id": "chr_esther",
+      "related": [
+        "ot_esther_becomes_queen",
+        "ot_mordecai_saves_king",
+        "ot_haman_plot",
+        "ot_esther_approaches_king",
+        "ot_haman_hanged",
+        "ot_purim",
+        "feast_purim"
+      ]
+    },
+    {
+      "aliases": [
+        "haman",
+        "enemy of jews",
+        "agagite official"
+      ],
+      "name": "Haman",
+      "category": "royal official",
+      "book": "Esther",
+      "chapter": 3,
+      "id": "chr_haman"
+    },
+    {
+      "aliases": [
+        "job",
+        "righteous man of uz",
+        "man tested by god"
+      ],
+      "name": "Job",
+      "category": "patriarch",
+      "book": "Job",
+      "chapter": 1,
+      "id": "chr_job",
+      "related": [
+        "ot_job_tested",
+        "ot_jobs_suffering",
+        "ot_job_questions_god",
+        "ot_god_answers_job",
+        "ot_job_restored",
+        "wis_job"
+      ]
+    },
+    {
+      "aliases": [
+        "eliphaz temanite",
+        "friend of job"
+      ],
+      "name": "Eliphaz the Temanite",
+      "category": "friend of job",
+      "book": "Job",
+      "chapter": 2,
+      "id": "chr_eliphaz_the_temanite"
+    },
+    {
+      "aliases": [
+        "bildad shuhite",
+        "friend of job"
+      ],
+      "name": "Bildad the Shuhite",
+      "category": "friend of job",
+      "book": "Job",
+      "chapter": 2,
+      "id": "chr_bildad_the_shuhite"
+    },
+    {
+      "aliases": [
+        "zophar naamathite",
+        "friend of job"
+      ],
+      "name": "Zophar the Naamathite",
+      "category": "friend of job",
+      "book": "Job",
+      "chapter": 2,
+      "id": "chr_zophar_the_naamathite"
+    },
+    {
+      "aliases": [
+        "elihu son of barachel",
+        "young speaker in job"
+      ],
+      "name": "Elihu son of Barachel",
+      "category": "friend of job",
+      "book": "Job",
+      "chapter": 32,
+      "id": "chr_elihu_son_of_barachel"
+    },
+    {
+      "aliases": [
+        "mary mother of jesus",
+        "virgin mary",
+        "mary mother of christ",
+        "mother of jesus"
+      ],
+      "name": "Mary mother of Jesus",
+      "category": "family of jesus",
+      "book": "Luke",
+      "chapter": 1,
+      "id": "chr_mary_mother_of_jesus",
+      "related": [
+        "otm_water_into_wine",
+        "otm_virgin_birth_of_jesus",
+        "otm_jesus_childhood_wisdom",
+        "nt_annunciation",
+        "nt_mary_visits_elizabeth",
+        "nt_birth_of_jesus",
+        "nt_boy_jesus_in_temple",
+        "nt_wedding_at_cana",
+        "evt_annunciation_to_mary",
+        "evt_mary_visits_elizabeth",
+        "evt_jesus_presented_at_the_temple",
+        "evt_jesus_in_the_temple_as_a_boy",
+        "evt_jesus_turns_water_into_wine"
+      ]
+    },
+    {
+      "aliases": [
+        "joseph husband of mary",
+        "joseph father of jesus legal father",
+        "carpenter of nazareth"
+      ],
+      "name": "Joseph husband of Mary",
+      "category": "family of jesus",
+      "book": "Matthew",
+      "chapter": 1,
+      "id": "chr_joseph_husband_of_mary"
+    },
+    {
+      "aliases": [
+        "john the baptist",
+        "john baptizer",
+        "son of zacharias",
+        "forerunner of christ",
+        "voice crying in wilderness"
+      ],
+      "name": "John the Baptist",
+      "category": "prophet",
+      "book": "Matthew",
+      "chapter": 3,
+      "id": "chr_john_the_baptist",
+      "related": [
+        "nt_birth_of_john_the_baptist",
+        "evt_birth_of_john_the_baptist",
+        "evt_john_the_baptist_begins_ministry",
+        "evt_baptism_of_jesus",
+        "evt_death_of_john_the_baptist"
+      ]
+    },
+    {
+      "aliases": [
+        "zacharias",
+        "zechariah father of john the baptist",
+        "priest father of john"
+      ],
+      "name": "Zechariah father of John the Baptist",
+      "category": "priest",
+      "book": "Luke",
+      "chapter": 1,
+      "id": "chr_zechariah_father_of_john_the_baptist"
+    },
+    {
+      "aliases": [
+        "elizabeth mother of john",
+        "wife of zacharias",
+        "relative of mary"
+      ],
+      "name": "Elizabeth mother of John the Baptist",
+      "category": "family of john",
+      "book": "Luke",
+      "chapter": 1,
+      "id": "chr_elizabeth_mother_of_john_the_baptist"
+    },
+    {
+      "aliases": [
+        "james brother of jesus",
+        "james the just",
+        "brother of the lord",
+        "leader of jerusalem church"
+      ],
+      "name": "James brother of Jesus",
+      "category": "church leader",
+      "book": "Matthew",
+      "chapter": 13,
+      "id": "chr_james_brother_of_jesus"
+    },
+    {
+      "aliases": [
+        "jude brother of jesus",
+        "judas brother of jesus",
+        "author of jude"
+      ],
+      "name": "Jude brother of Jesus",
+      "category": "church leader",
+      "book": "Matthew",
+      "chapter": 13,
+      "id": "chr_jude_brother_of_jesus"
+    },
+    {
+      "aliases": [
+        "simeon brother of jesus",
+        "simon brother of jesus"
+      ],
+      "name": "Simon brother of Jesus",
+      "category": "family of jesus",
+      "book": "Matthew",
+      "chapter": 13,
+      "id": "chr_simon_brother_of_jesus"
+    },
+    {
+      "aliases": [
+        "joses brother of jesus",
+        "joseph brother of jesus"
+      ],
+      "name": "Joses brother of Jesus",
+      "category": "family of jesus",
+      "book": "Matthew",
+      "chapter": 13,
+      "id": "chr_joses_brother_of_jesus"
+    },
+    {
+      "aliases": [
+        "mary magdalene",
+        "mary of magdala",
+        "woman delivered from seven demons",
+        "first resurrection witness"
+      ],
+      "name": "Mary Magdalene",
+      "category": "disciple",
+      "book": "Luke",
+      "chapter": 8,
+      "id": "chr_mary_magdalene",
+      "related": [
+        "otm_legion_demon_expelled",
+        "otm_darkness_at_crucifixion",
+        "nt_legion_demon",
+        "nt_crucifixion_of_jesus",
+        "nt_women_at_empty_tomb",
+        "nt_jesus_appears_to_disciples",
+        "nt_thomas_believes",
+        "chr_mary_mother_of_james",
+        "chr_thomas_the_apostle",
+        "evt_jesus_frees_the_gerasene_demoniac",
+        "evt_crucifixion_of_jesus",
+        "evt_signs_at_jesus_death",
+        "evt_women_discover_the_empty_tomb",
+        "evt_jesus_appears_to_thomas"
+      ]
+    },
+    {
+      "aliases": [
+        "mary of bethany",
+        "sister of martha and lazarus",
+        "woman who anointed jesus"
+      ],
+      "name": "Mary of Bethany",
+      "category": "disciple",
+      "book": "Luke",
+      "chapter": 10,
+      "id": "chr_mary_of_bethany"
+    },
+    {
+      "aliases": [
+        "martha of bethany",
+        "sister of mary and lazarus",
+        "woman who served jesus"
+      ],
+      "name": "Martha of Bethany",
+      "category": "disciple",
+      "book": "Luke",
+      "chapter": 10,
+      "id": "chr_martha_of_bethany",
+      "related": [
+        "loc_bethany",
+        "nt_mary_and_martha",
+        "nt_raising_lazarus",
+        "chr_lazarus_of_bethany",
+        "evt_jesus_visits_mary_and_martha",
+        "evt_jesus_raises_lazarus",
+        "evt_jesus_anointed_at_bethany"
+      ]
+    },
+    {
+      "aliases": [
+        "lazarus of bethany",
+        "brother of mary and martha",
+        "raised by jesus"
+      ],
+      "name": "Lazarus of Bethany",
+      "category": "friend of jesus",
+      "book": "John",
+      "chapter": 11,
+      "id": "chr_lazarus_of_bethany"
+    },
+    {
+      "aliases": [
+        "mary mother of james",
+        "mary wife of clopas",
+        "woman at crucifixion"
+      ],
+      "name": "Mary mother of James",
+      "category": "disciple",
+      "book": "Mark",
+      "chapter": 15,
+      "id": "chr_mary_mother_of_james"
+    },
+    {
+      "aliases": [
+        "peter",
+        "simon peter",
+        "simon son of jonah",
+        "cephas",
+        "chief apostle"
+      ],
+      "name": "Peter the Apostle",
+      "category": "apostle",
+      "book": "Matthew",
+      "chapter": 4,
+      "id": "chr_peter_the_apostle",
+      "related": [
+        "feast_feast_of_weeks_pentecost",
+        "otm_pentecost_miracle",
+        "otm_apostles_speak_languages",
+        "otm_transfiguration_of_jesus",
+        "nt_transfiguration",
+        "nt_peter_denies_jesus",
+        "nt_pentecost",
+        "ser_peters_pentecost_sermon",
+        "evt_calling_of_peter_james_and_john",
+        "evt_peter_confesses_jesus_as_the_christ",
+        "evt_transfiguration_of_jesus",
+        "evt_jesus_predicts_peters_denial",
+        "evt_jesus_heals_malchus_ear",
+        "evt_peter_denies_jesus",
+        "evt_pentecost",
+        "evt_peters_pentecost_sermon",
+        "evt_holy_spirit_comes_upon_gentiles"
+      ]
+    },
+    {
+      "aliases": [
+        "andrew apostle",
+        "andrew brother of peter",
+        "simon peters brother"
+      ],
+      "name": "Andrew the Apostle",
+      "category": "apostle",
+      "book": "Matthew",
+      "chapter": 4,
+      "id": "chr_andrew_the_apostle"
+    },
+    {
+      "aliases": [
+        "james son of zebedee",
+        "james apostle",
+        "brother of john",
+        "son of thunder"
+      ],
+      "name": "James son of Zebedee",
+      "category": "apostle",
+      "book": "Matthew",
+      "chapter": 4,
+      "id": "chr_james_son_of_zebedee"
+    },
+    {
+      "aliases": [
+        "john apostle",
+        "john son of zebedee",
+        "beloved disciple",
+        "brother of james",
+        "son of thunder"
+      ],
+      "name": "John the Apostle",
+      "category": "apostle",
+      "book": "Matthew",
+      "chapter": 4,
+      "id": "chr_john_the_apostle",
+      "related": [
+        "otm_transfiguration_of_jesus",
+        "par_vine_and_branches",
+        "nt_transfiguration",
+        "nt_new_commandment",
+        "ser_upper_room_discourse",
+        "ser_pauls_farewell_discourse",
+        "chr_john_the_apostle_beloved_disciple",
+        "evt_transfiguration_of_jesus",
+        "evt_jesus_farewell_discourse",
+        "evt_jesus_teaches_the_vine_and_branches",
+        "evt_jesus_high_priestly_prayer"
+      ]
+    },
+    {
+      "aliases": [
+        "philip apostle",
+        "philip of bethsaida"
+      ],
+      "name": "Philip the Apostle",
+      "category": "apostle",
+      "book": "Matthew",
+      "chapter": 10,
+      "id": "chr_philip_the_apostle"
+    },
+    {
+      "aliases": [
+        "bartholomew apostle",
+        "nathanael",
+        "nathaniel of cana"
+      ],
+      "name": "Bartholomew / Nathanael",
+      "category": "apostle",
+      "book": "Matthew",
+      "chapter": 10,
+      "id": "chr_bartholomew_nathanael"
+    },
+    {
+      "aliases": [
+        "matthew apostle",
+        "levi",
+        "tax collector disciple"
+      ],
+      "name": "Matthew the Apostle",
+      "category": "apostle",
+      "book": "Matthew",
+      "chapter": 9,
+      "id": "chr_matthew_the_apostle"
+    },
+    {
+      "aliases": [
+        "thomas apostle",
+        "didymus",
+        "doubting thomas"
+      ],
+      "name": "Thomas the Apostle",
+      "category": "apostle",
+      "book": "Matthew",
+      "chapter": 10,
+      "id": "chr_thomas_the_apostle",
+      "related": [
+        "nt_jesus_appears_to_disciples",
+        "nt_thomas_believes",
+        "evt_jesus_appears_to_thomas"
+      ]
+    },
+    {
+      "aliases": [
+        "james son of alphaeus",
+        "james the lesser",
+        "james the younger",
+        "apostle james"
+      ],
+      "name": "James son of Alphaeus",
+      "category": "apostle",
+      "book": "Matthew",
+      "chapter": 10,
+      "id": "chr_james_son_of_alphaeus"
+    },
+    {
+      "aliases": [
+        "thaddaeus",
+        "jude son of james",
+        "judas son of james",
+        "apostle jude"
+      ],
+      "name": "Judas son of James / Thaddaeus",
+      "category": "apostle",
+      "book": "Matthew",
+      "chapter": 10,
+      "id": "chr_judas_son_of_james_thaddaeus"
+    },
+    {
+      "aliases": [
+        "simon the zealot",
+        "simon the canaanite",
+        "zealot apostle"
+      ],
+      "name": "Simon the Zealot",
+      "category": "apostle",
+      "book": "Matthew",
+      "chapter": 10,
+      "id": "chr_simon_the_zealot"
+    },
+    {
+      "aliases": [
+        "judas iscariot",
+        "judas son of simon iscariot",
+        "betrayer of jesus",
+        "keeper of money bag"
+      ],
+      "name": "Judas Iscariot",
+      "category": "apostle",
+      "book": "Matthew",
+      "chapter": 10,
+      "id": "chr_judas_iscariot",
+      "related": [
+        "nt_judas_dies",
+        "evt_judas_agrees_to_betray_jesus",
+        "evt_death_of_judas_iscariot"
+      ]
+    },
+    {
+      "aliases": [
+        "matthias apostle",
+        "chosen to replace judas",
+        "apostle selected by lot"
+      ],
+      "name": "Matthias",
+      "category": "apostle",
+      "book": "Acts",
+      "chapter": 1,
+      "id": "chr_matthias"
+    },
+    {
+      "aliases": [
+        "nicodemus",
+        "pharisee who visited jesus",
+        "teacher of israel",
+        "born again discussion"
+      ],
+      "name": "Nicodemus",
+      "category": "pharisee",
+      "book": "John",
+      "chapter": 3,
+      "id": "chr_nicodemus",
+      "related": [
+        "nt_jesus_and_nicodemus",
+        "evt_jesus_and_nicodemus"
+      ]
+    },
+    {
+      "aliases": [
+        "joseph of arimathea",
+        "disciple who buried jesus",
+        "member of council"
+      ],
+      "name": "Joseph of Arimathea",
+      "category": "disciple",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "chr_joseph_of_arimathea"
+    },
+    {
+      "aliases": [
+        "zacchaeus",
+        "chief tax collector",
+        "man who climbed sycamore tree"
+      ],
+      "name": "Zacchaeus",
+      "category": "tax collector",
+      "book": "Luke",
+      "chapter": 19,
+      "id": "chr_zacchaeus",
+      "related": [
+        "evt_jesus_visits_zacchaeus"
+      ]
+    },
+    {
+      "aliases": [
+        "centurion at capernaum",
+        "roman centurion whose servant jesus healed"
+      ],
+      "name": "Centurion of Capernaum",
+      "category": "roman officer",
+      "book": "Matthew",
+      "chapter": 8,
+      "id": "chr_centurion_of_capernaum"
+    },
+    {
+      "aliases": [
+        "jairus",
+        "synagogue ruler",
+        "father of girl jesus raised"
+      ],
+      "name": "Jairus",
+      "category": "synagogue leader",
+      "book": "Mark",
+      "chapter": 5,
+      "id": "chr_jairus"
+    },
+    {
+      "aliases": [
+        "simon the pharisee",
+        "pharisee who hosted jesus",
+        "host of sinful woman"
+      ],
+      "name": "Simon the Pharisee",
+      "category": "pharisee",
+      "book": "Luke",
+      "chapter": 7,
+      "id": "chr_simon_the_pharisee"
+    },
+    {
+      "aliases": [
+        "simon the leper",
+        "man who hosted jesus in bethany"
+      ],
+      "name": "Simon the Leper",
+      "category": "biblical figure",
+      "book": "Matthew",
+      "chapter": 26,
+      "id": "chr_simon_the_leper"
+    },
+    {
+      "aliases": [
+        "paul",
+        "saul of tarsus",
+        "apostle paul",
+        "apostle to gentiles"
+      ],
+      "name": "Paul the Apostle",
+      "category": "apostle",
+      "book": "Acts",
+      "chapter": 9,
+      "id": "chr_paul_the_apostle",
+      "related": [
+        "loc_damascus",
+        "loc_malta",
+        "nt_sauls_conversion",
+        "nt_paul_before_festus",
+        "nt_paul_shipwreck",
+        "ser_pauls_areopagus_sermon",
+        "evt_conversion_of_saul",
+        "evt_paul_preaches_at_athens",
+        "evt_paul_appeals_to_caesar",
+        "evt_pauls_shipwreck"
+      ]
+    },
+    {
+      "aliases": [
+        "barnabas",
+        "joses barnabas",
+        "son of encouragement",
+        "companion of paul"
+      ],
+      "name": "Barnabas",
+      "category": "early church leader",
+      "book": "Acts",
+      "chapter": 4,
+      "id": "chr_barnabas",
+      "related": [
+        "nt_pauls_first_missionary_journey",
+        "nt_paul_and_barnabas_in_lystra",
+        "nt_paul_and_barnabas_separated",
+        "evt_paul_and_barnabas_sent_out"
+      ]
+    },
+    {
+      "aliases": [
+        "silas",
+        "silvanus",
+        "companion of paul",
+        "missionary partner"
+      ],
+      "name": "Silas / Silvanus",
+      "category": "early church leader",
+      "book": "Acts",
+      "chapter": 15,
+      "id": "chr_silas_silvanus"
+    },
+    {
+      "aliases": [
+        "timothy",
+        "son of eunice",
+        "pauls coworker",
+        "young pastor"
+      ],
+      "name": "Timothy",
+      "category": "early church leader",
+      "book": "Acts",
+      "chapter": 16,
+      "id": "chr_timothy"
+    },
+    {
+      "aliases": [
+        "titus",
+        "pauls coworker",
+        "recipient of titus letter"
+      ],
+      "name": "Titus",
+      "category": "early church leader",
+      "book": "Galatians",
+      "chapter": 2,
+      "id": "chr_titus"
+    },
+    {
+      "aliases": [
+        "luke",
+        "physician luke",
+        "author of luke and acts",
+        "companion of paul"
+      ],
+      "name": "Luke the Evangelist",
+      "category": "evangelist",
+      "book": "Luke",
+      "chapter": 1,
+      "id": "chr_luke_the_evangelist"
+    },
+    {
+      "aliases": [
+        "john mark",
+        "mark",
+        "mark the evangelist",
+        "cousin of barnabas",
+        "companion of paul and peter"
+      ],
+      "name": "John Mark",
+      "category": "evangelist",
+      "book": "Acts",
+      "chapter": 12,
+      "id": "chr_john_mark"
+    },
+    {
+      "aliases": [
+        "apollos",
+        "alexandrian preacher",
+        "eloquent teacher"
+      ],
+      "name": "Apollos",
+      "category": "teacher",
+      "book": "Acts",
+      "chapter": 18,
+      "id": "chr_apollos"
+    },
+    {
+      "aliases": [
+        "stephen",
+        "first christian martyr",
+        "deacon full of faith"
+      ],
+      "name": "Stephen",
+      "category": "deacon",
+      "book": "Acts",
+      "chapter": 6,
+      "id": "chr_stephen",
+      "related": [
+        "evt_martyrdom_of_stephen"
+      ]
+    },
+    {
+      "aliases": [
+        "philip evangelist",
+        "one of seven deacons",
+        "father of four prophet daughters"
+      ],
+      "name": "Philip the Evangelist",
+      "category": "evangelist",
+      "book": "Acts",
+      "chapter": 6,
+      "id": "chr_philip_the_evangelist"
+    },
+    {
+      "aliases": [
+        "lidia",
+        "lydia of thyatira",
+        "seller of purple cloth",
+        "first european convert"
+      ],
+      "name": "Lydia of Thyatira",
+      "category": "disciple",
+      "book": "Acts",
+      "chapter": 16,
+      "id": "chr_lydia_of_thyatira"
+    },
+    {
+      "aliases": [
+        "aquila",
+        "husband of priscilla",
+        "tentmaker with paul"
+      ],
+      "name": "Aquila",
+      "category": "early church leader",
+      "book": "Acts",
+      "chapter": 18,
+      "id": "chr_aquila"
+    },
+    {
+      "aliases": [
+        "priscilla",
+        "prisca",
+        "wife of aquila",
+        "teacher of apollos"
+      ],
+      "name": "Priscilla",
+      "category": "early church leader",
+      "book": "Acts",
+      "chapter": 18,
+      "id": "chr_priscilla"
+    },
+    {
+      "aliases": [
+        "herod the great",
+        "king herod",
+        "herod who killed infants",
+        "ruler of judea at jesus birth"
+      ],
+      "name": "Herod the Great",
+      "category": "king",
+      "book": "Matthew",
+      "chapter": 2,
+      "id": "chr_herod_the_great"
+    },
+    {
+      "aliases": [
+        "herod antipas",
+        "herod the tetrarch",
+        "killed john the baptist",
+        "ruler of galilee"
+      ],
+      "name": "Herod Antipas",
+      "category": "ruler",
+      "book": "Matthew",
+      "chapter": 14,
+      "id": "chr_herod_antipas"
+    },
+    {
+      "aliases": [
+        "herod agrippa i",
+        "king agrippa",
+        "killed james apostle",
+        "persecutor of church"
+      ],
+      "name": "Herod Agrippa I",
+      "category": "king",
+      "book": "Acts",
+      "chapter": 12,
+      "id": "chr_herod_agrippa_i"
+    },
+    {
+      "aliases": [
+        "herod agrippa ii",
+        "king agrippa ii",
+        "heard paul defense"
+      ],
+      "name": "Herod Agrippa II",
+      "category": "ruler",
+      "book": "Acts",
+      "chapter": 25,
+      "id": "chr_herod_agrippa_ii"
+    },
+    {
+      "aliases": [
+        "pontius pilate",
+        "pilate governor",
+        "roman governor who sentenced jesus"
+      ],
+      "name": "Pontius Pilate",
+      "category": "roman governor",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "chr_pontius_pilate"
+    },
+    {
+      "aliases": [
+        "felix governor",
+        "antonious felix",
+        "roman governor who heard paul"
+      ],
+      "name": "Felix",
+      "category": "roman governor",
+      "book": "Acts",
+      "chapter": 23,
+      "id": "chr_felix"
+    },
+    {
+      "aliases": [
+        "festus governor",
+        "porcius festus",
+        "roman governor after felix"
+      ],
+      "name": "Festus",
+      "category": "roman governor",
+      "book": "Acts",
+      "chapter": 24,
+      "id": "chr_festus"
+    },
+    {
+      "aliases": [
+        "claudius caesar",
+        "roman emperor claudius",
+        "emperor who expelled jews from rome"
+      ],
+      "name": "Claudius Caesar",
+      "category": "roman emperor",
+      "book": "Acts",
+      "chapter": 18,
+      "id": "chr_claudius_caesar"
+    },
+    {
+      "aliases": [
+        "nero caesar",
+        "roman emperor nero"
+      ],
+      "name": "Nero Caesar",
+      "category": "roman emperor",
+      "book": "2 Timothy",
+      "chapter": 4,
+      "id": "chr_nero_caesar"
+    },
+    {
+      "aliases": [
+        "caiaphas",
+        "high priest caiaphas",
+        "high priest during jesus trial"
+      ],
+      "name": "Caiaphas",
+      "category": "high priest",
+      "book": "Matthew",
+      "chapter": 26,
+      "id": "chr_caiaphas"
+    },
+    {
+      "aliases": [
+        "annas",
+        "ananias high priest",
+        "father in law of caiaphas"
+      ],
+      "name": "Annas",
+      "category": "high priest",
+      "book": "John",
+      "chapter": 18,
+      "id": "chr_annas"
+    },
+    {
+      "aliases": [
+        "jairus",
+        "ruler of synagogue",
+        "father of healed daughter"
+      ],
+      "name": "Jairus",
+      "category": "synagogue leader",
+      "book": "Mark",
+      "chapter": 5,
+      "id": "chr_jairus_mark5"
+    },
+    {
+      "aliases": [
+        "gamaliel",
+        "pharisee teacher",
+        "teacher of paul",
+        "respected rabbi"
+      ],
+      "name": "Gamaliel",
+      "category": "pharisee",
+      "book": "Acts",
+      "chapter": 5,
+      "id": "chr_gamaliel"
+    },
+    {
+      "aliases": [
+        "simon the sorcerer",
+        "simon magus",
+        "magician of samaria"
+      ],
+      "name": "Simon the Sorcerer",
+      "category": "false believer",
+      "book": "Acts",
+      "chapter": 8,
+      "id": "chr_simon_the_sorcerer"
+    },
+    {
+      "aliases": [
+        "elymas",
+        "bar jesus",
+        "sorcerer opposed paul"
+      ],
+      "name": "Elymas / Bar-Jesus",
+      "category": "sorcerer",
+      "book": "Acts",
+      "chapter": 13,
+      "id": "chr_elymas_bar_jesus"
+    },
+    {
+      "aliases": [
+        "pharisees",
+        "pharisee leaders",
+        "religious opponents of jesus"
+      ],
+      "name": "Pharisees (group)",
+      "category": "religious group",
+      "book": "Matthew",
+      "chapter": 3,
+      "id": "chr_pharisees_group"
+    },
+    {
+      "aliases": [
+        "sadducees",
+        "sadducee leaders",
+        "temple aristocrats"
+      ],
+      "name": "Sadducees (group)",
+      "category": "religious group",
+      "book": "Matthew",
+      "chapter": 3,
+      "id": "chr_sadducees_group"
+    },
+    {
+      "aliases": [
+        "scribes",
+        "teachers of law",
+        "experts in scripture"
+      ],
+      "name": "Scribes (group)",
+      "category": "religious group",
+      "book": "Matthew",
+      "chapter": 2,
+      "id": "chr_scribes_group"
+    },
+    {
+      "aliases": [
+        "sanhedrin",
+        "jewish council",
+        "religious court"
+      ],
+      "name": "Sanhedrin Council",
+      "category": "religious authority",
+      "book": "Matthew",
+      "chapter": 26,
+      "id": "chr_sanhedrin_council"
+    },
+    {
+      "aliases": [
+        "demons",
+        "unclean spirits",
+        "evil spirits"
+      ],
+      "name": "Demons (group)",
+      "category": "spiritual beings",
+      "book": "Matthew",
+      "chapter": 8,
+      "id": "chr_demons_group"
+    },
+    {
+      "aliases": [
+        "satan",
+        "devil",
+        "tempter",
+        "accuser",
+        "adversary"
+      ],
+      "name": "Satan",
+      "category": "spiritual being",
+      "book": "Matthew",
+      "chapter": 4,
+      "id": "chr_satan"
+    },
+    {
+      "aliases": [
+        "beelzebul",
+        "beelzebub",
+        "prince of demons"
+      ],
+      "name": "Beelzebul",
+      "category": "spiritual being",
+      "book": "Matthew",
+      "chapter": 12,
+      "id": "chr_beelzebul"
+    },
+    {
+      "aliases": [
+        "anna prophetess",
+        "anna daughter of phanuel",
+        "woman who saw baby jesus in temple"
+      ],
+      "name": "Anna the Prophetess",
+      "category": "prophetess",
+      "book": "Luke",
+      "chapter": 2,
+      "id": "chr_anna_the_prophetess"
+    },
+    {
+      "aliases": [
+        "simeon temple",
+        "righteous man who blessed jesus",
+        "simeon who saw messiah"
+      ],
+      "name": "Simeon the Temple Elder",
+      "category": "devout believer",
+      "book": "Luke",
+      "chapter": 2,
+      "id": "chr_simeon_the_temple_elder"
+    },
+    {
+      "aliases": [
+        "bartimaeus",
+        "blind beggar of jericho",
+        "son of timaeus"
+      ],
+      "name": "Bartimaeus",
+      "category": "healed person",
+      "book": "Mark",
+      "chapter": 10,
+      "id": "chr_bartimaeus"
+    },
+    {
+      "aliases": [
+        "woman at the well",
+        "samaritan woman",
+        "woman of sychar"
+      ],
+      "name": "Samaritan Woman at the Well",
+      "category": "disciple",
+      "book": "John",
+      "chapter": 4,
+      "id": "chr_samaritan_woman_at_the_well"
+    },
+    {
+      "aliases": [
+        "woman with issue of blood",
+        "bleeding woman healed by jesus",
+        "twelve year illness woman"
+      ],
+      "name": "Woman with the Issue of Blood",
+      "category": "healed person",
+      "book": "Mark",
+      "chapter": 5,
+      "id": "chr_woman_with_the_issue_of_blood"
+    },
+    {
+      "aliases": [
+        "syrophoenician woman",
+        "canaanite woman",
+        "woman whose daughter was healed"
+      ],
+      "name": "Syrophoenician Woman",
+      "category": "believer",
+      "book": "Mark",
+      "chapter": 7,
+      "id": "chr_syrophoenician_woman"
+    },
+    {
+      "aliases": [
+        "widow of nain",
+        "woman whose son jesus raised"
+      ],
+      "name": "Widow of Nain",
+      "category": "healed person's family",
+      "book": "Luke",
+      "chapter": 7,
+      "id": "chr_widow_of_nain"
+    },
+    {
+      "aliases": [
+        "woman bent over",
+        "daughter of abraham healed",
+        "eighteen year illness"
+      ],
+      "name": "Woman Bent Over by Spirit of Infirmity",
+      "category": "healed person",
+      "book": "Luke",
+      "chapter": 13,
+      "id": "chr_woman_bent_over_by_spirit_of_infirmity"
+    },
+    {
+      "aliases": [
+        "eunice",
+        "mother of timothy",
+        "mother of faith"
+      ],
+      "name": "Eunice",
+      "category": "early christian",
+      "book": "Acts",
+      "chapter": 16,
+      "id": "chr_eunice"
+    },
+    {
+      "aliases": [
+        "lois",
+        "grandmother of timothy",
+        "faithful grandmother"
+      ],
+      "name": "Lois",
+      "category": "early christian",
+      "book": "2 Timothy",
+      "chapter": 1,
+      "id": "chr_lois"
+    },
+    {
+      "aliases": [
+        "phoebe",
+        "deaconess of cenchreae",
+        "servant of church",
+        "carrier of romans"
+      ],
+      "name": "Phoebe",
+      "category": "church leader",
+      "book": "Romans",
+      "chapter": 16,
+      "id": "chr_phoebe"
+    },
+    {
+      "aliases": [
+        "junia",
+        "junius",
+        "woman noted among apostles"
+      ],
+      "name": "Junia",
+      "category": "early christian",
+      "book": "Romans",
+      "chapter": 16,
+      "id": "chr_junia"
+    },
+    {
+      "aliases": [
+        "euodia",
+        "woman who labored with paul"
+      ],
+      "name": "Euodia",
+      "category": "early christian",
+      "book": "Philippians",
+      "chapter": 4,
+      "id": "chr_euodia"
+    },
+    {
+      "aliases": [
+        "syntyche",
+        "woman who worked with paul"
+      ],
+      "name": "Syntyche",
+      "category": "early christian",
+      "book": "Philippians",
+      "chapter": 4,
+      "id": "chr_syntyche"
+    },
+    {
+      "aliases": [
+        "dorcus",
+        "tabitha",
+        "disciple raised by peter",
+        "woman known for good works"
+      ],
+      "name": "Tabitha / Dorcas",
+      "category": "disciple",
+      "book": "Acts",
+      "chapter": 9,
+      "id": "chr_tabitha_dorcas"
+    },
+    {
+      "aliases": [
+        "ananias of damascus",
+        "man who baptized paul",
+        "disciple who restored saul sight"
+      ],
+      "name": "Ananias of Damascus",
+      "category": "disciple",
+      "book": "Acts",
+      "chapter": 9,
+      "id": "chr_ananias_of_damascus"
+    },
+    {
+      "aliases": [
+        "ananias and sapphira",
+        "couple judged by god",
+        "early church couple"
+      ],
+      "name": "Ananias and Sapphira",
+      "category": "early church figures",
+      "book": "Acts",
+      "chapter": 5,
+      "id": "chr_ananias_and_sapphira"
+    },
+    {
+      "aliases": [
+        "crispus",
+        "synagogue ruler who believed",
+        "convert of paul"
+      ],
+      "name": "Crispus",
+      "category": "early christian",
+      "book": "Acts",
+      "chapter": 18,
+      "id": "chr_crispus"
+    },
+    {
+      "aliases": [
+        "sosthenes",
+        "synagogue ruler",
+        "companion mentioned by paul"
+      ],
+      "name": "Sosthenes",
+      "category": "early christian",
+      "book": "Acts",
+      "chapter": 18,
+      "id": "chr_sosthenes"
+    },
+    {
+      "aliases": [
+        "erasmus",
+        "erastus",
+        "city treasurer",
+        "pauls coworker"
+      ],
+      "name": "Erastus",
+      "category": "early christian",
+      "book": "Acts",
+      "chapter": 19,
+      "id": "chr_erastus"
+    },
+    {
+      "aliases": [
+        "gaius",
+        "pauls host",
+        "believer mentioned by paul"
+      ],
+      "name": "Gaius",
+      "category": "early christian",
+      "book": "Acts",
+      "chapter": 19,
+      "id": "chr_gaius"
+    },
+    {
+      "aliases": [
+        "demas",
+        "pauls coworker who deserted him"
+      ],
+      "name": "Demas",
+      "category": "early christian",
+      "book": "Colossians",
+      "chapter": 4,
+      "id": "chr_demas"
+    },
+    {
+      "aliases": [
+        "onesimus",
+        "runaway slave converted by paul",
+        "philemons servant"
+      ],
+      "name": "Onesimus",
+      "category": "early christian",
+      "book": "Philemon",
+      "chapter": 1,
+      "id": "chr_onesimus"
+    },
+    {
+      "aliases": [
+        "philemon",
+        "owner of onesimus",
+        "church host"
+      ],
+      "name": "Philemon",
+      "category": "early christian",
+      "book": "Philemon",
+      "chapter": 1,
+      "id": "chr_philemon"
+    },
+    {
+      "aliases": [
+        "melchizedek",
+        "king of salem",
+        "priest of god most high",
+        "blessed abraham"
+      ],
+      "name": "Melchizedek",
+      "category": "priest king",
+      "book": "Genesis",
+      "chapter": 14,
+      "id": "chr_melchizedek",
+      "related": [
+        "ot_melchizedek"
+      ]
+    },
+    {
+      "aliases": [
+        "abimelech king of gerar",
+        "king who took sarah",
+        "philistine king"
+      ],
+      "name": "Abimelech king of Gerar",
+      "category": "king",
+      "book": "Genesis",
+      "chapter": 20,
+      "id": "chr_abimelech_king_of_gerar"
+    },
+    {
+      "aliases": [
+        "esau wife judith",
+        "daughter of beeri",
+        "wife of esau"
+      ],
+      "name": "Judith daughter of Beeri",
+      "category": "matriarch",
+      "book": "Genesis",
+      "chapter": 26,
+      "id": "chr_judith_daughter_of_beeri"
+    },
+    {
+      "aliases": [
+        "dinah",
+        "daughter of jacob",
+        "sister of twelve tribes"
+      ],
+      "name": "Dinah daughter of Jacob",
+      "category": "patriarch family",
+      "book": "Genesis",
+      "chapter": 30,
+      "id": "chr_dinah_daughter_of_jacob"
+    },
+    {
+      "aliases": [
+        "tamar daughter in law of judah",
+        "woman who bore perez",
+        "ancestor of david"
+      ],
+      "name": "Tamar daughter-in-law of Judah",
+      "category": "matriarch",
+      "book": "Genesis",
+      "chapter": 38,
+      "id": "chr_tamar_daughter_in_law_of_judah"
+    },
+    {
+      "aliases": [
+        "potiphars wife",
+        "woman who accused joseph",
+        "wife of egyptian official"
+      ],
+      "name": "Potiphar's Wife",
+      "category": "biblical figure",
+      "book": "Genesis",
+      "chapter": 39,
+      "id": "chr_potiphars_wife"
+    },
+    {
+      "aliases": [
+        "potiphar",
+        "captain of pharaoh guard",
+        "josephs master"
+      ],
+      "name": "Potiphar",
+      "category": "egyptian official",
+      "book": "Genesis",
+      "chapter": 37,
+      "id": "chr_potiphar"
+    },
+    {
+      "aliases": [
+        "korah",
+        "levite rebel",
+        "rebel against moses"
+      ],
+      "name": "Korah",
+      "category": "rebel leader",
+      "book": "Numbers",
+      "chapter": 16,
+      "id": "chr_korah"
+    },
+    {
+      "aliases": [
+        "dathan",
+        "abiram",
+        "rebels with korah"
+      ],
+      "name": "Dathan and Abiram",
+      "category": "rebel leaders",
+      "book": "Numbers",
+      "chapter": 16,
+      "id": "chr_dathan_and_abiram"
+    },
+    {
+      "aliases": [
+        "aachan",
+        "achan son of carmi",
+        "man who took devoted things"
+      ],
+      "name": "Achan",
+      "category": "israelite figure",
+      "book": "Joshua",
+      "chapter": 7,
+      "id": "chr_achan"
+    },
+    {
+      "aliases": [
+        "rahab",
+        "woman of jericho",
+        "protected israelite spies",
+        "ancestor of jesus"
+      ],
+      "name": "Rahab",
+      "category": "matriarch",
+      "book": "Joshua",
+      "chapter": 2,
+      "id": "chr_rahab"
+    },
+    {
+      "aliases": [
+        "samson father manoah",
+        "father of samson",
+        "man from zorah"
+      ],
+      "name": "Manoah",
+      "category": "judge family",
+      "book": "Judges",
+      "chapter": 13,
+      "id": "chr_manoah"
+    },
+    {
+      "aliases": [
+        "ibzan",
+        "judge of israel"
+      ],
+      "name": "Ibzan",
+      "category": "judge",
+      "book": "Judges",
+      "chapter": 12,
+      "id": "chr_ibzan"
+    },
+    {
+      "aliases": [
+        "elon judge",
+        "judge of israel"
+      ],
+      "name": "Elon",
+      "category": "judge",
+      "book": "Judges",
+      "chapter": 12,
+      "id": "chr_elon"
+    },
+    {
+      "aliases": [
+        "abdon judge",
+        "son of hillel",
+        "judge of israel"
+      ],
+      "name": "Abdon",
+      "category": "judge",
+      "book": "Judges",
+      "chapter": 12,
+      "id": "chr_abdon"
+    },
+    {
+      "aliases": [
+        "ahimelech priest",
+        "priest who helped david",
+        "father of abiathar"
+      ],
+      "name": "Ahimelech the Priest",
+      "category": "priest",
+      "book": "1 Samuel",
+      "chapter": 21,
+      "id": "chr_ahimelech_the_priest"
+    },
+    {
+      "aliases": [
+        "abiathar",
+        "priest who supported david",
+        "son of ahimelech"
+      ],
+      "name": "Abiathar",
+      "category": "priest",
+      "book": "1 Samuel",
+      "chapter": 22,
+      "id": "chr_abiathar"
+    },
+    {
+      "aliases": [
+        "mephibosheth",
+        "son of jonathan",
+        "crippled son of saul family"
+      ],
+      "name": "Mephibosheth",
+      "category": "royal family",
+      "book": "2 Samuel",
+      "chapter": 4,
+      "id": "chr_mephibosheth"
+    },
+    {
+      "aliases": [
+        "barzillai",
+        "wealthy supporter of david",
+        "old man who helped king"
+      ],
+      "name": "Barzillai",
+      "category": "supporter of david",
+      "book": "2 Samuel",
+      "chapter": 17,
+      "id": "chr_barzillai"
+    },
+    {
+      "aliases": [
+        "sheba son of bichri",
+        "rebel against david"
+      ],
+      "name": "Sheba son of Bichri",
+      "category": "rebel leader",
+      "book": "2 Samuel",
+      "chapter": 20,
+      "id": "chr_sheba_son_of_bichri"
+    },
+    {
+      "aliases": [
+        "micaiah son of imlah",
+        "prophet who opposed ahab"
+      ],
+      "name": "Micaiah son of Imlah",
+      "category": "prophet",
+      "book": "1 Kings",
+      "chapter": 22,
+      "id": "chr_micaiah_son_of_imlah"
+    },
+    {
+      "aliases": [
+        "obadiah servant of ahab",
+        "godly official of ahab"
+      ],
+      "name": "Obadiah servant of Ahab",
+      "category": "royal official",
+      "book": "1 Kings",
+      "chapter": 18,
+      "id": "chr_obadiah_servant_of_ahab"
+    },
+    {
+      "aliases": [
+        "jehosheba",
+        "daughter of jehoram",
+        "saved joash child"
+      ],
+      "name": "Jehosheba",
+      "category": "royal family",
+      "book": "2 Kings",
+      "chapter": 11,
+      "id": "chr_jehosheba"
+    },
+    {
+      "aliases": [
+        "huldah prophetess",
+        "woman prophet during josiah",
+        "keeper of the law"
+      ],
+      "name": "Huldah",
+      "category": "prophetess",
+      "book": "2 Kings",
+      "chapter": 22,
+      "id": "chr_huldah"
+    },
+    {
+      "aliases": [
+        "malchus",
+        "servant of high priest",
+        "ear healed by jesus"
+      ],
+      "name": "Malchus",
+      "category": "gospel figure",
+      "book": "John",
+      "chapter": 18,
+      "id": "chr_malchus"
+    },
+    {
+      "aliases": [
+        "barabbas",
+        "prisoner released instead of jesus",
+        "insurrectionist"
+      ],
+      "name": "Barabbas",
+      "category": "gospel figure",
+      "book": "Matthew",
+      "chapter": 27,
+      "id": "chr_barabbas"
+    },
+    {
+      "aliases": [
+        "timaeus",
+        "father of bartimaeus"
+      ],
+      "name": "Timaeus",
+      "category": "gospel figure",
+      "book": "Mark",
+      "chapter": 10,
+      "id": "chr_timaeus"
+    },
+    {
+      "aliases": [
+        "john of patmos",
+        "john the revelator",
+        "author of revelation"
+      ],
+      "name": "John of Patmos",
+      "category": "apostle/prophet",
+      "book": "Revelation",
+      "chapter": 1,
+      "id": "chr_john_of_patmos"
+    },
+    {
+      "aliases": [
+        "antipas",
+        "faithful martyr antipas",
+        "martyr of pergamum"
+      ],
+      "name": "Antipas of Pergamum",
+      "category": "martyr",
+      "book": "Revelation",
+      "chapter": 2,
+      "id": "chr_antipas_of_pergamum"
+    },
+    {
+      "aliases": [
+        "the woman jezebel revelation",
+        "jezebel of thyatira",
+        "false prophetess in revelation"
+      ],
+      "name": "Jezebel of Thyatira",
+      "category": "false prophet",
+      "book": "Revelation",
+      "chapter": 2,
+      "id": "chr_jezebel_of_thyatira"
+    },
+    {
+      "aliases": [
+        "the two witnesses",
+        "two prophets revelation",
+        "end times witnesses"
+      ],
+      "name": "Two Witnesses of Revelation",
+      "category": "prophetic figures",
+      "book": "Revelation",
+      "chapter": 11,
+      "id": "chr_two_witnesses_of_revelation"
+    },
+    {
+      "aliases": [
+        "beast revelation",
+        "antichrist beast",
+        "beast from sea"
+      ],
+      "name": "The Beast of Revelation",
+      "category": "symbolic figure",
+      "book": "Revelation",
+      "chapter": 13,
+      "id": "chr_the_beast_of_revelation"
+    },
+    {
+      "aliases": [
+        "false prophet revelation",
+        "second beast",
+        "deceiver in revelation"
+      ],
+      "name": "False Prophet of Revelation",
+      "category": "symbolic figure",
+      "book": "Revelation",
+      "chapter": 13,
+      "id": "chr_false_prophet_of_revelation"
+    },
+    {
+      "aliases": [
+        "anointed one",
+        "messiah",
+        "christ",
+        "promised savior"
+      ],
+      "name": "Messiah (Christ)",
+      "category": "messianic title",
+      "book": "Daniel",
+      "chapter": 9,
+      "id": "chr_messiah_christ"
+    },
+    {
+      "aliases": [
+        "melchizedek priesthood figure",
+        "priest forever"
+      ],
+      "name": "Messianic Priesthood Figure",
+      "category": "symbolic figure",
+      "book": "Hebrews",
+      "chapter": 7,
+      "id": "chr_messianic_priesthood_figure"
+    },
+    {
+      "aliases": [
+        "claudius lysias",
+        "roman commander",
+        "tribune who protected paul"
+      ],
+      "name": "Claudius Lysias",
+      "category": "roman officer",
+      "book": "Acts",
+      "chapter": 21,
+      "id": "chr_claudius_lysias"
+    },
+    {
+      "aliases": [
+        "julius centurion",
+        "centurion who guarded paul",
+        "roman officer on ship"
+      ],
+      "name": "Julius the Centurion",
+      "category": "roman officer",
+      "book": "Acts",
+      "chapter": 27,
+      "id": "chr_julius_the_centurion"
+    },
+    {
+      "aliases": [
+        "aristarchus",
+        "pauls companion",
+        "macedonian believer"
+      ],
+      "name": "Aristarchus",
+      "category": "early christian",
+      "book": "Acts",
+      "chapter": 19,
+      "id": "chr_aristarchus"
+    },
+    {
+      "aliases": [
+        "tychicus",
+        "pauls messenger",
+        "faithful minister"
+      ],
+      "name": "Tychicus",
+      "category": "early christian",
+      "book": "Acts",
+      "chapter": 20,
+      "id": "chr_tychicus"
+    },
+    {
+      "aliases": [
+        "epaphras",
+        "colossian minister",
+        "pauls fellow servant"
+      ],
+      "name": "Epaphras",
+      "category": "early christian",
+      "book": "Colossians",
+      "chapter": 1,
+      "id": "chr_epaphras"
+    },
+    {
+      "aliases": [
+        "epaphroditus",
+        "philippian messenger",
+        "pauls helper"
+      ],
+      "name": "Epaphroditus",
+      "category": "early christian",
+      "book": "Philippians",
+      "chapter": 2,
+      "id": "chr_epaphroditus"
+    },
+    {
+      "aliases": [
+        "archippus",
+        "fellow soldier",
+        "church worker"
+      ],
+      "name": "Archippus",
+      "category": "early christian",
+      "book": "Philemon",
+      "chapter": 1,
+      "id": "chr_archippus"
+    },
+    {
+      "aliases": [
+        "zenas lawyer",
+        "lawyer mentioned by paul"
+      ],
+      "name": "Zenas the Lawyer",
+      "category": "early christian",
+      "book": "Titus",
+      "chapter": 3,
+      "id": "chr_zenas_the_lawyer"
+    },
+    {
+      "aliases": [
+        "alexander coppersmith",
+        "smith who harmed paul",
+        "opponent of paul"
+      ],
+      "name": "Alexander the Coppersmith",
+      "category": "opponent",
+      "book": "2 Timothy",
+      "chapter": 4,
+      "id": "chr_alexander_the_coppersmith"
+    },
+    {
+      "aliases": [
+        "hymenaeus",
+        "false teacher",
+        "man handed over to satan"
+      ],
+      "name": "Hymenaeus",
+      "category": "false teacher",
+      "book": "1 Timothy",
+      "chapter": 1,
+      "id": "chr_hymenaeus"
+    },
+    {
+      "aliases": [
+        "philetus",
+        "false teacher with hymenaeus"
+      ],
+      "name": "Philetus",
+      "category": "false teacher",
+      "book": "2 Timothy",
+      "chapter": 2,
+      "id": "chr_philetus"
+    },
+    {
+      "aliases": [
+        "diotrephes",
+        "man who loved prominence",
+        "opponent of john"
+      ],
+      "name": "Diotrephes",
+      "category": "church opponent",
+      "book": "3 John",
+      "chapter": 1,
+      "id": "chr_diotrephes"
+    },
+    {
+      "aliases": [
+        "demetrius third john",
+        "commended believer"
+      ],
+      "name": "Demetrius of 3 John",
+      "category": "early christian",
+      "book": "3 John",
+      "chapter": 1,
+      "id": "chr_demetrius_of_3_john"
+    },
+    {
+      "aliases": [
+        "gaius third john",
+        "beloved believer",
+        "host of missionaries"
+      ],
+      "name": "Gaius of 3 John",
+      "category": "early christian",
+      "book": "3 John",
+      "chapter": 1,
+      "id": "chr_gaius_of_3_john"
+    },
+    {
+      "aliases": [
+        "james son of zebedee martyr",
+        "first apostle martyr"
+      ],
+      "name": "James son of Zebedee (Martyr)",
+      "category": "apostle",
+      "book": "Acts",
+      "chapter": 12,
+      "id": "chr_james_son_of_zebedee_martyr"
+    },
+    {
+      "aliases": [
+        "james brother of jesus jerusalem leader",
+        "apostle council leader"
+      ],
+      "name": "James brother of Jesus (Jerusalem Leader)",
+      "category": "church leader",
+      "book": "Acts",
+      "chapter": 15,
+      "id": "chr_james_brother_of_jesus_jerusalem_leader"
+    },
+    {
+      "aliases": [
+        "john the elder",
+        "elder mentioned by john"
+      ],
+      "name": "John the Elder",
+      "category": "church leader",
+      "book": "2 John",
+      "chapter": 1,
+      "id": "chr_john_the_elder"
+    },
+    {
+      "aliases": [
+        "john apostle beloved disciple",
+        "author of gospel of john"
+      ],
+      "name": "John the Apostle (Beloved Disciple)",
+      "category": "apostle",
+      "book": "John",
+      "chapter": 13,
+      "id": "chr_john_the_apostle_beloved_disciple"
+    }
+  ]
+}

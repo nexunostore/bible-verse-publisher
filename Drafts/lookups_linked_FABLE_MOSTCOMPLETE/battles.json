@@ -1,0 +1,256 @@
+{
+  "description": "Major biblical battles with one canonical book+chapter reference for lookup consistency.",
+  "entries": [
+    {
+      "aliases": [
+        "four kings vs five",
+        "lot rescue",
+        "abraham battle"
+      ],
+      "battle": "Battle of the Kings",
+      "book": "Genesis",
+      "chapter": 14,
+      "id": "bat_battle_of_the_kings"
+    },
+    {
+      "aliases": [
+        "exodus battle",
+        "amalekites",
+        "moses hands raised"
+      ],
+      "battle": "Battle with Amalek",
+      "book": "Exodus",
+      "chapter": 17,
+      "id": "bat_battle_with_amalek"
+    },
+    {
+      "aliases": [
+        "jericho walls",
+        "fall of jericho"
+      ],
+      "battle": "Battle of Jericho",
+      "book": "Joshua",
+      "chapter": 6,
+      "id": "bat_battle_of_jericho"
+    },
+    {
+      "aliases": [
+        "ai battle",
+        "israel defeat then victory"
+      ],
+      "battle": "Battle of Ai",
+      "book": "Joshua",
+      "chapter": 7,
+      "id": "bat_battle_of_ai"
+    },
+    {
+      "aliases": [
+        "gibeon battle",
+        "sun stands still"
+      ],
+      "battle": "Battle of Gibeon",
+      "book": "Joshua",
+      "chapter": 10,
+      "id": "bat_battle_of_gibeon"
+    },
+    {
+      "aliases": [
+        "hazor battle",
+        "northern kings"
+      ],
+      "battle": "Battle of Hazor",
+      "book": "Joshua",
+      "chapter": 11,
+      "id": "bat_battle_of_hazor"
+    },
+    {
+      "aliases": [
+        "midian battle",
+        "gideon 300 men"
+      ],
+      "battle": "Gideon vs Midian",
+      "book": "Judges",
+      "chapter": 7,
+      "id": "bat_gideon_vs_midian"
+    },
+    {
+      "aliases": [
+        "philistines battle",
+        "ark captured"
+      ],
+      "battle": "Battle of Aphek",
+      "book": "1 Samuel",
+      "chapter": 4,
+      "id": "bat_battle_of_aphek"
+    },
+    {
+      "aliases": [
+        "david goliath",
+        "valley of elah"
+      ],
+      "battle": "David vs Goliath",
+      "book": "1 Samuel",
+      "chapter": 17,
+      "id": "bat_david_vs_goliath"
+    },
+    {
+      "aliases": [
+        "saul vs philistines",
+        "mount gilboa"
+      ],
+      "battle": "Battle of Mount Gilboa",
+      "book": "1 Samuel",
+      "chapter": 31,
+      "id": "bat_battle_of_mount_gilboa"
+    },
+    {
+      "aliases": [
+        "david battles",
+        "philistines defeated"
+      ],
+      "battle": "David’s Philistine Wars",
+      "book": "2 Samuel",
+      "chapter": 5,
+      "id": "bat_davids_philistine_wars"
+    },
+    {
+      "aliases": [
+        "syrian war",
+        "ben-hadad",
+        "samaria siege"
+      ],
+      "battle": "Battle of Samaria",
+      "book": "1 Kings",
+      "chapter": 20,
+      "id": "bat_battle_of_samaria"
+    },
+    {
+      "aliases": [
+        "elijah fire",
+        "prophets of baal"
+      ],
+      "battle": "Mount Carmel Confrontation",
+      "book": "1 Kings",
+      "chapter": 18,
+      "id": "bat_mount_carmel_confrontation"
+    },
+    {
+      "aliases": [
+        "jehoshaphat battle",
+        "praise army",
+        "god fights"
+      ],
+      "battle": "Battle of the Valley of Berakah",
+      "book": "2 Chronicles",
+      "chapter": 20,
+      "id": "bat_battle_of_the_valley_of_berakah"
+    },
+    {
+      "aliases": [
+        "assyrian siege",
+        "sennacherib",
+        "angel of the lord"
+      ],
+      "battle": "Siege of Jerusalem",
+      "book": "2 Kings",
+      "chapter": 19,
+      "id": "bat_siege_of_jerusalem"
+    },
+    {
+      "aliases": [
+        "babylon conquest",
+        "jerusalem fall"
+      ],
+      "battle": "Fall of Jerusalem",
+      "book": "2 Kings",
+      "chapter": 25,
+      "id": "bat_fall_of_jerusalem"
+    },
+    {
+      "aliases": [
+        "persian conquest",
+        "cyrus victory"
+      ],
+      "battle": "Fall of Babylon",
+      "book": "Daniel",
+      "chapter": 5,
+      "id": "bat_fall_of_babylon"
+    },
+    {
+      "aliases": [
+        "maccabees battle",
+        "antiochus",
+        "temple rededication"
+      ],
+      "battle": "Maccabean Revolt",
+      "book": "1 Maccabees",
+      "chapter": 4,
+      "id": "bat_maccabean_revolt",
+      "related": [
+        "feast_hanukkah_feast_of_dedication"
+      ]
+    },
+    {
+      "aliases": [
+        "herod slaughter",
+        "bethlehem massacre"
+      ],
+      "battle": "Massacre of the Innocents",
+      "book": "Matthew",
+      "chapter": 2,
+      "id": "bat_massacre_of_the_innocents"
+    },
+    {
+      "aliases": [
+        "jesus temptation",
+        "wilderness battle"
+      ],
+      "battle": "Spiritual Battle in the Wilderness",
+      "book": "Matthew",
+      "chapter": 4,
+      "id": "bat_spiritual_battle_in_the_wilderness"
+    },
+    {
+      "aliases": [
+        "gethsemane struggle",
+        "spiritual warfare"
+      ],
+      "battle": "Gethsemane Agony",
+      "book": "Matthew",
+      "chapter": 26,
+      "id": "bat_gethsemane_agony"
+    },
+    {
+      "aliases": [
+        "cross victory",
+        "spiritual battle",
+        "atonement"
+      ],
+      "battle": "Victory at the Cross",
+      "book": "John",
+      "chapter": 19,
+      "id": "bat_victory_at_the_cross"
+    },
+    {
+      "aliases": [
+        "armageddon",
+        "final battle",
+        "end times"
+      ],
+      "battle": "Battle of Armageddon",
+      "book": "Revelation",
+      "chapter": 16,
+      "id": "bat_battle_of_armageddon"
+    },
+    {
+      "aliases": [
+        "satan defeated",
+        "final judgment"
+      ],
+      "battle": "Final Defeat of Satan",
+      "book": "Revelation",
+      "chapter": 20,
+      "id": "bat_final_defeat_of_satan"
+    }
+  ]
+}

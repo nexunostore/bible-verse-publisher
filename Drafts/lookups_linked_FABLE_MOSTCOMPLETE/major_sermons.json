@@ -1,0 +1,296 @@
+{
+  "description": "Major sermons, discourses, and extended teachings of Jesus and key biblical figures. Each entry selects ONE canonical book+chapter for lookup consistency, even when the discourse spans multiple chapters.",
+  "entries": [
+    {
+      "aliases": [
+        "sermon on the mount",
+        "beatitudes",
+        "jesus mountain sermon",
+        "blessed are",
+        "matthew 5 sermon"
+      ],
+      "event": "Sermon on the Mount",
+      "book": "Matthew",
+      "chapter": 5,
+      "id": "ser_sermon_on_the_mount"
+    },
+    {
+      "aliases": [
+        "sermon on the plain",
+        "luke beatitudes",
+        "jesus level place sermon",
+        "luke 6 sermon"
+      ],
+      "event": "Sermon on the Plain",
+      "book": "Luke",
+      "chapter": 6,
+      "id": "ser_sermon_on_the_plain"
+    },
+    {
+      "aliases": [
+        "olivet discourse",
+        "end times teaching",
+        "eschatology discourse",
+        "mount of olives prophecy",
+        "matthew 24 prophecy"
+      ],
+      "event": "Olivet Discourse",
+      "book": "Matthew",
+      "chapter": 24,
+      "id": "ser_olivet_discourse"
+    },
+    {
+      "aliases": [
+        "upper room discourse",
+        "farewell discourse",
+        "last supper teachings",
+        "jesus final teachings",
+        "john 13-17 discourse"
+      ],
+      "event": "Upper Room Discourse",
+      "book": "John",
+      "chapter": 13,
+      "id": "ser_upper_room_discourse"
+    },
+    {
+      "aliases": [
+        "bread of life discourse",
+        "i am the bread of life",
+        "feeding 5000 follow up",
+        "john 6 sermon"
+      ],
+      "event": "Bread of Life Discourse",
+      "book": "John",
+      "chapter": 6,
+      "id": "ser_bread_of_life_discourse"
+    },
+    {
+      "aliases": [
+        "good shepherd discourse",
+        "i am the good shepherd",
+        "sheep and shepherd teaching",
+        "john 10 sermon"
+      ],
+      "event": "Good Shepherd Discourse",
+      "book": "John",
+      "chapter": 10,
+      "id": "ser_good_shepherd_discourse"
+    },
+    {
+      "aliases": [
+        "mission discourse",
+        "sending of the twelve",
+        "instructions to disciples",
+        "matthew 10 sermon"
+      ],
+      "event": "Mission Discourse",
+      "book": "Matthew",
+      "chapter": 10,
+      "id": "ser_mission_discourse"
+    },
+    {
+      "aliases": [
+        "parables discourse",
+        "kingdom parables",
+        "sower explanation",
+        "matthew 13 teaching"
+      ],
+      "event": "Parables Discourse",
+      "book": "Matthew",
+      "chapter": 13,
+      "id": "ser_parables_discourse"
+    },
+    {
+      "aliases": [
+        "community discourse",
+        "church discipline teaching",
+        "forgiveness teaching",
+        "matthew 18 sermon"
+      ],
+      "event": "Community Discourse",
+      "book": "Matthew",
+      "chapter": 18,
+      "id": "ser_community_discourse"
+    },
+    {
+      "aliases": [
+        "temple discourse",
+        "woes to pharisees",
+        "scribes and pharisees rebuked",
+        "matthew 23 sermon"
+      ],
+      "event": "Temple Woes Discourse",
+      "book": "Matthew",
+      "chapter": 23,
+      "id": "ser_temple_woes_discourse"
+    },
+    {
+      "aliases": [
+        "divorce teaching",
+        "marriage teaching",
+        "kingdom teaching on divorce",
+        "matthew 19 teaching"
+      ],
+      "event": "Teaching on Divorce",
+      "book": "Matthew",
+      "chapter": 19,
+      "id": "ser_teaching_on_divorce"
+    },
+    {
+      "aliases": [
+        "rich young ruler teaching",
+        "kingdom riches teaching",
+        "camel through needle",
+        "matthew 19 riches"
+      ],
+      "event": "Teaching on Riches",
+      "book": "Matthew",
+      "chapter": 19,
+      "id": "ser_teaching_on_riches"
+    },
+    {
+      "aliases": [
+        "humility teaching",
+        "childlike faith teaching",
+        "who is greatest",
+        "matthew 18 humility"
+      ],
+      "event": "Teaching on Humility",
+      "book": "Matthew",
+      "chapter": 18,
+      "id": "ser_teaching_on_humility"
+    },
+    {
+      "aliases": [
+        "lord's prayer teaching",
+        "teaching on prayer",
+        "ask seek knock",
+        "matthew 6 prayer"
+      ],
+      "event": "Teaching on Prayer",
+      "book": "Matthew",
+      "chapter": 6,
+      "id": "ser_teaching_on_prayer"
+    },
+    {
+      "aliases": [
+        "holy spirit teaching",
+        "spirit comforter teaching",
+        "john 14 spirit",
+        "john 16 spirit"
+      ],
+      "event": "Teaching on the Holy Spirit",
+      "book": "John",
+      "chapter": 14,
+      "id": "ser_teaching_on_the_holy_spirit"
+    },
+    {
+      "aliases": [
+        "luke end times discourse",
+        "little apocalypse",
+        "luke 21 prophecy",
+        "jerusalem destruction prophecy"
+      ],
+      "event": "Luke's End Times Discourse",
+      "book": "Luke",
+      "chapter": 21,
+      "id": "ser_lukes_end_times_discourse"
+    },
+    {
+      "aliases": [
+        "nazareth sermon",
+        "jesus synagogue sermon",
+        "spirit of the lord upon me",
+        "isaiah fulfillment sermon"
+      ],
+      "event": "Nazareth Synagogue Sermon",
+      "book": "Luke",
+      "chapter": 4,
+      "id": "ser_nazareth_synagogue_sermon"
+    },
+    {
+      "aliases": [
+        "capernaum sermon",
+        "authority teaching",
+        "unclean spirit rebuke",
+        "luke 4 sermon"
+      ],
+      "event": "Capernaum Synagogue Sermon",
+      "book": "Luke",
+      "chapter": 4,
+      "id": "ser_capernaum_synagogue_sermon"
+    },
+    {
+      "aliases": [
+        "paul antioch sermon",
+        "paul synagogue sermon",
+        "acts 13 sermon",
+        "israel history teaching"
+      ],
+      "event": "Paul's Antioch Sermon",
+      "book": "Acts",
+      "chapter": 13,
+      "id": "ser_pauls_antioch_sermon"
+    },
+    {
+      "aliases": [
+        "paul mars hill",
+        "areopagus sermon",
+        "unknown god sermon",
+        "acts 17 sermon"
+      ],
+      "event": "Paul's Areopagus Sermon",
+      "book": "Acts",
+      "chapter": 17,
+      "id": "ser_pauls_areopagus_sermon"
+    },
+    {
+      "aliases": [
+        "pentecost sermon",
+        "peter sermon",
+        "holy spirit sermon",
+        "acts 2 sermon"
+      ],
+      "event": "Peter's Pentecost Sermon",
+      "book": "Acts",
+      "chapter": 2,
+      "id": "ser_peters_pentecost_sermon"
+    },
+    {
+      "aliases": [
+        "solomon's portico sermon",
+        "peter second sermon",
+        "healing of lame man sermon",
+        "acts 3 sermon"
+      ],
+      "event": "Peter's Solomon Portico Sermon",
+      "book": "Acts",
+      "chapter": 3,
+      "id": "ser_peters_solomon_portico_sermon"
+    },
+    {
+      "aliases": [
+        "stephen's speech",
+        "stephen sermon",
+        "israel history sermon",
+        "acts 7 sermon"
+      ],
+      "event": "Stephen's Defense Sermon",
+      "book": "Acts",
+      "chapter": 7,
+      "id": "ser_stephens_defense_sermon"
+    },
+    {
+      "aliases": [
+        "paul farewell discourse",
+        "paul elders teaching",
+        "miletus discourse",
+        "acts 20 sermon"
+      ],
+      "event": "Paul's Farewell Discourse",
+      "book": "Acts",
+      "chapter": 20,
+      "id": "ser_pauls_farewell_discourse"
+    }
+  ]
+}

@@ -1,0 +1,280 @@
+{
+  "description": "Major biblical covenants and major law-giving sections. Each entry selects ONE canonical book+chapter for lookup consistency.",
+  "entries": [
+    {
+      "aliases": [
+        "noahic covenant",
+        "rainbow covenant",
+        "covenant with noah"
+      ],
+      "covenant": "Noahic Covenant",
+      "book": "Genesis",
+      "chapter": 9,
+      "id": "cov_noahic_covenant"
+    },
+    {
+      "aliases": [
+        "abrahamic covenant",
+        "promise to abraham",
+        "genesis 12 covenant"
+      ],
+      "covenant": "Abrahamic Covenant (Call)",
+      "book": "Genesis",
+      "chapter": 12,
+      "id": "cov_abrahamic_covenant_call"
+    },
+    {
+      "aliases": [
+        "abraham covenant ceremony",
+        "cutting of animals",
+        "genesis 15 covenant"
+      ],
+      "covenant": "Abrahamic Covenant (Ceremony)",
+      "book": "Genesis",
+      "chapter": 15,
+      "id": "cov_abrahamic_covenant_ceremony"
+    },
+    {
+      "aliases": [
+        "circumcision covenant",
+        "genesis 17 covenant",
+        "sign of covenant"
+      ],
+      "covenant": "Abrahamic Covenant (Sign)",
+      "book": "Genesis",
+      "chapter": 17,
+      "id": "cov_abrahamic_covenant_sign"
+    },
+    {
+      "aliases": [
+        "mosaic covenant",
+        "sinai covenant",
+        "ten commandments"
+      ],
+      "covenant": "Mosaic Covenant (Sinai)",
+      "book": "Exodus",
+      "chapter": 19,
+      "id": "cov_mosaic_covenant_sinai"
+    },
+    {
+      "aliases": [
+        "ten commandments",
+        "decalogue",
+        "exodus 20 law"
+      ],
+      "law": "Ten Commandments",
+      "book": "Exodus",
+      "chapter": 20,
+      "id": "cov_ten_commandments"
+    },
+    {
+      "aliases": [
+        "book of the covenant",
+        "exodus laws",
+        "covenant code"
+      ],
+      "law": "Covenant Code",
+      "book": "Exodus",
+      "chapter": 21,
+      "id": "cov_book_of_the_covenant"
+    },
+    {
+      "aliases": [
+        "tabernacle instructions",
+        "sanctuary pattern",
+        "exodus tabernacle"
+      ],
+      "law": "Tabernacle Instructions",
+      "book": "Exodus",
+      "chapter": 25,
+      "id": "cov_tabernacle_instructions"
+    },
+    {
+      "aliases": [
+        "levitical laws",
+        "leviticus laws",
+        "holiness code"
+      ],
+      "law": "Holiness Code",
+      "book": "Leviticus",
+      "chapter": 19,
+      "id": "cov_levitical_laws"
+    },
+    {
+      "aliases": [
+        "sacrificial laws",
+        "leviticus sacrifices",
+        "burnt offering laws"
+      ],
+      "law": "Sacrificial System",
+      "book": "Leviticus",
+      "chapter": 1,
+      "id": "cov_sacrificial_laws"
+    },
+    {
+      "aliases": [
+        "priestly laws",
+        "levitical priesthood",
+        "aaron priesthood"
+      ],
+      "law": "Priestly Regulations",
+      "book": "Leviticus",
+      "chapter": 8,
+      "id": "cov_priestly_laws"
+    },
+    {
+      "aliases": [
+        "clean and unclean laws",
+        "purity laws",
+        "leviticus purity"
+      ],
+      "law": "Purity Laws",
+      "book": "Leviticus",
+      "chapter": 11,
+      "id": "cov_clean_and_unclean_laws"
+    },
+    {
+      "aliases": [
+        "day of atonement",
+        "yom kippur",
+        "leviticus 16"
+      ],
+      "law": "Day of Atonement Ritual",
+      "book": "Leviticus",
+      "chapter": 16,
+      "id": "cov_day_of_atonement"
+    },
+    {
+      "aliases": [
+        "jubilee laws",
+        "year of jubilee",
+        "leviticus 25"
+      ],
+      "law": "Jubilee Regulations",
+      "book": "Leviticus",
+      "chapter": 25,
+      "id": "cov_jubilee_laws"
+    },
+    {
+      "aliases": [
+        "nazirite vow",
+        "nazirite law",
+        "numbers 6"
+      ],
+      "law": "Nazirite Vow",
+      "book": "Numbers",
+      "chapter": 6,
+      "id": "cov_nazirite_vow"
+    },
+    {
+      "aliases": [
+        "shema",
+        "great commandment",
+        "deuteronomy 6"
+      ],
+      "law": "Shema Command",
+      "book": "Deuteronomy",
+      "chapter": 6,
+      "id": "cov_shema"
+    },
+    {
+      "aliases": [
+        "blessings and curses",
+        "deuteronomy covenant",
+        "deut 28"
+      ],
+      "law": "Blessings and Curses",
+      "book": "Deuteronomy",
+      "chapter": 28,
+      "id": "cov_blessings_and_curses"
+    },
+    {
+      "aliases": [
+        "deuteronomic covenant",
+        "moab covenant",
+        "renewed covenant"
+      ],
+      "covenant": "Deuteronomic Covenant",
+      "book": "Deuteronomy",
+      "chapter": 29,
+      "id": "cov_deuteronomic_covenant"
+    },
+    {
+      "aliases": [
+        "new covenant prophecy",
+        "jeremiah 31",
+        "new covenant promise"
+      ],
+      "covenant": "New Covenant (Prophecy)",
+      "book": "Jeremiah",
+      "chapter": 31,
+      "id": "cov_new_covenant_prophecy"
+    },
+    {
+      "aliases": [
+        "new covenant institution",
+        "last supper covenant",
+        "communion covenant"
+      ],
+      "covenant": "New Covenant (Institution)",
+      "book": "Luke",
+      "chapter": 22,
+      "id": "cov_new_covenant_institution"
+    },
+    {
+      "aliases": [
+        "law of christ",
+        "christian law",
+        "galatians 6"
+      ],
+      "law": "Law of Christ",
+      "book": "Galatians",
+      "chapter": 6,
+      "id": "cov_law_of_christ"
+    },
+    {
+      "aliases": [
+        "royal law",
+        "love your neighbor",
+        "james 2"
+      ],
+      "law": "Royal Law",
+      "book": "James",
+      "chapter": 2,
+      "id": "cov_royal_law"
+    },
+    {
+      "aliases": [
+        "greatest commandment",
+        "love god love neighbor",
+        "matthew 22"
+      ],
+      "law": "Greatest Commandment",
+      "book": "Matthew",
+      "chapter": 22,
+      "id": "cov_greatest_commandment"
+    },
+    {
+      "aliases": [
+        "golden rule",
+        "do unto others",
+        "matthew 7"
+      ],
+      "law": "Golden Rule",
+      "book": "Matthew",
+      "chapter": 7,
+      "id": "cov_golden_rule"
+    },
+    {
+      "aliases": [
+        "sermon on the mount law",
+        "jesus law teaching",
+        "matthew 5"
+      ],
+      "law": "Jesus' Teaching on the Law",
+      "book": "Matthew",
+      "chapter": 5,
+      "id": "cov_sermon_on_the_mount_law"
+    }
+  ]
+}

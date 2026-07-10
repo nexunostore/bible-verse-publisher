@@ -1,0 +1,2469 @@
+{
+  "description": "Recognized Old Testament stories and narrative events -> one canonical book+chapter. When stories span multiple chapters, the primary starting chapter is chosen for lookup purposes.",
+  "entries": [
+    {
+      "aliases": [
+        "creation",
+        "creation of the world",
+        "creation account",
+        "god creates heavens and earth"
+      ],
+      "book": "Genesis",
+      "chapter": 1,
+      "id": "ot_creation"
+    },
+    {
+      "aliases": [
+        "adam and eve",
+        "garden of eden",
+        "eden",
+        "first man and woman",
+        "creation of adam",
+        "creation of eve"
+      ],
+      "book": "Genesis",
+      "chapter": 2,
+      "id": "ot_adam_and_eve"
+    },
+    {
+      "aliases": [
+        "fall of man",
+        "forbidden fruit",
+        "adam and eve sin",
+        "serpent tempts eve",
+        "original sin"
+      ],
+      "book": "Genesis",
+      "chapter": 3,
+      "id": "ot_fall_of_man"
+    },
+    {
+      "aliases": [
+        "cain and abel",
+        "first murder",
+        "cain kills abel",
+        "abels offering",
+        "mark of cain"
+      ],
+      "book": "Genesis",
+      "chapter": 4,
+      "id": "ot_cain_and_abel"
+    },
+    {
+      "aliases": [
+        "sons of god and daughters of men",
+        "nephilim",
+        "giants before the flood"
+      ],
+      "book": "Genesis",
+      "chapter": 6,
+      "id": "ot_sons_of_god_and_daughters_of_men"
+    },
+    {
+      "aliases": [
+        "noahs ark",
+        "ark",
+        "great flood",
+        "the flood",
+        "animals entering the ark"
+      ],
+      "book": "Genesis",
+      "chapter": 6,
+      "id": "ot_noah"
+    },
+    {
+      "aliases": [
+        "covenant with noah",
+        "rainbow covenant",
+        "god promises no more flood"
+      ],
+      "book": "Genesis",
+      "chapter": 9,
+      "id": "ot_covenant_with_noah"
+    },
+    {
+      "aliases": [
+        "tower of babel",
+        "babel",
+        "confusion of languages",
+        "people build tower"
+      ],
+      "book": "Genesis",
+      "chapter": 11,
+      "id": "ot_tower_of_babel"
+    },
+    {
+      "aliases": [
+        "abraham called",
+        "abram called by god",
+        "leaving haran",
+        "abrahams journey"
+      ],
+      "book": "Genesis",
+      "chapter": 12,
+      "id": "ot_abraham_called"
+    },
+    {
+      "aliases": [
+        "abraham and lot",
+        "lot chooses sodom",
+        "abraham rescues lot"
+      ],
+      "book": "Genesis",
+      "chapter": 13,
+      "id": "ot_abraham_and_lot"
+    },
+    {
+      "aliases": [
+        "abraham and melchizedek"
+      ],
+      "book": "Genesis",
+      "chapter": 14,
+      "id": "ot_melchizedek"
+    },
+    {
+      "aliases": [
+        "god promises abraham a son",
+        "abraham covenant",
+        "abrahamic covenant",
+        "stars promise"
+      ],
+      "book": "Genesis",
+      "chapter": 15,
+      "id": "ot_god_promises_abraham_a_son"
+    },
+    {
+      "aliases": [
+        "hagar and ishmael",
+        "sarah and hagar",
+        "birth of ishmael"
+      ],
+      "book": "Genesis",
+      "chapter": 16,
+      "id": "ot_hagar_and_ishmael"
+    },
+    {
+      "aliases": [
+        "abraham visits by angels",
+        "three visitors to abraham",
+        "promise of isaac"
+      ],
+      "book": "Genesis",
+      "chapter": 18,
+      "id": "ot_abraham_visits_by_angels"
+    },
+    {
+      "aliases": [
+        "sodom and gomorrah",
+        "destruction of sodom",
+        "lot escapes sodom"
+      ],
+      "book": "Genesis",
+      "chapter": 19,
+      "id": "ot_sodom_and_gomorrah"
+    },
+    {
+      "aliases": [
+        "isaac born",
+        "birth of isaac",
+        "son of promise"
+      ],
+      "book": "Genesis",
+      "chapter": 21,
+      "id": "ot_isaac_born"
+    },
+    {
+      "aliases": [
+        "binding of isaac",
+        "abraham sacrifices isaac",
+        "abraham and isaac on mount moriah",
+        "akedah"
+      ],
+      "book": "Genesis",
+      "chapter": 22,
+      "id": "ot_binding_of_isaac"
+    },
+    {
+      "aliases": [
+        "isaac and rebekah",
+        "rebekah chosen as wife",
+        "isaac marries rebekah"
+      ],
+      "book": "Genesis",
+      "chapter": 24,
+      "id": "ot_isaac_and_rebekah"
+    },
+    {
+      "aliases": [
+        "jacob and esau",
+        "esau sells birthright",
+        "jacob receives blessing"
+      ],
+      "book": "Genesis",
+      "chapter": 25,
+      "id": "ot_jacob_and_esau"
+    },
+    {
+      "aliases": [
+        "jacobs ladder",
+        "jacob dream at bethel",
+        "angels ascending and descending"
+      ],
+      "book": "Genesis",
+      "chapter": 28,
+      "id": "ot_jacobs_ladder"
+    },
+    {
+      "aliases": [
+        "jacob marries leah and rachel",
+        "jacob and laban",
+        "seven years for rachel",
+        "leah and rachel"
+      ],
+      "book": "Genesis",
+      "chapter": 29,
+      "id": "ot_jacob_marries_leah_and_rachel"
+    },
+    {
+      "aliases": [
+        "jacob wrestles with god",
+        "wrestling at peniel",
+        "jacob renamed israel"
+      ],
+      "book": "Genesis",
+      "chapter": 32,
+      "id": "ot_jacob_wrestles_with_god"
+    },
+    {
+      "aliases": [
+        "jacob meets esau",
+        "reconciliation of jacob and esau"
+      ],
+      "book": "Genesis",
+      "chapter": 33,
+      "id": "ot_jacob_meets_esau"
+    },
+    {
+      "aliases": [
+        "dinah and shechem",
+        "shechem and dinah",
+        "revenge of simon and levi"
+      ],
+      "book": "Genesis",
+      "chapter": 34,
+      "id": "ot_dinah_and_shechem"
+    },
+    {
+      "aliases": [
+        "josephs coat",
+        "coat of many colors",
+        "joseph and his brothers",
+        "brothers sell joseph"
+      ],
+      "book": "Genesis",
+      "chapter": 37,
+      "id": "ot_josephs_coat"
+    },
+    {
+      "aliases": [
+        "joseph in egypt",
+        "joseph sold into slavery",
+        "potiphars house",
+        "joseph the slave"
+      ],
+      "book": "Genesis",
+      "chapter": 39,
+      "id": "ot_joseph_in_egypt"
+    },
+    {
+      "aliases": [
+        "joseph and potiphars wife",
+        "potiphars wife accuses joseph",
+        "joseph imprisoned"
+      ],
+      "book": "Genesis",
+      "chapter": 39,
+      "id": "ot_joseph_and_potiphars_wife"
+    },
+    {
+      "aliases": [
+        "joseph interprets dreams",
+        "pharaohs dreams",
+        "seven years of plenty and famine"
+      ],
+      "book": "Genesis",
+      "chapter": 41,
+      "id": "ot_joseph_interprets_dreams"
+    },
+    {
+      "aliases": [
+        "joseph becomes governor of egypt",
+        "joseph second in command",
+        "joseph saves egypt"
+      ],
+      "book": "Genesis",
+      "chapter": 41,
+      "id": "ot_joseph_becomes_governor_of_egypt"
+    },
+    {
+      "aliases": [
+        "joseph and his brothers in egypt",
+        "brothers come to egypt for grain",
+        "joseph reveals himself"
+      ],
+      "book": "Genesis",
+      "chapter": 42,
+      "id": "ot_joseph_and_his_brothers_in_egypt"
+    },
+    {
+      "aliases": [
+        "jacob goes to egypt",
+        "israel moves to egypt",
+        "joseph brings family to egypt"
+      ],
+      "book": "Genesis",
+      "chapter": 46,
+      "id": "ot_jacob_goes_to_egypt"
+    },
+    {
+      "aliases": [
+        "joseph forgives his brothers",
+        "what you meant for evil",
+        "joseph reconciliation"
+      ],
+      "book": "Genesis",
+      "chapter": 50,
+      "id": "ot_joseph_forgives_his_brothers"
+    },
+    {
+      "aliases": [
+        "birth of moses",
+        "moses in the basket",
+        "baby moses in nile",
+        "pharaohs daughter saves moses"
+      ],
+      "book": "Exodus",
+      "chapter": 2,
+      "id": "ot_birth_of_moses"
+    },
+    {
+      "aliases": [
+        "moses kills egyptian",
+        "moses flees egypt",
+        "moses in midian"
+      ],
+      "book": "Exodus",
+      "chapter": 2,
+      "id": "ot_moses_kills_egyptian"
+    },
+    {
+      "aliases": [
+        "burning bush",
+        "moses and the burning bush",
+        "god calls moses",
+        "i am who i am"
+      ],
+      "book": "Exodus",
+      "chapter": 3,
+      "id": "ot_burning_bush"
+    },
+    {
+      "aliases": [
+        "moses returns to egypt",
+        "moses and pharaoh",
+        "let my people go"
+      ],
+      "book": "Exodus",
+      "chapter": 5,
+      "id": "ot_moses_returns_to_egypt"
+    },
+    {
+      "aliases": [
+        "ten plagues",
+        "plagues of egypt",
+        "egypt plagues",
+        "moses plagues pharaoh"
+      ],
+      "book": "Exodus",
+      "chapter": 7,
+      "id": "ot_ten_plagues"
+    },
+    {
+      "aliases": [
+        "passover",
+        "first passover",
+        "passover lamb",
+        "angel of death passes over"
+      ],
+      "book": "Exodus",
+      "chapter": 12,
+      "id": "ot_passover"
+    },
+    {
+      "aliases": [
+        "crossing the red sea",
+        "red sea crossing",
+        "israel crosses the sea",
+        "pharaohs army destroyed"
+      ],
+      "book": "Exodus",
+      "chapter": 14,
+      "id": "ot_crossing_the_red_sea"
+    },
+    {
+      "aliases": [
+        "manna from heaven",
+        "israel eats manna",
+        "bread from heaven"
+      ],
+      "book": "Exodus",
+      "chapter": 16,
+      "id": "ot_manna_from_heaven"
+    },
+    {
+      "aliases": [
+        "water from the rock",
+        "moses strikes the rock",
+        "water at meribah"
+      ],
+      "book": "Exodus",
+      "chapter": 17,
+      "id": "ot_water_from_the_rock"
+    },
+    {
+      "aliases": [
+        "ten commandments",
+        "mount sinai",
+        "tablets of stone",
+        "moses receives commandments"
+      ],
+      "book": "Exodus",
+      "chapter": 20,
+      "id": "ot_ten_commandments"
+    },
+    {
+      "aliases": [
+        "golden calf",
+        "israel worships golden calf",
+        "aaron and the golden calf"
+      ],
+      "book": "Exodus",
+      "chapter": 32,
+      "id": "ot_golden_calf"
+    },
+    {
+      "aliases": [
+        "tabernacle",
+        "building the tabernacle",
+        "tent of meeting",
+        "moses builds sanctuary"
+      ],
+      "book": "Exodus",
+      "chapter": 25,
+      "id": "ot_tabernacle"
+    },
+    {
+      "aliases": [
+        "nadab and abihu",
+        "strange fire",
+        "sons of aaron killed"
+      ],
+      "book": "Leviticus",
+      "chapter": 10,
+      "id": "ot_nadab_and_abihu"
+    },
+    {
+      "aliases": [
+        "twelve spies",
+        "spies in canaan",
+        "joshua and caleb",
+        "bad report of the spies"
+      ],
+      "book": "Numbers",
+      "chapter": 13,
+      "id": "ot_twelve_spies"
+    },
+    {
+      "aliases": [
+        "korahs rebellion",
+        "korah rebellion",
+        "korah and moses",
+        "earth swallows korah"
+      ],
+      "book": "Numbers",
+      "chapter": 16,
+      "id": "ot_korahs_rebellion"
+    },
+    {
+      "aliases": [
+        "aarons staff buds",
+        "aarons rod",
+        "budding staff"
+      ],
+      "book": "Numbers",
+      "chapter": 17,
+      "id": "ot_aarons_staff_buds"
+    },
+    {
+      "aliases": [
+        "bronze serpent",
+        "fiery serpents",
+        "moses bronze snake",
+        "snake in the wilderness"
+      ],
+      "book": "Numbers",
+      "chapter": 21,
+      "id": "ot_bronze_serpent"
+    },
+    {
+      "aliases": [
+        "balaam and the donkey",
+        "balaams donkey",
+        "talking donkey",
+        "balaam and the angel"
+      ],
+      "book": "Numbers",
+      "chapter": 22,
+      "id": "ot_balaam_and_the_donkey"
+    },
+    {
+      "aliases": [
+        "moses views promised land",
+        "moses sees canaan",
+        "moses death",
+        "mount nebo"
+      ],
+      "book": "Deuteronomy",
+      "chapter": 34,
+      "id": "ot_moses_views_promised_land"
+    },
+    {
+      "aliases": [
+        "rahabs spies",
+        "rahab hides spies",
+        "spies in jericho",
+        "rahab the prostitute"
+      ],
+      "book": "Joshua",
+      "chapter": 2,
+      "id": "ot_rahabs_spies"
+    },
+    {
+      "aliases": [
+        "crossing the jordan",
+        "jordan river crossing",
+        "israel crosses jordan",
+        "joshua crosses river"
+      ],
+      "book": "Joshua",
+      "chapter": 3,
+      "id": "ot_crossing_the_jordan"
+    },
+    {
+      "aliases": [
+        "battle of jericho",
+        "walls of jericho",
+        "jericho falls",
+        "israel conquers jericho"
+      ],
+      "book": "Joshua",
+      "chapter": 6,
+      "id": "ot_battle_of_jericho"
+    },
+    {
+      "aliases": [
+        "achan sin",
+        "achan steals devoted things",
+        "sin at ai",
+        "israel defeated at ai"
+      ],
+      "book": "Joshua",
+      "chapter": 7,
+      "id": "ot_achan_sin"
+    },
+    {
+      "aliases": [
+        "battle of ai",
+        "ai defeated",
+        "joshua conquers ai"
+      ],
+      "book": "Joshua",
+      "chapter": 8,
+      "id": "ot_battle_of_ai"
+    },
+    {
+      "aliases": [
+        "sun stands still",
+        "joshua long day",
+        "battle of gibeon",
+        "sun stopped"
+      ],
+      "book": "Joshua",
+      "chapter": 10,
+      "id": "ot_sun_stands_still"
+    },
+    {
+      "aliases": [
+        "gideon called",
+        "gideons fleece",
+        "gideon and the angel",
+        "gideon chosen as judge"
+      ],
+      "book": "Judges",
+      "chapter": 6,
+      "id": "ot_gideon_called"
+    },
+    {
+      "aliases": [
+        "gideons army",
+        "three hundred men",
+        "gideon defeats midianites"
+      ],
+      "book": "Judges",
+      "chapter": 7,
+      "id": "ot_gideons_army"
+    },
+    {
+      "aliases": [
+        "abimelech king",
+        "abimelechs rule",
+        "gideons son abimelech"
+      ],
+      "book": "Judges",
+      "chapter": 9,
+      "id": "ot_abimelech_king"
+    },
+    {
+      "aliases": [
+        "jephthah vow",
+        "jephthahs daughter",
+        "jephthah the judge"
+      ],
+      "book": "Judges",
+      "chapter": 11,
+      "id": "ot_jephthah_vow"
+    },
+    {
+      "aliases": [
+        "deborah and barak",
+        "deborah judge",
+        "battle against sisera"
+      ],
+      "book": "Judges",
+      "chapter": 4,
+      "id": "ot_deborah_and_barak"
+    },
+    {
+      "aliases": [
+        "jael and sisera",
+        "sisera killed by jael",
+        "tent peg story"
+      ],
+      "book": "Judges",
+      "chapter": 4,
+      "id": "ot_jael_and_sisera"
+    },
+    {
+      "aliases": [
+        "ehud and eglon",
+        "ehud kills eglon",
+        "left handed judge"
+      ],
+      "book": "Judges",
+      "chapter": 3,
+      "id": "ot_ehud_and_eglon"
+    },
+    {
+      "aliases": [
+        "samson birth",
+        "samson nazarite",
+        "angel announces samson"
+      ],
+      "book": "Judges",
+      "chapter": 13,
+      "id": "ot_samson_birth"
+    },
+    {
+      "aliases": [
+        "samson and delilah",
+        "delilah cuts samsons hair",
+        "samsons strength lost"
+      ],
+      "book": "Judges",
+      "chapter": 16,
+      "id": "ot_samson_and_delilah"
+    },
+    {
+      "aliases": [
+        "samson defeats philistines",
+        "samson pushes pillars",
+        "samsons death"
+      ],
+      "book": "Judges",
+      "chapter": 16,
+      "id": "ot_samson_defeats_philistines"
+    },
+    {
+      "aliases": [
+        "ruth and naomi",
+        "book of ruth",
+        "naomi returns to bethlehem"
+      ],
+      "book": "Ruth",
+      "chapter": 1,
+      "id": "ot_ruth_and_naomi"
+    },
+    {
+      "aliases": [
+        "ruth and boaz",
+        "boaz redeems ruth",
+        "kinsman redeemer",
+        "ruth gleans in field"
+      ],
+      "book": "Ruth",
+      "chapter": 2,
+      "id": "ot_ruth_and_boaz"
+    },
+    {
+      "aliases": [
+        "hannah prays for a son",
+        "hannah and samuel",
+        "samuel born",
+        "samuel dedicated to god"
+      ],
+      "book": "1 Samuel",
+      "chapter": 1,
+      "id": "ot_hannah_prays_for_a_son"
+    },
+    {
+      "aliases": [
+        "samuel called by god",
+        "boy samuel hears god",
+        "samuel in the temple",
+        "here i am lord"
+      ],
+      "book": "1 Samuel",
+      "chapter": 3,
+      "id": "ot_samuel_called_by_god"
+    },
+    {
+      "aliases": [
+        "ark captured by philistines",
+        "philistines capture the ark",
+        "ark of the covenant stolen"
+      ],
+      "book": "1 Samuel",
+      "chapter": 4,
+      "id": "ot_ark_captured_by_philistines"
+    },
+    {
+      "aliases": [
+        "dagon and the ark",
+        "ark in philistines temple",
+        "dagon falls before ark"
+      ],
+      "book": "1 Samuel",
+      "chapter": 5,
+      "id": "ot_dagon_and_the_ark"
+    },
+    {
+      "aliases": [
+        "saul becomes king",
+        "anointing of saul",
+        "saul chosen as king"
+      ],
+      "book": "1 Samuel",
+      "chapter": 9,
+      "id": "ot_saul_becomes_king"
+    },
+    {
+      "aliases": [
+        "saul rejected by god",
+        "sauls disobedience",
+        "samuel rebukes saul"
+      ],
+      "book": "1 Samuel",
+      "chapter": 15,
+      "id": "ot_saul_rejected_by_god"
+    },
+    {
+      "aliases": [
+        "david anointed",
+        "samuel anoints david",
+        "david chosen by god"
+      ],
+      "book": "1 Samuel",
+      "chapter": 16,
+      "id": "ot_david_anointed"
+    },
+    {
+      "aliases": [
+        "david and goliath",
+        "david kills goliath",
+        "battle with goliath",
+        "young david defeats giant"
+      ],
+      "book": "1 Samuel",
+      "chapter": 17,
+      "id": "ot_david_and_goliath"
+    },
+    {
+      "aliases": [
+        "david and jonathan",
+        "friendship of david and jonathan",
+        "covenant between david and jonathan"
+      ],
+      "book": "1 Samuel",
+      "chapter": 18,
+      "id": "ot_david_and_jonathan"
+    },
+    {
+      "aliases": [
+        "saul tries to kill david",
+        "david flees saul",
+        "saul pursues david"
+      ],
+      "book": "1 Samuel",
+      "chapter": 19,
+      "id": "ot_saul_tries_to_kill_david"
+    },
+    {
+      "aliases": [
+        "david spares saul",
+        "david refuses to kill saul",
+        "saul in cave"
+      ],
+      "book": "1 Samuel",
+      "chapter": 24,
+      "id": "ot_david_spares_saul"
+    },
+    {
+      "aliases": [
+        "david and abigail",
+        "abigail prevents david revenge",
+        "nabal and david"
+      ],
+      "book": "1 Samuel",
+      "chapter": 25,
+      "id": "ot_david_and_abigail"
+    },
+    {
+      "aliases": [
+        "david spares saul again",
+        "david and saul in the camp",
+        "second mercy to saul"
+      ],
+      "book": "1 Samuel",
+      "chapter": 26,
+      "id": "ot_david_spares_saul_again"
+    },
+    {
+      "aliases": [
+        "saul and the witch of endor",
+        "medium of endor",
+        "saul summons samuel"
+      ],
+      "book": "1 Samuel",
+      "chapter": 28,
+      "id": "ot_saul_and_the_witch_of_endor"
+    },
+    {
+      "aliases": [
+        "david becomes king",
+        "david crowned king",
+        "david rules israel"
+      ],
+      "book": "2 Samuel",
+      "chapter": 5,
+      "id": "ot_david_becomes_king"
+    },
+    {
+      "aliases": [
+        "ark brought to jerusalem",
+        "david and the ark",
+        "ark enters jerusalem"
+      ],
+      "book": "2 Samuel",
+      "chapter": 6,
+      "id": "ot_ark_brought_to_jerusalem"
+    },
+    {
+      "aliases": [
+        "davidic covenant",
+        "god promises david kingdom",
+        "david promised an everlasting throne"
+      ],
+      "book": "2 Samuel",
+      "chapter": 7,
+      "id": "ot_davidic_covenant"
+    },
+    {
+      "aliases": [
+        "david and bathsheba",
+        "david commits adultery",
+        "david sends uriah to death"
+      ],
+      "book": "2 Samuel",
+      "chapter": 11,
+      "id": "ot_david_and_bathsheba"
+    },
+    {
+      "aliases": [
+        "nathan rebukes david",
+        "david confronted by nathan",
+        "david repents"
+      ],
+      "book": "2 Samuel",
+      "chapter": 12,
+      "id": "ot_nathan_rebukes_david"
+    },
+    {
+      "aliases": [
+        "absalom rebellion",
+        "absalom against david",
+        "david flees jerusalem"
+      ],
+      "book": "2 Samuel",
+      "chapter": 15,
+      "id": "ot_absalom_rebellion"
+    },
+    {
+      "aliases": [
+        "absalom death",
+        "joab kills absalom",
+        "david mourns absalom"
+      ],
+      "book": "2 Samuel",
+      "chapter": 18,
+      "id": "ot_absalom_death"
+    },
+    {
+      "aliases": [
+        "solomon becomes king",
+        "solomons anointing",
+        "david appoints solomon"
+      ],
+      "book": "1 Kings",
+      "chapter": 1,
+      "id": "ot_solomon_becomes_king"
+    },
+    {
+      "aliases": [
+        "solomons wisdom",
+        "wise judgment of solomon",
+        "two women and baby"
+      ],
+      "book": "1 Kings",
+      "chapter": 3,
+      "id": "ot_solomons_wisdom"
+    },
+    {
+      "aliases": [
+        "solomon builds temple",
+        "first temple",
+        "temple of jerusalem built"
+      ],
+      "book": "1 Kings",
+      "chapter": 6,
+      "id": "ot_solomon_builds_temple"
+    },
+    {
+      "aliases": [
+        "queen of sheba",
+        "solomon and queen of sheba",
+        "sheba visits solomon"
+      ],
+      "book": "1 Kings",
+      "chapter": 10,
+      "id": "ot_queen_of_sheba"
+    },
+    {
+      "aliases": [
+        "kingdom divided",
+        "rehoboam and jeroboam",
+        "israel and judah split",
+        "division of the kingdom"
+      ],
+      "book": "1 Kings",
+      "chapter": 12,
+      "id": "ot_kingdom_divided"
+    },
+    {
+      "aliases": [
+        "golden calves of jeroboam",
+        "jeroboams idols",
+        "false worship in israel"
+      ],
+      "book": "1 Kings",
+      "chapter": 12,
+      "id": "ot_golden_calves_of_jeroboam"
+    },
+    {
+      "aliases": [
+        "elijah fed by ravens",
+        "ravens feed elijah",
+        "elijah by brook cherith"
+      ],
+      "book": "1 Kings",
+      "chapter": 17,
+      "id": "ot_elijah_fed_by_ravens"
+    },
+    {
+      "aliases": [
+        "widow of zarephath",
+        "elijah and the widow",
+        "flour and oil miracle",
+        "widows son raised"
+      ],
+      "book": "1 Kings",
+      "chapter": 17,
+      "id": "ot_widow_of_zarephath"
+    },
+    {
+      "aliases": [
+        "elijah and prophets of baal",
+        "mount carmel",
+        "fire from heaven",
+        "elijah defeats baal prophets"
+      ],
+      "book": "1 Kings",
+      "chapter": 18,
+      "id": "ot_elijah_and_prophets_of_baal"
+    },
+    {
+      "aliases": [
+        "elijah flees jezebel",
+        "elijah in the wilderness",
+        "still small voice",
+        "whisper of god"
+      ],
+      "book": "1 Kings",
+      "chapter": 19,
+      "id": "ot_elijah_flees_jezebel"
+    },
+    {
+      "aliases": [
+        "naboths vineyard",
+        "ahab and naboth",
+        "jezebel kills naboth"
+      ],
+      "book": "1 Kings",
+      "chapter": 21,
+      "id": "ot_naboths_vineyard"
+    },
+    {
+      "aliases": [
+        "elijah taken to heaven",
+        "elijah chariot of fire",
+        "fiery chariot",
+        "elijah ascension"
+      ],
+      "book": "2 Kings",
+      "chapter": 2,
+      "id": "ot_elijah_taken_to_heaven"
+    },
+    {
+      "aliases": [
+        "elisha inherits elijah mantle",
+        "elishas first miracle",
+        "double portion of elijah"
+      ],
+      "book": "2 Kings",
+      "chapter": 2,
+      "id": "ot_elisha_inherits_elijah_mantle"
+    },
+    {
+      "aliases": [
+        "elisha and the widow oil",
+        "widows oil multiplied",
+        "miracle of oil"
+      ],
+      "book": "2 Kings",
+      "chapter": 4,
+      "id": "ot_elisha_and_the_widow_oil"
+    },
+    {
+      "aliases": [
+        "shunammite woman",
+        "elisha raises child",
+        "woman of shunem son restored"
+      ],
+      "book": "2 Kings",
+      "chapter": 4,
+      "id": "ot_shunammite_woman"
+    },
+    {
+      "aliases": [
+        "naaman healed",
+        "naaman and elisha",
+        "syrian commander healed of leprosy"
+      ],
+      "book": "2 Kings",
+      "chapter": 5,
+      "id": "ot_naaman_healed"
+    },
+    {
+      "aliases": [
+        "axe head floats",
+        "elisha and floating axe",
+        "lost axe head miracle"
+      ],
+      "book": "2 Kings",
+      "chapter": 6,
+      "id": "ot_axe_head_floats"
+    },
+    {
+      "aliases": [
+        "elisha and syrian army",
+        "blind syrian soldiers",
+        "horses and chariots of fire"
+      ],
+      "book": "2 Kings",
+      "chapter": 6,
+      "id": "ot_elisha_and_syrian_army"
+    },
+    {
+      "aliases": [
+        "jonah called by god",
+        "jonah runs away",
+        "jonah and the storm"
+      ],
+      "book": "Jonah",
+      "chapter": 1,
+      "id": "ot_jonah_called_by_god"
+    },
+    {
+      "aliases": [
+        "jonah and the great fish",
+        "jonah swallowed by fish",
+        "jonah in the whale"
+      ],
+      "book": "Jonah",
+      "chapter": 1,
+      "id": "ot_jonah_and_the_great_fish"
+    },
+    {
+      "aliases": [
+        "jonah in nineveh",
+        "nineveh repents",
+        "jonah preaches to nineveh"
+      ],
+      "book": "Jonah",
+      "chapter": 3,
+      "id": "ot_jonah_in_nineveh"
+    },
+    {
+      "aliases": [
+        "hezekiah and assyria",
+        "sennacheribs invasion",
+        "jerusalem delivered"
+      ],
+      "book": "2 Kings",
+      "chapter": 18,
+      "id": "ot_hezekiah_and_assyria"
+    },
+    {
+      "aliases": [
+        "hezekiahs prayer",
+        "angel destroys assyrian army",
+        "185000 assyrians defeated"
+      ],
+      "book": "2 Kings",
+      "chapter": 19,
+      "id": "ot_hezekiahs_prayer"
+    },
+    {
+      "aliases": [
+        "isaiah and hezekiah",
+        "hezekiah healed",
+        "shadow goes backward"
+      ],
+      "book": "2 Kings",
+      "chapter": 20,
+      "id": "ot_isaiah_and_hezekiah"
+    },
+    {
+      "aliases": [
+        "manasseh repentance",
+        "wicked king manasseh repents"
+      ],
+      "book": "2 Chronicles",
+      "chapter": 33,
+      "id": "ot_manasseh_repentance"
+    },
+    {
+      "aliases": [
+        "josiah finds law",
+        "book of the law discovered",
+        "josiahs reforms"
+      ],
+      "book": "2 Kings",
+      "chapter": 22,
+      "id": "ot_josiah_finds_law"
+    },
+    {
+      "aliases": [
+        "babylonian exile",
+        "jerusalem destroyed",
+        "temple destroyed by babylon"
+      ],
+      "book": "2 Kings",
+      "chapter": 25,
+      "id": "ot_babylonian_exile"
+    },
+    {
+      "aliases": [
+        "daniel taken to babylon",
+        "daniel and his friends exile",
+        "young daniel in babylon"
+      ],
+      "book": "Daniel",
+      "chapter": 1,
+      "id": "ot_daniel_taken_to_babylon"
+    },
+    {
+      "aliases": [
+        "daniel interprets nebuchadnezzars dream",
+        "statue dream",
+        "king nebuchadnezzar dream"
+      ],
+      "book": "Daniel",
+      "chapter": 2,
+      "id": "ot_daniel_interprets_nebuchadnezzars_dream"
+    },
+    {
+      "aliases": [
+        "fiery furnace",
+        "shadrach meshach abednego",
+        "three hebrews in the furnace",
+        "daniel friends furnace"
+      ],
+      "book": "Daniel",
+      "chapter": 3,
+      "id": "ot_fiery_furnace"
+    },
+    {
+      "aliases": [
+        "nebuchadnezzar humbled",
+        "king becomes like an animal",
+        "tree dream fulfilled"
+      ],
+      "book": "Daniel",
+      "chapter": 4,
+      "id": "ot_nebuchadnezzar_humbled"
+    },
+    {
+      "aliases": [
+        "writing on the wall",
+        "belshazzar feast",
+        "mene mene tekel upharsin",
+        "daniel interprets writing"
+      ],
+      "book": "Daniel",
+      "chapter": 5,
+      "id": "ot_writing_on_the_wall"
+    },
+    {
+      "aliases": [
+        "daniel in the lions den",
+        "lions den",
+        "daniel thrown to lions",
+        "god saves daniel"
+      ],
+      "book": "Daniel",
+      "chapter": 6,
+      "id": "ot_daniel_in_the_lions_den"
+    },
+    {
+      "aliases": [
+        "daniels visions",
+        "four beasts vision",
+        "son of man vision"
+      ],
+      "book": "Daniel",
+      "chapter": 7,
+      "id": "ot_daniels_visions"
+    },
+    {
+      "aliases": [
+        "daniels seventy weeks",
+        "daniels prophecy",
+        "seventy sevens"
+      ],
+      "book": "Daniel",
+      "chapter": 9,
+      "id": "ot_daniels_seventy_weeks"
+    },
+    {
+      "aliases": [
+        "esther becomes queen",
+        "queen esther",
+        "esther chosen by king"
+      ],
+      "book": "Esther",
+      "chapter": 2,
+      "id": "ot_esther_becomes_queen"
+    },
+    {
+      "aliases": [
+        "mordecai saves king",
+        "esther and mordecai",
+        "plot against king"
+      ],
+      "book": "Esther",
+      "chapter": 2,
+      "id": "ot_mordecai_saves_king"
+    },
+    {
+      "aliases": [
+        "haman plot",
+        "haman and mordecai",
+        "jews threatened",
+        "purim story"
+      ],
+      "book": "Esther",
+      "chapter": 3,
+      "id": "ot_haman_plot"
+    },
+    {
+      "aliases": [
+        "esther approaches king",
+        "queen esther saves israel",
+        "esther banquet"
+      ],
+      "book": "Esther",
+      "chapter": 5,
+      "id": "ot_esther_approaches_king"
+    },
+    {
+      "aliases": [
+        "haman hanged",
+        "haman punishment",
+        "mordecai honored"
+      ],
+      "book": "Esther",
+      "chapter": 7,
+      "id": "ot_haman_hanged"
+    },
+    {
+      "aliases": [
+        "purim",
+        "jews delivered from enemies",
+        "esther victory"
+      ],
+      "book": "Esther",
+      "chapter": 8,
+      "id": "ot_purim"
+    },
+    {
+      "aliases": [
+        "ezra returns to jerusalem",
+        "return from exile",
+        "ezra rebuilds worship"
+      ],
+      "book": "Ezra",
+      "chapter": 7,
+      "id": "ot_ezra_returns_to_jerusalem"
+    },
+    {
+      "aliases": [
+        "rebuilding the temple",
+        "second temple",
+        "zerubbabel temple",
+        "temple rebuilt"
+      ],
+      "book": "Ezra",
+      "chapter": 3,
+      "id": "ot_rebuilding_the_temple"
+    },
+    {
+      "aliases": [
+        "samaria opposition",
+        "enemies stop temple rebuilding",
+        "temple work delayed"
+      ],
+      "book": "Ezra",
+      "chapter": 4,
+      "id": "ot_samaria_opposition"
+    },
+    {
+      "aliases": [
+        "nehemiah hears jerusalem walls broken",
+        "nehemiahs prayer",
+        "nehemiah called"
+      ],
+      "book": "Nehemiah",
+      "chapter": 1,
+      "id": "ot_nehemiah_hears_jerusalem_walls_broken"
+    },
+    {
+      "aliases": [
+        "rebuilding jerusalem walls",
+        "nehemiah builds walls",
+        "wall of jerusalem rebuilt"
+      ],
+      "book": "Nehemiah",
+      "chapter": 2,
+      "id": "ot_rebuilding_jerusalem_walls"
+    },
+    {
+      "aliases": [
+        "nehemiah opposition",
+        "sanballat and tobiah",
+        "enemies of nehemiah"
+      ],
+      "book": "Nehemiah",
+      "chapter": 4,
+      "id": "ot_nehemiah_opposition"
+    },
+    {
+      "aliases": [
+        "ezra reads the law",
+        "people hear the law",
+        "nehemiah and the law"
+      ],
+      "book": "Nehemiah",
+      "chapter": 8,
+      "id": "ot_ezra_reads_the_law"
+    },
+    {
+      "aliases": [
+        "job tested",
+        "satan tests job",
+        "job loses everything"
+      ],
+      "book": "Job",
+      "chapter": 1,
+      "id": "ot_job_tested"
+    },
+    {
+      "aliases": [
+        "jobs suffering",
+        "job boils",
+        "job friends visit"
+      ],
+      "book": "Job",
+      "chapter": 2,
+      "id": "ot_jobs_suffering"
+    },
+    {
+      "aliases": [
+        "job questions god",
+        "jobs speeches",
+        "why does job suffer"
+      ],
+      "book": "Job",
+      "chapter": 3,
+      "id": "ot_job_questions_god"
+    },
+    {
+      "aliases": [
+        "god answers job",
+        "lord speaks from whirlwind",
+        "job restored"
+      ],
+      "book": "Job",
+      "chapter": 38,
+      "id": "ot_god_answers_job"
+    },
+    {
+      "aliases": [
+        "job restored",
+        "jobs blessings restored",
+        "double blessing of job"
+      ],
+      "book": "Job",
+      "chapter": 42,
+      "id": "ot_job_restored"
+    },
+    {
+      "aliases": [
+        "psalm of david",
+        "david writes psalms",
+        "david the psalmist"
+      ],
+      "book": "Psalms",
+      "chapter": 23,
+      "id": "ot_psalm_of_david"
+    },
+    {
+      "aliases": [
+        "the shepherd psalm",
+        "the lord is my shepherd",
+        "psalm 23"
+      ],
+      "book": "Psalms",
+      "chapter": 23,
+      "id": "ot_the_shepherd_psalm"
+    },
+    {
+      "aliases": [
+        "david and goliath song",
+        "victory songs of israel",
+        "songs after battle"
+      ],
+      "book": "1 Samuel",
+      "chapter": 18,
+      "id": "ot_david_and_goliath_song"
+    },
+    {
+      "aliases": [
+        "proverbs of solomon",
+        "wisdom of solomon",
+        "solomon writes proverbs"
+      ],
+      "book": "Proverbs",
+      "chapter": 1,
+      "id": "ot_proverbs_of_solomon"
+    },
+    {
+      "aliases": [
+        "wise and foolish son",
+        "proverbs father and son",
+        "wisdom teaching"
+      ],
+      "book": "Proverbs",
+      "chapter": 10,
+      "id": "ot_wise_and_foolish_son"
+    },
+    {
+      "aliases": [
+        "virtuous woman",
+        "excellent wife",
+        "proverbs 31 woman"
+      ],
+      "book": "Proverbs",
+      "chapter": 31,
+      "id": "ot_virtuous_woman"
+    },
+    {
+      "aliases": [
+        "ecclesiastes teacher",
+        "the preacher",
+        "meaning of life",
+        "vanity of vanities"
+      ],
+      "book": "Ecclesiastes",
+      "chapter": 1,
+      "id": "ot_ecclesiastes_teacher"
+    },
+    {
+      "aliases": [
+        "time for everything",
+        "a time to every purpose",
+        "seasons of life"
+      ],
+      "book": "Ecclesiastes",
+      "chapter": 3,
+      "id": "ot_time_for_everything"
+    },
+    {
+      "aliases": [
+        "song of solomon",
+        "song of songs",
+        "solomon and the beloved"
+      ],
+      "book": "Song of Solomon",
+      "chapter": 1,
+      "id": "ot_song_of_solomon"
+    },
+    {
+      "aliases": [
+        "isaiah sees the lord",
+        "isaiahs temple vision",
+        "holy holy holy"
+      ],
+      "book": "Isaiah",
+      "chapter": 6,
+      "id": "ot_isaiah_sees_the_lord"
+    },
+    {
+      "aliases": [
+        "isaiah and immanuel prophecy",
+        "virgin birth prophecy",
+        "child called immanuel"
+      ],
+      "book": "Isaiah",
+      "chapter": 7,
+      "id": "ot_isaiah_and_immanuel_prophecy"
+    },
+    {
+      "aliases": [
+        "suffering servant",
+        "servant songs",
+        "isaiah suffering servant"
+      ],
+      "book": "Isaiah",
+      "chapter": 53,
+      "id": "ot_suffering_servant"
+    },
+    {
+      "aliases": [
+        "jeremiahs calling",
+        "jeremiah the prophet called",
+        "before i formed you"
+      ],
+      "book": "Jeremiah",
+      "chapter": 1,
+      "id": "ot_jeremiahs_calling"
+    },
+    {
+      "aliases": [
+        "jeremiah temple sermon",
+        "sermon at the temple gate"
+      ],
+      "book": "Jeremiah",
+      "chapter": 7,
+      "id": "ot_jeremiah_temple_sermon"
+    },
+    {
+      "aliases": [
+        "new covenant prophecy",
+        "jeremiah new covenant"
+      ],
+      "book": "Jeremiah",
+      "chapter": 31,
+      "id": "ot_new_covenant_prophecy"
+    },
+    {
+      "aliases": [
+        "dry bones",
+        "valley of dry bones",
+        "ezekiel dry bones vision",
+        "bones come alive"
+      ],
+      "book": "Ezekiel",
+      "chapter": 37,
+      "id": "ot_dry_bones"
+    },
+    {
+      "aliases": [
+        "ezekiel sees temple",
+        "new temple vision",
+        "ezekiels temple vision"
+      ],
+      "book": "Ezekiel",
+      "chapter": 40,
+      "id": "ot_ezekiel_sees_temple"
+    },
+    {
+      "aliases": [
+        "hosea and gomer",
+        "hosea marries gomer",
+        "unfaithful wife story"
+      ],
+      "book": "Hosea",
+      "chapter": 1,
+      "id": "ot_hosea_and_gomer"
+    },
+    {
+      "aliases": [
+        "hosea buys gomer back",
+        "redeeming unfaithful wife",
+        "hoseas restoration"
+      ],
+      "book": "Hosea",
+      "chapter": 3,
+      "id": "ot_hosea_buys_gomer_back"
+    },
+    {
+      "aliases": [
+        "joel locust plague",
+        "locust invasion",
+        "day of the lord prophecy"
+      ],
+      "book": "Joel",
+      "chapter": 1,
+      "id": "ot_joel_locust_plague"
+    },
+    {
+      "aliases": [
+        "amos called prophet",
+        "amos visions",
+        "justice rolls down"
+      ],
+      "book": "Amos",
+      "chapter": 1,
+      "id": "ot_amos_called_prophet"
+    },
+    {
+      "aliases": [
+        "obadiah prophecy",
+        "edom judgment"
+      ],
+      "book": "Obadiah",
+      "chapter": 1,
+      "id": "ot_obadiah_prophecy"
+    },
+    {
+      "aliases": [
+        "micah prophecy",
+        "bethlehem prophecy",
+        "what god requires"
+      ],
+      "book": "Micah",
+      "chapter": 5,
+      "id": "ot_micah_prophecy"
+    },
+    {
+      "aliases": [
+        "nahum nineveh prophecy",
+        "fall of nineveh"
+      ],
+      "book": "Nahum",
+      "chapter": 1,
+      "id": "ot_nahum_nineveh_prophecy"
+    },
+    {
+      "aliases": [
+        "habakkuk questions god",
+        "habakkuk dialogue",
+        "just shall live by faith"
+      ],
+      "book": "Habakkuk",
+      "chapter": 1,
+      "id": "ot_habakkuk_questions_god"
+    },
+    {
+      "aliases": [
+        "zephaniah prophecy",
+        "day of the lord",
+        "zephaniah judgment"
+      ],
+      "book": "Zephaniah",
+      "chapter": 1,
+      "id": "ot_zephaniah_prophecy"
+    },
+    {
+      "aliases": [
+        "haggai rebuild temple",
+        "haggai encourages temple rebuilding",
+        "house of god rebuilt"
+      ],
+      "book": "Haggai",
+      "chapter": 1,
+      "id": "ot_haggai_rebuild_temple"
+    },
+    {
+      "aliases": [
+        "zechariah visions",
+        "zechariah night visions",
+        "lampstand and olive trees"
+      ],
+      "book": "Zechariah",
+      "chapter": 1,
+      "id": "ot_zechariah_visions"
+    },
+    {
+      "aliases": [
+        "malachi messenger",
+        "return of elijah prophecy",
+        "malachi covenant message"
+      ],
+      "book": "Malachi",
+      "chapter": 3,
+      "id": "ot_malachi_messenger"
+    },
+    {
+      "aliases": [
+        "samuel anoints david",
+        "david chosen over brothers",
+        "god looks at the heart"
+      ],
+      "book": "1 Samuel",
+      "chapter": 16,
+      "id": "ot_samuel_anoints_david"
+    },
+    {
+      "aliases": [
+        "david dances before the ark",
+        "michal despises david",
+        "ark celebration"
+      ],
+      "book": "2 Samuel",
+      "chapter": 6,
+      "id": "ot_david_dances_before_the_ark"
+    },
+    {
+      "aliases": [
+        "uzyah struck with leprosy",
+        "uzziah pride",
+        "king uzziah leprosy"
+      ],
+      "book": "2 Chronicles",
+      "chapter": 26,
+      "id": "ot_uzyah_struck_with_leprosy"
+    },
+    {
+      "aliases": [
+        "asa reforms judah",
+        "king asa destroys idols",
+        "asa seeks god"
+      ],
+      "book": "2 Chronicles",
+      "chapter": 14,
+      "id": "ot_asa_reforms_judah"
+    },
+    {
+      "aliases": [
+        "jehoshaphat victory",
+        "battle belongs to the lord",
+        "judah praises god in battle"
+      ],
+      "book": "2 Chronicles",
+      "chapter": 20,
+      "id": "ot_jehoshaphat_victory"
+    },
+    {
+      "aliases": [
+        "joash repairs temple",
+        "young king joash",
+        "temple restoration"
+      ],
+      "book": "2 Kings",
+      "chapter": 12,
+      "id": "ot_joash_repairs_temple"
+    },
+    {
+      "aliases": [
+        "elisha and the bears",
+        "bears attack youths",
+        "elisha mocked"
+      ],
+      "book": "2 Kings",
+      "chapter": 2,
+      "id": "ot_elisha_and_the_bears"
+    },
+    {
+      "aliases": [
+        "miriam and aaron oppose moses",
+        "miriam leprosy",
+        "moses siblings"
+      ],
+      "book": "Numbers",
+      "chapter": 12,
+      "id": "ot_miriam_and_aaron_oppose_moses"
+    },
+    {
+      "aliases": [
+        "zelophehads daughters",
+        "inheritance of daughters",
+        "five daughters of zelophehad"
+      ],
+      "book": "Numbers",
+      "chapter": 27,
+      "id": "ot_zelophehads_daughters"
+    },
+    {
+      "aliases": [
+        "cities of refuge",
+        "refuge cities established"
+      ],
+      "book": "Numbers",
+      "chapter": 35,
+      "id": "ot_cities_of_refuge"
+    },
+    {
+      "aliases": [
+        "levites rebellion",
+        "levites punished",
+        "korahs followers destroyed"
+      ],
+      "book": "Numbers",
+      "chapter": 16,
+      "id": "ot_levites_rebellion"
+    },
+    {
+      "aliases": [
+        "balak and balaam",
+        "king balak hires balaam",
+        "balaam blesses israel"
+      ],
+      "book": "Numbers",
+      "chapter": 22,
+      "id": "ot_balak_and_balaam"
+    },
+    {
+      "aliases": [
+        "two and a half tribes settle",
+        "reuben gad manasseh inheritance"
+      ],
+      "book": "Joshua",
+      "chapter": 22,
+      "id": "ot_two_and_a_half_tribes_settle"
+    },
+    {
+      "aliases": [
+        "joshua farewell speech",
+        "covenant renewal at shechem",
+        "choose this day"
+      ],
+      "book": "Joshua",
+      "chapter": 24,
+      "id": "ot_joshua_farewell_speech"
+    },
+    {
+      "aliases": [
+        "micah and the idol",
+        "micha of ephraim",
+        "danites steal idol"
+      ],
+      "book": "Judges",
+      "chapter": 17,
+      "id": "ot_micah_and_the_idol"
+    },
+    {
+      "aliases": [
+        "levites concubine",
+        "crime at gibeah",
+        "benjamin civil war"
+      ],
+      "book": "Judges",
+      "chapter": 19,
+      "id": "ot_levites_concubine"
+    },
+    {
+      "aliases": [
+        "benjamin war",
+        "israel fights benjamin",
+        "tribe of benjamin nearly destroyed"
+      ],
+      "book": "Judges",
+      "chapter": 20,
+      "id": "ot_benjamin_war"
+    },
+    {
+      "aliases": [
+        "eli and sons",
+        "sons of eli wicked",
+        "samuel serves eli"
+      ],
+      "book": "1 Samuel",
+      "chapter": 2,
+      "id": "ot_eli_and_sons"
+    },
+    {
+      "aliases": [
+        "ichabod",
+        "glory departed",
+        "phinehas wife names ichabod"
+      ],
+      "book": "1 Samuel",
+      "chapter": 4,
+      "id": "ot_ichabod"
+    },
+    {
+      "aliases": [
+        "samuel defeats philistines",
+        "ebenezer stone",
+        "lord helps israel"
+      ],
+      "book": "1 Samuel",
+      "chapter": 7,
+      "id": "ot_samuel_defeats_philistines"
+    },
+    {
+      "aliases": [
+        "sauls foolish vow",
+        "jonathan eats honey",
+        "saul and jonathan battle"
+      ],
+      "book": "1 Samuel",
+      "chapter": 14,
+      "id": "ot_sauls_foolish_vow"
+    },
+    {
+      "aliases": [
+        "david counts israel",
+        "census of david",
+        "david numbering the people"
+      ],
+      "book": "2 Samuel",
+      "chapter": 24,
+      "id": "ot_david_counts_israel"
+    },
+    {
+      "aliases": [
+        "david buys threshing floor",
+        "david altar at araunah",
+        "site of temple chosen"
+      ],
+      "book": "2 Samuel",
+      "chapter": 24,
+      "id": "ot_david_buys_threshing_floor"
+    },
+    {
+      "aliases": [
+        "solomon dedicates temple",
+        "temple dedication prayer",
+        "glory fills temple"
+      ],
+      "book": "1 Kings",
+      "chapter": 8,
+      "id": "ot_solomon_dedicates_temple"
+    },
+    {
+      "aliases": [
+        "solomon turns away from god",
+        "solomons foreign wives",
+        "idolatry of solomon"
+      ],
+      "book": "1 Kings",
+      "chapter": 11,
+      "id": "ot_solomon_turns_away_from_god"
+    },
+    {
+      "aliases": [
+        "elijah and ahab",
+        "ahab king of israel",
+        "elijah prophecy against ahab"
+      ],
+      "book": "1 Kings",
+      "chapter": 17,
+      "id": "ot_elijah_and_ahab"
+    },
+    {
+      "aliases": [
+        "micaiah prophecy",
+        "micaiah and ahab",
+        "false prophets defeated"
+      ],
+      "book": "1 Kings",
+      "chapter": 22,
+      "id": "ot_micaiah_prophecy"
+    },
+    {
+      "aliases": [
+        "jehu becomes king",
+        "jehu destroys baal worship",
+        "jehus rebellion"
+      ],
+      "book": "2 Kings",
+      "chapter": 9,
+      "id": "ot_jehu_becomes_king"
+    },
+    {
+      "aliases": [
+        "athaliah queen",
+        "joash hidden from athaliah",
+        "queen athaliah overthrown"
+      ],
+      "book": "2 Kings",
+      "chapter": 11,
+      "id": "ot_athaliah_queen"
+    },
+    {
+      "aliases": [
+        "israel falls to assyria",
+        "samaria destroyed",
+        "northern kingdom exile"
+      ],
+      "book": "2 Kings",
+      "chapter": 17,
+      "id": "ot_israel_falls_to_assyria"
+    },
+    {
+      "aliases": [
+        "josiah celebrates passover",
+        "great passover of josiah"
+      ],
+      "book": "2 Chronicles",
+      "chapter": 35,
+      "id": "ot_josiah_celebrates_passover"
+    },
+    {
+      "aliases": [
+        "jeremiah thrown into cistern",
+        "jeremiah in the pit",
+        "prophet imprisoned"
+      ],
+      "book": "Jeremiah",
+      "chapter": 38,
+      "id": "ot_jeremiah_thrown_into_cistern"
+    },
+    {
+      "aliases": [
+        "jeremiah buys field",
+        "land purchase prophecy",
+        "hope after exile"
+      ],
+      "book": "Jeremiah",
+      "chapter": 32,
+      "id": "ot_jeremiah_buys_field"
+    },
+    {
+      "aliases": [
+        "lamentations jerusalem falls",
+        "mourning jerusalem",
+        "city destroyed"
+      ],
+      "book": "Lamentations",
+      "chapter": 1,
+      "id": "ot_lamentations_jerusalem_falls"
+    },
+    {
+      "aliases": [
+        "ezekiel called watchman",
+        "watchman of israel",
+        "ezekiels calling"
+      ],
+      "book": "Ezekiel",
+      "chapter": 3,
+      "id": "ot_ezekiel_called_watchman"
+    },
+    {
+      "aliases": [
+        "daniel refuses kings food",
+        "daniels diet",
+        "daniel and vegetables"
+      ],
+      "book": "Daniel",
+      "chapter": 1,
+      "id": "ot_daniel_refuses_kings_food"
+    },
+    {
+      "aliases": [
+        "daniel interprets handwriting",
+        "belshazzar feast",
+        "babylon falls prophecy"
+      ],
+      "book": "Daniel",
+      "chapter": 5,
+      "id": "ot_daniel_interprets_handwriting"
+    },
+    {
+      "aliases": [
+        "hosea children signs",
+        "jezreel lo ruhamah lo ammi",
+        "hosea family prophecy"
+      ],
+      "book": "Hosea",
+      "chapter": 1,
+      "id": "ot_hosea_children_signs"
+    },
+    {
+      "aliases": [
+        "amos basket of summer fruit",
+        "amos visions",
+        "end of israel"
+      ],
+      "book": "Amos",
+      "chapter": 8,
+      "id": "ot_amos_basket_of_summer_fruit"
+    },
+    {
+      "aliases": [
+        "jonah complains to god",
+        "jonah and the plant",
+        "vine and worm"
+      ],
+      "book": "Jonah",
+      "chapter": 4,
+      "id": "ot_jonah_complains_to_god"
+    },
+    {
+      "aliases": [
+        "ezra confession",
+        "israel confesses sin",
+        "ezras prayer"
+      ],
+      "book": "Ezra",
+      "chapter": 9,
+      "id": "ot_ezra_confession"
+    },
+    {
+      "aliases": [
+        "nehemiah covenant renewal",
+        "people promise obedience",
+        "wall dedication"
+      ],
+      "book": "Nehemiah",
+      "chapter": 10,
+      "id": "ot_nehemiah_covenant_renewal"
+    },
+    {
+      "aliases": [
+        "malachi tithes",
+        "robbing god",
+        "faithfulness in giving"
+      ],
+      "book": "Malachi",
+      "chapter": 3,
+      "id": "ot_malachi_tithes"
+    },
+    {
+      "aliases": [
+        "adam genealogy",
+        "from adam to noah",
+        "generations of adam"
+      ],
+      "book": "Genesis",
+      "chapter": 5,
+      "id": "ot_adam_genealogy"
+    },
+    {
+      "aliases": [
+        "enoch walks with god",
+        "enoch taken by god",
+        "enoch did not die"
+      ],
+      "book": "Genesis",
+      "chapter": 5,
+      "id": "ot_enoch_walks_with_god"
+    },
+    {
+      "aliases": [
+        "abraham tested by god",
+        "isaac sacrifice test",
+        "faith of abraham"
+      ],
+      "book": "Genesis",
+      "chapter": 22,
+      "id": "ot_abraham_tested_by_god"
+    },
+    {
+      "aliases": [
+        "isaac blesses jacob",
+        "jacob receives isaacs blessing",
+        "esau loses blessing"
+      ],
+      "book": "Genesis",
+      "chapter": 27,
+      "id": "ot_isaac_blesses_jacob"
+    },
+    {
+      "aliases": [
+        "jacob returns to bethel",
+        "god blesses jacob at bethel"
+      ],
+      "book": "Genesis",
+      "chapter": 35,
+      "id": "ot_jacob_returns_to_bethel"
+    },
+    {
+      "aliases": [
+        "josephs dreams",
+        "joseph dreams of sheaves",
+        "joseph dreams of stars"
+      ],
+      "book": "Genesis",
+      "chapter": 37,
+      "id": "ot_josephs_dreams"
+    },
+    {
+      "aliases": [
+        "moses and aaron before pharaoh",
+        "aaron speaks for moses",
+        "pharaoh refuses israel release"
+      ],
+      "book": "Exodus",
+      "chapter": 7,
+      "id": "ot_moses_and_aaron_before_pharaoh"
+    },
+    {
+      "aliases": [
+        "song of moses",
+        "moses song after red sea",
+        "israel celebrates deliverance"
+      ],
+      "book": "Exodus",
+      "chapter": 15,
+      "id": "ot_song_of_moses"
+    },
+    {
+      "aliases": [
+        "jethro advises moses",
+        "moses father in law counsel",
+        "delegating judges"
+      ],
+      "book": "Exodus",
+      "chapter": 18,
+      "id": "ot_jethro_advises_moses"
+    },
+    {
+      "aliases": [
+        "mount sinai covenant",
+        "israel covenant with god",
+        "blood covenant"
+      ],
+      "book": "Exodus",
+      "chapter": 24,
+      "id": "ot_mount_sinai_covenant"
+    },
+    {
+      "aliases": [
+        "moses sees gods glory",
+        "cleft of the rock",
+        "moses on mount sinai"
+      ],
+      "book": "Exodus",
+      "chapter": 33,
+      "id": "ot_moses_sees_gods_glory"
+    },
+    {
+      "aliases": [
+        "balak blesses israel",
+        "balaam blessings",
+        "balaam prophecies"
+      ],
+      "book": "Numbers",
+      "chapter": 23,
+      "id": "ot_balak_blesses_israel"
+    },
+    {
+      "aliases": [
+        "moses appoints joshua",
+        "joshua successor of moses"
+      ],
+      "book": "Numbers",
+      "chapter": 27,
+      "id": "ot_moses_appoints_joshua"
+    },
+    {
+      "aliases": [
+        "jericho rahab saved",
+        "rahabs family spared",
+        "scarlet cord"
+      ],
+      "book": "Joshua",
+      "chapter": 6,
+      "id": "ot_jericho_rahab_saved"
+    },
+    {
+      "aliases": [
+        "gideon destroys baal altar",
+        "jerubbaal",
+        "gideon against idols"
+      ],
+      "book": "Judges",
+      "chapter": 6,
+      "id": "ot_gideon_destroys_baal_altar"
+    },
+    {
+      "aliases": [
+        "samson riddle",
+        "samson wedding feast",
+        "samson and philistines"
+      ],
+      "book": "Judges",
+      "chapter": 14,
+      "id": "ot_samson_riddle"
+    },
+    {
+      "aliases": [
+        "ruth and the threshing floor",
+        "ruth asks boaz redemption",
+        "boaz and ruth"
+      ],
+      "book": "Ruth",
+      "chapter": 3,
+      "id": "ot_ruth_and_the_threshing_floor"
+    },
+    {
+      "aliases": [
+        "boaz redeems ruth",
+        "ruth marries boaz",
+        "obeds birth"
+      ],
+      "book": "Ruth",
+      "chapter": 4,
+      "id": "ot_boaz_redeems_ruth"
+    },
+    {
+      "aliases": [
+        "david spares saul in cave",
+        "cutting sauls robe",
+        "david shows mercy"
+      ],
+      "book": "1 Samuel",
+      "chapter": 24,
+      "id": "ot_david_spares_saul_in_cave"
+    },
+    {
+      "aliases": [
+        "david mourns saul and jonathan",
+        "song of the bow",
+        "lament for saul"
+      ],
+      "book": "2 Samuel",
+      "chapter": 1,
+      "id": "ot_david_mourns_saul_and_jonathan"
+    },
+    {
+      "aliases": [
+        "mephibosheth and david",
+        "david shows kindness to jonathans son"
+      ],
+      "book": "2 Samuel",
+      "chapter": 9,
+      "id": "ot_mephibosheth_and_david"
+    },
+    {
+      "aliases": [
+        "amnon and tamar",
+        "davids children tragedy"
+      ],
+      "book": "2 Samuel",
+      "chapter": 13,
+      "id": "ot_amnon_and_tamar"
+    },
+    {
+      "aliases": [
+        "solomon asks for wisdom",
+        "god gives solomon wisdom"
+      ],
+      "book": "1 Kings",
+      "chapter": 3,
+      "id": "ot_solomon_asks_for_wisdom"
+    },
+    {
+      "aliases": [
+        "elisha multiplies bread",
+        "feeding a hundred men",
+        "bread miracle of elisha"
+      ],
+      "book": "2 Kings",
+      "chapter": 4,
+      "id": "ot_elisha_multiplies_bread"
+    },
+    {
+      "aliases": [
+        "elisha blinds syrians",
+        "syrian army captured",
+        "elisha miracle"
+      ],
+      "book": "2 Kings",
+      "chapter": 6,
+      "id": "ot_elisha_blinds_syrians"
+    },
+    {
+      "aliases": [
+        "ezekiel eats scroll",
+        "prophet eats the scroll"
+      ],
+      "book": "Ezekiel",
+      "chapter": 3,
+      "id": "ot_ezekiel_eats_scroll"
+    },
+    {
+      "aliases": [
+        "daniel prayer",
+        "daniel prays three times",
+        "daniel faithful prayer"
+      ],
+      "book": "Daniel",
+      "chapter": 6,
+      "id": "ot_daniel_prayer"
+    },
+    {
+      "aliases": [
+        "esther saves her people",
+        "jews delivered",
+        "esther intercedes"
+      ],
+      "book": "Esther",
+      "chapter": 8,
+      "id": "ot_esther_saves_her_people"
+    }
+  ]
+}

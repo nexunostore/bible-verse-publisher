@@ -1,0 +1,238 @@
+name: Publish Bible Stories (Scripture Learning)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
+
+concurrency:
+  group: bible-story-publisher-sl
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Publish Bible Stories
+        run: |
+          set -e
+
+          # NOTE: auth is passed inline as -u "user:pass" at each curl
+          # call below, fully quoted (unchanged from your version). This
+          # keeps WordPress Application Passwords — which contain spaces —
+          # intact instead of being word-split by bash.
+
+          # =========================================================
+          # FIELD EXTRACTOR
+          # Reads everything between ===FIELDNAME=== and the next
+          # ===...=== marker (or end of file), then trims blank lines
+          # from the top and bottom. This is what lets one .txt carry
+          # TITLE, CATEGORIES, META_DESCRIPTION, KEY_TAKEAWAYS, BODY,
+          # and SUMMARY as separate sections.
+          # =========================================================
+          extract_field() {
+            awk -v field="$1" '
+              $0 == "===" field "===" { capture=1; next }
+              /^===[A-Z_]+===$/       { capture=0 }
+              capture                 { print }
+            ' "$2" \
+              | sed -e '/./,$!d' \
+              | sed -e ':a' -e '/^\n*$/{$d;N;ba}'
+          }
+
+          echo "Scanning Bible_Stories..."
+
+          find Bible_Stories -type f -name "*.txt" | while IFS= read -r file; do
+
+            echo "--------------------------------------"
+            echo "Processing: $file"
+
+            [ -z "$file" ] && continue
+            [ ! -f "$file" ] && continue
+
+            # -----------------------------
+            # PARSE STRUCTURED FIELDS
+            # -----------------------------
+            TITLE=$(extract_field "TITLE" "$file" | head -n 1 | tr -d '\r')
+            [ -z "$TITLE" ] && echo "Missing title → skipping" && continue
+
+            META=$(extract_field "META_DESCRIPTION" "$file" | tr -d '\r' | tr '\n' ' ' | sed 's/[[:space:]]\+/ /g' | sed 's/^ //;s/ $//')
+            RAW_CATEGORIES=$(extract_field "CATEGORIES" "$file" | tr -d '\r' | tr '\n' ',')
+            TAKEAWAYS=$(extract_field "KEY_TAKEAWAYS" "$file")
+            BODY=$(extract_field "BODY" "$file")
+            SUMMARY=$(extract_field "SUMMARY" "$file")
+
+            # Fall back gracefully if a file predates the new format:
+            # if there is no ===BODY=== section, treat everything from
+            # line 3 onward as the body (your old layout).
+            if [ -z "$BODY" ]; then
+              echo "No ===BODY=== section found → using legacy line-3+ body"
+              BODY=$(tail -n +3 "$file")
+            fi
+
+            [ -z "$BODY" ] && echo "Empty body → skipping" && continue
+
+            # -----------------------------
+            # CATEGORY PARSING (unchanged logic, new source)
+            # -----------------------------
+            IFS=',' read -ra CAT_ARRAY <<< "$RAW_CATEGORIES"
+            FINAL_CATEGORIES=""
+
+            for CAT in "${CAT_ARRAY[@]}"; do
+              CAT=$(echo "$CAT" | xargs)                          # trim
+              CAT=$(echo "$CAT" | sed 's/[[:space:]]\+/ /g')      # collapse spaces
+              [ -z "$CAT" ] && continue
+              echo "Processing category: '$CAT'"
+
+              SEARCH=$(curl -s -u "${WP_USERNAME}:${WP_PASSWORD}" \
+                "${WP_URL}/wp-json/wp/v2/categories?search=$(printf '%s' "$CAT" | sed 's/ /%20/g')")
+
+              CAT_ID=$(echo "$SEARCH" | jq -r --arg name "$CAT" '
+                map(select(.name == $name)) | .[0].id // empty
+              ')
+
+              if [ -z "$CAT_ID" ]; then
+                echo "Creating category: $CAT"
+                CREATE_PAYLOAD=$(jq -n --arg name "$CAT" '{name: $name}')
+                CREATE=$(curl -s -X POST -u "${WP_USERNAME}:${WP_PASSWORD}" \
+                  -H "Content-Type: application/json" \
+                  -d "$CREATE_PAYLOAD" \
+                  "${WP_URL}/wp-json/wp/v2/categories")
+                CAT_ID=$(echo "$CREATE" | jq -r '.id')
+
+                if [ -z "$CAT_ID" ] || [ "$CAT_ID" = "null" ]; then
+                  echo "ERROR creating category '$CAT' — raw response:"
+                  echo "$CREATE"
+                  echo "Skipping this category; post will publish without it."
+                  CAT_ID=""
+                else
+                  echo "Created category ID: $CAT_ID"
+                fi
+              else
+                echo "Found category ID: $CAT_ID"
+              fi
+
+              [ -n "$CAT_ID" ] && FINAL_CATEGORIES="$FINAL_CATEGORIES,$CAT_ID"
+            done
+
+            FINAL_CATEGORIES=$(echo "$FINAL_CATEGORIES" | sed 's/^,//')
+            echo "Final categories: $FINAL_CATEGORIES"
+
+            # -----------------------------
+            # SLUG GENERATION (from filename, unchanged)
+            # -----------------------------
+            BASENAME=$(basename "$file" .txt)
+            SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/-\+/-/g;s/^-//;s/-$//')
+            echo "Slug: $SLUG"
+
+            # -----------------------------
+            # DUPLICATE CHECK (WordPress = source of truth)
+            # -----------------------------
+            EXISTING=$(curl -s -u "${WP_USERNAME}:${WP_PASSWORD}" \
+              "${WP_URL}/wp-json/wp/v2/posts?slug=${SLUG}")
+            if echo "$EXISTING" | jq -e 'length > 0' > /dev/null; then
+              echo "Already published → skipping"
+              continue
+            fi
+
+            # =========================================================
+            # COMPUTED FIELD: READING TIME  (word count ÷ 200, rounded up)
+            # This one the workflow generates entirely on its own.
+            # =========================================================
+            WORDS=$(printf '%s' "$BODY" | wc -w | tr -d ' ')
+            READING_TIME=$(( (WORDS + 199) / 200 ))
+            [ "$READING_TIME" -lt 1 ] && READING_TIME=1
+            echo "Reading time: ${READING_TIME} min (${WORDS} words)"
+
+            # =========================================================
+            # RENDER: KEY TAKEAWAYS  →  <li> items
+            # (authored in the .txt; the workflow only formats them)
+            # =========================================================
+            TAKEAWAYS_HTML=""
+            if [ -n "$TAKEAWAYS" ]; then
+              TAKEAWAYS_LI=$(printf '%s\n' "$TAKEAWAYS" \
+                | sed 's/^[[:space:]]*[-*][[:space:]]*//' \
+                | grep -v '^[[:space:]]*$' \
+                | sed 's/.*/<li>&<\/li>/')
+              TAKEAWAYS_HTML="<div class=\"key-takeaways\">
+          <h2>Key Takeaways</h2>
+          <ul>
+          ${TAKEAWAYS_LI}
+          </ul>
+          </div>"
+            fi
+
+            # =========================================================
+            # RENDER: BODY  →  HTML
+            # ## / ### headings + your existing **bold** / *italic*
+            # =========================================================
+            BODY_HTML=$(printf '%s\n' "$BODY" \
+              | sed -E 's/^### (.+)$/<h3>\1<\/h3>/' \
+              | sed -E 's/^## (.+)$/<h2>\1<\/h2>/' \
+              | sed 's/\*\*\([^*]\+\)\*\*/<strong>\1<\/strong>/g' \
+              | sed 's/\*\([^*]\+\)\*/<em>\1<\/em>/g')
+
+            # =========================================================
+            # RENDER: SUMMARY section (authored; placed at the end)
+            # =========================================================
+            SUMMARY_HTML=""
+            if [ -n "$SUMMARY" ]; then
+              SUMMARY_HTML="<h2>Summary</h2>
+          <p>${SUMMARY}</p>"
+            fi
+
+            # -----------------------------
+            # ASSEMBLE FINAL CONTENT
+            # order: reading time → takeaways → body → summary
+            # -----------------------------
+            FULL_CONTENT="<p><em>Reading time: ${READING_TIME} min</em></p>
+
+          ${TAKEAWAYS_HTML}
+
+          ${BODY_HTML}
+
+          ${SUMMARY_HTML}"
+
+            CONTENT=$(printf '%s' "$FULL_CONTENT" | jq -Rs .)
+
+            # -----------------------------
+            # PUBLISH POST
+            # 'excerpt' carries the meta description (see note below).
+            # -----------------------------
+            POST_PAYLOAD=$(jq -n \
+              --arg title "$TITLE" \
+              --arg slug "$SLUG" \
+              --arg excerpt "$META" \
+              --argjson categories "[$FINAL_CATEGORIES]" \
+              --argjson content "$CONTENT" \
+              '{title: $title, slug: $slug, status: "publish", excerpt: $excerpt, categories: $categories, content: $content}')
+
+            RESPONSE=$(curl -s -X POST -u "${WP_USERNAME}:${WP_PASSWORD}" \
+              -H "Content-Type: application/json" \
+              -d "$POST_PAYLOAD" \
+              "${WP_URL}/wp-json/wp/v2/posts")
+
+            POST_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
+
+            if [ -n "$POST_ID" ]; then
+              echo "Published successfully: $POST_ID"
+            else
+              echo "ERROR publishing post:"
+              echo "$RESPONSE"
+            fi
+
+          done
+
+          echo "Publishing complete"
+
+        env:
+          WP_URL: "https://scripturelearning.org"
+          WP_USERNAME: ${{ secrets.WP_APP_USERNAME }}
+          WP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
