@@ -1,4 +1,4 @@
-name: Publish Bible Stories (Scripture Learning)
+name: Publish Bible Stories (Scripture Learning PROMPT)
 
 on:
   workflow_dispatch:
