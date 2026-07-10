@@ -1,0 +1,268 @@
+name: Publish Chapter (Scripture Learning) — PubCHAPTER-SL2
+
+on:
+  workflow_dispatch:
+    inputs:
+      book:
+        description: "Enter book folder name (e.g., 1_John, Colossians, Apocrypha/Baruch)"
+        required: true
+        type: string
+
+      chapter:
+        description: "Enter chapter number (e.g., 1, 2, 3)"
+        required: true
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    env:
+      WP_URL: "https://scripturelearning.org"
+      WP_USERNAME: ${{ secrets.WP_APP_USERNAME }}
+      WP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Build file path
+        id: path
+        run: |
+          BOOK="${{ github.event.inputs.book }}"
+          CHAPTER="${{ github.event.inputs.chapter }}"
+
+          FILE="Daily_Chapter_Review/$BOOK/${BOOK}_SG_Chapter_${CHAPTER}.txt"
+
+          if [ ! -f "$FILE" ]; then
+            echo "File not found: $FILE"
+            exit 1
+          fi
+
+          echo "file=$FILE" >> $GITHUB_OUTPUT
+
+      - name: Prepare content
+        id: prep
+        run: |
+          set -e
+
+          FILE="${{ steps.path.outputs.file }}"
+          WP_AUTH="${WP_USERNAME}:${WP_PASSWORD}"
+
+          # =========================================================
+          # FIELD EXTRACTOR
+          # Reads everything between ===FIELDNAME=== and the next
+          # ===...=== marker (or EOF), then trims blank lines top/bottom.
+          # This is what lets one .txt carry TITLE, CATEGORIES,
+          # META_DESCRIPTION, KEY_TAKEAWAYS, BODY, and SUMMARY.
+          # =========================================================
+          extract_field() {
+            awk -v field="$1" '
+              $0 == "===" field "===" { capture=1; next }
+              /^===[A-Z_]+===$/       { capture=0 }
+              capture                 { print }
+            ' "$2" \
+              | sed -e '/./,$!d' \
+              | sed -e ':a' -e '/^\n*$/{$d;N;ba}'
+          }
+
+          # -----------------------------
+          # PARSE STRUCTURED FIELDS
+          # (with graceful fallback to the OLD positional layout:
+          #  line 1 = title, line 2 = "categories: ...", line 3+ = body)
+          # -----------------------------
+          TITLE=$(extract_field "TITLE" "$FILE" | head -n 1 | tr -d '\r')
+          [ -z "$TITLE" ] && TITLE=$(head -n 1 "$FILE" | tr -d '\r')
+
+          META=$(extract_field "META_DESCRIPTION" "$FILE" | tr -d '\r' | tr '\n' ' ' | sed 's/[[:space:]]\+/ /g;s/^ //;s/ $//')
+
+          RAW_CATEGORIES=$(extract_field "CATEGORIES" "$FILE" | tr -d '\r' | tr '\n' ',')
+          if [ -z "$RAW_CATEGORIES" ]; then
+            # legacy line-2 form: "categories: Name One, Name Two"
+            RAW_CATEGORIES=$(sed -n '2p' "$FILE" | sed 's/categories://I')
+          fi
+
+          TAKEAWAYS=$(extract_field "KEY_TAKEAWAYS" "$FILE")
+          SUMMARY=$(extract_field "SUMMARY" "$FILE")
+
+          BODY=$(extract_field "BODY" "$FILE")
+          if [ -z "$BODY" ]; then
+            echo "No ===BODY=== section → using legacy line-3+ body"
+            BODY=$(tail -n +3 "$FILE")
+          fi
+
+          [ -z "$TITLE" ] && echo "Missing title → aborting" && exit 1
+          [ -z "$BODY" ]  && echo "Empty body → aborting"    && exit 1
+
+          # -----------------------------
+          # CATEGORY RESOLUTION (by name, create if missing)
+          # Same behavior as the bulk publisher.
+          # -----------------------------
+          IFS=',' read -ra CAT_ARRAY <<< "$RAW_CATEGORIES"
+          FINAL_CATEGORIES=""
+
+          for CAT in "${CAT_ARRAY[@]}"; do
+            CAT=$(echo "$CAT" | xargs)                       # trim
+            CAT=$(echo "$CAT" | sed 's/[[:space:]]\+/ /g')   # collapse internal spaces
+            [ -z "$CAT" ] && continue
+            echo "Processing category: '$CAT'"
+
+            SEARCH=$(curl -s -u "$WP_AUTH" \
+              "${WP_URL}/wp-json/wp/v2/categories?search=$(printf '%s' "$CAT" | sed 's/ /%20/g')")
+
+            CAT_ID=$(echo "$SEARCH" | jq -r --arg name "$CAT" '
+              map(select(.name == $name)) | .[0].id // empty
+            ')
+
+            if [ -z "$CAT_ID" ]; then
+              echo "Creating category: $CAT"
+              CREATE_PAYLOAD=$(jq -n --arg name "$CAT" '{name: $name}')
+
+              CREATE=$(curl -s -X POST -u "$WP_AUTH" \
+                -H "Content-Type: application/json" \
+                -d "$CREATE_PAYLOAD" \
+                "${WP_URL}/wp-json/wp/v2/categories")
+
+              CAT_ID=$(echo "$CREATE" | jq -r '.id')
+
+              if [ -z "$CAT_ID" ] || [ "$CAT_ID" = "null" ]; then
+                echo "ERROR creating category '$CAT' — raw response:"
+                echo "$CREATE"
+                echo "Skipping this category; post will publish without it."
+                CAT_ID=""
+              else
+                echo "Created category ID: $CAT_ID"
+              fi
+            else
+              echo "Found category ID: $CAT_ID"
+            fi
+
+            [ -n "$CAT_ID" ] && FINAL_CATEGORIES="$FINAL_CATEGORIES,$CAT_ID"
+          done
+
+          FINAL_CATEGORIES=$(echo "$FINAL_CATEGORIES" | sed 's/^,//')
+          echo "Final categories: $FINAL_CATEGORIES"
+
+          # =========================================================
+          # COMPUTED: READING TIME  (word count ÷ 200, rounded up)
+          # The workflow generates this itself — not in the .txt.
+          # =========================================================
+          WORDS=$(printf '%s' "$BODY" | wc -w | tr -d ' ')
+          READING_TIME=$(( (WORDS + 199) / 200 ))
+          [ "$READING_TIME" -lt 1 ] && READING_TIME=1
+          echo "Reading time: ${READING_TIME} min (${WORDS} words)"
+
+          # =========================================================
+          # RENDER: KEY TAKEAWAYS → <li> items (authored; only formatted)
+          # =========================================================
+          TAKEAWAYS_HTML=""
+          if [ -n "$TAKEAWAYS" ]; then
+            TAKEAWAYS_LI=$(printf '%s\n' "$TAKEAWAYS" \
+              | sed 's/^[[:space:]]*[-*][[:space:]]*//' \
+              | grep -v '^[[:space:]]*$' \
+              | sed 's/.*/<li>&<\/li>/')
+            TAKEAWAYS_HTML="<div class=\"key-takeaways\">
+          <h2>Key Takeaways</h2>
+          <ul>
+          ${TAKEAWAYS_LI}
+          </ul>
+          </div>"
+          fi
+
+          # =========================================================
+          # RENDER: BODY → HTML  (single awk pass)
+          # Order:
+          #   1. sed: # / ## / ### headings
+          #   2. awk: wrap prose in <p>, group "* / -" runs into <ul>,
+          #           group ">" runs into <blockquote>, headings stand alone
+          #   3. sed: inline **bold** / *italic*  — LAST, so list markers
+          #           are already stripped and can't be mistaken for italics
+          # =========================================================
+          BODY_HTML=$(printf '%s\n' "$BODY" \
+            | sed -E 's/^### (.+)$/<h3>\1<\/h3>/' \
+            | sed -E 's/^## (.+)$/<h2>\1<\/h2>/' \
+            | sed -E 's/^# (.+)$/<h1>\1<\/h1>/' \
+            | awk '
+                function flush_para()  { if (para   != "") { print "<p>" para "</p>"; para="" } }
+                function flush_list()  { if (inlist)  { print "</ul>";         inlist=0  } }
+                function flush_quote() { if (inquote) { print "</blockquote>"; inquote=0 } }
+                function flush_all()   { flush_para(); flush_list(); flush_quote() }
+                {
+                  line=$0
+                  if (line ~ /^[[:space:]]*$/) { flush_all(); next }
+                  if (line ~ /^<h[1-6]>/)      { flush_all(); print line; next }
+                  if (line ~ /^[[:space:]]*[-*][[:space:]]+/) {
+                    flush_para(); flush_quote()
+                    if (!inlist) { print "<ul>"; inlist=1 }
+                    sub(/^[[:space:]]*[-*][[:space:]]+/, "", line)
+                    print "<li>" line "</li>"; next
+                  }
+                  if (line ~ /^[[:space:]]*>[[:space:]]?/) {
+                    flush_para(); flush_list()
+                    if (!inquote) { print "<blockquote>"; inquote=1 }
+                    sub(/^[[:space:]]*>[[:space:]]?/, "", line)
+                    print line; next
+                  }
+                  flush_list(); flush_quote()
+                  if (para == "") para=line; else para=para " " line
+                }
+                END { flush_all() }
+              ' \
+            | sed 's/\*\*\([^*]\+\)\*\*/<strong>\1<\/strong>/g' \
+            | sed 's/\*\([^*]\+\)\*/<em>\1<\/em>/g')
+
+          # =========================================================
+          # RENDER: SUMMARY section (authored; placed at the end)
+          # =========================================================
+          SUMMARY_HTML=""
+          if [ -n "$SUMMARY" ]; then
+            SUMMARY_HTML="<h2>Summary</h2>
+          <p>${SUMMARY}</p>"
+          fi
+
+          # -----------------------------
+          # ASSEMBLE FINAL CONTENT
+          # order: reading time → takeaways → body → summary
+          # -----------------------------
+          FULL_CONTENT="<p><em>Reading time: ${READING_TIME} min</em></p>
+
+          ${TAKEAWAYS_HTML}
+
+          ${BODY_HTML}
+
+          ${SUMMARY_HTML}"
+
+          CONTENT=$(printf '%s' "$FULL_CONTENT" | jq -Rs .)
+
+          # -----------------------------
+          # SLUG (from filename, unchanged)
+          # -----------------------------
+          BASENAME=$(basename "$FILE" .txt)
+          SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/-\+/-/g;s/^-//;s/-$//')
+
+          # -----------------------------
+          # BUILD post.json
+          # 'excerpt' carries the meta description (see note in chat re:
+          # Yoast / Rank Math). Title built via jq -n so quotes are safe;
+          # CONTENT already jq-encoded above.
+          # -----------------------------
+          jq -n \
+            --arg title "$TITLE" \
+            --arg slug "$SLUG" \
+            --arg excerpt "$META" \
+            --argjson categories "[$FINAL_CATEGORIES]" \
+            --argjson content "$CONTENT" \
+            '{title: $title, slug: $slug, status: "publish", excerpt: $excerpt, categories: $categories, content: $content}' \
+            > post.json
+
+          echo "post.json built for: $TITLE  (slug: $SLUG)"
+
+      - name: Publish
+        run: |
+          curl -X POST \
+            -u "${WP_USERNAME}:${WP_PASSWORD}" \
+            -H "Content-Type: application/json" \
+            -d @post.json \
+            "${WP_URL}/wp-json/wp/v2/posts"
