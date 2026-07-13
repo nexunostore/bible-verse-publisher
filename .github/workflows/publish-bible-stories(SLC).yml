@@ -1,0 +1,385 @@
+name: Publish Bible Stories (SLC)
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: bible-story-publisher-sl
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Publish Bible Stories
+        run: |
+          set -e
+
+          # NOTE: auth is passed inline as -u "user:pass" at each curl
+          # call below, fully quoted, rather than building it into a
+          # variable and using that variable unquoted. An unquoted
+          # variable gets word-split on spaces by bash — and WordPress
+          # Application Passwords are displayed (and often copied) WITH
+          # spaces, e.g. "abcd 1234 efgh 5678". That would silently
+          # fragment the password into several stray arguments instead
+          # of one intact auth string, causing curl to send a corrupted
+          # credential and WordPress to reject it as unauthenticated.
+
+          # =========================================================
+          # FIELD EXTRACTOR
+          # Reads everything between ===FIELDNAME=== and the next
+          # ===...=== marker (or EOF), then trims blank lines top/bottom.
+          # Lets one .txt carry TITLE, CATEGORIES, META_DESCRIPTION,
+          # KEY_TAKEAWAYS, BODY, FAQ, and SUMMARY.
+          # =========================================================
+          extract_field() {
+            awk -v field="$1" '
+              $0 == "===" field "===" { capture=1; next }
+              /^===[A-Z_]+===$/       { capture=0 }
+              capture                 { print }
+            ' "$2" \
+              | sed -e '/./,$!d' \
+              | sed -e ':a' -e '/^\n*$/{$d;N;ba}'
+          }
+
+          echo "Scanning Bible_Stories..."
+
+          find Bible_Stories -type f -name "*.txt" | while IFS= read -r file; do
+
+            echo "--------------------------------------"
+            echo "Processing: $file"
+
+            # -----------------------------
+            # BASIC SAFETY CHECKS
+            # -----------------------------
+            [ -z "$file" ] && continue
+            [ ! -f "$file" ] && continue
+
+            # -----------------------------
+            # PARSE STRUCTURED FIELDS
+            # (graceful fallback to the OLD positional layout:
+            #  line 1 = title, line 2 = "categories: ...", line 3+ = body)
+            # Title also strips a stray **...** the model sometimes adds.
+            # -----------------------------
+            TITLE=$(extract_field "TITLE" "$file" | head -n 1 | tr -d '\r' | sed 's/\*\*//g')
+            [ -z "$TITLE" ] && TITLE=$(head -n 1 "$file" | tr -d '\r' | sed 's/\*\*//g')
+            [ -z "$TITLE" ] && echo "Missing title → skipping" && continue
+
+            META=$(extract_field "META_DESCRIPTION" "$file" | tr -d '\r' | tr '\n' ' ' | sed 's/[[:space:]]\+/ /g;s/^ //;s/ $//')
+
+            # -----------------------------
+            # CATEGORY PARSING (KEEP SPACES!)
+            # -----------------------------
+            RAW_CATEGORIES=$(extract_field "CATEGORIES" "$file" | tr -d '\r' | tr '\n' ',')
+            if [ -z "$RAW_CATEGORIES" ]; then
+              # legacy line-2 form: "categories: Name One, Name Two"
+              CATEGORY_LINE=$(sed -n '2p' "$file" | sed 's/categories://I')
+              RAW_CATEGORIES=$(echo "$CATEGORY_LINE" | tr '\n' ' ')
+            fi
+
+            TAKEAWAYS=$(extract_field "KEY_TAKEAWAYS" "$file")
+            FAQ=$(extract_field "FAQ" "$file")
+            SUMMARY=$(extract_field "SUMMARY" "$file")
+
+            BODY=$(extract_field "BODY" "$file")
+            if [ -z "$BODY" ]; then
+              echo "No ===BODY=== section → using legacy line-3+ body"
+              BODY=$(tail -n +3 "$file")
+            fi
+            [ -z "$BODY" ] && echo "Empty body → skipping" && continue
+
+            IFS=',' read -ra CAT_ARRAY <<< "$RAW_CATEGORIES"
+
+            FINAL_CATEGORIES=""
+
+            for CAT in "${CAT_ARRAY[@]}"; do
+
+              # trim only (DO NOT strip spaces inside words)
+              CAT=$(echo "$CAT" | xargs)
+
+              # normalize multiple spaces → single space
+              CAT=$(echo "$CAT" | sed 's/[[:space:]]\+/ /g')
+
+              [ -z "$CAT" ] && continue
+
+              echo "Processing category: '$CAT'"
+
+              # -----------------------------
+              # SEARCH CATEGORY BY EXACT NAME
+              # -----------------------------
+              SEARCH=$(curl -s -u "${WP_USERNAME}:${WP_PASSWORD}" \
+                "${WP_URL}/wp-json/wp/v2/categories?search=$(printf '%s' "$CAT" | sed 's/ /%20/g')")
+
+              CAT_ID=$(echo "$SEARCH" | jq -r --arg name "$CAT" '
+                map(select(.name == $name)) | .[0].id // empty
+              ')
+
+              # -----------------------------
+              # CREATE IF NOT FOUND
+              # -----------------------------
+              if [ -z "$CAT_ID" ]; then
+                echo "Creating category: $CAT"
+
+                # Built with jq -n instead of raw string interpolation —
+                # a category name containing a quote character would
+                # otherwise break this JSON silently.
+                CREATE_PAYLOAD=$(jq -n --arg name "$CAT" '{name: $name}')
+
+                CREATE=$(curl -s -X POST -u "${WP_USERNAME}:${WP_PASSWORD}" \
+                  -H "Content-Type: application/json" \
+                  -d "$CREATE_PAYLOAD" \
+                  "${WP_URL}/wp-json/wp/v2/categories")
+
+                CAT_ID=$(echo "$CREATE" | jq -r '.id')
+
+                # jq -r prints the literal text "null" (not an empty
+                # string) when .id is missing — e.g. because the create
+                # request was rejected. Catch that explicitly instead of
+                # silently treating "null" as a valid ID, which is what
+                # was sending a real JSON null into the categories array
+                # and causing WordPress to reject the whole post.
+                if [ -z "$CAT_ID" ] || [ "$CAT_ID" = "null" ]; then
+                  echo "ERROR creating category '$CAT' — raw response:"
+                  echo "$CREATE"
+                  echo "Skipping this category; post will publish without it."
+                  CAT_ID=""
+                else
+                  echo "Created category ID: $CAT_ID"
+                fi
+              else
+                echo "Found category ID: $CAT_ID"
+              fi
+
+              [ -n "$CAT_ID" ] && FINAL_CATEGORIES="$FINAL_CATEGORIES,$CAT_ID"
+            done
+
+            FINAL_CATEGORIES=$(echo "$FINAL_CATEGORIES" | sed 's/^,//')
+
+            echo "Final categories: $FINAL_CATEGORIES"
+
+            # -----------------------------
+            # SLUG GENERATION
+            # (unchanged — keeps duplicate detection consistent with
+            #  already-published posts)
+            # -----------------------------
+            BASENAME=$(basename "$file" .txt)
+
+            SLUG=$(echo "$BASENAME" \
+              | tr '[:upper:]' '[:lower:]' \
+              | sed 's/[^a-z0-9]/-/g')
+
+            echo "Slug: $SLUG"
+
+            # -----------------------------
+            # DUPLICATE CHECK (WORDPRESS = SOURCE OF TRUTH)
+            # -----------------------------
+            EXISTING=$(curl -s -u "${WP_USERNAME}:${WP_PASSWORD}" \
+              "${WP_URL}/wp-json/wp/v2/posts?slug=${SLUG}")
+
+            if echo "$EXISTING" | jq -e 'length > 0' > /dev/null; then
+              echo "Already published → skipping"
+              continue
+            fi
+
+            # =========================================================
+            # COMPUTED: READING TIME  (word count ÷ 200, rounded up)
+            # =========================================================
+            WORDS=$(printf '%s' "$BODY" | wc -w | tr -d ' ')
+            READING_TIME=$(( (WORDS + 199) / 200 ))
+            [ "$READING_TIME" -lt 1 ] && READING_TIME=1
+            echo "Reading time: ${READING_TIME} min (${WORDS} words)"
+
+            # =========================================================
+            # RENDER: KEY TAKEAWAYS → <li> items
+            # Converts inline **bold** labels before wrapping.
+            # =========================================================
+            TAKEAWAYS_HTML=""
+            if [ -n "$TAKEAWAYS" ]; then
+              TAKEAWAYS_LI=$(printf '%s\n' "$TAKEAWAYS" \
+                | sed 's/^[[:space:]]*[-*][[:space:]]*//' \
+                | grep -v '^[[:space:]]*$' \
+                | sed 's/\*\*\([^*]\+\)\*\*/<strong>\1<\/strong>/g' \
+                | sed 's/.*/<li>&<\/li>/')
+              TAKEAWAYS_HTML="<div class=\"key-takeaways\">
+          <h2>Key Takeaways</h2>
+          <ul>
+          ${TAKEAWAYS_LI}
+          </ul>
+          </div>"
+            fi
+
+            # =========================================================
+            # RENDER: BODY → HTML  (headings, lists, blockquotes, bold/italic)
+            # =========================================================
+            BODY_HTML=$(printf '%s\n' "$BODY" \
+              | sed -E 's/^### (.+)$/<h3>\1<\/h3>/' \
+              | sed -E 's/^## (.+)$/<h2>\1<\/h2>/' \
+              | sed -E 's/^# (.+)$/<h1>\1<\/h1>/' \
+              | awk '
+                  function flush_para()  { if (para   != "") { print "<p>" para "</p>"; para="" } }
+                  function flush_list()  { if (inlist)  { print "</ul>";         inlist=0  } }
+                  function flush_quote() { if (inquote) { print "</blockquote>"; inquote=0 } }
+                  function flush_all()   { flush_para(); flush_list(); flush_quote() }
+                  {
+                    line=$0
+                    if (line ~ /^[[:space:]]*$/) { flush_all(); next }
+                    if (line ~ /^<h[1-6]>/)      { flush_all(); print line; next }
+                    if (line ~ /^[[:space:]]*[-*][[:space:]]+/) {
+                      flush_para(); flush_quote()
+                      if (!inlist) { print "<ul>"; inlist=1 }
+                      sub(/^[[:space:]]*[-*][[:space:]]+/, "", line)
+                      print "<li>" line "</li>"; next
+                    }
+                    if (line ~ /^[[:space:]]*>[[:space:]]?/) {
+                      flush_para(); flush_list()
+                      if (!inquote) { print "<blockquote>"; inquote=1 }
+                      sub(/^[[:space:]]*>[[:space:]]?/, "", line)
+                      print line; next
+                    }
+                    flush_list(); flush_quote()
+                    if (para == "") para=line; else para=para " " line
+                  }
+                  END { flush_all() }
+                ' \
+              | sed 's/\*\*\([^*]\+\)\*\*/<strong>\1<\/strong>/g' \
+              | sed 's/\*\([^*]\+\)\*/<em>\1<\/em>/g')
+
+            [ -z "$BODY_HTML" ] && echo "Empty content → skipping" && continue
+
+            # =========================================================
+            # RENDER: FAQ → visible HTML  (**Question** → <h3>, prose → <p>)
+            # =========================================================
+            FAQ_HTML=""
+            if [ -n "$FAQ" ]; then
+              FAQ_INNER=$(printf '%s\n' "$FAQ" \
+                | sed -E 's/^\*\*(.+)\*\*[[:space:]]*$/<h3>\1<\/h3>/' \
+                | sed -E 's/^### (.+)$/<h3>\1<\/h3>/' \
+                | awk '
+                    function flush_para() { if (para != "") { print "<p>" para "</p>"; para="" } }
+                    {
+                      line=$0
+                      if (line ~ /^[[:space:]]*$/) { flush_para(); next }
+                      if (line ~ /^<h[1-6]>/)      { flush_para(); print line; next }
+                      if (para == "") para=line; else para=para " " line
+                    }
+                    END { flush_para() }
+                  ' \
+                | sed 's/\*\*\([^*]\+\)\*\*/<strong>\1<\/strong>/g')
+              FAQ_HTML="<h2>Frequently Asked Questions</h2>
+          ${FAQ_INNER}"
+            fi
+
+            # =========================================================
+            # RENDER: FAQ → FAQPage JSON-LD  (embedded in content; no 2nd file)
+            # Pairs each **Question** with the paragraph(s) beneath it,
+            # then jq builds valid, escaped schema.org markup.
+            # =========================================================
+            FAQ_SCHEMA_HTML=""
+            if [ -n "$FAQ" ]; then
+              FAQ_JSON=$(printf '%s\n' "$FAQ" \
+                | awk '
+                    function emit() { if (q != "") { printf "%s\t%s\n", q, a; q=""; a="" } }
+                    {
+                      line=$0
+                      if (line ~ /^\*\*.*\*\*[[:space:]]*$/) {
+                        emit()
+                        gsub(/^\*\*/, "", line); gsub(/\*\*[[:space:]]*$/, "", line)
+                        q=line; a=""; next
+                      }
+                      if (line ~ /^[[:space:]]*$/) next
+                      gsub(/\*\*/, "", line)
+                      if (a == "") a=line; else a=a " " line
+                    }
+                    END { emit() }
+                  ' \
+                | jq -R -s -c '{
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": (
+                      split("\n")
+                      | map(select(length > 0))
+                      | map(split("\t"))
+                      | map({
+                          "@type": "Question",
+                          "name": .[0],
+                          "acceptedAnswer": { "@type": "Answer", "text": .[1] }
+                        })
+                    )
+                  }')
+              FAQ_SCHEMA_HTML="<script type=\"application/ld+json\">${FAQ_JSON}</script>"
+            fi
+
+            # =========================================================
+            # RENDER: SUMMARY section
+            # =========================================================
+            SUMMARY_HTML=""
+            if [ -n "$SUMMARY" ]; then
+              SUMMARY_HTML="<h2>Summary</h2>
+          <p>${SUMMARY}</p>"
+            fi
+
+            # -----------------------------
+            # ASSEMBLE FINAL CONTENT
+            # order: reading time → takeaways → body → FAQ → summary → schema
+            # -----------------------------
+            FULL_CONTENT="<p><em>Reading time: ${READING_TIME} min</em></p>
+
+          ${TAKEAWAYS_HTML}
+
+          ${BODY_HTML}
+
+          ${FAQ_HTML}
+
+          ${SUMMARY_HTML}
+
+          ${FAQ_SCHEMA_HTML}"
+
+            CONTENT=$(printf '%s' "$FULL_CONTENT" | jq -Rs .)
+
+            [ -z "$CONTENT" ] && echo "Empty content → skipping" && continue
+
+            # -----------------------------
+            # PUBLISH POST
+            # Built with jq -n instead of raw string interpolation — a
+            # title containing a quote character would otherwise break
+            # this JSON. CATEGORIES/CONTENT are already jq-safe (numeric
+            # IDs / pre-encoded via jq -Rs above). 'excerpt' carries the
+            # meta description.
+            # -----------------------------
+            POST_PAYLOAD=$(jq -n \
+              --arg title "$TITLE" \
+              --arg slug "$SLUG" \
+              --arg excerpt "$META" \
+              --argjson categories "[$FINAL_CATEGORIES]" \
+              --argjson content "$CONTENT" \
+              '{title: $title, slug: $slug, status: "publish", excerpt: $excerpt, categories: $categories, content: $content}')
+
+            RESPONSE=$(curl -s -X POST -u "${WP_USERNAME}:${WP_PASSWORD}" \
+              -H "Content-Type: application/json" \
+              -d "$POST_PAYLOAD" \
+              "${WP_URL}/wp-json/wp/v2/posts")
+
+            POST_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
+
+            if [ -n "$POST_ID" ]; then
+              echo "Published successfully: $POST_ID"
+            else
+              echo "ERROR publishing post:"
+              echo "$RESPONSE"
+            fi
+
+          done
+
+          echo "Publishing complete"
+
+        env:
+          WP_URL: "https://scripturelearning.org"
+          WP_USERNAME: ${{ secrets.WP_APP_USERNAME }}
+          WP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
