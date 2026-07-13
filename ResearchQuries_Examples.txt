@@ -1,0 +1,18 @@
+python query.py "what does The Anchor Bible Dictionary, Volume 1 say about Biblical Criticism " --research --cloud --provider openai --save
+python query.py "Genealogy of Jeuse - provide as much information about ADAM and only ADAM. " --research --cloud --provider openai --save
+python query.py "Abel -Genealogy of Jeuse - provide as much information about Abel and only Abel. Abel in scripture" --research --cloud --provider openai --save
+python query.py "Cain -Genealogy of Jeuse - provide as much information about Cain and only Cain. Cain in scripture" --research --cloud --provider openai --save
+
+
+
+Importing With Categories
+
+python pipeline.py --once --category Survival
+python pipeline_other_formats.py --once Survival
+python pipeline.py --once --category Health
+python pipeline_other_formats.py --once --category Health
+python pipeline.py --once --category Do_It_Yourself
+python pipeline.py --once --category Food
+python pipeline.py --once --category Food_Portugal
+python pipeline.py --once --category Apocrypha
+python pipeline_other_formats.py --once --category Apocrypha
