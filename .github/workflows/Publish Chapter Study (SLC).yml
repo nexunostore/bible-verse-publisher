@@ -1,4 +1,4 @@
-name: Publish Chapter Study
+name: Publish Chapter Study (SLC)
 
 on:
   workflow_dispatch:
