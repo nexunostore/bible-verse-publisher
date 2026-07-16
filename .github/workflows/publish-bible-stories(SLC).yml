@@ -359,7 +359,7 @@ jobs:
               --arg excerpt "$META" \
               --argjson categories "[$FINAL_CATEGORIES]" \
               --argjson content "$CONTENT" \
-              '{title: $title, slug: $slug, status: "publish", excerpt: $excerpt, categories: $categories, content: $content}')
+              '{title: $title, slug: $slug, status: "draft", excerpt: $excerpt, categories: $categories, content: $content}')
 
             RESPONSE=$(curl -s -X POST -u "${WP_USERNAME}:${WP_PASSWORD}" \
               -H "Content-Type: application/json" \
