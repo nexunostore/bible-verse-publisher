@@ -74,14 +74,17 @@ jobs:
         run: |
           # Build the request with jq so nothing about REF/VERSE_TEXT
           # content (quotes, etc.) can break the JSON payload.
-          PROMPT=$(jq -n --arg ref "$REF" --arg text "$VERSE_TEXT" '
-            "Write a single concise study-Bible-style note (2-4 sentences) explaining " + $ref + ", which reads: \"" + $text + "\". " +
-            "Weave in relevant cross-references directly as plain citations in the prose (e.g. \"see Luke 8:2-3\"), the way a study Bible margin note does — not as a separate list. " +
-            "Do not repeat the verse text back at the start; go straight into the explanation. Return plain text only, no markdown, no headers."
+          PROMPT=$(jq -rn --arg ref "$REF" --arg text "$VERSE_TEXT" '
+            "Write a very brief study-Bible margin note for " + $ref + ", which reads: \"" + $text + "\". " +
+            "Strict format: ONE or TWO short sentences (about 50 words total, never more) giving only the key point — what the verse means and why it matters. " +
+            "Include at most TWO cross-references, woven into the prose as plain citations (e.g. \"see Luke 8:2\"); one is fine, zero if none is truly relevant. " +
+            "No introduction, no repeating the verse text, no filler phrases. Plain text only, no markdown."
           ')
 
           PAYLOAD=$(jq -n --arg prompt "$PROMPT" '{
             model: "gpt-4o-mini",
+            temperature: 0.4,
+            max_tokens: 120,
             messages: [{ role: "user", content: $prompt }]
           }')
 
