@@ -324,7 +324,7 @@ jobs:
             --arg excerpt "$META" \
             --argjson categories "[$FINAL_CATEGORIES]" \
             --argjson content "$CONTENT" \
-            '{title: $title, slug: $slug, status: "publish", excerpt: $excerpt, categories: $categories, content: $content}' \
+            '{title: $title, slug: $slug, status: "draft", excerpt: $excerpt, categories: $categories, content: $content}' \
             > post.json
 
           echo "post.json built for: $TITLE  (slug: $SLUG)"
