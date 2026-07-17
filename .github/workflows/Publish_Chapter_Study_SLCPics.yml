@@ -1,0 +1,359 @@
+name: Publish Chapter Study Pictures (SLC)
+
+# ==========================================================================
+# UPDATED VERSION
+# Additions over the original:
+#   * Featured image: if an image file sits next to the .txt in the repo
+#     (same basename, .jpg/.png), it is uploaded to WordPress media and set as
+#     the post's featured image (featured_media).
+#   * Resilience: every WordPress curl call now has connect/max timeouts and
+#     retries, so a slow or blocked request fails fast instead of hanging the
+#     job (this is what caused the earlier exit-code-28 timeout).
+# Everything else (field extraction, category resolution, rendering) is
+# unchanged from your working version.
+# ==========================================================================
+
+on:
+  workflow_dispatch:
+    inputs:
+      book:
+        description: "Enter book folder name (e.g., 1_John, Colossians, Apocrypha/Baruch)"
+        required: true
+        type: string
+
+      chapter:
+        description: "Enter chapter number (e.g., 1, 2, 3)"
+        required: true
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    env:
+      WP_URL: "https://scripturelearning.org"
+      WP_USERNAME: ${{ secrets.WP_APP_USERNAME }}
+      WP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+      # Shared curl hardening for all WordPress calls.
+      CURL_OPTS: "--connect-timeout 15 --max-time 60 --retry 3 --retry-delay 5 --fail-with-body"
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Build file path
+        id: path
+        run: |
+          BOOK="${{ github.event.inputs.book }}"
+          CHAPTER="${{ github.event.inputs.chapter }}"
+
+          FILE="Daily_Chapter_Review/$BOOK/${BOOK}_SG_Chapter_${CHAPTER}.txt"
+
+          if [ ! -f "$FILE" ]; then
+            echo "File not found: $FILE"
+            exit 1
+          fi
+
+          echo "file=$FILE" >> $GITHUB_OUTPUT
+
+      - name: Prepare content
+        id: prep
+        run: |
+          set -e
+
+          FILE="${{ steps.path.outputs.file }}"
+          WP_AUTH="${WP_USERNAME}:${WP_PASSWORD}"
+
+          extract_field() {
+            awk -v field="$1" '
+              $0 == "===" field "===" { capture=1; next }
+              /^===[A-Z_]+===$/       { capture=0 }
+              capture                 { print }
+            ' "$2" \
+              | sed -e '/./,$!d' \
+              | sed -e ':a' -e '/^\n*$/{$d;N;ba}'
+          }
+
+          TITLE=$(extract_field "TITLE" "$FILE" | head -n 1 | tr -d '\r' | sed 's/\*\*//g')
+          [ -z "$TITLE" ] && TITLE=$(head -n 1 "$FILE" | tr -d '\r' | sed 's/\*\*//g')
+
+          META=$(extract_field "META_DESCRIPTION" "$FILE" | tr -d '\r' | tr '\n' ' ' | sed 's/[[:space:]]\+/ /g;s/^ //;s/ $//')
+
+          RAW_CATEGORIES=$(extract_field "CATEGORIES" "$FILE" | tr -d '\r' | tr '\n' ',')
+          if [ -z "$RAW_CATEGORIES" ]; then
+            RAW_CATEGORIES=$(sed -n '2p' "$FILE" | sed 's/categories://I')
+          fi
+
+          TAKEAWAYS=$(extract_field "KEY_TAKEAWAYS" "$FILE")
+          FAQ=$(extract_field "FAQ" "$FILE")
+          SUMMARY=$(extract_field "SUMMARY" "$FILE")
+
+          BODY=$(extract_field "BODY" "$FILE")
+          if [ -z "$BODY" ]; then
+            echo "No ===BODY=== section → using legacy line-3+ body"
+            BODY=$(tail -n +3 "$FILE")
+          fi
+
+          [ -z "$TITLE" ] && echo "Missing title → aborting" && exit 1
+          [ -z "$BODY" ]  && echo "Empty body → aborting"    && exit 1
+
+          # -----------------------------
+          # CATEGORY RESOLUTION (by name, create if missing)
+          # -----------------------------
+          IFS=',' read -ra CAT_ARRAY <<< "$RAW_CATEGORIES"
+          FINAL_CATEGORIES=""
+
+          for CAT in "${CAT_ARRAY[@]}"; do
+            CAT=$(echo "$CAT" | xargs)
+            CAT=$(echo "$CAT" | sed 's/[[:space:]]\+/ /g')
+            [ -z "$CAT" ] && continue
+            echo "Processing category: '$CAT'"
+
+            SEARCH=$(curl -s $CURL_OPTS -u "$WP_AUTH" \
+              "${WP_URL}/wp-json/wp/v2/categories?search=$(printf '%s' "$CAT" | sed 's/ /%20/g')") || SEARCH="[]"
+
+            CAT_ID=$(echo "$SEARCH" | jq -r --arg name "$CAT" '
+              map(select(.name == $name)) | .[0].id // empty
+            ')
+
+            if [ -z "$CAT_ID" ]; then
+              echo "Creating category: $CAT"
+              CREATE_PAYLOAD=$(jq -n --arg name "$CAT" '{name: $name}')
+
+              CREATE=$(curl -s $CURL_OPTS -X POST -u "$WP_AUTH" \
+                -H "Content-Type: application/json" \
+                -d "$CREATE_PAYLOAD" \
+                "${WP_URL}/wp-json/wp/v2/categories") || CREATE=""
+
+              CAT_ID=$(echo "$CREATE" | jq -r '.id // empty')
+
+              if [ -z "$CAT_ID" ] || [ "$CAT_ID" = "null" ]; then
+                echo "ERROR creating category '$CAT' — raw response:"
+                echo "$CREATE"
+                echo "Skipping this category; post will publish without it."
+                CAT_ID=""
+              else
+                echo "Created category ID: $CAT_ID"
+              fi
+            else
+              echo "Found category ID: $CAT_ID"
+            fi
+
+            [ -n "$CAT_ID" ] && FINAL_CATEGORIES="$FINAL_CATEGORIES,$CAT_ID"
+          done
+
+          FINAL_CATEGORIES=$(echo "$FINAL_CATEGORIES" | sed 's/^,//')
+          echo "Final categories: $FINAL_CATEGORIES"
+
+          # =========================================================
+          # FEATURED IMAGE
+          # Look for an image next to the .txt (same basename, .jpg/.png).
+          # Upload it to WordPress media and capture the attachment ID.
+          # =========================================================
+          MEDIA_ID=""
+          IMG=""
+          for EXT in jpg jpeg png webp; do
+            CANDIDATE="${FILE%.txt}.${EXT}"
+            if [ -f "$CANDIDATE" ]; then IMG="$CANDIDATE"; break; fi
+          done
+
+          if [ -n "$IMG" ]; then
+            echo "Uploading featured image: $IMG"
+            case "$IMG" in
+              *.png)  CT="image/png" ;;
+              *.webp) CT="image/webp" ;;
+              *)      CT="image/jpeg" ;;
+            esac
+
+            MEDIA=$(curl -s --connect-timeout 15 --max-time 120 --retry 3 --retry-delay 5 \
+              -X POST -u "$WP_AUTH" \
+              -H "Content-Disposition: attachment; filename=$(basename "$IMG")" \
+              -H "Content-Type: $CT" \
+              --data-binary @"$IMG" \
+              "${WP_URL}/wp-json/wp/v2/media") || MEDIA=""
+
+            MEDIA_ID=$(echo "$MEDIA" | jq -r '.id // empty')
+
+            if [ -n "$MEDIA_ID" ] && [ "$MEDIA_ID" != "null" ]; then
+              echo "Uploaded media ID: $MEDIA_ID"
+              # Best-effort: set alt text to the title for SEO/accessibility.
+              ALT_PAYLOAD=$(jq -n --arg alt "$TITLE" '{alt_text: $alt}')
+              curl -s $CURL_OPTS -X POST -u "$WP_AUTH" \
+                -H "Content-Type: application/json" \
+                -d "$ALT_PAYLOAD" \
+                "${WP_URL}/wp-json/wp/v2/media/${MEDIA_ID}" > /dev/null || true
+            else
+              echo "Featured image upload failed — publishing without it. Raw response:"
+              echo "$MEDIA"
+              MEDIA_ID=""
+            fi
+          else
+            echo "No featured image found next to $FILE — publishing without one."
+          fi
+
+          # =========================================================
+          # Rendering below (reading time / takeaways / body / FAQ / summary)
+          # is IDENTICAL to your original workflow — reproduced in full so you
+          # can drop this file in as-is.
+          # =========================================================
+          WORDS=$(printf '%s' "$BODY" | wc -w | tr -d ' ')
+          READING_TIME=$(( (WORDS + 199) / 200 ))
+          [ "$READING_TIME" -lt 1 ] && READING_TIME=1
+
+          TAKEAWAYS_HTML=""
+          if [ -n "$TAKEAWAYS" ]; then
+            TAKEAWAYS_LI=$(printf '%s\n' "$TAKEAWAYS" \
+              | sed 's/^[[:space:]]*[-*][[:space:]]*//' \
+              | grep -v '^[[:space:]]*$' \
+              | sed 's/\*\*\([^*]\+\)\*\*/<strong>\1<\/strong>/g' \
+              | sed 's/.*/<li>&<\/li>/')
+            TAKEAWAYS_HTML="<div class=\"key-takeaways\">
+          <h2>Key Takeaways</h2>
+          <ul>
+          ${TAKEAWAYS_LI}
+          </ul>
+          </div>"
+          fi
+
+          BODY_HTML=$(printf '%s\n' "$BODY" \
+            | sed -E 's/^### (.+)$/<h3>\1<\/h3>/' \
+            | sed -E 's/^## (.+)$/<h2>\1<\/h2>/' \
+            | sed -E 's/^# (.+)$/<h1>\1<\/h1>/' \
+            | awk '
+                function flush_para()  { if (para   != "") { print "<p>" para "</p>"; para="" } }
+                function flush_list()  { if (inlist)  { print "</ul>";         inlist=0  } }
+                function flush_quote() { if (inquote) { print "</blockquote>"; inquote=0 } }
+                function flush_all()   { flush_para(); flush_list(); flush_quote() }
+                {
+                  line=$0
+                  if (line ~ /^[[:space:]]*$/) { flush_all(); next }
+                  if (line ~ /^<h[1-6]>/)      { flush_all(); print line; next }
+                  if (line ~ /^[[:space:]]*[-*][[:space:]]+/) {
+                    flush_para(); flush_quote()
+                    if (!inlist) { print "<ul>"; inlist=1 }
+                    sub(/^[[:space:]]*[-*][[:space:]]+/, "", line)
+                    print "<li>" line "</li>"; next
+                  }
+                  if (line ~ /^[[:space:]]*>[[:space:]]?/) {
+                    flush_para(); flush_list()
+                    if (!inquote) { print "<blockquote>"; inquote=1 }
+                    sub(/^[[:space:]]*>[[:space:]]?/, "", line)
+                    print line; next
+                  }
+                  flush_list(); flush_quote()
+                  if (para == "") para=line; else para=para " " line
+                }
+                END { flush_all() }
+              ' \
+            | sed 's/\*\*\([^*]\+\)\*\*/<strong>\1<\/strong>/g' \
+            | sed 's/\*\([^*]\+\)\*/<em>\1<\/em>/g')
+
+          FAQ_HTML=""
+          if [ -n "$FAQ" ]; then
+            FAQ_INNER=$(printf '%s\n' "$FAQ" \
+              | sed -E 's/^\*\*(.+)\*\*[[:space:]]*$/<h3>\1<\/h3>/' \
+              | sed -E 's/^### (.+)$/<h3>\1<\/h3>/' \
+              | awk '
+                  function flush_para() { if (para != "") { print "<p>" para "</p>"; para="" } }
+                  {
+                    line=$0
+                    if (line ~ /^[[:space:]]*$/) { flush_para(); next }
+                    if (line ~ /^<h[1-6]>/)      { flush_para(); print line; next }
+                    if (para == "") para=line; else para=para " " line
+                  }
+                  END { flush_para() }
+                ' \
+              | sed 's/\*\*\([^*]\+\)\*\*/<strong>\1<\/strong>/g')
+            FAQ_HTML="<h2>Frequently Asked Questions</h2>
+          ${FAQ_INNER}"
+          fi
+
+          FAQ_SCHEMA_HTML=""
+          if [ -n "$FAQ" ]; then
+            FAQ_JSON=$(printf '%s\n' "$FAQ" \
+              | awk '
+                  function emit() { if (q != "") { printf "%s\t%s\n", q, a; q=""; a="" } }
+                  {
+                    line=$0
+                    if (line ~ /^\*\*.*\*\*[[:space:]]*$/) {
+                      emit()
+                      gsub(/^\*\*/, "", line); gsub(/\*\*[[:space:]]*$/, "", line)
+                      q=line; a=""; next
+                    }
+                    if (line ~ /^[[:space:]]*$/) next
+                    gsub(/\*\*/, "", line)
+                    if (a == "") a=line; else a=a " " line
+                  }
+                  END { emit() }
+                ' \
+              | jq -R -s -c '{
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  "mainEntity": (
+                    split("\n")
+                    | map(select(length > 0))
+                    | map(split("\t"))
+                    | map({
+                        "@type": "Question",
+                        "name": .[0],
+                        "acceptedAnswer": { "@type": "Answer", "text": .[1] }
+                      })
+                  )
+                }')
+            FAQ_SCHEMA_HTML="<script type=\"application/ld+json\">${FAQ_JSON}</script>"
+          fi
+
+          SUMMARY_HTML=""
+          if [ -n "$SUMMARY" ]; then
+            SUMMARY_HTML="<h2>Summary</h2>
+          <p>${SUMMARY}</p>"
+          fi
+
+          FULL_CONTENT="<p><em>Reading time: ${READING_TIME} min</em></p>
+
+          ${TAKEAWAYS_HTML}
+
+          ${BODY_HTML}
+
+          ${FAQ_HTML}
+
+          ${SUMMARY_HTML}
+
+          ${FAQ_SCHEMA_HTML}"
+
+          CONTENT=$(printf '%s' "$FULL_CONTENT" | jq -Rs .)
+
+          BASENAME=$(basename "$FILE" .txt)
+          SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/-\+/-/g;s/^-//;s/-$//')
+
+          # -----------------------------
+          # BUILD post.json  (now with optional featured_media)
+          # -----------------------------
+          FEATURED_ARG="null"
+          if [ -n "$MEDIA_ID" ] && [ "$MEDIA_ID" != "null" ]; then
+            FEATURED_ARG="$MEDIA_ID"
+          fi
+
+          jq -n \
+            --arg title "$TITLE" \
+            --arg slug "$SLUG" \
+            --arg excerpt "$META" \
+            --argjson categories "[$FINAL_CATEGORIES]" \
+            --argjson content "$CONTENT" \
+            --argjson featured_media "$FEATURED_ARG" \
+            '{title: $title, slug: $slug, status: "draft", excerpt: $excerpt, categories: $categories, content: $content}
+             + (if $featured_media == null then {} else {featured_media: $featured_media} end)' \
+            > post.json
+
+          echo "post.json built for: $TITLE  (slug: $SLUG, featured_media: $FEATURED_ARG)"
+
+      - name: Publish
+        run: |
+          curl -X POST \
+            --connect-timeout 15 --max-time 90 --retry 3 --retry-delay 5 --fail-with-body \
+            -u "${WP_USERNAME}:${WP_PASSWORD}" \
+            -H "Content-Type: application/json" \
+            -d @post.json \
+            "${WP_URL}/wp-json/wp/v2/posts"
