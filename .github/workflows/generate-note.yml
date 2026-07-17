@@ -83,7 +83,7 @@ jobs:
 
           PAYLOAD=$(jq -n --arg prompt "$PROMPT" '{
             model: "gpt-5.5",
-            reasoning_effort: "minimal",
+            reasoning_effort: "none",
             verbosity: "low",
             max_completion_tokens: 600,
             messages: [{ role: "user", content: $prompt }]
