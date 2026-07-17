@@ -1,0 +1,391 @@
+name: PBS with Pictures
+
+# ==========================================================================
+# UPDATED VERSION
+# Additions over your original bulk publisher:
+#   * Featured image: for each story, if an image sits next to the .txt (same
+#     basename, .jpg/.jpeg/.png/.webp), it is uploaded to WordPress media and
+#     set as that post's featured image (featured_media).
+#   * Resilience: every WordPress curl now has connect/max timeouts + retries,
+#     AND each call is guarded with `|| VAR=""` so that a slow/blocked request
+#     fails that one call instead of aborting the whole batch under `set -e`.
+#     (This bulk workflow, with no timeouts, is what produced the earlier
+#     exit-code-28 hang.)
+# Everything else — field extraction, category resolution, duplicate skip,
+# rendering, inline-quoted auth — is unchanged from your working version.
+# ==========================================================================
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: bible-story-publisher-sl
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Publish Bible Stories
+        run: |
+          set -e
+
+          # NOTE: auth is passed inline as -u "user:pass" at each curl call
+          # below, fully quoted, rather than via an unquoted variable — because
+          # WordPress Application Passwords contain spaces and an unquoted
+          # variable would be word-split into corrupt arguments.
+
+          # Shared curl hardening (flags only, no auth): expanded UNQUOTED on
+          # purpose so it becomes several args. Each curl is additionally
+          # guarded with `|| VAR=""` so a timeout can't abort the batch.
+          CURL_TIMEOUTS="--connect-timeout 15 --max-time 60 --retry 3 --retry-delay 5"
+
+          extract_field() {
+            awk -v field="$1" '
+              $0 == "===" field "===" { capture=1; next }
+              /^===[A-Z_]+===$/       { capture=0 }
+              capture                 { print }
+            ' "$2" \
+              | sed -e '/./,$!d' \
+              | sed -e ':a' -e '/^\n*$/{$d;N;ba}'
+          }
+
+          echo "Scanning Bible_Stories..."
+
+          find Bible_Stories -type f -name "*.txt" | while IFS= read -r file; do
+
+            echo "--------------------------------------"
+            echo "Processing: $file"
+
+            [ -z "$file" ] && continue
+            [ ! -f "$file" ] && continue
+
+            TITLE=$(extract_field "TITLE" "$file" | head -n 1 | tr -d '\r' | sed 's/\*\*//g')
+            [ -z "$TITLE" ] && TITLE=$(head -n 1 "$file" | tr -d '\r' | sed 's/\*\*//g')
+            [ -z "$TITLE" ] && echo "Missing title → skipping" && continue
+
+            META=$(extract_field "META_DESCRIPTION" "$file" | tr -d '\r' | tr '\n' ' ' | sed 's/[[:space:]]\+/ /g;s/^ //;s/ $//')
+
+            RAW_CATEGORIES=$(extract_field "CATEGORIES" "$file" | tr -d '\r' | tr '\n' ',')
+            if [ -z "$RAW_CATEGORIES" ]; then
+              CATEGORY_LINE=$(sed -n '2p' "$file" | sed 's/categories://I')
+              RAW_CATEGORIES=$(echo "$CATEGORY_LINE" | tr '\n' ' ')
+            fi
+
+            TAKEAWAYS=$(extract_field "KEY_TAKEAWAYS" "$file")
+            FAQ=$(extract_field "FAQ" "$file")
+            SUMMARY=$(extract_field "SUMMARY" "$file")
+
+            BODY=$(extract_field "BODY" "$file")
+            if [ -z "$BODY" ]; then
+              echo "No ===BODY=== section → using legacy line-3+ body"
+              BODY=$(tail -n +3 "$file")
+            fi
+            [ -z "$BODY" ] && echo "Empty body → skipping" && continue
+
+            IFS=',' read -ra CAT_ARRAY <<< "$RAW_CATEGORIES"
+            FINAL_CATEGORIES=""
+
+            for CAT in "${CAT_ARRAY[@]}"; do
+              CAT=$(echo "$CAT" | xargs)
+              CAT=$(echo "$CAT" | sed 's/[[:space:]]\+/ /g')
+              [ -z "$CAT" ] && continue
+              echo "Processing category: '$CAT'"
+
+              SEARCH=$(curl -s $CURL_TIMEOUTS -u "${WP_USERNAME}:${WP_PASSWORD}" \
+                "${WP_URL}/wp-json/wp/v2/categories?search=$(printf '%s' "$CAT" | sed 's/ /%20/g')") || SEARCH="[]"
+
+              CAT_ID=$(echo "$SEARCH" | jq -r --arg name "$CAT" '
+                map(select(.name == $name)) | .[0].id // empty
+              ')
+
+              if [ -z "$CAT_ID" ]; then
+                echo "Creating category: $CAT"
+                CREATE_PAYLOAD=$(jq -n --arg name "$CAT" '{name: $name}')
+
+                CREATE=$(curl -s $CURL_TIMEOUTS -X POST -u "${WP_USERNAME}:${WP_PASSWORD}" \
+                  -H "Content-Type: application/json" \
+                  -d "$CREATE_PAYLOAD" \
+                  "${WP_URL}/wp-json/wp/v2/categories") || CREATE=""
+
+                CAT_ID=$(echo "$CREATE" | jq -r '.id')
+
+                if [ -z "$CAT_ID" ] || [ "$CAT_ID" = "null" ]; then
+                  echo "ERROR creating category '$CAT' — raw response:"
+                  echo "$CREATE"
+                  echo "Skipping this category; post will publish without it."
+                  CAT_ID=""
+                else
+                  echo "Created category ID: $CAT_ID"
+                fi
+              else
+                echo "Found category ID: $CAT_ID"
+              fi
+
+              [ -n "$CAT_ID" ] && FINAL_CATEGORIES="$FINAL_CATEGORIES,$CAT_ID"
+            done
+
+            FINAL_CATEGORIES=$(echo "$FINAL_CATEGORIES" | sed 's/^,//')
+            echo "Final categories: $FINAL_CATEGORIES"
+
+            BASENAME=$(basename "$file" .txt)
+            SLUG=$(echo "$BASENAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g')
+            echo "Slug: $SLUG"
+
+            # -----------------------------
+            # DUPLICATE CHECK (WORDPRESS = SOURCE OF TRUTH)
+            # -----------------------------
+            EXISTING=$(curl -s $CURL_TIMEOUTS -u "${WP_USERNAME}:${WP_PASSWORD}" \
+              "${WP_URL}/wp-json/wp/v2/posts?slug=${SLUG}") || EXISTING="[]"
+
+            if echo "$EXISTING" | jq -e 'length > 0' > /dev/null; then
+              echo "Already published → skipping"
+              continue
+            fi
+
+            # =========================================================
+            # FEATURED IMAGE
+            # Look for an image next to the .txt (same basename), upload it to
+            # WordPress media, capture the attachment ID. Guarded so a failure
+            # just publishes the post without a featured image.
+            # =========================================================
+            MEDIA_ID=""
+            IMG=""
+            for EXT in jpg jpeg png webp; do
+              CANDIDATE="${file%.txt}.${EXT}"
+              if [ -f "$CANDIDATE" ]; then IMG="$CANDIDATE"; break; fi
+            done
+
+            if [ -n "$IMG" ]; then
+              echo "Uploading featured image: $IMG"
+              case "$IMG" in
+                *.png)  CT="image/png" ;;
+                *.webp) CT="image/webp" ;;
+                *)      CT="image/jpeg" ;;
+              esac
+
+              MEDIA=$(curl -s --connect-timeout 15 --max-time 120 --retry 3 --retry-delay 5 \
+                -X POST -u "${WP_USERNAME}:${WP_PASSWORD}" \
+                -H "Content-Disposition: attachment; filename=$(basename "$IMG")" \
+                -H "Content-Type: $CT" \
+                --data-binary @"$IMG" \
+                "${WP_URL}/wp-json/wp/v2/media") || MEDIA=""
+
+              MEDIA_ID=$(echo "$MEDIA" | jq -r '.id // empty')
+
+              if [ -n "$MEDIA_ID" ] && [ "$MEDIA_ID" != "null" ]; then
+                echo "Uploaded media ID: $MEDIA_ID"
+                ALT_PAYLOAD=$(jq -n --arg alt "$TITLE" '{alt_text: $alt}')
+                curl -s $CURL_TIMEOUTS -X POST -u "${WP_USERNAME}:${WP_PASSWORD}" \
+                  -H "Content-Type: application/json" \
+                  -d "$ALT_PAYLOAD" \
+                  "${WP_URL}/wp-json/wp/v2/media/${MEDIA_ID}" > /dev/null || true
+              else
+                echo "Featured image upload failed — publishing without it. Raw response:"
+                echo "$MEDIA"
+                MEDIA_ID=""
+              fi
+            else
+              echo "No featured image found next to $file — publishing without one."
+            fi
+
+            # =========================================================
+            # COMPUTED: READING TIME
+            # =========================================================
+            WORDS=$(printf '%s' "$BODY" | wc -w | tr -d ' ')
+            READING_TIME=$(( (WORDS + 199) / 200 ))
+            [ "$READING_TIME" -lt 1 ] && READING_TIME=1
+            echo "Reading time: ${READING_TIME} min (${WORDS} words)"
+
+            # =========================================================
+            # RENDER: KEY TAKEAWAYS → <li> items
+            # =========================================================
+            TAKEAWAYS_HTML=""
+            if [ -n "$TAKEAWAYS" ]; then
+              TAKEAWAYS_LI=$(printf '%s\n' "$TAKEAWAYS" \
+                | sed 's/^[[:space:]]*[-*][[:space:]]*//' \
+                | grep -v '^[[:space:]]*$' \
+                | sed 's/\*\*\([^*]\+\)\*\*/<strong>\1<\/strong>/g' \
+                | sed 's/.*/<li>&<\/li>/')
+              TAKEAWAYS_HTML="<div class=\"key-takeaways\">
+          <h2>Key Takeaways</h2>
+          <ul>
+          ${TAKEAWAYS_LI}
+          </ul>
+          </div>"
+            fi
+
+            # =========================================================
+            # RENDER: BODY → HTML
+            # =========================================================
+            BODY_HTML=$(printf '%s\n' "$BODY" \
+              | sed -E 's/^### (.+)$/<h3>\1<\/h3>/' \
+              | sed -E 's/^## (.+)$/<h2>\1<\/h2>/' \
+              | sed -E 's/^# (.+)$/<h1>\1<\/h1>/' \
+              | awk '
+                  function flush_para()  { if (para   != "") { print "<p>" para "</p>"; para="" } }
+                  function flush_list()  { if (inlist)  { print "</ul>";         inlist=0  } }
+                  function flush_quote() { if (inquote) { print "</blockquote>"; inquote=0 } }
+                  function flush_all()   { flush_para(); flush_list(); flush_quote() }
+                  {
+                    line=$0
+                    if (line ~ /^[[:space:]]*$/) { flush_all(); next }
+                    if (line ~ /^<h[1-6]>/)      { flush_all(); print line; next }
+                    if (line ~ /^[[:space:]]*[-*][[:space:]]+/) {
+                      flush_para(); flush_quote()
+                      if (!inlist) { print "<ul>"; inlist=1 }
+                      sub(/^[[:space:]]*[-*][[:space:]]+/, "", line)
+                      print "<li>" line "</li>"; next
+                    }
+                    if (line ~ /^[[:space:]]*>[[:space:]]?/) {
+                      flush_para(); flush_list()
+                      if (!inquote) { print "<blockquote>"; inquote=1 }
+                      sub(/^[[:space:]]*>[[:space:]]?/, "", line)
+                      print line; next
+                    }
+                    flush_list(); flush_quote()
+                    if (para == "") para=line; else para=para " " line
+                  }
+                  END { flush_all() }
+                ' \
+              | sed 's/\*\*\([^*]\+\)\*\*/<strong>\1<\/strong>/g' \
+              | sed 's/\*\([^*]\+\)\*/<em>\1<\/em>/g')
+
+            [ -z "$BODY_HTML" ] && echo "Empty content → skipping" && continue
+
+            # =========================================================
+            # RENDER: FAQ → visible HTML
+            # =========================================================
+            FAQ_HTML=""
+            if [ -n "$FAQ" ]; then
+              FAQ_INNER=$(printf '%s\n' "$FAQ" \
+                | sed -E 's/^\*\*(.+)\*\*[[:space:]]*$/<h3>\1<\/h3>/' \
+                | sed -E 's/^### (.+)$/<h3>\1<\/h3>/' \
+                | awk '
+                    function flush_para() { if (para != "") { print "<p>" para "</p>"; para="" } }
+                    {
+                      line=$0
+                      if (line ~ /^[[:space:]]*$/) { flush_para(); next }
+                      if (line ~ /^<h[1-6]>/)      { flush_para(); print line; next }
+                      if (para == "") para=line; else para=para " " line
+                    }
+                    END { flush_para() }
+                  ' \
+                | sed 's/\*\*\([^*]\+\)\*\*/<strong>\1<\/strong>/g')
+              FAQ_HTML="<h2>Frequently Asked Questions</h2>
+          ${FAQ_INNER}"
+            fi
+
+            # =========================================================
+            # RENDER: FAQ → FAQPage JSON-LD
+            # =========================================================
+            FAQ_SCHEMA_HTML=""
+            if [ -n "$FAQ" ]; then
+              FAQ_JSON=$(printf '%s\n' "$FAQ" \
+                | awk '
+                    function emit() { if (q != "") { printf "%s\t%s\n", q, a; q=""; a="" } }
+                    {
+                      line=$0
+                      if (line ~ /^\*\*.*\*\*[[:space:]]*$/) {
+                        emit()
+                        gsub(/^\*\*/, "", line); gsub(/\*\*[[:space:]]*$/, "", line)
+                        q=line; a=""; next
+                      }
+                      if (line ~ /^[[:space:]]*$/) next
+                      gsub(/\*\*/, "", line)
+                      if (a == "") a=line; else a=a " " line
+                    }
+                    END { emit() }
+                  ' \
+                | jq -R -s -c '{
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": (
+                      split("\n")
+                      | map(select(length > 0))
+                      | map(split("\t"))
+                      | map({
+                          "@type": "Question",
+                          "name": .[0],
+                          "acceptedAnswer": { "@type": "Answer", "text": .[1] }
+                        })
+                    )
+                  }')
+              FAQ_SCHEMA_HTML="<script type=\"application/ld+json\">${FAQ_JSON}</script>"
+            fi
+
+            # =========================================================
+            # RENDER: SUMMARY section
+            # =========================================================
+            SUMMARY_HTML=""
+            if [ -n "$SUMMARY" ]; then
+              SUMMARY_HTML="<h2>Summary</h2>
+          <p>${SUMMARY}</p>"
+            fi
+
+            # -----------------------------
+            # ASSEMBLE FINAL CONTENT
+            # -----------------------------
+            FULL_CONTENT="<p><em>Reading time: ${READING_TIME} min</em></p>
+
+          ${TAKEAWAYS_HTML}
+
+          ${BODY_HTML}
+
+          ${FAQ_HTML}
+
+          ${SUMMARY_HTML}
+
+          ${FAQ_SCHEMA_HTML}"
+
+            CONTENT=$(printf '%s' "$FULL_CONTENT" | jq -Rs .)
+            [ -z "$CONTENT" ] && echo "Empty content → skipping" && continue
+
+            # -----------------------------
+            # PUBLISH POST  (now with optional featured_media)
+            # -----------------------------
+            FEATURED_ARG="null"
+            if [ -n "$MEDIA_ID" ] && [ "$MEDIA_ID" != "null" ]; then
+              FEATURED_ARG="$MEDIA_ID"
+            fi
+
+            POST_PAYLOAD=$(jq -n \
+              --arg title "$TITLE" \
+              --arg slug "$SLUG" \
+              --arg excerpt "$META" \
+              --argjson categories "[$FINAL_CATEGORIES]" \
+              --argjson content "$CONTENT" \
+              --argjson featured_media "$FEATURED_ARG" \
+              '{title: $title, slug: $slug, status: "draft", excerpt: $excerpt, categories: $categories, content: $content}
+               + (if $featured_media == null then {} else {featured_media: $featured_media} end)')
+
+            RESPONSE=$(curl -s --connect-timeout 15 --max-time 90 --retry 3 --retry-delay 5 \
+              -X POST -u "${WP_USERNAME}:${WP_PASSWORD}" \
+              -H "Content-Type: application/json" \
+              -d "$POST_PAYLOAD" \
+              "${WP_URL}/wp-json/wp/v2/posts") || RESPONSE=""
+
+            POST_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
+
+            if [ -n "$POST_ID" ]; then
+              echo "Published successfully: $POST_ID (featured_media: $FEATURED_ARG)"
+            else
+              echo "ERROR publishing post:"
+              echo "$RESPONSE"
+            fi
+
+          done
+
+          echo "Publishing complete"
+
+        env:
+          WP_URL: "https://scripturelearning.org"
+          WP_USERNAME: ${{ secrets.WP_APP_USERNAME }}
+          WP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
