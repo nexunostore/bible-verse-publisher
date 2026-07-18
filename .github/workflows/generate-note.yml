@@ -1,18 +1,5 @@
 name: Generate Study Note
 
-# ==========================================================================
-# UPDATED VERSION
-# Fix: cross-reference links were breaking when the model wrote ABBREVIATED
-# book names ("Deut 6:16", "Heb. 4:15") instead of full names. The reader
-# page linkifies by full book name, so abbreviations dead-ended.
-# Two layers of defense:
-#   1. Prompt now forbids abbreviations and pins a strict citation format.
-#   2. A sed normalization step expands any book abbreviation the model
-#      still emits back to the full name, and flattens smart punctuation
-#      (en/em dashes, non-breaking spaces, curly quotes) to plain ASCII.
-# Everything else is unchanged from your working version.
-# ==========================================================================
-
 permissions:
   contents: read
 
@@ -39,9 +26,7 @@ jobs:
 
     steps:
       - name: Install jq
-        # jq is preinstalled on ubuntu-latest; only install if missing.
-        # Saves the apt round-trip (a few seconds) on every run.
-        run: command -v jq >/dev/null 2>&1 || sudo apt-get install -y jq
+        run: sudo apt-get install -y jq
 
       - name: Parse reference into book / chapter / verse range
         id: parse
@@ -57,8 +42,19 @@ jobs:
           BOOK=$(echo "$REF" | sed 's/ [0-9].*//')
           CHAPTER=$(echo "$REF" | sed 's/.* \([0-9][0-9]*\):.*/\1/')
 
+          # The book slug (e.g. "2 Kings" -> "2-kings") — this, not the
+          # display name, is what must be stored in WordPress, since
+          # that's the format the reader page's notes lookup queries by
+          # everywhere else (URLs, the book picker, progress tracking).
+          # Sending the display name here was the bug: single-word books
+          # (John, Mark...) happened to still match since SQL comparison
+          # is case-insensitive, but multi-word books (2 Kings, 1 Samuel,
+          # Song of Solomon...) never matched — a space and a hyphen are
+          # never equal regardless of case, so notes for those books were
+          # silently generated successfully but never displayed.
           BOOK_SLUG=$(echo "$BOOK" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
 
+          # Verse part is everything after the colon: "14" or "14-16"
           VERSE_PART=$(echo "$REF" | sed 's/.*:[ ]*//')
           VERSE_START=$(echo "$VERSE_PART" | sed 's/-.*//')
           VERSE_END=$(echo "$VERSE_PART" | grep -q '-' && echo "$VERSE_PART" | sed 's/.*-//' || echo "$VERSE_START")
@@ -76,31 +72,17 @@ jobs:
           REF: ${{ steps.parse.outputs.ref }}
           VERSE_TEXT: ${{ github.event.inputs.verse_text }}
         run: |
-          # Build the request with jq so nothing about REF/VERSE_TEXT content
-          # (quotes, etc.) can break the JSON payload.
-          #
-          # The citation rules are STRICT on purpose: the reader page linkifies
-          # cross-references by FULL book name, so an abbreviation ("Deut",
-          # "Heb.") produces a dead link.
+          # Build the request with jq so nothing about REF/VERSE_TEXT
+          # content (quotes, etc.) can break the JSON payload.
           PROMPT=$(jq -rn --arg ref "$REF" --arg text "$VERSE_TEXT" '
             "Write a very brief study-Bible margin note for " + $ref + ", which reads: \"" + $text + "\". " +
             "Strict format: ONE or TWO short sentences (about 50 words total, never more) giving only the key point — what the verse means and why it matters. " +
             "Include at most TWO cross-references, woven into the prose as plain citations (e.g. \"see Luke 8:2\"); one is fine, zero if none is truly relevant. " +
-            "CITATION RULES (critical): always spell the book name out in FULL (e.g. \"Deuteronomy 6:16\", \"Hebrews 4:15\", \"1 Corinthians 13:4\"). " +
-            "NEVER abbreviate a book name (not \"Deut\", \"Heb.\", \"Rom\", \"1 Cor\") and NEVER put a period after the book name. " +
-            "Use only the form \"Book Chapter:Verse\" or \"Book Chapter:Verse-Verse\" with a plain hyphen for ranges. " +
             "No introduction, no repeating the verse text, no filler phrases. Plain text only, no markdown."
           ')
 
-          # SPEED: this is a trivial ~50-word task, so use a fast lightweight
-          # model rather than a frontier one. gpt-5.6-luna is the efficient,
-          # high-volume tier and answers in a second or two. Alternatives if
-          # luna isn't enabled on your account: "gpt-5.6-terra", "gpt-5-mini",
-          # or a nano tier. (The old "gpt-5.5" is a frontier model and, since
-          # the 5.6 rollout, no longer returns instantly even at effort none.)
-          # testing modles gpt-4.1-mini the new 5 versions very unstalble for now
           PAYLOAD=$(jq -n --arg prompt "$PROMPT" '{
-            model: "gpt-4.1-mini",
+            model: "gpt-5.5",
             reasoning_effort: "none",
             verbosity: "low",
             max_completion_tokens: 600,
@@ -112,99 +94,14 @@ jobs:
             -H "Authorization: Bearer $OPENAI_API_KEY" \
             -d "$PAYLOAD")
 
+          # Surface API errors in the Actions log instead of silently
+          # producing a null note.
           if [ "$(echo "$RESPONSE" | jq -r '.error.message // empty')" != "" ]; then
             echo "OpenAI error: $(echo "$RESPONSE" | jq -r '.error.message')"
             exit 1
           fi
 
           NOTE=$(echo "$RESPONSE" | jq -r '.choices[0].message.content')
-
-          # =========================================================
-          # NORMALIZE THE NOTE (defense in depth)
-          # Expand any book abbreviation the model still emitted to its full
-          # name, and flatten smart punctuation to plain ASCII, so
-          # cross-references always match the reader's linkifier.
-          #
-          # Implemented with sed (not a python heredoc) so it stays inside
-          # this YAML step cleanly. Each rule fires ONLY when the token is
-          # followed by whitespace + a digit (i.e. it is a citation), and
-          # consumes an optional trailing period. Full names are never
-          # touched (e.g. "Deut" inside "Deuteronomy 6" won't match).
-          # =========================================================
-          NOTE=$(printf '%s' "$NOTE" | sed -E '
-            s/\xc2\xa0/ /g
-            s/\xe2\x80\x93/-/g
-            s/\xe2\x80\x94/-/g
-            s/\xe2\x88\x92/-/g
-            s/\xe2\x80\x98/'"'"'/g
-            s/\xe2\x80\x99/'"'"'/g
-            s/\xe2\x80\x9c/"/g
-            s/\xe2\x80\x9d/"/g
-            s/\b(Gen)\.? +([0-9])/Genesis \2/g
-            s/\b(Exod|Exo|Ex)\.? +([0-9])/Exodus \2/g
-            s/\b(Lev)\.? +([0-9])/Leviticus \2/g
-            s/\b(Num)\.? +([0-9])/Numbers \2/g
-            s/\b(Deut|Deu|Dt)\.? +([0-9])/Deuteronomy \2/g
-            s/\b(Josh)\.? +([0-9])/Joshua \2/g
-            s/\b(Judg)\.? +([0-9])/Judges \2/g
-            s/\b(1 Sam|1 Sm)\.? +([0-9])/1 Samuel \2/g
-            s/\b(2 Sam|2 Sm)\.? +([0-9])/2 Samuel \2/g
-            s/\b(1 Kgs)\.? +([0-9])/1 Kings \2/g
-            s/\b(2 Kgs)\.? +([0-9])/2 Kings \2/g
-            s/\b(1 Chr|1 Chron)\.? +([0-9])/1 Chronicles \2/g
-            s/\b(2 Chr|2 Chron)\.? +([0-9])/2 Chronicles \2/g
-            s/\b(Neh)\.? +([0-9])/Nehemiah \2/g
-            s/\b(Esth)\.? +([0-9])/Esther \2/g
-            s/\b(Pss)\.? +([0-9])/Psalms \2/g
-            s/\b(Psa|Ps)\.? +([0-9])/Psalm \2/g
-            s/\b(Prov|Prv)\.? +([0-9])/Proverbs \2/g
-            s/\b(Eccl|Qoh)\.? +([0-9])/Ecclesiastes \2/g
-            s/\b(Song|Sos)\.? +([0-9])/Song of Solomon \2/g
-            s/\b(Isa)\.? +([0-9])/Isaiah \2/g
-            s/\b(Jer)\.? +([0-9])/Jeremiah \2/g
-            s/\b(Lam)\.? +([0-9])/Lamentations \2/g
-            s/\b(Ezek|Ezk)\.? +([0-9])/Ezekiel \2/g
-            s/\b(Dan)\.? +([0-9])/Daniel \2/g
-            s/\b(Hos)\.? +([0-9])/Hosea \2/g
-            s/\b(Obad)\.? +([0-9])/Obadiah \2/g
-            s/\b(Jon)\.? +([0-9])/Jonah \2/g
-            s/\b(Mic)\.? +([0-9])/Micah \2/g
-            s/\b(Nah)\.? +([0-9])/Nahum \2/g
-            s/\b(Hab)\.? +([0-9])/Habakkuk \2/g
-            s/\b(Zeph)\.? +([0-9])/Zephaniah \2/g
-            s/\b(Hag)\.? +([0-9])/Haggai \2/g
-            s/\b(Zech|Zec)\.? +([0-9])/Zechariah \2/g
-            s/\b(Mal)\.? +([0-9])/Malachi \2/g
-            s/\b(Matt|Mt)\.? +([0-9])/Matthew \2/g
-            s/\b(Mark|Mrk|Mk)\.? +([0-9])/Mark \2/g
-            s/\b(Luke|Luk|Lk)\.? +([0-9])/Luke \2/g
-            s/\b(Jhn|Jn)\.? +([0-9])/John \2/g
-            s/\b(Rom)\.? +([0-9])/Romans \2/g
-            s/\b(1 Cor)\.? +([0-9])/1 Corinthians \2/g
-            s/\b(2 Cor)\.? +([0-9])/2 Corinthians \2/g
-            s/\b(Gal)\.? +([0-9])/Galatians \2/g
-            s/\b(Eph)\.? +([0-9])/Ephesians \2/g
-            s/\b(Phil|Php)\.? +([0-9])/Philippians \2/g
-            s/\b(Col)\.? +([0-9])/Colossians \2/g
-            s/\b(1 Thess|1 Thes)\.? +([0-9])/1 Thessalonians \2/g
-            s/\b(2 Thess|2 Thes)\.? +([0-9])/2 Thessalonians \2/g
-            s/\b(1 Tim)\.? +([0-9])/1 Timothy \2/g
-            s/\b(2 Tim)\.? +([0-9])/2 Timothy \2/g
-            s/\b(Tit)\.? +([0-9])/Titus \2/g
-            s/\b(Phlm|Philem)\.? +([0-9])/Philemon \2/g
-            s/\b(Heb)\.? +([0-9])/Hebrews \2/g
-            s/\b(Jas)\.? +([0-9])/James \2/g
-            s/\b(1 Pet|1 Pt)\.? +([0-9])/1 Peter \2/g
-            s/\b(2 Pet|2 Pt)\.? +([0-9])/2 Peter \2/g
-            s/\b(1 Jn)\.? +([0-9])/1 John \2/g
-            s/\b(2 Jn)\.? +([0-9])/2 John \2/g
-            s/\b(3 Jn)\.? +([0-9])/3 John \2/g
-            s/\b(Rev|Rv)\.? +([0-9])/Revelation \2/g
-            s/[ \t]{2,}/ /g
-          ')
-
-          echo "Normalized note:"
-          echo "$NOTE"
 
           DELIM="NOTE_EOF_$(date +%s%N)"
           echo "note<<$DELIM" >> $GITHUB_OUTPUT
@@ -230,7 +127,6 @@ jobs:
             '{book: $book, chapter: $chapter, verse_start: $verse_start, verse_end: $verse_end, reference: $reference, note: $note}')
 
           RESPONSE=$(curl -s -w "\nHTTP_STATUS:%{http_code}" \
-            --connect-timeout 15 --max-time 60 --retry 3 --retry-delay 5 \
             -u "$WP_APP_USERNAME:$WP_APP_PASSWORD" \
             -H "Content-Type: application/json" \
             -X POST \
