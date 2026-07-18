@@ -98,8 +98,9 @@ jobs:
           # luna isn't enabled on your account: "gpt-5.6-terra", "gpt-5-mini",
           # or a nano tier. (The old "gpt-5.5" is a frontier model and, since
           # the 5.6 rollout, no longer returns instantly even at effort none.)
+          # testing modles gpt-4.1-mini the new 5 versions very unstalble for now
           PAYLOAD=$(jq -n --arg prompt "$PROMPT" '{
-            model: "gpt-5.6-luna",
+            model: "gpt-4.1-mini",
             reasoning_effort: "none",
             verbosity: "low",
             max_completion_tokens: 600,
