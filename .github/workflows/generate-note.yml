@@ -39,7 +39,9 @@ jobs:
 
     steps:
       - name: Install jq
-        run: sudo apt-get install -y jq
+        # jq is preinstalled on ubuntu-latest; only install if missing.
+        # Saves the apt round-trip (a few seconds) on every run.
+        run: command -v jq >/dev/null 2>&1 || sudo apt-get install -y jq
 
       - name: Parse reference into book / chapter / verse range
         id: parse
@@ -90,8 +92,14 @@ jobs:
             "No introduction, no repeating the verse text, no filler phrases. Plain text only, no markdown."
           ')
 
+          # SPEED: this is a trivial ~50-word task, so use a fast lightweight
+          # model rather than a frontier one. gpt-5.6-luna is the efficient,
+          # high-volume tier and answers in a second or two. Alternatives if
+          # luna isn't enabled on your account: "gpt-5.6-terra", "gpt-5-mini",
+          # or a nano tier. (The old "gpt-5.5" is a frontier model and, since
+          # the 5.6 rollout, no longer returns instantly even at effort none.)
           PAYLOAD=$(jq -n --arg prompt "$PROMPT" '{
-            model: "gpt-5.5",
+            model: "gpt-5.6-luna",
             reasoning_effort: "none",
             verbosity: "low",
             max_completion_tokens: 600,
