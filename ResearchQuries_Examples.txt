@@ -16,3 +16,4 @@ python pipeline.py --once --category Food
 python pipeline.py --once --category Food_Portugal
 python pipeline.py --once --category Apocrypha
 python pipeline_other_formats.py --once --category Apocrypha
+python pipeline.py --once --category 'The CIA'
