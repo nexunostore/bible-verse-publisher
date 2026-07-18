@@ -82,7 +82,7 @@ jobs:
           ')
 
           PAYLOAD=$(jq -n --arg prompt "$PROMPT" '{
-            model: "gpt-5.5",
+            model: "gpt-4.1-mini",
             reasoning_effort: "none",
             verbosity: "low",
             max_completion_tokens: 600,
