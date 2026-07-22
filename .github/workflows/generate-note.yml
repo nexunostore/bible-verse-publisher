@@ -83,13 +83,15 @@ jobs:
           # cross-references by FULL book name, so an abbreviation ("Deut",
           # "Heb.") produces a dead link.
           PROMPT=$(jq -rn --arg ref "$REF" --arg text "$VERSE_TEXT" '
-            "Write a very brief study-Bible margin note for " + $ref + ", which reads: \"" + $text + "\". " +
-            "Strict format: ONE or TWO short sentences (about 50 words total, never more) giving only the key point — what the verse means and why it matters. " +
+            "Write a very short study-Bible margin note for " + $ref + ", which reads: \"" + $text + "\". " +
+            "Say plainly what the verse means and why it matters, in ONE or TWO short sentences — about 30-40 words, never more than 45. " +
+            "Use simple, everyday words, as if explaining it to a friend. Be direct and concrete. Get straight to the point. " +
+            "Do NOT use abstract or academic phrasing. Avoid words and constructions like \"underscores\", \"highlights\", \"signifies\", \"demonstrates\", \"emphasizes\", \"reflects\", \"the necessity of\", \"the nature of\", \"reveals the\". Prefer plain verbs. " +
             "Include ONE or TWO cross-references (NEVER zero), woven into the prose as plain citations (e.g. \"see Luke 8:2\"). Always include at least one genuinely relevant cross-reference so the note has a working link. " +
             "CITATION RULES (critical): always spell the book name out in FULL (e.g. \"Deuteronomy 6:16\", \"Hebrews 4:15\", \"1 Corinthians 13:4\"). " +
             "NEVER abbreviate a book name (not \"Deut\", \"Heb.\", \"Rom\", \"1 Cor\") and NEVER put a period after the book name. " +
             "Use only the form \"Book Chapter:Verse\" or \"Book Chapter:Verse-Verse\" with a plain hyphen for ranges. " +
-            "No introduction, no repeating the verse text, no filler phrases. Plain text only, no markdown."
+            "No introduction, no repeating the verse text, no filler. Plain text only, no markdown."
           ')
 
           # MODEL: a fast, always-available NON-reasoning model. gpt-4.1-mini
@@ -169,8 +171,8 @@ jobs:
             s/\b(2 Chr|2 Chron)\.? +([0-9])/2 Chronicles \2/g
             s/\b(Neh)\.? +([0-9])/Nehemiah \2/g
             s/\b(Esth)\.? +([0-9])/Esther \2/g
-            s/\b(Pss)\.? +([0-9])/Psalms \2/g
-            s/\b(Psa|Ps)\.? +([0-9])/Psalm \2/g
+            s/\b(Pss|Psa|Ps)\.? +([0-9])/Psalms \2/g
+            s/\bPsalm\b +([0-9])/Psalms \1/g
             s/\b(Prov|Prv)\.? +([0-9])/Proverbs \2/g
             s/\b(Eccl|Qoh)\.? +([0-9])/Ecclesiastes \2/g
             s/\b(Song|Sos)\.? +([0-9])/Song of Solomon \2/g
