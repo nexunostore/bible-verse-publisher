@@ -82,35 +82,30 @@ jobs:
           # The citation rules are STRICT on purpose: the reader page linkifies
           # cross-references by FULL book name, so an abbreviation ("Deut",
           # "Heb.") produces a dead link.
-          # The model does a quick PRIVATE reasoning pass (returned in a
-          # "reasoning" field we discard) and then writes the short note in a
-          # "note" field. The reasoning never gets stored or shown to readers —
-          # it only makes the short note sharper (anchor to the key line, use
-          # concrete obedience language, pick the closest cross-reference).
           PROMPT=$(jq -rn --arg ref "$REF" --arg text "$VERSE_TEXT" '
-            "You are writing a very short study-Bible margin note for " + $ref + ", which reads: \"" + $text + "\". " +
-            "STEP 1 — think briefly in the \"reasoning\" field: What is the single clearest main point of this passage? Does it have a striking or weighty line worth anchoring to? Is it really about knowing, trusting, or obeying God (not just vague good behaviour)? Which ONE cross-reference most directly parallels it? " +
-            "STEP 2 — write the note in the \"note\" field, following ALL rules below. " +
-            "The note must: say plainly what the passage means and why it matters, in ONE or TWO short sentences (about 30-40 words, never more than 45); use simple everyday words, as if explaining to a friend; be direct and concrete; anchor to the passage'"'"'s key idea or its most striking line rather than a vague summary; use concrete language about knowing, trusting, following, or obeying rather than vague moral phrasing like \"live right\". " +
-            "Do NOT use academic phrasing. Avoid words like \"underscores\", \"highlights\", \"signifies\", \"demonstrates\", \"emphasizes\", \"reflects\", \"the necessity of\", \"the nature of\", \"reveals the\". Prefer plain verbs. " +
-            "Include ONE or TWO cross-references in the note (NEVER zero), woven in as plain citations (e.g. \"see Luke 8:2\"). " +
-            "CITATION RULES (critical): always spell the book name out in FULL (e.g. \"Deuteronomy 6:16\", \"Hebrews 4:15\", \"1 Corinthians 13:4\"). NEVER abbreviate a book name (not \"Deut\", \"Heb.\", \"Rom\", \"1 Cor\") and NEVER put a period after the book name. Use only the form \"Book Chapter:Verse\" or \"Book Chapter:Verse-Verse\" with a plain hyphen for ranges. " +
-            "No repeating the verse text, no filler, no markdown in the note. " +
-            "Return ONLY a JSON object with exactly these keys: {\"reasoning\": \"your brief thinking\", \"note\": \"the final short note\"}."
+            "Write a very short study-Bible margin note for " + $ref + ", which reads: \"" + $text + "\". " +
+            "Say plainly what the verse means and why it matters, in ONE or TWO short sentences — about 30-40 words, never more than 45. " +
+            "Use simple, everyday words, as if explaining it to a friend. Be direct and concrete. Get straight to the point. " +
+            "Do NOT use abstract or academic phrasing. Avoid words and constructions like \"underscores\", \"highlights\", \"signifies\", \"demonstrates\", \"emphasizes\", \"reflects\", \"the necessity of\", \"the nature of\", \"reveals the\". Prefer plain verbs. " +
+            "Include ONE or TWO cross-references (NEVER zero), woven into the prose as plain citations (e.g. \"see Luke 8:2\"). Always include at least one genuinely relevant cross-reference so the note has a working link. " +
+            "CITATION RULES (critical): always spell the book name out in FULL (e.g. \"Deuteronomy 6:16\", \"Hebrews 4:15\", \"1 Corinthians 13:4\"). " +
+            "NEVER abbreviate a book name (not \"Deut\", \"Heb.\", \"Rom\", \"1 Cor\") and NEVER put a period after the book name. " +
+            "Use only the form \"Book Chapter:Verse\" or \"Book Chapter:Verse-Verse\" with a plain hyphen for ranges. " +
+            "No introduction, no repeating the verse text, no filler. Plain text only, no markdown."
           ')
 
           # MODEL: a fast, always-available NON-reasoning model. gpt-4.1-mini
           # returns in ~1-2s and is confirmed working on this account. We do NOT
           # send reasoning_effort/verbosity — those are GPT-5.x-only params and
-          # can make other models error or hang. response_format json_object
-          # makes the reasoning+note split reliable. If you ever switch to a
-          # GPT-5.x model, add reasoning_effort back and use
-          # max_completion_tokens instead of max_tokens.
+          # can make other models error or hang. (A trivial ~50-word note does
+          # not need a frontier/reasoning model; those are what were hanging and
+          # returning "try again later".) If you ever switch to a GPT-5.x model,
+          # add reasoning_effort back and use max_completion_tokens instead of
+          # max_tokens.
           PAYLOAD=$(jq -n --arg prompt "$PROMPT" '{
             model: "gpt-4.1-mini",
             temperature: 0.4,
-            max_tokens: 500,
-            response_format: { type: "json_object" },
+            max_tokens: 300,
             messages: [{ role: "user", content: $prompt }]
           }')
 
@@ -132,19 +127,7 @@ jobs:
             exit 1
           fi
 
-          # The model's message content is a JSON object {reasoning, note}.
-          # Pull out just the note; the reasoning is logged (for you) but never
-          # stored or shown to readers. Fall back to the raw content if the
-          # split ever fails, so a note still posts.
-          CONTENT=$(echo "$RESPONSE" | jq -r '.choices[0].message.content // empty')
-          NOTE=$(printf '%s' "$CONTENT" | jq -r '.note // empty' 2>/dev/null)
-          REASONING=$(printf '%s' "$CONTENT" | jq -r '.reasoning // empty' 2>/dev/null)
-          if [ -n "$REASONING" ]; then
-            echo "Model reasoning (not published): $REASONING"
-          fi
-          if [ -z "$NOTE" ]; then
-            NOTE="$CONTENT"   # fallback: use the raw content if JSON split failed
-          fi
+          NOTE=$(echo "$RESPONSE" | jq -r '.choices[0].message.content // empty')
 
           if [ -z "$NOTE" ]; then
             echo "::error::Model returned an empty note. Raw response:"
