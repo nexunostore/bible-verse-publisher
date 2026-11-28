@@ -48,9 +48,10 @@ jobs:
         run: |
           BOOK="${{ github.event.inputs.book }}"
           CHAPTER="${{ github.event.inputs.chapter }}"
-
+          BOOK="${BOOK//\\//}"
           BOOK_NAME=$(basename "$BOOK")  
           FILE="Daily_Chapter_Review/$BOOK/${BOOK_NAME}_SG_Chapter_${CHAPTER}.txt"
+          
           echo "BOOK: $BOOK"
           echo "BOOK_NAME: $BOOK_NAME"
           echo "CHAPTER: $CHAPTER"
