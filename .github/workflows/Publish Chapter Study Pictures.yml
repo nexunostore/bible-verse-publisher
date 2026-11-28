@@ -51,6 +51,12 @@ jobs:
 
           BOOK_NAME=$(basename "$BOOK")  
           FILE="Daily_Chapter_Review/$BOOK/${BOOK_NAME}_SG_Chapter_${CHAPTER}.txt"
+          echo "BOOK: $BOOK"
+          echo "BOOK_NAME: $BOOK_NAME"
+          echo "CHAPTER: $CHAPTER"
+          echo "Looking for: $FILE"
+          echo "Directory contents:"
+          ls -la "$(dirname "$FILE")" || true
 
           if [ ! -f "$FILE" ]; then
             echo "File not found: $FILE"
